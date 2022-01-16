@@ -1,0 +1,30 @@
+.PHONY: clean all
+.DEFAULT:
+
+_V ?= @
+_E ?= @echo
+_SE ?= echo
+
+TEST_FILES = $(basename $(shell ls *.nml))
+NMLC ?= ../nmlc
+# Note: Manually overriding NML_FLAGS may break the regression test
+NML_FLAGS ?= -s -c --verbosity=1
+
+.PHONY: $(TEST_FILES) clean
+
+all: $(TEST_FILES)
+
+$(TEST_FILES):
+	$(_V) echo "Running test $@"
+	$(_V) mkdir -p output nml_output output2
+# First pass : check compilation of source nml and generation of optimised nml
+	$(_V) $(NMLC) $(NML_FLAGS) --nfo output/$@.nfo --grf output/$@.grf $@.nml --nml nml_output/$@.nml
+	$(_V) diff -u --strip-trailing-cr expected/$@.nfo output/$@.nfo
+	$(_V) diff -u expected/$@.grf output/$@.grf
+# Second pass : check compilation of optimised nml
+	$(_V) $(NMLC) $(NML_FLAGS) -n --nfo output2/$@.nfo --grf output2/$@.grf nml_output/$@.nml
+	$(_V) diff -u --strip-trailing-cr expected/$@.nfo output2/$@.nfo
+	$(_V) diff -u expected/$@.grf output2/$@.grf
+
+clean:
+	$(_V) rm -rf output nml_output output2
