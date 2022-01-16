@@ -48,7 +48,7 @@ item (FEAT_TRAINS, ITEM_FAI_MINERAL) {
 	}
 	graphics {
 		default: 							spriteset_MINERAL;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;

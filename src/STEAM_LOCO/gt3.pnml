@@ -47,7 +47,7 @@ item (FEAT_TRAINS, ITEM_FAI_GT3) {
 	}
 	graphics {
 		default: 							spriteset_GT3;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_diesel_gt3 ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;

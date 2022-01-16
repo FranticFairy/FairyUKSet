@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_KLONDYKE) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -48,7 +48,7 @@ item (FEAT_TRAINS, ITEM_FAI_KLONDYKE) {
 	}
 	graphics {
 		default: 							spriteset_KLONDYKE;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;

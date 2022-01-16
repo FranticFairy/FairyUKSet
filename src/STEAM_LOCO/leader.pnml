@@ -53,7 +53,7 @@ item (FEAT_TRAINS, ITEM_FAI_LEADER) {
 	}
 	graphics {
 		default: 							sw_LEADER_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;

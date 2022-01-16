@@ -90,7 +90,7 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 	}
 	graphics {
 		default: 							spriteset_GARRATT_middle;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_lms ;
 		create_effect:                      vfx_steam ;
 	}
 }

@@ -48,7 +48,7 @@ item (FEAT_TRAINS, ITEM_FAI_MOGUL) {
 	}
 	graphics {
 		default: 							spriteset_MOGUL;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;

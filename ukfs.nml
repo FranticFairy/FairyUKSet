@@ -332,6 +332,28 @@ template template_fai_17_r(x,y){
     [ x+155, y, 22, 20, -15, -16, ANIM]
 }
 
+template template_fai_18(x,y){
+    [ x+89 , y, 8 , 24,  -3, -18, ANIM] 
+    [ x+98 , y, 22, 20,  -5, -16, ANIM]
+    [ x+121, y, 33, 16,  -3, -12, ANIM]
+    [ x+155, y, 22, 20,  -7, -12, ANIM]
+    [ x    , y, 8 , 24,  -3, -12, ANIM]
+    [ x+9  , y, 22, 20, -13, -12, ANIM]
+    [ x+32 , y, 33, 16, -17, -12, ANIM]
+    [ x+66 , y, 22, 20, -15, -16, ANIM]
+}
+
+template template_fai_18_r(x,y){
+    [ x    , y, 8 , 24,  -3, -18, ANIM]
+    [ x+9  , y, 22, 20,  -5, -16, ANIM]
+    [ x+32 , y, 33, 16,  -3, -12, ANIM]
+    [ x+66 , y, 22, 20,  -7, -12, ANIM]
+    [ x+89 , y, 8 , 24,  -3, -12, ANIM] 
+    [ x+98 , y, 22, 20, -13, -12, ANIM]
+    [ x+121, y, 33, 16, -17, -12, ANIM]
+    [ x+155, y, 22, 20, -15, -16, ANIM]
+}
+
 template template_fai_19(x,y){
     [ x+89 , y, 8 , 24,  -3, -18, ANIM] 
     [ x+98 , y, 22, 20,  -5, -16, ANIM]
@@ -680,21 +702,40 @@ random_switch(FEAT_TRAINS, SELF, sw_sfx_gt3_idle){
 	2: sound("sfx/turbot_stop.wav") ;
 }
 
-switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai_running_slow, current_speed){
+switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai_running_v_slow, current_speed){
 	0..4 : sw_sfx_steam_slow ;
 	5..8 : sw_sfx_steam_med ;
 	sw_sfx_steam_fast ;
 }
 
+switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai_running_slow, current_speed){
+	0..8 : sw_sfx_steam_slow ;
+	9..15 : sw_sfx_steam_med ;
+	sw_sfx_steam_fast ;
+}
+
+
 switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai_running_med, current_speed){
 	0..8 : sw_sfx_steam_slow ;
-	9..16 : sw_sfx_steam_med ;
+	9..24 : sw_sfx_steam_med ;
 	sw_sfx_steam_fast ;
 }
 
 switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai_running_fast, current_speed){
 	0..16 : sw_sfx_steam_slow ;
-	17..30 : sw_sfx_steam_med ;
+	17..29 : sw_sfx_steam_med ;
+	sw_sfx_steam_fast ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai_running_v_fast, current_speed){
+	0..16 : sw_sfx_steam_slow ;
+	17..37 : sw_sfx_steam_med ;
+	sw_sfx_steam_fast ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai_running_hs, current_speed){
+	0..16 : sw_sfx_steam_slow ;
+	17..42 : sw_sfx_steam_med ;
 	sw_sfx_steam_fast ;
 }
 
@@ -705,43 +746,93 @@ random_switch(FEAT_TRAINS, SELF, sw_sfx_electric_idle){
 
 //STEAM LOCOS
 
-switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow, getbits(extra_callback_info1, 0, 8)){
+//Below 35 - Jinty Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_slow, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_v_slow ;
+	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
+}
+
+//Above 35 - Jinty Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_slow ;
-	SOUND_EVENT_START         : sound("sfx/steam_whistle_slow.wav") ;
+	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
-	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_slow.wav") ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
 
-switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_small, getbits(extra_callback_info1, 0, 8)){
+//Above 55 - Jinty Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_med ;
-	SOUND_EVENT_START         : sound("sfx/steam_whistle_small.wav") ;
+	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
-	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_small.wav") ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
 
-switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med, getbits(extra_callback_info1, 0, 8)){
+//Above 65 - Jinty Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_jin, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
+	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
+}
+
+//Above 35 - LMS Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_lms, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_slow ;
+	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
+}
+
+//Above 55 - LMS Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_med ;
-	SOUND_EVENT_START         : sound("sfx/steam_whistle_med.wav") ;
+	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
-	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_med.wav") ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
 
-switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast, getbits(extra_callback_info1, 0, 8)){
+//Above 65 - LMS Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
-	SOUND_EVENT_START         : sound("sfx/steam_whistle_med.wav") ;
+	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
-	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_med.wav") ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
 
-switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_streak, getbits(extra_callback_info1, 0, 8)){
+//Above 65 - QR Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_qr, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
-	SOUND_EVENT_START         : sound("sfx/steam_whistle_fast.wav") ;
+	SOUND_EVENT_START         : sound("sfx/qr_whistle.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
-	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_fast_short.wav") ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/qr_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
+}
+
+//Above 85 - QR Whistle
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_fast_qr, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_v_fast ;
+	SOUND_EVENT_START         : sound("sfx/qr_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/qr_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
+}
+
+//Reserved for Streak & Wardale
+switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_hs, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_hs ;
+	SOUND_EVENT_START         : sound("sfx/a4_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/a4_whistle_short.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
 
@@ -925,26 +1016,27 @@ ITEM_FAI_STAR,
 ITEM_FAI_GT3,
 ITEM_FAI_5AT,
 ITEM_FAI_604,
-//ITEM_FAI_CLASS_08,
-//ITEM_FAI_CLASS_14,
-//ITEM_FAI_CLASS_20,
-//ITEM_FAI_CLASS_17,
-//ITEM_FAI_CLASS_24,
-//ITEM_FAI_CLASS_25,
-//ITEM_FAI_CLASS_23,
-//ITEM_FAI_CLASS_D16,
-//ITEM_FAI_CLASS_37,
-//ITEM_FAI_CLASS_41,
-//ITEM_FAI_CLASS_52,
-//ITEM_FAI_CLASS_44,
-//ITEM_FAI_CLASS_47,
-//ITEM_FAI_CLASS_DP1,
-//ITEM_FAI_CLASS_55,
-//ITEM_FAI_CLASS_58,
-//ITEM_FAI_CLASS_60,
-//ITEM_FAI_CLASS_66,
-//ITEM_FAI_CLASS_67,
-//ITEM_FAI_POWERHAUL
+ITEM_FAI_CLASS_08,
+ITEM_FAI_CLASS_14,
+ITEM_FAI_CLASS_20,
+ITEM_FAI_CLASS_17,
+ITEM_FAI_CLASS_24,
+ITEM_FAI_CLASS_25,
+ITEM_FAI_CLASS_27,
+ITEM_FAI_CLASS_23,
+ITEM_FAI_CLASS_D16,
+ITEM_FAI_CLASS_37,
+ITEM_FAI_CLASS_41,
+ITEM_FAI_CLASS_52,
+ITEM_FAI_CLASS_44,
+ITEM_FAI_CLASS_47,
+ITEM_FAI_CLASS_DP1,
+ITEM_FAI_CLASS_55,
+ITEM_FAI_CLASS_58,
+ITEM_FAI_CLASS_60,
+ITEM_FAI_CLASS_66,
+ITEM_FAI_CLASS_67,
+ITEM_FAI_CLASS_70_II,
 //ITEM_FAI_CLASS_73,
 //ITEM_FAI_CLASS_70,
 //ITEM_FAI_CLASS_71,
@@ -1075,7 +1167,7 @@ item (FEAT_TRAINS, ITEM_FAI_TANK) {
 	}
 	graphics {
 		default: 							sw_tank_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1140,7 +1232,7 @@ item (FEAT_TRAINS, ITEM_FAI_TANK_E) {
 	}
 	graphics {
 		default: 							sw_tank_e_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1205,7 +1297,7 @@ item (FEAT_TRAINS, ITEM_FAI_JINTY) {
 	}
 	graphics {
 		default: 							sw_jinty_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1270,7 +1362,7 @@ item (FEAT_TRAINS, ITEM_FAI_JINTY_E) {
 	}
 	graphics {
 		default: 							sw_jinty_e_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1302,7 +1394,7 @@ item (FEAT_TRAINS, ITEM_FAI_SHIRE) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -1331,7 +1423,7 @@ item (FEAT_TRAINS, ITEM_FAI_SHIRE) {
 	}
 	graphics {
 		default: 							spriteset_SHIRE;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1394,7 +1486,7 @@ item (FEAT_TRAINS, ITEM_FAI_GT3) {
 	}
 	graphics {
 		default: 							spriteset_GT3;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_diesel_gt3 ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -1429,7 +1521,7 @@ item (FEAT_TRAINS, ITEM_FAI_5AT) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -1458,7 +1550,7 @@ item (FEAT_TRAINS, ITEM_FAI_5AT) {
 	}
 	graphics {
 		default: 							spriteset_5at;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_hs ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1493,7 +1585,7 @@ item (FEAT_TRAINS, ITEM_FAI_604) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -1522,7 +1614,7 @@ item (FEAT_TRAINS, ITEM_FAI_604) {
 	}
 	graphics {
 		default: 							spriteset_604;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_hs ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1586,7 +1678,7 @@ item (FEAT_TRAINS, ITEM_FAI_8F) {
 	}
 	graphics {
 		default: 							spriteset_8F;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1650,7 +1742,7 @@ item (FEAT_TRAINS, ITEM_FAI_AUSTERITY) {
 	}
 	graphics {
 		default: 							spriteset_AUSTERITY;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1685,7 +1777,7 @@ item (FEAT_TRAINS, ITEM_FAI_BRITANNIA) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -1714,7 +1806,7 @@ item (FEAT_TRAINS, ITEM_FAI_BRITANNIA) {
 	}
 	graphics {
 		default: 							spriteset_BRITANNIA;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1749,7 +1841,7 @@ item (FEAT_TRAINS, ITEM_FAI_EDWARDIAN) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -1778,7 +1870,7 @@ item (FEAT_TRAINS, ITEM_FAI_EDWARDIAN) {
 	}
 	graphics {
 		default: 							spriteset_EDWARDIAN;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1842,7 +1934,7 @@ item (FEAT_TRAINS, ITEM_FAI_FREIGHT) {
 	}
 	graphics {
 		default: 							spriteset_FREIGHT;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1906,7 +1998,7 @@ item (FEAT_TRAINS, ITEM_FAI_GOODS) {
 	}
 	graphics {
 		default: 							spriteset_GOODS;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -1941,7 +2033,7 @@ item (FEAT_TRAINS, ITEM_FAI_JUBILEE) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -1970,7 +2062,7 @@ item (FEAT_TRAINS, ITEM_FAI_JUBILEE) {
 	}
 	graphics {
 		default: 							spriteset_JUBILEE;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2005,7 +2097,7 @@ item (FEAT_TRAINS, ITEM_FAI_LADY) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2034,7 +2126,7 @@ item (FEAT_TRAINS, ITEM_FAI_LADY) {
 	}
 	graphics {
 		default: 							spriteset_LADY;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2098,7 +2190,7 @@ item (FEAT_TRAINS, ITEM_FAI_MINERAL) {
 	}
 	graphics {
 		default: 							spriteset_MINERAL;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2162,7 +2254,7 @@ item (FEAT_TRAINS, ITEM_FAI_MOGUL) {
 	}
 	graphics {
 		default: 							spriteset_MOGUL;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2197,7 +2289,7 @@ item (FEAT_TRAINS, ITEM_FAI_PACIFIC) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2226,7 +2318,7 @@ item (FEAT_TRAINS, ITEM_FAI_PACIFIC) {
 	}
 	graphics {
 		default: 							spriteset_PACIFIC;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2261,7 +2353,7 @@ item (FEAT_TRAINS, ITEM_FAI_SPINNER) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2290,7 +2382,7 @@ item (FEAT_TRAINS, ITEM_FAI_SPINNER) {
 	}
 	graphics {
 		default: 							spriteset_SPINNER;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_med_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2354,7 +2446,7 @@ item (FEAT_TRAINS, ITEM_FAI_STAR) {
 	}
 	graphics {
 		default: 							spriteset_STAR;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2389,7 +2481,7 @@ item (FEAT_TRAINS, ITEM_FAI_STREAK) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2418,7 +2510,7 @@ item (FEAT_TRAINS, ITEM_FAI_STREAK) {
 	}
 	graphics {
 		default: 							spriteset_STREAK;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_hs ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2482,7 +2574,7 @@ item (FEAT_TRAINS, ITEM_FAI_WD) {
 	}
 	graphics {
 		default: 							spriteset_WD;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2517,7 +2609,7 @@ item (FEAT_TRAINS, ITEM_FAI_ARROW) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2546,7 +2638,7 @@ item (FEAT_TRAINS, ITEM_FAI_ARROW) {
 	}
 	graphics {
 		default: 							spriteset_ARROW;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2610,7 +2702,7 @@ item (FEAT_TRAINS, ITEM_FAI_BANKER) {
 	}
 	graphics {
 		default: 							spriteset_BANKER;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2645,7 +2737,7 @@ item (FEAT_TRAINS, ITEM_FAI_CORONATION) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2674,7 +2766,7 @@ item (FEAT_TRAINS, ITEM_FAI_CORONATION) {
 	}
 	graphics {
 		default: 							spriteset_CORONATION;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2709,7 +2801,7 @@ item (FEAT_TRAINS, ITEM_FAI_KING_ARTHUR) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2738,7 +2830,7 @@ item (FEAT_TRAINS, ITEM_FAI_KING_ARTHUR) {
 	}
 	graphics {
 		default: 							spriteset_KING_ARTHUR;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2773,7 +2865,7 @@ item (FEAT_TRAINS, ITEM_FAI_KLONDYKE) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2802,7 +2894,7 @@ item (FEAT_TRAINS, ITEM_FAI_KLONDYKE) {
 	}
 	graphics {
 		default: 							spriteset_KLONDYKE;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2837,7 +2929,7 @@ item (FEAT_TRAINS, ITEM_FAI_LIGHT_PACIFIC) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2866,7 +2958,7 @@ item (FEAT_TRAINS, ITEM_FAI_LIGHT_PACIFIC) {
 	}
 	graphics {
 		default: 							spriteset_LIGHT_PACIFIC;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2901,7 +2993,7 @@ item (FEAT_TRAINS, ITEM_FAI_MERCHANT_NAVY) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2930,7 +3022,7 @@ item (FEAT_TRAINS, ITEM_FAI_MERCHANT_NAVY) {
 	}
 	graphics {
 		default: 							spriteset_MERCHANT_NAVY;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_fast_qr ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -2965,7 +3057,7 @@ item (FEAT_TRAINS, ITEM_FAI_ROYAL_SCOT) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -2994,7 +3086,7 @@ item (FEAT_TRAINS, ITEM_FAI_ROYAL_SCOT) {
 	}
 	graphics {
 		default: 							spriteset_ROYAL_SCOT;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_fast_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3059,7 +3151,7 @@ item (FEAT_TRAINS, ITEM_FAI_COPPERNOB) {
 	}
 	graphics {
 		default: 							spriteset_COPPERNOB;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3094,7 +3186,7 @@ item (FEAT_TRAINS, ITEM_FAI_CRAMPTON) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3123,7 +3215,7 @@ item (FEAT_TRAINS, ITEM_FAI_CRAMPTON) {
 	}
 	graphics {
 		default: 							spriteset_CRAMPTON;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3192,7 +3284,7 @@ item (FEAT_TRAINS, ITEM_FAI_HUNSLET) {
 	}
 	graphics {
 		default: 							sw_HUNSLET_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3257,7 +3349,7 @@ item (FEAT_TRAINS, ITEM_FAI_INDUSTRIAL) {
 	}
 	graphics {
 		default: 							sw_INDUSTRIAL_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3293,7 +3385,7 @@ item (FEAT_TRAINS, ITEM_FAI_IVATT) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3322,7 +3414,7 @@ item (FEAT_TRAINS, ITEM_FAI_IVATT) {
 	}
 	graphics {
 		default: 							sw_IVATT_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_med_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3387,7 +3479,7 @@ item (FEAT_TRAINS, ITEM_FAI_LEADER) {
 	}
 	graphics {
 		default: 							sw_LEADER_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3447,7 +3539,7 @@ item (FEAT_TRAINS, ITEM_FAI_LONG_BOILER) {
 	}
 	graphics {
 		default: 							spriteset_LONG_BOILER;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3487,7 +3579,7 @@ item (FEAT_TRAINS, ITEM_FAI_METROPOLITAN) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3516,7 +3608,7 @@ item (FEAT_TRAINS, ITEM_FAI_METROPOLITAN) {
 	}
 	graphics {
 		default: 							sw_METROPOLITAN_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3552,7 +3644,7 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER_II) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3581,7 +3673,7 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER_II) {
 	}
 	graphics {
 		default: 							sw_PANNIER_II_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3617,7 +3709,7 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3646,7 +3738,7 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER) {
 	}
 	graphics {
 		default: 							sw_PANNIER_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3677,7 +3769,7 @@ item (FEAT_TRAINS, ITEM_FAI_PLANET) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3706,7 +3798,7 @@ item (FEAT_TRAINS, ITEM_FAI_PLANET) {
 	}
 	graphics {
 		default: 							spriteset_PLANET;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3746,7 +3838,7 @@ item (FEAT_TRAINS, ITEM_FAI_PRAIRIE) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3775,7 +3867,7 @@ item (FEAT_TRAINS, ITEM_FAI_PRAIRIE) {
 	}
 	graphics {
 		default: 							sw_PRAIRIE_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3811,7 +3903,7 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN_II) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3840,7 +3932,7 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN_II) {
 	}
 	graphics {
 		default: 							sw_SUBURBAN_II_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3876,7 +3968,7 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN) {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		air_drag_coefficient:			0.08;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
@@ -3905,7 +3997,7 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN) {
 	}
 	graphics {
 		default: 							sw_SUBURBAN_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_med_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -3970,7 +4062,7 @@ item (FEAT_TRAINS, ITEM_FAI_TRAM) {
 	}
 	graphics {
 		default: 							sw_TRAM_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_v_slow ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
@@ -4073,8 +4165,1227 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 	}
 	graphics {
 		default: 							spriteset_GARRATT_middle;
-		sound_effect:						sw_sfx_steam_fai_med ;
+		sound_effect:						sw_sfx_steam_fai_slow_lms ;
 		create_effect:                      vfx_steam ;
+	}
+}
+# 1 "ukfs.pnml" 2
+
+# 1 "src/DIESEL_LOCO/class_08.pnml" 1
+spriteset(spriteset_CLASS_08_purchase, "gfx/Diesel/CLASS_08.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_08, "gfx/Diesel/CLASS_08.png") { template_fai_17(7, 39)}
+spriteset(spriteset_CLASS_08_flip, "gfx/Diesel/CLASS_08.png") { template_fai_17_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_08_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_08_flip;
+	spriteset_CLASS_08 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_08) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_08);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1939,1,1);
+		
+		tractive_effort_coefficient:    0.310;
+		model_life:						40;
+		weight:                         50 ton;
+		speed:							25 mph;
+		power:							350 hp;
+		
+		cost_factor:                    7 ;
+		running_cost_factor:            5 ;
+		length:							4 ;
+	}
+	graphics {
+		default: 							sw_CLASS_08_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_08_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_14.pnml" 1
+spriteset(spriteset_CLASS_14_purchase, "gfx/Diesel/CLASS_14.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_14, "gfx/Diesel/CLASS_14.png") { template_fai_18(7, 39)}
+spriteset(spriteset_CLASS_14_flip, "gfx/Diesel/CLASS_14.png") { template_fai_18_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_14_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_14_flip;
+	spriteset_CLASS_14 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_14) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_14);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1964,1,1);
+		
+		tractive_effort_coefficient:    0.281;
+		model_life:						40;
+		weight:                         48 ton;
+		speed:							40 mph;
+		power:							650 hp;
+		
+		cost_factor:                    8 ;
+		running_cost_factor:            9 ;
+		length:							4 ;
+	}
+	graphics {
+		default: 							sw_CLASS_14_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_14_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_17.pnml" 1
+spriteset(spriteset_CLASS_17_purchase, "gfx/Diesel/CLASS_17.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_17, "gfx/Diesel/CLASS_17.png") { template_fai_25(7, 39)}
+spriteset(spriteset_CLASS_17_flip, "gfx/Diesel/CLASS_17.png") { template_fai_25_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_17_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_17_flip;
+	spriteset_CLASS_17 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_17) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_17);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1962,1,1);
+		
+		tractive_effort_coefficient:    0.255;
+		model_life:						40;
+		weight:                         69 ton;
+		speed:							60 mph;
+		power:							900 hp;
+		
+		cost_factor:                    11 ;
+		running_cost_factor:            16 ;
+		length:							6 ;
+	}
+	graphics {
+		default: 							sw_CLASS_17_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_17_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_20.pnml" 1
+spriteset(spriteset_CLASS_20_purchase, "gfx/Diesel/CLASS_20.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_20, "gfx/Diesel/CLASS_20.png") { template_fai_25(7, 39)}
+spriteset(spriteset_CLASS_20_flip, "gfx/Diesel/CLASS_20.png") { template_fai_25_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_20_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_20_flip;
+	spriteset_CLASS_20 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_20) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_20);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1957,1,1);
+		
+		tractive_effort_coefficient:    0.256;
+		model_life:						40;
+		weight:                         73 ton;
+		speed:							75 mph;
+		power:							1000 hp;
+		
+		cost_factor:                    15 ;
+		running_cost_factor:            19 ;
+		length:							6 ;
+	}
+	graphics {
+		default: 							sw_CLASS_20_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_20_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_23.pnml" 1
+spriteset(spriteset_CLASS_23_purchase, "gfx/Diesel/CLASS_23.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_23, "gfx/Diesel/CLASS_23.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_23_flip, "gfx/Diesel/CLASS_23.png") { template_fai_29_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_23_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_23_flip;
+	spriteset_CLASS_23 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_23) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_23);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1959,1,1);
+		
+		tractive_effort_coefficient:    0.259;
+		model_life:						40;
+		weight:                         74 ton;
+		speed:							75 mph;
+		power:							1100 hp;
+		
+		cost_factor:                    16 ;
+		running_cost_factor:            21 ;
+		length:							7 ;
+	}
+	graphics {
+		default: 							sw_CLASS_23_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_23_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_24.pnml" 1
+spriteset(spriteset_CLASS_24_purchase, "gfx/Diesel/CLASS_24.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_24, "gfx/Diesel/CLASS_24.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_24_flip, "gfx/Diesel/CLASS_24.png") { template_fai_29_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_24_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_24_flip;
+	spriteset_CLASS_24 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_24) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_24);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1958,1,1);
+		
+		tractive_effort_coefficient:    0.260;
+		model_life:						40;
+		weight:                         72 ton;
+		speed:							90 mph;
+		power:							1250 hp;
+		
+		cost_factor:                    18 ;
+		running_cost_factor:            25 ;
+		length:							7 ;
+	}
+	graphics {
+		default: 							sw_CLASS_24_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_24_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_25.pnml" 1
+spriteset(spriteset_CLASS_25_purchase, "gfx/Diesel/CLASS_25.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_25, "gfx/Diesel/CLASS_25.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_25_flip, "gfx/Diesel/CLASS_25.png") { template_fai_29_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_25_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_25_flip;
+	spriteset_CLASS_25 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_25) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_25);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1958,1,1);
+		
+		tractive_effort_coefficient:    0.260;
+		model_life:						40;
+		weight:                         72 ton;
+		speed:							90 mph;
+		power:							1250 hp;
+		
+		cost_factor:                    18 ;
+		running_cost_factor:            25 ;
+		length:							7 ;
+	}
+	graphics {
+		default: 							sw_CLASS_25_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_25_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_27.pnml" 1
+spriteset(spriteset_CLASS_27_purchase, "gfx/Diesel/CLASS_27.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_27, "gfx/Diesel/CLASS_27.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_27_flip, "gfx/Diesel/CLASS_27.png") { template_fai_29_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_27_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_27_flip;
+	spriteset_CLASS_27 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_27) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_27);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1958,1,1);
+		
+		tractive_effort_coefficient:    0.260;
+		model_life:						40;
+		weight:                         72 ton;
+		speed:							90 mph;
+		power:							1250 hp;
+		
+		cost_factor:                    18 ;
+		running_cost_factor:            25 ;
+		length:							7 ;
+	}
+	graphics {
+		default: 							sw_CLASS_27_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_27_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_37.pnml" 1
+spriteset(spriteset_CLASS_37_purchase, "gfx/Diesel/CLASS_37.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_37, "gfx/Diesel/CLASS_37.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_37_flip, "gfx/Diesel/CLASS_37.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_37_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_37_flip;
+	spriteset_CLASS_37 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_37) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_37);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1960,1,1);
+		
+		tractive_effort_coefficient:    0.236;
+		model_life:						40;
+		weight:                         107 ton;
+		speed:							80 mph;
+		power:							1750 hp;
+		
+		cost_factor:                    28 ;
+		running_cost_factor:            32 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_37_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_37_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_41.pnml" 1
+spriteset(spriteset_CLASS_41_purchase, "gfx/Diesel/CLASS_41.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_41, "gfx/Diesel/CLASS_41.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_41_flip, "gfx/Diesel/CLASS_41.png") { template_fai_29_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_41_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_41_flip;
+	spriteset_CLASS_41 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_41) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_41);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1958,1,1);
+		
+		tractive_effort_coefficient:    0.272;
+		model_life:						40;
+		weight:                         78 ton;
+		speed:							90 mph;
+		power:							2200 hp;
+		
+		cost_factor:                    30 ;
+		running_cost_factor:            44 ;
+		length:							7 ;
+	}
+	graphics {
+		default: 							sw_CLASS_41_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_41_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_44.pnml" 1
+spriteset(spriteset_CLASS_44_purchase, "gfx/Diesel/CLASS_44.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_44, "gfx/Diesel/CLASS_44.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_44_flip, "gfx/Diesel/CLASS_44.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_44_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_44_flip;
+	spriteset_CLASS_44 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_44) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_44);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1959,1,1);
+		
+		tractive_effort_coefficient:    0.184;
+		model_life:						40;
+		weight:                         135 ton;
+		speed:							90 mph;
+		power:							2500 hp;
+		
+		cost_factor:                    46 ;
+		running_cost_factor:            49 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_44_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_44_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_47.pnml" 1
+spriteset(spriteset_CLASS_47_purchase, "gfx/Diesel/CLASS_47.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_47, "gfx/Diesel/CLASS_47.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_47_flip, "gfx/Diesel/CLASS_47.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_47_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_47_flip;
+	spriteset_CLASS_47 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_47) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_47);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1962,1,1);
+		
+		tractive_effort_coefficient:    0.222;
+		model_life:						40;
+		weight:                         120 ton;
+		speed:							95 mph;
+		power:							2580 hp;
+		
+		cost_factor:                    39 ;
+		running_cost_factor:            51 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_47_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_47_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_52.pnml" 1
+spriteset(spriteset_CLASS_52_purchase, "gfx/Diesel/CLASS_52.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_52, "gfx/Diesel/CLASS_52.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_52_flip, "gfx/Diesel/CLASS_52.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_52_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_52_flip;
+	spriteset_CLASS_52 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_52) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_52);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1962,1,1);
+		
+		tractive_effort_coefficient:    0.275;
+		model_life:						40;
+		weight:                         108 ton;
+		speed:							90 mph;
+		power:							2700 hp;
+		
+		cost_factor:                    51 ;
+		running_cost_factor:            54 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_52_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_52_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_55.pnml" 1
+spriteset(spriteset_CLASS_55_purchase, "gfx/Diesel/CLASS_55.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_55, "gfx/Diesel/CLASS_55.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_55_flip, "gfx/Diesel/CLASS_55.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_55_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_55_flip;
+	spriteset_CLASS_55 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_55) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_55);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1961,1,1);
+		
+		tractive_effort_coefficient:    0.218;
+		model_life:						40;
+		weight:                         101 ton;
+		speed:							100 mph;
+		power:							3300 hp;
+		
+		cost_factor:                    67 ;
+		running_cost_factor:            76 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_55_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_55_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_58.pnml" 1
+spriteset(spriteset_CLASS_58_purchase, "gfx/Diesel/CLASS_58.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_58, "gfx/Diesel/CLASS_58.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_58_flip, "gfx/Diesel/CLASS_58.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_58_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_58_flip;
+	spriteset_CLASS_58 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_58) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_58);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1983,1,1);
+		
+		tractive_effort_coefficient:    0.210;
+		model_life:						40;
+		weight:                         129 ton;
+		speed:							80 mph;
+		power:							3300 hp;
+		
+		cost_factor:                    43 ;
+		running_cost_factor:            50 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_58_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_58_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_60.pnml" 1
+spriteset(spriteset_CLASS_60_purchase, "gfx/Diesel/CLASS_60.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_60, "gfx/Diesel/CLASS_60.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_60_flip, "gfx/Diesel/CLASS_60.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_60_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_60_flip;
+	spriteset_CLASS_60 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_60) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_60);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1990,1,1);
+		
+		tractive_effort_coefficient:    0.367;
+		model_life:						40;
+		weight:                         129 ton;
+		speed:							60 mph;
+		power:							3100 hp;
+		
+		cost_factor:                    40 ;
+		running_cost_factor:            40 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_60_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_60_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_66.pnml" 1
+spriteset(spriteset_CLASS_66_purchase, "gfx/Diesel/CLASS_66.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_66, "gfx/Diesel/CLASS_66.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_66_flip, "gfx/Diesel/CLASS_66.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_66_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_66_flip;
+	spriteset_CLASS_66 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_66) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_66);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1998,1,1);
+		
+		tractive_effort_coefficient:    0.321;
+		model_life:						40;
+		weight:                         128 ton;
+		speed:							75 mph;
+		power:							3300 hp;
+		
+		cost_factor:                    42 ;
+		running_cost_factor:            44 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_66_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_66_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_67.pnml" 1
+spriteset(spriteset_CLASS_67_purchase, "gfx/Diesel/CLASS_67.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_67, "gfx/Diesel/CLASS_67.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_67_flip, "gfx/Diesel/CLASS_67.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_67_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_67_flip;
+	spriteset_CLASS_67 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_67) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_67);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1999,1,1);
+		
+		tractive_effort_coefficient:    0.164;
+		model_life:						40;
+		weight:                         88 ton;
+		speed:							125 mph;
+		power:							3200 hp;
+		
+		cost_factor:                    37 ;
+		running_cost_factor:            60 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_67_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_67_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_70_ii.pnml" 1
+spriteset(spriteset_CLASS_70_II_purchase, "gfx/Diesel/CLASS_70_II.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_70_II, "gfx/Diesel/CLASS_70_II.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_70_II_flip, "gfx/Diesel/CLASS_70_II.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_70_II_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_70_II_flip;
+	spriteset_CLASS_70_II ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_70_II) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_70_II);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(2010,1,1);
+		
+		tractive_effort_coefficient:    0.413;
+		model_life:						40;
+		weight:                         129 ton;
+		speed:							75 mph;
+		power:							3700 hp;
+		
+		cost_factor:                    48 ;
+		running_cost_factor:            50 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_70_II_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_70_II_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_d16.pnml" 1
+spriteset(spriteset_CLASS_D16_purchase, "gfx/Diesel/CLASS_D16.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_D16, "gfx/Diesel/CLASS_D16.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_D16_flip, "gfx/Diesel/CLASS_D16.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_D16_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_D16_flip;
+	spriteset_CLASS_D16 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_D16) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_D16);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1948,1,1);
+		
+		tractive_effort_coefficient:    0.142;
+		model_life:						40;
+		weight:                         130 ton;
+		speed:							90 mph;
+		power:							1600 hp;
+		
+		cost_factor:                    36 ;
+		running_cost_factor:            41 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_D16_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_D16_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/class_dp1.pnml" 1
+spriteset(spriteset_CLASS_DP1_purchase, "gfx/Diesel/CLASS_DP1.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_DP1, "gfx/Diesel/CLASS_DP1.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_DP1_flip, "gfx/Diesel/CLASS_DP1.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_DP1_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_DP1_flip;
+	spriteset_CLASS_DP1 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_DP1) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.08;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		
+		name:							string(STR_NAME_LOCO_CLASS_DP1);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1955,1,1);
+		
+		tractive_effort_coefficient:    0.218;
+		model_life:						40;
+		weight:                         101 ton;
+		speed:							100 mph;
+		power:							3300 hp;
+		
+		cost_factor:                    67 ;
+		running_cost_factor:            76 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_CLASS_DP1_flipcheck;
+		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_DP1_purchase;
 	}
 }
 # 1 "ukfs.pnml" 2
