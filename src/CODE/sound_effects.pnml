@@ -272,6 +272,22 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_small, getbits(extra_callback_inf
 	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
 }
 
+switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_rat, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sound("sfx/thump_run.wav") ;
+	SOUND_EVENT_START         : sound("sfx/gronk_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/gronk_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/thump_idle.wav");
+}
+
+switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_early, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sound("sfx/20_run.wav") ;
+	SOUND_EVENT_START         : sound("sfx/thump_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/thump_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
+}
+
 //ELECTRIC LOCOS - No Variable Running Sounds
 
 switch(FEAT_TRAINS, SELF, sw_sfx_electric_old, getbits(extra_callback_info1, 0, 8)){

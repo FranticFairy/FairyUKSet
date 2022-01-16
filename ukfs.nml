@@ -266,7 +266,7 @@ template template_fai_15_r(x,y){
     [ x+155, y, 22, 20, -17, -16, ANIM]
 }
 
-template template_fai_14(x,y){
+template template_fai_14gt(x,y){
     [ x+89 , y, 8 , 24,  -3, -20, ANIM] 
     [ x+98 , y, 22, 20,  -5, -16, ANIM]
     [ x+121, y, 33, 16,  -1, -12, ANIM]
@@ -277,13 +277,35 @@ template template_fai_14(x,y){
     [ x+66 , y, 22, 20, -15, -16, ANIM]
 }
 
-template template_fai_14_r(x,y){
+template template_fai_14gt_r(x,y){
     [ x    , y, 8 , 24,  -3, -20, ANIM]
     [ x+9  , y, 22, 20,  -5, -16, ANIM]
     [ x+32 , y, 33, 16,  -1, -12, ANIM]
     [ x+66 , y, 22, 20,  -7, -12, ANIM]
     [ x+89 , y, 8 , 24,  -3, -11, ANIM] 
     [ x+98 , y, 22, 20, -13, -12, ANIM]
+    [ x+121, y, 33, 16, -14, -12, ANIM]
+    [ x+155, y, 22, 20, -15, -16, ANIM]
+}
+
+template template_fai_14(x,y){
+    [ x+89 , y, 8 , 24,  -3, -20, ANIM] 
+    [ x+98 , y, 22, 20,  -5, -16, ANIM]
+    [ x+121, y, 33, 16,  -1, -12, ANIM]
+    [ x+155, y, 22, 20,  -8, -12, ANIM]
+    [ x    , y, 8 , 24,  -3, -14, ANIM]
+    [ x+9  , y, 22, 20, -12, -12, ANIM]
+    [ x+32 , y, 33, 16, -14, -12, ANIM]
+    [ x+66 , y, 22, 20, -15, -16, ANIM]
+}
+
+template template_fai_14_r(x,y){
+    [ x    , y, 8 , 24,  -3, -20, ANIM]
+    [ x+9  , y, 22, 20,  -5, -16, ANIM]
+    [ x+32 , y, 33, 16,  -1, -12, ANIM]
+    [ x+66 , y, 22, 20,  -8, -12, ANIM]
+    [ x+89 , y, 8 , 24,  -3, -14, ANIM] 
+    [ x+98 , y, 22, 20, -12, -12, ANIM]
     [ x+121, y, 33, 16, -14, -12, ANIM]
     [ x+155, y, 22, 20, -15, -16, ANIM]
 }
@@ -488,6 +510,28 @@ template template_fai_25_r(x,y){
 
 template template_fai_27(x,y){
     [ x+89 , y, 8 , 24,  -3, -15, ANIM] 
+    [ x+98 , y, 22, 20, -10, -13, ANIM]
+    [ x+121, y, 33, 16, -11, -12, ANIM]
+    [ x+155, y, 22, 20,  -7, -12, ANIM]
+    [ x    , y, 8 , 24,  -3, -12, ANIM]
+    [ x+9  , y, 22, 20, -13, -12, ANIM]
+    [ x+32 , y, 33, 16, -17, -12, ANIM]
+    [ x+66 , y, 22, 20, -10, -13, ANIM]
+}
+
+template template_fai_27_r(x,y){
+    [ x    , y, 8 , 24,  -3, -15, ANIM]
+    [ x+9  , y, 22, 20, -10, -13, ANIM]
+    [ x+32 , y, 33, 16, -11, -12, ANIM]
+    [ x+66 , y, 22, 20,  -7, -12, ANIM]
+    [ x+89 , y, 8 , 24,  -3, -12, ANIM] 
+    [ x+98 , y, 22, 20, -13, -12, ANIM]
+    [ x+121, y, 33, 16, -17, -12, ANIM]
+    [ x+155, y, 22, 20, -10, -13, ANIM]
+}
+
+template template_fai_27gt(x,y){
+    [ x+89 , y, 8 , 24,  -3, -15, ANIM] 
     [ x+98 , y, 22, 20, -11, -13, ANIM]
     [ x+121, y, 33, 16, -11, -12, ANIM]
     [ x+155, y, 22, 20,  -7, -12, ANIM]
@@ -497,7 +541,7 @@ template template_fai_27(x,y){
     [ x+66 , y, 22, 20,  -9, -13, ANIM]
 }
 
-template template_fai_27_r(x,y){
+template template_fai_27gt_r(x,y){
     [ x    , y, 8 , 24,  -3, -15, ANIM]
     [ x+9  , y, 22, 20, -11, -13, ANIM]
     [ x+32 , y, 33, 16, -11, -12, ANIM]
@@ -923,6 +967,22 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_small, getbits(extra_callback_inf
 	SOUND_EVENT_START         : sound("sfx/gronk_whistle.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/gronk_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
+}
+
+switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_rat, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sound("sfx/thump_run.wav") ;
+	SOUND_EVENT_START         : sound("sfx/gronk_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/gronk_whistle.wav") ;
+	SOUND_EVENT_STOPPED       : sound("sfx/thump_idle.wav");
+}
+
+switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_early, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sound("sfx/20_run.wav") ;
+	SOUND_EVENT_START         : sound("sfx/thump_whistle.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/thump_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
 }
 
@@ -4221,7 +4281,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_08) {
 	}
 	graphics {
 		default: 							sw_CLASS_08_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_small ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4279,7 +4339,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_14) {
 	}
 	graphics {
 		default: 							sw_CLASS_14_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_small ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4337,7 +4397,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_17) {
 	}
 	graphics {
 		default: 							sw_CLASS_17_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_small ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4395,7 +4455,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_20) {
 	}
 	graphics {
 		default: 							sw_CLASS_20_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_class20 ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4453,7 +4513,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_23) {
 	}
 	graphics {
 		default: 							sw_CLASS_23_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_deltic ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4511,7 +4571,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_24) {
 	}
 	graphics {
 		default: 							sw_CLASS_24_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_rat ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4569,7 +4629,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_25) {
 	}
 	graphics {
 		default: 							sw_CLASS_25_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_rat ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4627,7 +4687,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_27) {
 	}
 	graphics {
 		default: 							sw_CLASS_27_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_rat ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4685,7 +4745,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_37) {
 	}
 	graphics {
 		default: 							sw_CLASS_37_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_ee ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4743,7 +4803,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_41) {
 	}
 	graphics {
 		default: 							sw_CLASS_41_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_default ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4801,7 +4861,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_44) {
 	}
 	graphics {
 		default: 							sw_CLASS_44_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_ee ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4859,7 +4919,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_47) {
 	}
 	graphics {
 		default: 							sw_CLASS_47_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_class47 ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4917,7 +4977,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_52) {
 	}
 	graphics {
 		default: 							sw_CLASS_52_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_default ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -4975,7 +5035,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_55) {
 	}
 	graphics {
 		default: 							sw_CLASS_55_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_deltic ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -5033,7 +5093,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_58) {
 	}
 	graphics {
 		default: 							sw_CLASS_58_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_default ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -5091,7 +5151,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_60) {
 	}
 	graphics {
 		default: 							sw_CLASS_60_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_hst ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -5149,7 +5209,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_66) {
 	}
 	graphics {
 		default: 							sw_CLASS_66_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_class66 ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -5207,7 +5267,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_67) {
 	}
 	graphics {
 		default: 							sw_CLASS_67_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_hst ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -5265,7 +5325,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_70_II) {
 	}
 	graphics {
 		default: 							sw_CLASS_70_II_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_hst ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -5323,7 +5383,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_D16) {
 	}
 	graphics {
 		default: 							sw_CLASS_D16_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_early ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -5381,7 +5441,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_DP1) {
 	}
 	graphics {
 		default: 							sw_CLASS_DP1_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_deltic ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;

@@ -47,7 +47,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_27) {
 	}
 	graphics {
 		default: 							sw_CLASS_27_flipcheck;
-		sound_effect:						sw_sfx_steam_fai_med_lms ;
+		sound_effect:						sw_sfx_diesel_diesel_rat ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;

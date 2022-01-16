@@ -179,7 +179,7 @@ template template_fai_15_r(x,y){
     [ x+155, y, 22, 20, -17, -16, ANIM]
 }
 
-template template_fai_14(x,y){
+template template_fai_14gt(x,y){
     [ x+89 , y, 8 , 24,  -3, -20, ANIM] 
     [ x+98 , y, 22, 20,  -5, -16, ANIM]
     [ x+121, y, 33, 16,  -1, -12, ANIM]
@@ -190,13 +190,35 @@ template template_fai_14(x,y){
     [ x+66 , y, 22, 20, -15, -16, ANIM]
 }
 
-template template_fai_14_r(x,y){
+template template_fai_14gt_r(x,y){
     [ x    , y, 8 , 24,  -3, -20, ANIM]
     [ x+9  , y, 22, 20,  -5, -16, ANIM]
     [ x+32 , y, 33, 16,  -1, -12, ANIM]
     [ x+66 , y, 22, 20,  -7, -12, ANIM]
     [ x+89 , y, 8 , 24,  -3, -11, ANIM] 
     [ x+98 , y, 22, 20, -13, -12, ANIM]
+    [ x+121, y, 33, 16, -14, -12, ANIM]
+    [ x+155, y, 22, 20, -15, -16, ANIM]
+}
+
+template template_fai_14(x,y){
+    [ x+89 , y, 8 , 24,  -3, -20, ANIM] 
+    [ x+98 , y, 22, 20,  -5, -16, ANIM]
+    [ x+121, y, 33, 16,  -1, -12, ANIM]
+    [ x+155, y, 22, 20,  -8, -12, ANIM]
+    [ x    , y, 8 , 24,  -3, -14, ANIM]
+    [ x+9  , y, 22, 20, -12, -12, ANIM]
+    [ x+32 , y, 33, 16, -14, -12, ANIM]
+    [ x+66 , y, 22, 20, -15, -16, ANIM]
+}
+
+template template_fai_14_r(x,y){
+    [ x    , y, 8 , 24,  -3, -20, ANIM]
+    [ x+9  , y, 22, 20,  -5, -16, ANIM]
+    [ x+32 , y, 33, 16,  -1, -12, ANIM]
+    [ x+66 , y, 22, 20,  -8, -12, ANIM]
+    [ x+89 , y, 8 , 24,  -3, -14, ANIM] 
+    [ x+98 , y, 22, 20, -12, -12, ANIM]
     [ x+121, y, 33, 16, -14, -12, ANIM]
     [ x+155, y, 22, 20, -15, -16, ANIM]
 }
@@ -401,6 +423,28 @@ template template_fai_25_r(x,y){
 
 template template_fai_27(x,y){
     [ x+89 , y, 8 , 24,  -3, -15, ANIM] 
+    [ x+98 , y, 22, 20, -10, -13, ANIM]
+    [ x+121, y, 33, 16, -11, -12, ANIM]
+    [ x+155, y, 22, 20,  -7, -12, ANIM]
+    [ x    , y, 8 , 24,  -3, -12, ANIM]
+    [ x+9  , y, 22, 20, -13, -12, ANIM]
+    [ x+32 , y, 33, 16, -17, -12, ANIM]
+    [ x+66 , y, 22, 20, -10, -13, ANIM]
+}
+
+template template_fai_27_r(x,y){
+    [ x    , y, 8 , 24,  -3, -15, ANIM]
+    [ x+9  , y, 22, 20, -10, -13, ANIM]
+    [ x+32 , y, 33, 16, -11, -12, ANIM]
+    [ x+66 , y, 22, 20,  -7, -12, ANIM]
+    [ x+89 , y, 8 , 24,  -3, -12, ANIM] 
+    [ x+98 , y, 22, 20, -13, -12, ANIM]
+    [ x+121, y, 33, 16, -17, -12, ANIM]
+    [ x+155, y, 22, 20, -10, -13, ANIM]
+}
+
+template template_fai_27gt(x,y){
+    [ x+89 , y, 8 , 24,  -3, -15, ANIM] 
     [ x+98 , y, 22, 20, -11, -13, ANIM]
     [ x+121, y, 33, 16, -11, -12, ANIM]
     [ x+155, y, 22, 20,  -7, -12, ANIM]
@@ -410,7 +454,7 @@ template template_fai_27(x,y){
     [ x+66 , y, 22, 20,  -9, -13, ANIM]
 }
 
-template template_fai_27_r(x,y){
+template template_fai_27gt_r(x,y){
     [ x    , y, 8 , 24,  -3, -15, ANIM]
     [ x+9  , y, 22, 20, -11, -13, ANIM]
     [ x+32 , y, 33, 16, -11, -12, ANIM]
