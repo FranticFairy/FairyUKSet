@@ -88,7 +88,7 @@ STR_NAME_LOCO_ALT_CLASS_67:Class 67 'Skip' (Diesel)
 STR_NAME_LOCO_ALT_CLASS_70_II:Class 70 (II) (Diesel)
 
 STR_NAME_LOCO_ALT_CLASS_73:Class 73 (JB) (Electro-Diesel)
-STR_NAME_LOCO_ALT_CLASS_70:Class 70 (I) (Electric)
+STR_NAME_LOCO_ALT_CLASS_70_I:Class 70 (I) (Electric)
 STR_NAME_LOCO_ALT_CLASS_71:Class 71 (HA) (Electric)
 
 STR_NAME_LOCO_ALT_EF1:NER EF1 (Electric)
@@ -101,7 +101,7 @@ STR_NAME_LOCO_ALT_CLASS_89:Class 89 'Badger' (Electric)
 STR_NAME_LOCO_ALT_CLASS_90:Class 90 (Electric)
 STR_NAME_LOCO_ALT_CLASS_92:Class 92 'Caravan' (Electric)
 
-STR_NAME_LOCO_ALT_BIDWELL:Bidwell Tripworker (Electric)
+STR_NAME_LOCO_ALT_TRIPWORKER:Bidwell Tripworker (Electric)
 
 STR_NAME_MU_ALT_CLASS_370:Class 370 'APT' (Electric)
 STR_NAME_MU_ALT_CLASS_91:Class 91 (Electric)
@@ -203,7 +203,7 @@ STR_NAME_LOCO_CLASS_67:EMD Class 67 (Diesel)
 STR_NAME_LOCO_CLASS_70_II:GE PowerHaul (Diesel)
 
 STR_NAME_LOCO_CLASS_73:BR Type JB (Electro-Diesel)
-STR_NAME_LOCO_CLASS_70:SR CC (Electric)
+STR_NAME_LOCO_CLASS_70_I:SR CC (Electric)
 STR_NAME_LOCO_CLASS_71:BR Type HA (Electric)
 
 STR_NAME_LOCO_EF1:NER EF1 (Electric)
@@ -216,7 +216,7 @@ STR_NAME_LOCO_CLASS_89:Brush Avocet (Electric)
 STR_NAME_LOCO_CLASS_90:BREL Class 90 (Electric)
 STR_NAME_LOCO_CLASS_92:Brush Class 92 (Electric)
 
-STR_NAME_LOCO_BIDWELL:Bidwell Tripworker (Electric)
+STR_NAME_LOCO_TRIPWORKER:Bidwell Tripworker (Electric)
 
 STR_NAME_MU_CLASS_370:BREL APT (Electric)
 STR_NAME_MU_CLASS_91:GEC Class 91 (Electric)
