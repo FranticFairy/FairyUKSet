@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_MINERAL) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.14;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;

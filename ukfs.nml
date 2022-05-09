@@ -1207,7 +1207,7 @@ item (FEAT_TRAINS, ITEM_FAI_TANK) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.12;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1272,7 +1272,7 @@ item (FEAT_TRAINS, ITEM_FAI_TANK_E) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.12;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1337,7 +1337,7 @@ item (FEAT_TRAINS, ITEM_FAI_JINTY) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.11;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1402,7 +1402,7 @@ item (FEAT_TRAINS, ITEM_FAI_JINTY_E) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.11;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1463,7 +1463,7 @@ item (FEAT_TRAINS, ITEM_FAI_SHIRE) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1527,7 +1527,7 @@ item (FEAT_TRAINS, ITEM_FAI_GT3) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1590,7 +1590,7 @@ item (FEAT_TRAINS, ITEM_FAI_5AT) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1654,7 +1654,7 @@ item (FEAT_TRAINS, ITEM_FAI_604) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1718,7 +1718,7 @@ item (FEAT_TRAINS, ITEM_FAI_8F) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.11;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1910,7 +1910,7 @@ item (FEAT_TRAINS, ITEM_FAI_EDWARDIAN) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -1974,7 +1974,7 @@ item (FEAT_TRAINS, ITEM_FAI_FREIGHT) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.11;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2038,7 +2038,7 @@ item (FEAT_TRAINS, ITEM_FAI_GOODS) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.11;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2102,7 +2102,7 @@ item (FEAT_TRAINS, ITEM_FAI_JUBILEE) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2166,7 +2166,7 @@ item (FEAT_TRAINS, ITEM_FAI_LADY) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.09;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2230,7 +2230,7 @@ item (FEAT_TRAINS, ITEM_FAI_MINERAL) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.14;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2294,7 +2294,7 @@ item (FEAT_TRAINS, ITEM_FAI_MOGUL) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.09;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2358,7 +2358,7 @@ item (FEAT_TRAINS, ITEM_FAI_PACIFIC) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2550,7 +2550,7 @@ item (FEAT_TRAINS, ITEM_FAI_STREAK) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2614,7 +2614,7 @@ item (FEAT_TRAINS, ITEM_FAI_WD) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.11;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2678,7 +2678,7 @@ item (FEAT_TRAINS, ITEM_FAI_ARROW) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2742,7 +2742,7 @@ item (FEAT_TRAINS, ITEM_FAI_BANKER) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.19;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2806,7 +2806,7 @@ item (FEAT_TRAINS, ITEM_FAI_CORONATION) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2870,7 +2870,7 @@ item (FEAT_TRAINS, ITEM_FAI_KING_ARTHUR) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2934,7 +2934,7 @@ item (FEAT_TRAINS, ITEM_FAI_KLONDYKE) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -2998,7 +2998,7 @@ item (FEAT_TRAINS, ITEM_FAI_LIGHT_PACIFIC) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3062,7 +3062,7 @@ item (FEAT_TRAINS, ITEM_FAI_MERCHANT_NAVY) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3126,7 +3126,7 @@ item (FEAT_TRAINS, ITEM_FAI_ROYAL_SCOT) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3191,7 +3191,7 @@ item (FEAT_TRAINS, ITEM_FAI_COPPERNOB) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.14;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3255,7 +3255,7 @@ item (FEAT_TRAINS, ITEM_FAI_CRAMPTON) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.1;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3324,7 +3324,7 @@ item (FEAT_TRAINS, ITEM_FAI_HUNSLET) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.14;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3389,7 +3389,7 @@ item (FEAT_TRAINS, ITEM_FAI_INDUSTRIAL) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.2;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3454,7 +3454,7 @@ item (FEAT_TRAINS, ITEM_FAI_IVATT) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3519,7 +3519,7 @@ item (FEAT_TRAINS, ITEM_FAI_LEADER) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3579,7 +3579,7 @@ item (FEAT_TRAINS, ITEM_FAI_LONG_BOILER) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.16;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3648,7 +3648,7 @@ item (FEAT_TRAINS, ITEM_FAI_METROPOLITAN) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.1;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3713,7 +3713,7 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER_II) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.09;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3778,7 +3778,7 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.1;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3838,7 +3838,7 @@ item (FEAT_TRAINS, ITEM_FAI_PLANET) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.19;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3907,7 +3907,7 @@ item (FEAT_TRAINS, ITEM_FAI_PRAIRIE) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.1;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -3972,7 +3972,7 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN_II) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4037,7 +4037,7 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4102,7 +4102,7 @@ item (FEAT_TRAINS, ITEM_FAI_TRAM) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.16;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4165,7 +4165,7 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.14;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4263,7 +4263,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_08) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.2;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4321,7 +4321,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_14) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.12;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4437,7 +4437,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_20) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4495,7 +4495,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_23) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4553,7 +4553,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_24) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4611,7 +4611,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_25) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4669,7 +4669,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_27) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4727,7 +4727,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_37) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4785,7 +4785,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_41) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4843,7 +4843,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_44) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4901,7 +4901,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_47) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -4959,7 +4959,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_52) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5017,7 +5017,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_55) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5075,7 +5075,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_58) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5191,7 +5191,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_66) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5249,7 +5249,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_67) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.04;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5307,7 +5307,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_70_II) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5365,7 +5365,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_D16) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5423,7 +5423,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_DP1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5482,7 +5482,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_70_I) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5540,7 +5540,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_71) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5598,7 +5598,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_73) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5656,7 +5656,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_76) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.07;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5714,7 +5714,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_77) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5772,7 +5772,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_81) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5830,7 +5830,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_86) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5888,7 +5888,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_89) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.04;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -5946,7 +5946,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_90) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.04;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -6004,7 +6004,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_92) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -6062,7 +6062,7 @@ item (FEAT_TRAINS, ITEM_FAI_EE1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.06;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
@@ -6120,7 +6120,7 @@ item (FEAT_TRAINS, ITEM_FAI_EF1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		air_drag_coefficient:			0.11;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
