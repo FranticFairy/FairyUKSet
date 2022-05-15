@@ -1,6 +1,6 @@
 # 1 "ukfs.pnml"
 disable_item(FEAT_TRAINS);
-# 1 "src/CODE/header.pnml" 1
+# 1 "src/CODE/HEADER.PNML" 1
 grf{
 	grfid: "FUKS" ;
 	name: string(STR_GRF_NAME) ;
@@ -16,7 +16,7 @@ traininfo_y_offset = 2 ;
 
 //Modifying base costs
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/era_definitions.pnml" 1
+# 1 "src/CODE/ERA_DEFINITIONS.PNML" 1
 
 
 
@@ -50,7 +50,7 @@ traininfo_y_offset = 2 ;
 
 
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/cargo_table.pnml" 1
+# 1 "src/CODE/CARGO_TABLE.PNML" 1
 cargotable {
 //Default cargos
    PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD,
@@ -74,7 +74,7 @@ cargotable {
 	OTI1, OTI2
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/railtype_table.pnml" 1
+# 1 "src/CODE/RAILTYPE_TABLE.PNML" 1
 railtypetable {
     "RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ",  "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN", "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE",
 	SAA3: [SAA3, "3RDR", ELRL],
@@ -92,7 +92,7 @@ railtypetable {
 	NAAN: ["NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN"],
 }*/
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/alignments.pnml" 1
+# 1 "src/CODE/ALIGNMENTS.PNML" 1
 //template_x_y where x is length and y is no. views
 
 template template_purchase_short(x,y){
@@ -670,7 +670,7 @@ template template_fai_garratt_rear_r(x,y){
     [ x+66 , y, 22, 20, -15, -16, ANIM]
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/visual_effects.pnml" 1
+# 1 "src/CODE/VISUAL_EFFECTS.PNML" 1
 switch (FEAT_TRAINS, SELF, vfx_ohle, [STORE_TEMP(create_effect(EFFECT_SPRITE_ELECTRIC, 0, 0, 10), 0x100)]) {
     return 1;
 }
@@ -703,7 +703,7 @@ switch(FEAT_TRAINS, SELF, vfx_steam, [STORE_TEMP(create_effect(EFFECT_SPRITE_STE
     return 1;
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/sound_effects.pnml" 1
+# 1 "src/CODE/SOUND_EFFECTS.PNML" 1
 random_switch(FEAT_TRAINS, SELF, sw_sfx_steam_slow){
 	1: sound("sfx/piston_stroke1.wav") ;
 	2: sound("sfx/piston_stroke2.wav") ;
@@ -1033,9 +1033,9 @@ switch(FEAT_TRAINS, SELF, sw_sfx_fai_horse, getbits(extra_callback_info1, 0, 8))
 	SOUND_EVENT_TUNNEL        : SOUND_HORSE ;
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/coupling_restrictions.pnml" 1
+# 1 "src/CODE/COUPLING_RESTRICTIONS.PNML" 1
 # 1 "ukfs.pnml" 2
-# 1 "src/CODE/sort_purchase.pnml" 1
+# 1 "src/CODE/SORT_PURCHASE.PNML" 1
 sort(FEAT_TRAINS,[
 ITEM_FAI_PLANET,
 ITEM_FAI_COPPERNOB,
@@ -1141,11 +1141,21 @@ ITEM_FAI_TRIPWORKER,
 //ITEM_FAI_CLASS_357,
 //ITEM_FAI_CLASS_390,
 //ITEM_FAI_CLASS_395
+//ITEM_FAI_WAGON_PASSENGER_CARRIAGE,
+//ITEM_FAI_WAGON_MK1_CARRIAGE,
+//ITEM_FAI_WAGON_MK2_CARRIAGE,
+//ITEM_FAI_WAGON_MK3_CARRIAGE,
+//ITEM_FAI_WAGON_COMMUTER_CARRIAGE,
+//ITEM_FAI_WAGON_SLAM_DOOR_CARRIAGE,
+//ITEM_FAI_WAGON_HIGH_SPEED_CARRIAGE,
+//ITEM_FAI_WAGON_INTERCITY_CARRIAGE,
+//ITEM_FAI_WAGON_MK4_CARRIAGE,
+//ITEM_FAI_WAGON_MK5_CARRIAGE,
 ]);
 # 1 "ukfs.pnml" 2
 
-# 1 "src/OTHER/Tender.pnml" 1
-spriteset(spriteset_tender_placeholder, "gfx/Steam/JINTY.png") { template_fai_21(187, 39)}
+# 1 "src/OTHER/TENDER.PNML" 1
+spriteset(spriteset_tender_placeholder, "gfx/STEAM/JINTY.png") { template_fai_21(187, 39)}
 
 item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER) {
 	property {
@@ -1179,11 +1189,11 @@ item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER) {
 }
 # 1 "ukfs.pnml" 2
 
-# 1 "src/STEAM_LOCO/tank.pnml" 1
-spriteset(spriteset_tank_purchase, "gfx/Steam/TANK.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/TANK.PNML" 1
+spriteset(spriteset_tank_purchase, "gfx/STEAM/TANK.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_tank, "gfx/Steam/TANK.png") { template_fai_21(7, 39)}
-spriteset(spriteset_tank_flip, "gfx/Steam/TANK.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_tank, "gfx/STEAM/TANK.png") { template_fai_21(7, 39)}
+spriteset(spriteset_tank_flip, "gfx/STEAM/TANK.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_tank_flipcheck, vehicle_is_reversed){
 	1: spriteset_tank_flip;
@@ -1244,11 +1254,11 @@ item (FEAT_TRAINS, ITEM_FAI_TANK) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/tank_e.pnml" 1
-spriteset(spriteset_tank_e_purchase, "gfx/Steam/TANK.png") { template_fai_purchase(187, 23)}
+# 1 "src/STEAM_LOCO/TANK_E.PNML" 1
+spriteset(spriteset_tank_e_purchase, "gfx/STEAM/TANK.png") { template_fai_purchase(187, 23)}
 
-spriteset(spriteset_tank_e, "gfx/Steam/TANK.png") { template_fai_21(187, 39)}
-spriteset(spriteset_tank_e_flip, "gfx/Steam/TANK.png") { template_fai_21_r(187, 39)}
+spriteset(spriteset_tank_e, "gfx/STEAM/TANK.png") { template_fai_21(187, 39)}
+spriteset(spriteset_tank_e_flip, "gfx/STEAM/TANK.png") { template_fai_21_r(187, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_tank_e_flipcheck, vehicle_is_reversed){
 	1: spriteset_tank_e_flip;
@@ -1309,11 +1319,11 @@ item (FEAT_TRAINS, ITEM_FAI_TANK_E) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/jinty.pnml" 1
-spriteset(spriteset_jinty_purchase, "gfx/Steam/JINTY.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/JINTY.PNML" 1
+spriteset(spriteset_jinty_purchase, "gfx/STEAM/JINTY.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_jinty, "gfx/Steam/JINTY.png") { template_fai_21(7, 39)}
-spriteset(spriteset_jinty_flip, "gfx/Steam/JINTY.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_jinty, "gfx/STEAM/JINTY.png") { template_fai_21(7, 39)}
+spriteset(spriteset_jinty_flip, "gfx/STEAM/JINTY.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_jinty_flipcheck, vehicle_is_reversed){
 	1: spriteset_jinty_flip;
@@ -1374,11 +1384,11 @@ item (FEAT_TRAINS, ITEM_FAI_JINTY) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/jinty_e.pnml" 1
-spriteset(spriteset_jinty_e_purchase, "gfx/Steam/JINTY.png") { template_fai_purchase(187, 23)}
+# 1 "src/STEAM_LOCO/JINTY_E.PNML" 1
+spriteset(spriteset_jinty_e_purchase, "gfx/STEAM/JINTY.png") { template_fai_purchase(187, 23)}
 
-spriteset(spriteset_jinty_e, "gfx/Steam/JINTY.png") { template_fai_21(187, 39)}
-spriteset(spriteset_jinty_e_flip, "gfx/Steam/JINTY.png") { template_fai_21_r(187, 39)}
+spriteset(spriteset_jinty_e, "gfx/STEAM/JINTY.png") { template_fai_21(187, 39)}
+spriteset(spriteset_jinty_e_flip, "gfx/STEAM/JINTY.png") { template_fai_21_r(187, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_jinty_e_flipcheck, vehicle_is_reversed){
 	1: spriteset_jinty_e_flip;
@@ -1440,11 +1450,11 @@ item (FEAT_TRAINS, ITEM_FAI_JINTY_E) {
 }
 # 1 "ukfs.pnml" 2
 
-# 1 "src/STEAM_LOCO/shire.pnml" 1
-spriteset(spriteset_SHIRE_purchase, "gfx/Steam/SHIRE.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/SHIRE.PNML" 1
+spriteset(spriteset_SHIRE_purchase, "gfx/STEAM/SHIRE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_SHIRE, "gfx/Steam/SHIRE.png") { template_fai_25(7, 39)}
-spriteset(spriteset_SHIRE_tender, "gfx/Steam/SHIRE.png") { template_fai_12(7, 64)}
+spriteset(spriteset_SHIRE, "gfx/STEAM/SHIRE.png") { template_fai_25(7, 39)}
+spriteset(spriteset_SHIRE_tender, "gfx/STEAM/SHIRE.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_SHIRE_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1504,11 +1514,11 @@ item (FEAT_TRAINS, ITEM_FAI_SHIRE) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/gt3.pnml" 1
-spriteset(spriteset_GT3_purchase, "gfx/Steam/GT3.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/GT3.PNML" 1
+spriteset(spriteset_GT3_purchase, "gfx/STEAM/GT3.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_GT3, "gfx/Steam/GT3.png") { template_fai_27(7, 39)}
-spriteset(spriteset_GT3_tender, "gfx/Steam/GT3.png") { template_fai_14(7, 64)}
+spriteset(spriteset_GT3, "gfx/STEAM/GT3.png") { template_fai_27(7, 39)}
+spriteset(spriteset_GT3_tender, "gfx/STEAM/GT3.png") { template_fai_14(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_GT3_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1567,11 +1577,11 @@ item (FEAT_TRAINS, ITEM_FAI_GT3) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/5at.pnml" 1
-spriteset(spriteset_5at_purchase, "gfx/Steam/5AT.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/5AT.PNML" 1
+spriteset(spriteset_5at_purchase, "gfx/STEAM/5AT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_5at, "gfx/Steam/5AT.png") { template_fai_29(7, 39)}
-spriteset(spriteset_5at_tender, "gfx/Steam/5AT.png") { template_fai_16(7, 64)}
+spriteset(spriteset_5at, "gfx/STEAM/5AT.png") { template_fai_29(7, 39)}
+spriteset(spriteset_5at_tender, "gfx/STEAM/5AT.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_5at_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1631,11 +1641,11 @@ item (FEAT_TRAINS, ITEM_FAI_5AT) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/604.pnml" 1
-spriteset(spriteset_604_purchase, "gfx/Steam/604.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/604.PNML" 1
+spriteset(spriteset_604_purchase, "gfx/STEAM/604.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_604, "gfx/Steam/604.png") { template_fai_29(7, 39)}
-spriteset(spriteset_604_tender, "gfx/Steam/604.png") { template_fai_16(7, 64)}
+spriteset(spriteset_604, "gfx/STEAM/604.png") { template_fai_29(7, 39)}
+spriteset(spriteset_604_tender, "gfx/STEAM/604.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_604_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1695,11 +1705,11 @@ item (FEAT_TRAINS, ITEM_FAI_604) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/8F.pnml" 1
-spriteset(spriteset_8F_purchase, "gfx/Steam/8F.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/8F.PNML" 1
+spriteset(spriteset_8F_purchase, "gfx/STEAM/8F.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_8F, "gfx/Steam/8F.png") { template_fai_27(7, 39)}
-spriteset(spriteset_8F_tender, "gfx/Steam/8F.png") { template_fai_14(7, 64)}
+spriteset(spriteset_8F, "gfx/STEAM/8F.png") { template_fai_27(7, 39)}
+spriteset(spriteset_8F_tender, "gfx/STEAM/8F.png") { template_fai_14(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_8F_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1759,11 +1769,11 @@ item (FEAT_TRAINS, ITEM_FAI_8F) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/austerity.pnml" 1
-spriteset(spriteset_AUSTERITY_purchase, "gfx/Steam/AUSTERITY.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/AUSTERITY.PNML" 1
+spriteset(spriteset_AUSTERITY_purchase, "gfx/STEAM/AUSTERITY.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_AUSTERITY, "gfx/Steam/AUSTERITY.png") { template_fai_21(7, 39)}
-spriteset(spriteset_AUSTERITY_tender, "gfx/Steam/AUSTERITY.png") { template_fai_13(7, 64)}
+spriteset(spriteset_AUSTERITY, "gfx/STEAM/AUSTERITY.png") { template_fai_21(7, 39)}
+spriteset(spriteset_AUSTERITY_tender, "gfx/STEAM/AUSTERITY.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_AUSTERITY_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1823,11 +1833,11 @@ item (FEAT_TRAINS, ITEM_FAI_AUSTERITY) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/britannia.pnml" 1
-spriteset(spriteset_BRITANNIA_purchase, "gfx/Steam/BRITANNIA.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/BRITANNIA.PNML" 1
+spriteset(spriteset_BRITANNIA_purchase, "gfx/STEAM/BRITANNIA.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_BRITANNIA, "gfx/Steam/BRITANNIA.png") { template_fai_29(7, 39)}
-spriteset(spriteset_BRITANNIA_tender, "gfx/Steam/BRITANNIA.png") { template_fai_16(7, 64)}
+spriteset(spriteset_BRITANNIA, "gfx/STEAM/BRITANNIA.png") { template_fai_29(7, 39)}
+spriteset(spriteset_BRITANNIA_tender, "gfx/STEAM/BRITANNIA.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_BRITANNIA_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1887,11 +1897,11 @@ item (FEAT_TRAINS, ITEM_FAI_BRITANNIA) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/edwardian.pnml" 1
-spriteset(spriteset_EDWARDIAN_purchase, "gfx/Steam/EDWARDIAN.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/EDWARDIAN.PNML" 1
+spriteset(spriteset_EDWARDIAN_purchase, "gfx/STEAM/EDWARDIAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_EDWARDIAN, "gfx/Steam/EDWARDIAN.png") { template_fai_25(7, 39)}
-spriteset(spriteset_EDWARDIAN_tender, "gfx/Steam/EDWARDIAN.png") { template_fai_13(7, 64)}
+spriteset(spriteset_EDWARDIAN, "gfx/STEAM/EDWARDIAN.png") { template_fai_25(7, 39)}
+spriteset(spriteset_EDWARDIAN_tender, "gfx/STEAM/EDWARDIAN.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_EDWARDIAN_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1951,11 +1961,11 @@ item (FEAT_TRAINS, ITEM_FAI_EDWARDIAN) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/freight.pnml" 1
-spriteset(spriteset_FREIGHT_purchase, "gfx/Steam/FREIGHT.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/FREIGHT.PNML" 1
+spriteset(spriteset_FREIGHT_purchase, "gfx/STEAM/FREIGHT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_FREIGHT, "gfx/Steam/FREIGHT.png") { template_fai_21(7, 39)}
-spriteset(spriteset_FREIGHT_tender, "gfx/Steam/FREIGHT.png") { template_fai_13(7, 64)}
+spriteset(spriteset_FREIGHT, "gfx/STEAM/FREIGHT.png") { template_fai_21(7, 39)}
+spriteset(spriteset_FREIGHT_tender, "gfx/STEAM/FREIGHT.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_FREIGHT_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2015,11 +2025,11 @@ item (FEAT_TRAINS, ITEM_FAI_FREIGHT) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/goods.pnml" 1
-spriteset(spriteset_GOODS_purchase, "gfx/Steam/GOODS.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/GOODS.PNML" 1
+spriteset(spriteset_GOODS_purchase, "gfx/STEAM/GOODS.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_GOODS, "gfx/Steam/GOODS.png") { template_fai_25(7, 39)}
-spriteset(spriteset_GOODS_tender, "gfx/Steam/GOODS.png") { template_fai_13(7, 64)}
+spriteset(spriteset_GOODS, "gfx/STEAM/GOODS.png") { template_fai_25(7, 39)}
+spriteset(spriteset_GOODS_tender, "gfx/STEAM/GOODS.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_GOODS_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2079,11 +2089,11 @@ item (FEAT_TRAINS, ITEM_FAI_GOODS) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/jubilee.pnml" 1
-spriteset(spriteset_JUBILEE_purchase, "gfx/Steam/JUBILEE.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/JUBILEE.PNML" 1
+spriteset(spriteset_JUBILEE_purchase, "gfx/STEAM/JUBILEE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_JUBILEE, "gfx/Steam/JUBILEE.png") { template_fai_27(7, 39)}
-spriteset(spriteset_JUBILEE_tender, "gfx/Steam/JUBILEE.png") { template_fai_14(7, 64)}
+spriteset(spriteset_JUBILEE, "gfx/STEAM/JUBILEE.png") { template_fai_27(7, 39)}
+spriteset(spriteset_JUBILEE_tender, "gfx/STEAM/JUBILEE.png") { template_fai_14(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_JUBILEE_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2143,11 +2153,11 @@ item (FEAT_TRAINS, ITEM_FAI_JUBILEE) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/lady.pnml" 1
-spriteset(spriteset_LADY_purchase, "gfx/Steam/LADY.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/LADY.PNML" 1
+spriteset(spriteset_LADY_purchase, "gfx/STEAM/LADY.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_LADY, "gfx/Steam/LADY.png") { template_fai_17(7, 39)}
-spriteset(spriteset_LADY_tender, "gfx/Steam/LADY.png") { template_fai_12(7, 64)}
+spriteset(spriteset_LADY, "gfx/STEAM/LADY.png") { template_fai_17(7, 39)}
+spriteset(spriteset_LADY_tender, "gfx/STEAM/LADY.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_LADY_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2207,11 +2217,11 @@ item (FEAT_TRAINS, ITEM_FAI_LADY) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/mineral.pnml" 1
-spriteset(spriteset_MINERAL_purchase, "gfx/Steam/MINERAL.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/MINERAL.PNML" 1
+spriteset(spriteset_MINERAL_purchase, "gfx/STEAM/MINERAL.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MINERAL, "gfx/Steam/MINERAL.png") { template_fai_25(7, 39)}
-spriteset(spriteset_MINERAL_tender, "gfx/Steam/MINERAL.png") { template_fai_12(7, 64)}
+spriteset(spriteset_MINERAL, "gfx/STEAM/MINERAL.png") { template_fai_25(7, 39)}
+spriteset(spriteset_MINERAL_tender, "gfx/STEAM/MINERAL.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_MINERAL_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2271,11 +2281,11 @@ item (FEAT_TRAINS, ITEM_FAI_MINERAL) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/mogul.pnml" 1
-spriteset(spriteset_MOGUL_purchase, "gfx/Steam/MOGUL.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/MOGUL.PNML" 1
+spriteset(spriteset_MOGUL_purchase, "gfx/STEAM/MOGUL.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MOGUL, "gfx/Steam/MOGUL.png") { template_fai_25(7, 39)}
-spriteset(spriteset_MOGUL_tender, "gfx/Steam/MOGUL.png") { template_fai_13(7, 64)}
+spriteset(spriteset_MOGUL, "gfx/STEAM/MOGUL.png") { template_fai_25(7, 39)}
+spriteset(spriteset_MOGUL_tender, "gfx/STEAM/MOGUL.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_MOGUL_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2335,11 +2345,11 @@ item (FEAT_TRAINS, ITEM_FAI_MOGUL) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/pacific.pnml" 1
-spriteset(spriteset_PACIFIC_purchase, "gfx/Steam/PACIFIC.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/PACIFIC.PNML" 1
+spriteset(spriteset_PACIFIC_purchase, "gfx/STEAM/PACIFIC.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PACIFIC, "gfx/Steam/PACIFIC.png") { template_fai_29(7, 39)}
-spriteset(spriteset_PACIFIC_tender, "gfx/Steam/PACIFIC.png") { template_fai_16(7, 64)}
+spriteset(spriteset_PACIFIC, "gfx/STEAM/PACIFIC.png") { template_fai_29(7, 39)}
+spriteset(spriteset_PACIFIC_tender, "gfx/STEAM/PACIFIC.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_PACIFIC_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2399,11 +2409,11 @@ item (FEAT_TRAINS, ITEM_FAI_PACIFIC) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/spinner.pnml" 1
-spriteset(spriteset_SPINNER_purchase, "gfx/Steam/SPINNER.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/SPINNER.PNML" 1
+spriteset(spriteset_SPINNER_purchase, "gfx/STEAM/SPINNER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_SPINNER, "gfx/Steam/SPINNER.png") { template_fai_21(7, 39)}
-spriteset(spriteset_SPINNER_tender, "gfx/Steam/SPINNER.png") { template_fai_12(7, 64)}
+spriteset(spriteset_SPINNER, "gfx/STEAM/SPINNER.png") { template_fai_21(7, 39)}
+spriteset(spriteset_SPINNER_tender, "gfx/STEAM/SPINNER.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_SPINNER_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2463,11 +2473,11 @@ item (FEAT_TRAINS, ITEM_FAI_SPINNER) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/star.pnml" 1
-spriteset(spriteset_STAR_purchase, "gfx/Steam/STAR.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/STAR.PNML" 1
+spriteset(spriteset_STAR_purchase, "gfx/STEAM/STAR.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_STAR, "gfx/Steam/STAR.png") { template_fai_29(7, 39)}
-spriteset(spriteset_STAR_tender, "gfx/Steam/STAR.png") { template_fai_16(7, 64)}
+spriteset(spriteset_STAR, "gfx/STEAM/STAR.png") { template_fai_29(7, 39)}
+spriteset(spriteset_STAR_tender, "gfx/STEAM/STAR.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_STAR_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2527,11 +2537,11 @@ item (FEAT_TRAINS, ITEM_FAI_STAR) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/streak.pnml" 1
-spriteset(spriteset_STREAK_purchase, "gfx/Steam/STREAK.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/STREAK.PNML" 1
+spriteset(spriteset_STREAK_purchase, "gfx/STEAM/STREAK.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_STREAK, "gfx/Steam/STREAK.png") { template_fai_29(7, 39)}
-spriteset(spriteset_STREAK_tender, "gfx/Steam/STREAK.png") { template_fai_16(7, 64)}
+spriteset(spriteset_STREAK, "gfx/STEAM/STREAK.png") { template_fai_29(7, 39)}
+spriteset(spriteset_STREAK_tender, "gfx/STEAM/STREAK.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_STREAK_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2591,11 +2601,11 @@ item (FEAT_TRAINS, ITEM_FAI_STREAK) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/wd.pnml" 1
-spriteset(spriteset_WD_purchase, "gfx/Steam/WD.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/WD.PNML" 1
+spriteset(spriteset_WD_purchase, "gfx/STEAM/WD.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WD, "gfx/Steam/WD.png") { template_fai_27(7, 39)}
-spriteset(spriteset_WD_tender, "gfx/Steam/WD.png") { template_fai_14(7, 64)}
+spriteset(spriteset_WD, "gfx/STEAM/WD.png") { template_fai_27(7, 39)}
+spriteset(spriteset_WD_tender, "gfx/STEAM/WD.png") { template_fai_14(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_WD_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2655,11 +2665,11 @@ item (FEAT_TRAINS, ITEM_FAI_WD) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/arrow.pnml" 1
-spriteset(spriteset_ARROW_purchase, "gfx/Steam/ARROW.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/ARROW.PNML" 1
+spriteset(spriteset_ARROW_purchase, "gfx/STEAM/ARROW.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_ARROW, "gfx/Steam/ARROW.png") { template_fai_27(7, 39)}
-spriteset(spriteset_ARROW_tender, "gfx/Steam/ARROW.png") { template_fai_14(7, 64)}
+spriteset(spriteset_ARROW, "gfx/STEAM/ARROW.png") { template_fai_27(7, 39)}
+spriteset(spriteset_ARROW_tender, "gfx/STEAM/ARROW.png") { template_fai_14(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_ARROW_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2719,11 +2729,11 @@ item (FEAT_TRAINS, ITEM_FAI_ARROW) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/banker.pnml" 1
-spriteset(spriteset_BANKER_purchase, "gfx/Steam/BANKER.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/BANKER.PNML" 1
+spriteset(spriteset_BANKER_purchase, "gfx/STEAM/BANKER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_BANKER, "gfx/Steam/BANKER.png") { template_fai_25(7, 39)}
-spriteset(spriteset_BANKER_tender, "gfx/Steam/BANKER.png") { template_fai_12(7, 64)}
+spriteset(spriteset_BANKER, "gfx/STEAM/BANKER.png") { template_fai_25(7, 39)}
+spriteset(spriteset_BANKER_tender, "gfx/STEAM/BANKER.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_BANKER_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2783,11 +2793,11 @@ item (FEAT_TRAINS, ITEM_FAI_BANKER) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/coronation.pnml" 1
-spriteset(spriteset_CORONATION_purchase, "gfx/Steam/CORONATION.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/CORONATION.PNML" 1
+spriteset(spriteset_CORONATION_purchase, "gfx/STEAM/CORONATION.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CORONATION, "gfx/Steam/CORONATION.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CORONATION_tender, "gfx/Steam/CORONATION.png") { template_fai_16(7, 64)}
+spriteset(spriteset_CORONATION, "gfx/STEAM/CORONATION.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CORONATION_tender, "gfx/STEAM/CORONATION.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_CORONATION_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2847,11 +2857,11 @@ item (FEAT_TRAINS, ITEM_FAI_CORONATION) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/king arthur.pnml" 1
-spriteset(spriteset_KING_ARTHUR_purchase, "gfx/Steam/KING_ARTHUR.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/KING_ARTHUR.PNML" 1
+spriteset(spriteset_KING_ARTHUR_purchase, "gfx/STEAM/KING_ARTHUR.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_KING_ARTHUR, "gfx/Steam/KING_ARTHUR.png") { template_fai_24(7, 39)}
-spriteset(spriteset_KING_ARTHUR_tender, "gfx/Steam/KING_ARTHUR.png") { template_fai_13(7, 64)}
+spriteset(spriteset_KING_ARTHUR, "gfx/STEAM/KING_ARTHUR.png") { template_fai_24(7, 39)}
+spriteset(spriteset_KING_ARTHUR_tender, "gfx/STEAM/KING_ARTHUR.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_KING_ARTHUR_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2911,11 +2921,11 @@ item (FEAT_TRAINS, ITEM_FAI_KING_ARTHUR) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/klondyke.pnml" 1
-spriteset(spriteset_KLONDYKE_purchase, "gfx/Steam/KLONDYKE.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/KLONDYKE.PNML" 1
+spriteset(spriteset_KLONDYKE_purchase, "gfx/STEAM/KLONDYKE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_KLONDYKE, "gfx/Steam/KLONDYKE.png") { template_fai_25(7, 39)}
-spriteset(spriteset_KLONDYKE_tender, "gfx/Steam/KLONDYKE.png") { template_fai_12(7, 64)}
+spriteset(spriteset_KLONDYKE, "gfx/STEAM/KLONDYKE.png") { template_fai_25(7, 39)}
+spriteset(spriteset_KLONDYKE_tender, "gfx/STEAM/KLONDYKE.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_KLONDYKE_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -2975,11 +2985,11 @@ item (FEAT_TRAINS, ITEM_FAI_KLONDYKE) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/light pacific.pnml" 1
-spriteset(spriteset_LIGHT_PACIFIC_purchase, "gfx/Steam/LIGHT_PACIFIC.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/LIGHT_PACIFIC.PNML" 1
+spriteset(spriteset_LIGHT_PACIFIC_purchase, "gfx/STEAM/LIGHT_PACIFIC.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_LIGHT_PACIFIC, "gfx/Steam/LIGHT_PACIFIC.png") { template_fai_29(7, 39)}
-spriteset(spriteset_LIGHT_PACIFIC_tender, "gfx/Steam/LIGHT_PACIFIC.png") { template_fai_16(7, 64)}
+spriteset(spriteset_LIGHT_PACIFIC, "gfx/STEAM/LIGHT_PACIFIC.png") { template_fai_29(7, 39)}
+spriteset(spriteset_LIGHT_PACIFIC_tender, "gfx/STEAM/LIGHT_PACIFIC.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_LIGHT_PACIFIC_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -3039,11 +3049,11 @@ item (FEAT_TRAINS, ITEM_FAI_LIGHT_PACIFIC) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/merchant navy.pnml" 1
-spriteset(spriteset_MERCHANT_NAVY_purchase, "gfx/Steam/MERCHANT_NAVY.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/MERCHANT_NAVY.PNML" 1
+spriteset(spriteset_MERCHANT_NAVY_purchase, "gfx/STEAM/MERCHANT_NAVY.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MERCHANT_NAVY, "gfx/Steam/MERCHANT_NAVY.png") { template_fai_29(7, 39)}
-spriteset(spriteset_MERCHANT_NAVY_tender, "gfx/Steam/MERCHANT_NAVY.png") { template_fai_16(7, 64)}
+spriteset(spriteset_MERCHANT_NAVY, "gfx/STEAM/MERCHANT_NAVY.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MERCHANT_NAVY_tender, "gfx/STEAM/MERCHANT_NAVY.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_MERCHANT_NAVY_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -3103,11 +3113,11 @@ item (FEAT_TRAINS, ITEM_FAI_MERCHANT_NAVY) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/royal scot.pnml" 1
-spriteset(spriteset_ROYAL_SCOT_purchase, "gfx/Steam/ROYAL_SCOT.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/ROYAL_SCOT.PNML" 1
+spriteset(spriteset_ROYAL_SCOT_purchase, "gfx/STEAM/ROYAL_SCOT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_ROYAL_SCOT, "gfx/Steam/ROYAL_SCOT.png") { template_fai_24(7, 39)}
-spriteset(spriteset_ROYAL_SCOT_tender, "gfx/Steam/ROYAL_SCOT.png") { template_fai_13(7, 64)}
+spriteset(spriteset_ROYAL_SCOT, "gfx/STEAM/ROYAL_SCOT.png") { template_fai_24(7, 39)}
+spriteset(spriteset_ROYAL_SCOT_tender, "gfx/STEAM/ROYAL_SCOT.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_ROYAL_SCOT_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -3168,11 +3178,11 @@ item (FEAT_TRAINS, ITEM_FAI_ROYAL_SCOT) {
 }
 # 1 "ukfs.pnml" 2
 
-# 1 "src/STEAM_LOCO/coppernob.pnml" 1
-spriteset(spriteset_COPPERNOB_purchase, "gfx/Steam/COPPERNOB.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/COPPERNOB.PNML" 1
+spriteset(spriteset_COPPERNOB_purchase, "gfx/STEAM/COPPERNOB.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_COPPERNOB, "gfx/Steam/COPPERNOB.png") { template_fai_15(7, 39)}
-spriteset(spriteset_COPPERNOB_tender, "gfx/Steam/COPPERNOB.png") { template_fai_10c(7, 64)}
+spriteset(spriteset_COPPERNOB, "gfx/STEAM/COPPERNOB.png") { template_fai_15(7, 39)}
+spriteset(spriteset_COPPERNOB_tender, "gfx/STEAM/COPPERNOB.png") { template_fai_10c(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_COPPERNOB_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -3232,11 +3242,11 @@ item (FEAT_TRAINS, ITEM_FAI_COPPERNOB) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/crampton.pnml" 1
-spriteset(spriteset_CRAMPTON_purchase, "gfx/Steam/CRAMPTON.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/CRAMPTON.PNML" 1
+spriteset(spriteset_CRAMPTON_purchase, "gfx/STEAM/CRAMPTON.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CRAMPTON, "gfx/Steam/CRAMPTON.png") { template_fai_19c(7, 39)}
-spriteset(spriteset_CRAMPTON_tender, "gfx/Steam/CRAMPTON.png") { template_fai_10(7, 64)}
+spriteset(spriteset_CRAMPTON, "gfx/STEAM/CRAMPTON.png") { template_fai_19c(7, 39)}
+spriteset(spriteset_CRAMPTON_tender, "gfx/STEAM/CRAMPTON.png") { template_fai_10(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_CRAMPTON_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -3296,11 +3306,11 @@ item (FEAT_TRAINS, ITEM_FAI_CRAMPTON) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/hunslet.pnml" 1
-spriteset(spriteset_HUNSLET_purchase, "gfx/Steam/HUNSLET.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/HUNSLET.PNML" 1
+spriteset(spriteset_HUNSLET_purchase, "gfx/STEAM/HUNSLET.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_HUNSLET, "gfx/Steam/HUNSLET.png") { template_fai_21(7, 39)}
-spriteset(spriteset_HUNSLET_flip, "gfx/Steam/HUNSLET.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_HUNSLET, "gfx/STEAM/HUNSLET.png") { template_fai_21(7, 39)}
+spriteset(spriteset_HUNSLET_flip, "gfx/STEAM/HUNSLET.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_HUNSLET_flipcheck, vehicle_is_reversed){
 	1: spriteset_HUNSLET_flip;
@@ -3361,11 +3371,11 @@ item (FEAT_TRAINS, ITEM_FAI_HUNSLET) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/industrial.pnml" 1
-spriteset(spriteset_INDUSTRIAL_purchase, "gfx/Steam/INDUSTRIAL.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/INDUSTRIAL.PNML" 1
+spriteset(spriteset_INDUSTRIAL_purchase, "gfx/STEAM/INDUSTRIAL.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_INDUSTRIAL, "gfx/Steam/INDUSTRIAL.png") { template_fai_17(7, 39)}
-spriteset(spriteset_INDUSTRIAL_flip, "gfx/Steam/INDUSTRIAL.png") { template_fai_17_r(7, 39)}
+spriteset(spriteset_INDUSTRIAL, "gfx/STEAM/INDUSTRIAL.png") { template_fai_17(7, 39)}
+spriteset(spriteset_INDUSTRIAL_flip, "gfx/STEAM/INDUSTRIAL.png") { template_fai_17_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_INDUSTRIAL_flipcheck, vehicle_is_reversed){
 	1: spriteset_INDUSTRIAL_flip;
@@ -3426,11 +3436,11 @@ item (FEAT_TRAINS, ITEM_FAI_INDUSTRIAL) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/ivatt.pnml" 1
-spriteset(spriteset_IVATT_purchase, "gfx/Steam/IVATT.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/IVATT.PNML" 1
+spriteset(spriteset_IVATT_purchase, "gfx/STEAM/IVATT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_IVATT, "gfx/Steam/IVATT.png") { template_fai_25(7, 39)}
-spriteset(spriteset_IVATT_flip, "gfx/Steam/IVATT.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_IVATT, "gfx/STEAM/IVATT.png") { template_fai_25(7, 39)}
+spriteset(spriteset_IVATT_flip, "gfx/STEAM/IVATT.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_IVATT_flipcheck, vehicle_is_reversed){
 	1: spriteset_IVATT_flip;
@@ -3491,11 +3501,11 @@ item (FEAT_TRAINS, ITEM_FAI_IVATT) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/leader.pnml" 1
-spriteset(spriteset_LEADER_purchase, "gfx/Steam/LEADER.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/LEADER.PNML" 1
+spriteset(spriteset_LEADER_purchase, "gfx/STEAM/LEADER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_LEADER, "gfx/Steam/LEADER.png") { template_fai_33(7, 39)}
-spriteset(spriteset_LEADER_flip, "gfx/Steam/LEADER.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_LEADER, "gfx/STEAM/LEADER.png") { template_fai_33(7, 39)}
+spriteset(spriteset_LEADER_flip, "gfx/STEAM/LEADER.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_LEADER_flipcheck, vehicle_is_reversed){
 	1: spriteset_LEADER_flip;
@@ -3556,11 +3566,11 @@ item (FEAT_TRAINS, ITEM_FAI_LEADER) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/long boiler.pnml" 1
-spriteset(spriteset_LONG_BOILER_purchase, "gfx/Steam/LONG_BOILER.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/LONG_BOILER.PNML" 1
+spriteset(spriteset_LONG_BOILER_purchase, "gfx/STEAM/LONG_BOILER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_LONG_BOILER, "gfx/Steam/LONG_BOILER.png") { template_fai_19(7, 39)}
-spriteset(spriteset_LONG_BOILER_tender, "gfx/Steam/LONG_BOILER.png") { template_fai_10(7, 64)}
+spriteset(spriteset_LONG_BOILER, "gfx/STEAM/LONG_BOILER.png") { template_fai_19(7, 39)}
+spriteset(spriteset_LONG_BOILER_tender, "gfx/STEAM/LONG_BOILER.png") { template_fai_10(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_LONG_BOILER_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -3620,11 +3630,11 @@ item (FEAT_TRAINS, ITEM_FAI_LONG_BOILER) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/metropolitan.pnml" 1
-spriteset(spriteset_METROPOLITAN_purchase, "gfx/Steam/METROPOLITAN.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/METROPOLITAN.PNML" 1
+spriteset(spriteset_METROPOLITAN_purchase, "gfx/STEAM/METROPOLITAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_METROPOLITAN, "gfx/Steam/METROPOLITAN.png") { template_fai_21(7, 39)}
-spriteset(spriteset_METROPOLITAN_flip, "gfx/Steam/METROPOLITAN.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_METROPOLITAN, "gfx/STEAM/METROPOLITAN.png") { template_fai_21(7, 39)}
+spriteset(spriteset_METROPOLITAN_flip, "gfx/STEAM/METROPOLITAN.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_METROPOLITAN_flipcheck, vehicle_is_reversed){
 	1: spriteset_METROPOLITAN_flip;
@@ -3685,11 +3695,11 @@ item (FEAT_TRAINS, ITEM_FAI_METROPOLITAN) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/pannier 2.pnml" 1
-spriteset(spriteset_PANNIER_II_purchase, "gfx/Steam/PANNIER_II.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/PANNIER_2.PNML" 1
+spriteset(spriteset_PANNIER_II_purchase, "gfx/STEAM/PANNIER_II.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PANNIER_II, "gfx/Steam/PANNIER_II.png") { template_fai_21(7, 39)}
-spriteset(spriteset_PANNIER_II_flip, "gfx/Steam/PANNIER_II.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_PANNIER_II, "gfx/STEAM/PANNIER_II.png") { template_fai_21(7, 39)}
+spriteset(spriteset_PANNIER_II_flip, "gfx/STEAM/PANNIER_II.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_PANNIER_II_flipcheck, vehicle_is_reversed){
 	1: spriteset_PANNIER_II_flip;
@@ -3750,11 +3760,11 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER_II) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/pannier.pnml" 1
-spriteset(spriteset_PANNIER_purchase, "gfx/Steam/PANNIER.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/PANNIER.PNML" 1
+spriteset(spriteset_PANNIER_purchase, "gfx/STEAM/PANNIER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PANNIER, "gfx/Steam/PANNIER.png") { template_fai_21(7, 39)}
-spriteset(spriteset_PANNIER_flip, "gfx/Steam/PANNIER.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_PANNIER, "gfx/STEAM/PANNIER.png") { template_fai_21(7, 39)}
+spriteset(spriteset_PANNIER_flip, "gfx/STEAM/PANNIER.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_PANNIER_flipcheck, vehicle_is_reversed){
 	1: spriteset_PANNIER_flip;
@@ -3815,11 +3825,11 @@ item (FEAT_TRAINS, ITEM_FAI_PANNIER) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/planet.pnml" 1
-spriteset(spriteset_PLANET_purchase, "gfx/Steam/PLANET.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/PLANET.PNML" 1
+spriteset(spriteset_PLANET_purchase, "gfx/STEAM/PLANET.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PLANET, "gfx/Steam/PLANET.png") { template_fai_13p(7, 39)}
-spriteset(spriteset_PLANET_tender, "gfx/Steam/PLANET.png") { template_fai_8(7, 64)}
+spriteset(spriteset_PLANET, "gfx/STEAM/PLANET.png") { template_fai_13p(7, 39)}
+spriteset(spriteset_PLANET_tender, "gfx/STEAM/PLANET.png") { template_fai_8(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_PLANET_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -3879,11 +3889,11 @@ item (FEAT_TRAINS, ITEM_FAI_PLANET) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/prairie.pnml" 1
-spriteset(spriteset_PRAIRIE_purchase, "gfx/Steam/PRAIRIE.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/PRAIRIE.PNML" 1
+spriteset(spriteset_PRAIRIE_purchase, "gfx/STEAM/PRAIRIE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PRAIRIE, "gfx/Steam/PRAIRIE.png") { template_fai_25(7, 39)}
-spriteset(spriteset_PRAIRIE_flip, "gfx/Steam/PRAIRIE.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_PRAIRIE, "gfx/STEAM/PRAIRIE.png") { template_fai_25(7, 39)}
+spriteset(spriteset_PRAIRIE_flip, "gfx/STEAM/PRAIRIE.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_PRAIRIE_flipcheck, vehicle_is_reversed){
 	1: spriteset_PRAIRIE_flip;
@@ -3944,11 +3954,11 @@ item (FEAT_TRAINS, ITEM_FAI_PRAIRIE) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/suburban 2.pnml" 1
-spriteset(spriteset_SUBURBAN_II_purchase, "gfx/Steam/SUBURBAN_II.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/SUBURBAN_2.PNML" 1
+spriteset(spriteset_SUBURBAN_II_purchase, "gfx/STEAM/SUBURBAN_II.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_SUBURBAN_II, "gfx/Steam/SUBURBAN_II.png") { template_fai_29(7, 39)}
-spriteset(spriteset_SUBURBAN_II_flip, "gfx/Steam/SUBURBAN_II.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_SUBURBAN_II, "gfx/STEAM/SUBURBAN_II.png") { template_fai_29(7, 39)}
+spriteset(spriteset_SUBURBAN_II_flip, "gfx/STEAM/SUBURBAN_II.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_II_flipcheck, vehicle_is_reversed){
 	1: spriteset_SUBURBAN_II_flip;
@@ -4009,11 +4019,11 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN_II) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/suburban.pnml" 1
-spriteset(spriteset_SUBURBAN_purchase, "gfx/Steam/SUBURBAN.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/SUBURBAN.PNML" 1
+spriteset(spriteset_SUBURBAN_purchase, "gfx/STEAM/SUBURBAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_SUBURBAN, "gfx/Steam/SUBURBAN.png") { template_fai_25(7, 39)}
-spriteset(spriteset_SUBURBAN_flip, "gfx/Steam/SUBURBAN.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_SUBURBAN, "gfx/STEAM/SUBURBAN.png") { template_fai_25(7, 39)}
+spriteset(spriteset_SUBURBAN_flip, "gfx/STEAM/SUBURBAN.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_flipcheck, vehicle_is_reversed){
 	1: spriteset_SUBURBAN_flip;
@@ -4074,11 +4084,11 @@ item (FEAT_TRAINS, ITEM_FAI_SUBURBAN) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/STEAM_LOCO/tram.pnml" 1
-spriteset(spriteset_TRAM_purchase, "gfx/Steam/TRAM.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/TRAM.PNML" 1
+spriteset(spriteset_TRAM_purchase, "gfx/STEAM/TRAM.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_TRAM, "gfx/Steam/TRAM.png") { template_fai_17(7, 39)}
-spriteset(spriteset_TRAM_flip, "gfx/Steam/TRAM.png") { template_fai_17_r(7, 39)}
+spriteset(spriteset_TRAM, "gfx/STEAM/TRAM.png") { template_fai_17(7, 39)}
+spriteset(spriteset_TRAM_flip, "gfx/STEAM/TRAM.png") { template_fai_17_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_TRAM_flipcheck, vehicle_is_reversed){
 	1: spriteset_TRAM_flip;
@@ -4140,12 +4150,12 @@ item (FEAT_TRAINS, ITEM_FAI_TRAM) {
 }
 # 1 "ukfs.pnml" 2
 
-# 1 "src/STEAM_LOCO/garratt.pnml" 1
-spriteset(spriteset_GARRATT_purchase, "gfx/Steam/GARRATT.png") { template_fai_purchase(7, 23)}
+# 1 "src/STEAM_LOCO/GARRATT.PNML" 1
+spriteset(spriteset_GARRATT_purchase, "gfx/STEAM/GARRATT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_GARRATT, "gfx/Steam/GARRATT.png") { template_fai_garratt_front(7, 39)}
-spriteset(spriteset_GARRATT_middle, "gfx/Steam/GARRATT.png") { template_fai_garratt_mid(7, 64)}
-spriteset(spriteset_GARRATT_rear, "gfx/Steam/GARRATT.png") { template_fai_garratt_rear(7, 89)}
+spriteset(spriteset_GARRATT, "gfx/STEAM/GARRATT.png") { template_fai_garratt_front(7, 39)}
+spriteset(spriteset_GARRATT_middle, "gfx/STEAM/GARRATT.png") { template_fai_garratt_mid(7, 64)}
+spriteset(spriteset_GARRATT_rear, "gfx/STEAM/GARRATT.png") { template_fai_garratt_rear(7, 89)}
 
 switch(FEAT_TRAINS, SELF, sw_GARRATT_articulation, extra_callback_info1) {
     1: return ITEM_FAI_GARRATT_MID;
@@ -4240,11 +4250,11 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 }
 # 1 "ukfs.pnml" 2
 
-# 1 "src/DIESEL_LOCO/class_08.pnml" 1
-spriteset(spriteset_CLASS_08_purchase, "gfx/Diesel/CLASS_08.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_08.PNML" 1
+spriteset(spriteset_CLASS_08_purchase, "gfx/DIESEL/CLASS_08.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_08, "gfx/Diesel/CLASS_08.png") { template_fai_17(7, 39)}
-spriteset(spriteset_CLASS_08_flip, "gfx/Diesel/CLASS_08.png") { template_fai_17_r(7, 39)}
+spriteset(spriteset_CLASS_08, "gfx/DIESEL/CLASS_08.png") { template_fai_17(7, 39)}
+spriteset(spriteset_CLASS_08_flip, "gfx/DIESEL/CLASS_08.png") { template_fai_17_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_08_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_08_flip;
@@ -4298,11 +4308,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_08) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_14.pnml" 1
-spriteset(spriteset_CLASS_14_purchase, "gfx/Diesel/CLASS_14.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_14.PNML" 1
+spriteset(spriteset_CLASS_14_purchase, "gfx/DIESEL/CLASS_14.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_14, "gfx/Diesel/CLASS_14.png") { template_fai_18(7, 39)}
-spriteset(spriteset_CLASS_14_flip, "gfx/Diesel/CLASS_14.png") { template_fai_18_r(7, 39)}
+spriteset(spriteset_CLASS_14, "gfx/DIESEL/CLASS_14.png") { template_fai_18(7, 39)}
+spriteset(spriteset_CLASS_14_flip, "gfx/DIESEL/CLASS_14.png") { template_fai_18_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_14_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_14_flip;
@@ -4356,11 +4366,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_14) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_17.pnml" 1
-spriteset(spriteset_CLASS_17_purchase, "gfx/Diesel/CLASS_17.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_17.PNML" 1
+spriteset(spriteset_CLASS_17_purchase, "gfx/DIESEL/CLASS_17.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_17, "gfx/Diesel/CLASS_17.png") { template_fai_25(7, 39)}
-spriteset(spriteset_CLASS_17_flip, "gfx/Diesel/CLASS_17.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_CLASS_17, "gfx/DIESEL/CLASS_17.png") { template_fai_25(7, 39)}
+spriteset(spriteset_CLASS_17_flip, "gfx/DIESEL/CLASS_17.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_17_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_17_flip;
@@ -4414,11 +4424,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_17) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_20.pnml" 1
-spriteset(spriteset_CLASS_20_purchase, "gfx/Diesel/CLASS_20.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_20.PNML" 1
+spriteset(spriteset_CLASS_20_purchase, "gfx/DIESEL/CLASS_20.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_20, "gfx/Diesel/CLASS_20.png") { template_fai_25(7, 39)}
-spriteset(spriteset_CLASS_20_flip, "gfx/Diesel/CLASS_20.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_CLASS_20, "gfx/DIESEL/CLASS_20.png") { template_fai_25(7, 39)}
+spriteset(spriteset_CLASS_20_flip, "gfx/DIESEL/CLASS_20.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_20_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_20_flip;
@@ -4472,11 +4482,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_20) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_23.pnml" 1
-spriteset(spriteset_CLASS_23_purchase, "gfx/Diesel/CLASS_23.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_23.PNML" 1
+spriteset(spriteset_CLASS_23_purchase, "gfx/DIESEL/CLASS_23.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_23, "gfx/Diesel/CLASS_23.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_23_flip, "gfx/Diesel/CLASS_23.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_23, "gfx/DIESEL/CLASS_23.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_23_flip, "gfx/DIESEL/CLASS_23.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_23_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_23_flip;
@@ -4530,11 +4540,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_23) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_24.pnml" 1
-spriteset(spriteset_CLASS_24_purchase, "gfx/Diesel/CLASS_24.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_24.PNML" 1
+spriteset(spriteset_CLASS_24_purchase, "gfx/DIESEL/CLASS_24.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_24, "gfx/Diesel/CLASS_24.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_24_flip, "gfx/Diesel/CLASS_24.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_24, "gfx/DIESEL/CLASS_24.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_24_flip, "gfx/DIESEL/CLASS_24.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_24_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_24_flip;
@@ -4588,11 +4598,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_24) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_25.pnml" 1
-spriteset(spriteset_CLASS_25_purchase, "gfx/Diesel/CLASS_25.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_25.PNML" 1
+spriteset(spriteset_CLASS_25_purchase, "gfx/DIESEL/CLASS_25.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_25, "gfx/Diesel/CLASS_25.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_25_flip, "gfx/Diesel/CLASS_25.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_25, "gfx/DIESEL/CLASS_25.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_25_flip, "gfx/DIESEL/CLASS_25.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_25_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_25_flip;
@@ -4646,11 +4656,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_25) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_27.pnml" 1
-spriteset(spriteset_CLASS_27_purchase, "gfx/Diesel/CLASS_27.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_27.PNML" 1
+spriteset(spriteset_CLASS_27_purchase, "gfx/DIESEL/CLASS_27.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_27, "gfx/Diesel/CLASS_27.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_27_flip, "gfx/Diesel/CLASS_27.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_27, "gfx/DIESEL/CLASS_27.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_27_flip, "gfx/DIESEL/CLASS_27.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_27_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_27_flip;
@@ -4704,11 +4714,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_27) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_37.pnml" 1
-spriteset(spriteset_CLASS_37_purchase, "gfx/Diesel/CLASS_37.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_37.PNML" 1
+spriteset(spriteset_CLASS_37_purchase, "gfx/DIESEL/CLASS_37.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_37, "gfx/Diesel/CLASS_37.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_37_flip, "gfx/Diesel/CLASS_37.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_37, "gfx/DIESEL/CLASS_37.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_37_flip, "gfx/DIESEL/CLASS_37.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_37_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_37_flip;
@@ -4762,11 +4772,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_37) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_41.pnml" 1
-spriteset(spriteset_CLASS_41_purchase, "gfx/Diesel/CLASS_41.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_41.PNML" 1
+spriteset(spriteset_CLASS_41_purchase, "gfx/DIESEL/CLASS_41.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_41, "gfx/Diesel/CLASS_41.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_41_flip, "gfx/Diesel/CLASS_41.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_41, "gfx/DIESEL/CLASS_41.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_41_flip, "gfx/DIESEL/CLASS_41.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_41_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_41_flip;
@@ -4820,11 +4830,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_41) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_44.pnml" 1
-spriteset(spriteset_CLASS_44_purchase, "gfx/Diesel/CLASS_44.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_44.PNML" 1
+spriteset(spriteset_CLASS_44_purchase, "gfx/DIESEL/CLASS_44.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_44, "gfx/Diesel/CLASS_44.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_44_flip, "gfx/Diesel/CLASS_44.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_44, "gfx/DIESEL/CLASS_44.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_44_flip, "gfx/DIESEL/CLASS_44.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_44_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_44_flip;
@@ -4878,11 +4888,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_44) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_47.pnml" 1
-spriteset(spriteset_CLASS_47_purchase, "gfx/Diesel/CLASS_47.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_47.PNML" 1
+spriteset(spriteset_CLASS_47_purchase, "gfx/DIESEL/CLASS_47.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_47, "gfx/Diesel/CLASS_47.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_47_flip, "gfx/Diesel/CLASS_47.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_47, "gfx/DIESEL/CLASS_47.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_47_flip, "gfx/DIESEL/CLASS_47.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_47_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_47_flip;
@@ -4936,11 +4946,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_47) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_52.pnml" 1
-spriteset(spriteset_CLASS_52_purchase, "gfx/Diesel/CLASS_52.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_52.PNML" 1
+spriteset(spriteset_CLASS_52_purchase, "gfx/DIESEL/CLASS_52.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_52, "gfx/Diesel/CLASS_52.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_52_flip, "gfx/Diesel/CLASS_52.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_52, "gfx/DIESEL/CLASS_52.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_52_flip, "gfx/DIESEL/CLASS_52.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_52_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_52_flip;
@@ -4994,11 +5004,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_52) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_55.pnml" 1
-spriteset(spriteset_CLASS_55_purchase, "gfx/Diesel/CLASS_55.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_55.PNML" 1
+spriteset(spriteset_CLASS_55_purchase, "gfx/DIESEL/CLASS_55.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_55, "gfx/Diesel/CLASS_55.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_55_flip, "gfx/Diesel/CLASS_55.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_55, "gfx/DIESEL/CLASS_55.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_55_flip, "gfx/DIESEL/CLASS_55.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_55_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_55_flip;
@@ -5052,11 +5062,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_55) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_58.pnml" 1
-spriteset(spriteset_CLASS_58_purchase, "gfx/Diesel/CLASS_58.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_58.PNML" 1
+spriteset(spriteset_CLASS_58_purchase, "gfx/DIESEL/CLASS_58.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_58, "gfx/Diesel/CLASS_58.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_58_flip, "gfx/Diesel/CLASS_58.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_58, "gfx/DIESEL/CLASS_58.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_58_flip, "gfx/DIESEL/CLASS_58.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_58_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_58_flip;
@@ -5110,11 +5120,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_58) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_60.pnml" 1
-spriteset(spriteset_CLASS_60_purchase, "gfx/Diesel/CLASS_60.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_60.PNML" 1
+spriteset(spriteset_CLASS_60_purchase, "gfx/DIESEL/CLASS_60.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_60, "gfx/Diesel/CLASS_60.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_60_flip, "gfx/Diesel/CLASS_60.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_60, "gfx/DIESEL/CLASS_60.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_60_flip, "gfx/DIESEL/CLASS_60.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_60_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_60_flip;
@@ -5168,11 +5178,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_60) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_66.pnml" 1
-spriteset(spriteset_CLASS_66_purchase, "gfx/Diesel/CLASS_66.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_66.PNML" 1
+spriteset(spriteset_CLASS_66_purchase, "gfx/DIESEL/CLASS_66.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_66, "gfx/Diesel/CLASS_66.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_66_flip, "gfx/Diesel/CLASS_66.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_66, "gfx/DIESEL/CLASS_66.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_66_flip, "gfx/DIESEL/CLASS_66.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_66_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_66_flip;
@@ -5226,11 +5236,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_66) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_67.pnml" 1
-spriteset(spriteset_CLASS_67_purchase, "gfx/Diesel/CLASS_67.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_67.PNML" 1
+spriteset(spriteset_CLASS_67_purchase, "gfx/DIESEL/CLASS_67.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_67, "gfx/Diesel/CLASS_67.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_67_flip, "gfx/Diesel/CLASS_67.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_67, "gfx/DIESEL/CLASS_67.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_67_flip, "gfx/DIESEL/CLASS_67.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_67_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_67_flip;
@@ -5284,11 +5294,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_67) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_70_ii.pnml" 1
-spriteset(spriteset_CLASS_70_II_purchase, "gfx/Diesel/CLASS_70_II.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_70_II.PNML" 1
+spriteset(spriteset_CLASS_70_II_purchase, "gfx/DIESEL/CLASS_70_II.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_70_II, "gfx/Diesel/CLASS_70_II.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_70_II_flip, "gfx/Diesel/CLASS_70_II.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_70_II, "gfx/DIESEL/CLASS_70_II.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_70_II_flip, "gfx/DIESEL/CLASS_70_II.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_70_II_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_70_II_flip;
@@ -5342,11 +5352,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_70_II) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_d16.pnml" 1
-spriteset(spriteset_CLASS_D16_purchase, "gfx/Diesel/CLASS_D16.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_D16.PNML" 1
+spriteset(spriteset_CLASS_D16_purchase, "gfx/DIESEL/CLASS_D16.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_D16, "gfx/Diesel/CLASS_D16.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_D16_flip, "gfx/Diesel/CLASS_D16.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_D16, "gfx/DIESEL/CLASS_D16.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_D16_flip, "gfx/DIESEL/CLASS_D16.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_D16_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_D16_flip;
@@ -5400,11 +5410,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_D16) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/DIESEL_LOCO/class_dp1.pnml" 1
-spriteset(spriteset_CLASS_DP1_purchase, "gfx/Diesel/CLASS_DP1.png") { template_fai_purchase(7, 23)}
+# 1 "src/DIESEL_LOCO/CLASS_DP1.PNML" 1
+spriteset(spriteset_CLASS_DP1_purchase, "gfx/DIESEL/CLASS_DP1.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_DP1, "gfx/Diesel/CLASS_DP1.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_DP1_flip, "gfx/Diesel/CLASS_DP1.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_DP1, "gfx/DIESEL/CLASS_DP1.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_DP1_flip, "gfx/DIESEL/CLASS_DP1.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_DP1_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_DP1_flip;
@@ -5459,11 +5469,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_DP1) {
 }
 # 1 "ukfs.pnml" 2
 
-# 1 "src/ELECTRIC_LOCO/class_70_i.pnml" 1
-spriteset(spriteset_CLASS_70_I_purchase, "gfx/Electric/CLASS_70_I.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_70_I.PNML" 1
+spriteset(spriteset_CLASS_70_I_purchase, "gfx/ELECTRIC/CLASS_70_I.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_70_I, "gfx/Electric/CLASS_70_I.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_70_I_flip, "gfx/Electric/CLASS_70_I.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_70_I, "gfx/ELECTRIC/CLASS_70_I.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_70_I_flip, "gfx/ELECTRIC/CLASS_70_I.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_70_I_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_70_I_flip;
@@ -5517,11 +5527,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_70_I) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_71.pnml" 1
-spriteset(spriteset_CLASS_71_purchase, "gfx/Electric/CLASS_71.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_71.PNML" 1
+spriteset(spriteset_CLASS_71_purchase, "gfx/ELECTRIC/CLASS_71.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_71, "gfx/Electric/CLASS_71.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_71_flip, "gfx/Electric/CLASS_71.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_71, "gfx/ELECTRIC/CLASS_71.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_71_flip, "gfx/ELECTRIC/CLASS_71.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_71_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_71_flip;
@@ -5575,11 +5585,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_71) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_73.pnml" 1
-spriteset(spriteset_CLASS_73_purchase, "gfx/Electric/CLASS_73.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_73.PNML" 1
+spriteset(spriteset_CLASS_73_purchase, "gfx/ELECTRIC/CLASS_73.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_73, "gfx/Electric/CLASS_73.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_73_flip, "gfx/Electric/CLASS_73.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_73, "gfx/ELECTRIC/CLASS_73.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_73_flip, "gfx/ELECTRIC/CLASS_73.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_73_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_73_flip;
@@ -5633,11 +5643,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_73) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_76.pnml" 1
-spriteset(spriteset_CLASS_76_purchase, "gfx/Electric/CLASS_76.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_76.PNML" 1
+spriteset(spriteset_CLASS_76_purchase, "gfx/ELECTRIC/CLASS_76.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_76, "gfx/Electric/CLASS_76.png") { template_fai_25(7, 39)}
-spriteset(spriteset_CLASS_76_flip, "gfx/Electric/CLASS_76.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_CLASS_76, "gfx/ELECTRIC/CLASS_76.png") { template_fai_25(7, 39)}
+spriteset(spriteset_CLASS_76_flip, "gfx/ELECTRIC/CLASS_76.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_76_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_76_flip;
@@ -5691,11 +5701,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_76) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_77.pnml" 1
-spriteset(spriteset_CLASS_77_purchase, "gfx/Electric/CLASS_77.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_77.PNML" 1
+spriteset(spriteset_CLASS_77_purchase, "gfx/ELECTRIC/CLASS_77.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_77, "gfx/Electric/CLASS_77.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_77_flip, "gfx/Electric/CLASS_77.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_77, "gfx/ELECTRIC/CLASS_77.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_77_flip, "gfx/ELECTRIC/CLASS_77.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_77_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_77_flip;
@@ -5749,11 +5759,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_77) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_81.pnml" 1
-spriteset(spriteset_CLASS_81_purchase, "gfx/Electric/CLASS_81.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_81.PNML" 1
+spriteset(spriteset_CLASS_81_purchase, "gfx/ELECTRIC/CLASS_81.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_81, "gfx/Electric/CLASS_81.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_81_flip, "gfx/Electric/CLASS_81.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_81, "gfx/ELECTRIC/CLASS_81.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_81_flip, "gfx/ELECTRIC/CLASS_81.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_81_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_81_flip;
@@ -5807,11 +5817,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_81) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_86.pnml" 1
-spriteset(spriteset_CLASS_86_purchase, "gfx/Electric/CLASS_86.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_86.PNML" 1
+spriteset(spriteset_CLASS_86_purchase, "gfx/ELECTRIC/CLASS_86.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_86, "gfx/Electric/CLASS_86.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_86_flip, "gfx/Electric/CLASS_86.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_86, "gfx/ELECTRIC/CLASS_86.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_86_flip, "gfx/ELECTRIC/CLASS_86.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_86_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_86_flip;
@@ -5865,11 +5875,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_86) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_89.pnml" 1
-spriteset(spriteset_CLASS_89_purchase, "gfx/Electric/CLASS_89.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_89.PNML" 1
+spriteset(spriteset_CLASS_89_purchase, "gfx/ELECTRIC/CLASS_89.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_89, "gfx/Electric/CLASS_89.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_89_flip, "gfx/Electric/CLASS_89.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_89, "gfx/ELECTRIC/CLASS_89.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_89_flip, "gfx/ELECTRIC/CLASS_89.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_89_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_89_flip;
@@ -5923,11 +5933,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_89) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_90.pnml" 1
-spriteset(spriteset_CLASS_90_purchase, "gfx/Electric/CLASS_90.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_90.PNML" 1
+spriteset(spriteset_CLASS_90_purchase, "gfx/ELECTRIC/CLASS_90.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_90, "gfx/Electric/CLASS_90.png") { template_fai_29(7, 39)}
-spriteset(spriteset_CLASS_90_flip, "gfx/Electric/CLASS_90.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_CLASS_90, "gfx/ELECTRIC/CLASS_90.png") { template_fai_29(7, 39)}
+spriteset(spriteset_CLASS_90_flip, "gfx/ELECTRIC/CLASS_90.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_90_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_90_flip;
@@ -5981,11 +5991,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_90) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/class_92.pnml" 1
-spriteset(spriteset_CLASS_92_purchase, "gfx/Electric/CLASS_92.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/CLASS_92.PNML" 1
+spriteset(spriteset_CLASS_92_purchase, "gfx/ELECTRIC/CLASS_92.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_92, "gfx/Electric/CLASS_92.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_92_flip, "gfx/Electric/CLASS_92.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_92, "gfx/ELECTRIC/CLASS_92.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_92_flip, "gfx/ELECTRIC/CLASS_92.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_92_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_92_flip;
@@ -6039,11 +6049,11 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_92) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/ee1.pnml" 1
-spriteset(spriteset_EE1_purchase, "gfx/Electric/EE1.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/EE1.PNML" 1
+spriteset(spriteset_EE1_purchase, "gfx/ELECTRIC/EE1.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_EE1, "gfx/Electric/EE1.png") { template_fai_29(7, 39)}
-spriteset(spriteset_EE1_flip, "gfx/Electric/EE1.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_EE1, "gfx/ELECTRIC/EE1.png") { template_fai_29(7, 39)}
+spriteset(spriteset_EE1_flip, "gfx/ELECTRIC/EE1.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_EE1_flipcheck, vehicle_is_reversed){
 	1: spriteset_EE1_flip;
@@ -6097,11 +6107,11 @@ item (FEAT_TRAINS, ITEM_FAI_EE1) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/ef1.pnml" 1
-spriteset(spriteset_EF1_purchase, "gfx/Electric/EF1.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/EF1.PNML" 1
+spriteset(spriteset_EF1_purchase, "gfx/ELECTRIC/EF1.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_EF1, "gfx/Electric/EF1.png") { template_fai_21(7, 39)}
-spriteset(spriteset_EF1_flip, "gfx/Electric/EF1.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_EF1, "gfx/ELECTRIC/EF1.png") { template_fai_21(7, 39)}
+spriteset(spriteset_EF1_flip, "gfx/ELECTRIC/EF1.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_EF1_flipcheck, vehicle_is_reversed){
 	1: spriteset_EF1_flip;
@@ -6155,11 +6165,11 @@ item (FEAT_TRAINS, ITEM_FAI_EF1) {
 	}
 }
 # 1 "ukfs.pnml" 2
-# 1 "src/ELECTRIC_LOCO/tripworker.pnml" 1
-spriteset(spriteset_TRIPWORKER_purchase, "gfx/Electric/TRIPWORKER.png") { template_fai_purchase(7, 23)}
+# 1 "src/ELECTRIC_LOCO/TRIPWORKER.PNML" 1
+spriteset(spriteset_TRIPWORKER_purchase, "gfx/ELECTRIC/TRIPWORKER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_TRIPWORKER, "gfx/Electric/TRIPWORKER.png") { template_fai_21(7, 39)}
-spriteset(spriteset_TRIPWORKER_flip, "gfx/Electric/TRIPWORKER.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_TRIPWORKER, "gfx/ELECTRIC/TRIPWORKER.png") { template_fai_21(7, 39)}
+spriteset(spriteset_TRIPWORKER_flip, "gfx/ELECTRIC/TRIPWORKER.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_TRIPWORKER_flipcheck, vehicle_is_reversed){
 	1: spriteset_TRIPWORKER_flip;
@@ -6210,577 +6220,6 @@ item (FEAT_TRAINS, ITEM_FAI_TRIPWORKER) {
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_TRIPWORKER_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-
-# 1 "src/WAGONS/passenger_carriage.pnml" 1
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_purchase, "gfx/Wagons/Passenger Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_f, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_m, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_r, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_PASSENGER_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_PASSENGER_CARRIAGE_r;
-	spriteset_WAGON_PASSENGER_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_PASSENGER_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_PASSENGER_CARRIAGE_f;
-	sw_WAGON_PASSENGER_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_PASSENGER_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_PASSENGER_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1912,1,1);
-		
-		model_life:						40;
-		weight:                         33 ton;
-		speed:							100 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_PASSENGER_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_PASSENGER_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/commuter_carriage.pnml" 1
-spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_purchase, "gfx/Wagons/Commuter Carriage Large.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_f, "gfx/Wagons/Commuter Carriage Large.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_m, "gfx/Wagons/Commuter Carriage Large.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_r, "gfx/Wagons/Commuter Carriage Large.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_COMMUTER_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_COMMUTER_CARRIAGE_r;
-	spriteset_WAGON_COMMUTER_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_COMMUTER_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_COMMUTER_CARRIAGE_f;
-	sw_WAGON_COMMUTER_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_COMMUTER_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					40 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_COMMUTER_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1955,1,1);
-		
-		model_life:						40;
-		weight:                         30 ton;
-		speed:							70 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_COMMUTER_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_COMMUTER_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/slam_door_carriage.pnml" 1
-spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_purchase, "gfx/Wagons/Slam Door Commuter Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_f, "gfx/Wagons/Slam Door Commuter Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_m, "gfx/Wagons/Slam Door Commuter Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_r, "gfx/Wagons/Slam Door Commuter Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_SLAM_DOOR_CARRIAGE_r;
-	spriteset_WAGON_SLAM_DOOR_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_SLAM_DOOR_CARRIAGE_f;
-	sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_SLAM_DOOR_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					45 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_SLAM_DOOR_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1974,1,1);
-		
-		model_life:						40;
-		weight:                         33 ton;
-		speed:							90 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_SLAM_DOOR_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/high_speed_carriage.pnml" 1
-spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_purchase, "gfx/Wagons/High Speed Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_f, "gfx/Wagons/High Speed Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_m, "gfx/Wagons/High Speed Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_r, "gfx/Wagons/High Speed Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_HIGH_SPEED_CARRIAGE_r;
-	spriteset_WAGON_HIGH_SPEED_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_HIGH_SPEED_CARRIAGE_f;
-	sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_HIGH_SPEED_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_HIGH_SPEED_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1974,1,1);
-		
-		model_life:						40;
-		weight:                         38 ton;
-		speed:							140 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_HIGH_SPEED_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/intercity_carriage.pnml" 1
-spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_purchase, "gfx/Wagons/Intercity Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_f, "gfx/Wagons/Intercity Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_m, "gfx/Wagons/Intercity Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_r, "gfx/Wagons/Intercity Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_INTERCITY_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_INTERCITY_CARRIAGE_r;
-	spriteset_WAGON_INTERCITY_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_INTERCITY_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_INTERCITY_CARRIAGE_f;
-	sw_WAGON_INTERCITY_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_INTERCITY_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_INTERCITY_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1985,1,1);
-		
-		model_life:						40;
-		weight:                         38 ton;
-		speed:							140 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_INTERCITY_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_INTERCITY_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/mk1_carriage.pnml" 1
-spriteset(spriteset_WAGON_MK1_CARRIAGE_purchase, "gfx/Wagons/Mk1 Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_MK1_CARRIAGE_f, "gfx/Wagons/Mk1 Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_MK1_CARRIAGE_m, "gfx/Wagons/Mk1 Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_MK1_CARRIAGE_r, "gfx/Wagons/Mk1 Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK1_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_MK1_CARRIAGE_r;
-	spriteset_WAGON_MK1_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK1_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_MK1_CARRIAGE_f;
-	sw_WAGON_MK1_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_MK1_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_MK1_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1948,1,1);
-		
-		model_life:						40;
-		weight:                         33 ton;
-		speed:							100 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_MK1_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_MK1_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/mk2_carriage.pnml" 1
-spriteset(spriteset_WAGON_MK2_CARRIAGE_purchase, "gfx/Wagons/Mk2 Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_MK2_CARRIAGE_f, "gfx/Wagons/Mk2 Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_MK2_CARRIAGE_m, "gfx/Wagons/Mk2 Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_MK2_CARRIAGE_r, "gfx/Wagons/Mk2 Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK2_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_MK2_CARRIAGE_r;
-	spriteset_WAGON_MK2_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK2_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_MK2_CARRIAGE_f;
-	sw_WAGON_MK2_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_MK2_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_MK2_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1969,1,1);
-		
-		model_life:						40;
-		weight:                         33 ton;
-		speed:							100 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_MK2_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_MK2_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/mk3_carriage.pnml" 1
-spriteset(spriteset_WAGON_MK3_CARRIAGE_purchase, "gfx/Wagons/Mk3 Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_MK3_CARRIAGE_f, "gfx/Wagons/Mk3 Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_MK3_CARRIAGE_m, "gfx/Wagons/Mk3 Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_MK3_CARRIAGE_r, "gfx/Wagons/Mk3 Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK3_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_MK3_CARRIAGE_r;
-	spriteset_WAGON_MK3_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK3_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_MK3_CARRIAGE_f;
-	sw_WAGON_MK3_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_MK3_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_MK3_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1985,1,1);
-		
-		model_life:						40;
-		weight:                         33 ton;
-		speed:							100 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_MK3_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_MK3_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/mk4_carriage.pnml" 1
-spriteset(spriteset_WAGON_MK4_CARRIAGE_purchase, "gfx/Wagons/Mk4 Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_MK4_CARRIAGE_f, "gfx/Wagons/Mk4 Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_MK4_CARRIAGE_m, "gfx/Wagons/Mk4 Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_MK4_CARRIAGE_r, "gfx/Wagons/Mk4 Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK4_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_MK4_CARRIAGE_r;
-	spriteset_WAGON_MK4_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK4_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_MK4_CARRIAGE_f;
-	sw_WAGON_MK4_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_MK4_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_MK4_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2000,1,1);
-		
-		model_life:						40;
-		weight:                         38 ton;
-		speed:							140 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_MK4_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_MK4_CARRIAGE_purchase;
-	}
-}
-# 1 "ukfs.pnml" 2
-# 1 "src/WAGONS/mk5_carriage.pnml" 1
-spriteset(spriteset_WAGON_MK5_CARRIAGE_purchase, "gfx/Wagons/Mk5 Carriage.png") { template_fai_purchase(7, 23)}
-
-spriteset(spriteset_WAGON_MK5_CARRIAGE_f, "gfx/Wagons/Mk5 Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_MK5_CARRIAGE_m, "gfx/Wagons/Mk5 Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_MK5_CARRIAGE_r, "gfx/Wagons/Mk5 Carriage.png") { template_fai_33(367, 39)}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK5_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
-	0: spriteset_WAGON_MK5_CARRIAGE_r;
-	spriteset_WAGON_MK5_CARRIAGE_m ;
-}
-
-switch(FEAT_TRAINS, SELF, sw_WAGON_MK5_CARRIAGE_poscheck_f, position_in_vehid_chain){
-	0: spriteset_WAGON_MK5_CARRIAGE_f;
-	sw_WAGON_MK5_CARRIAGE_poscheck_r ;
-}
-
-//Sprite stack
-
-//Item
-
-item (FEAT_TRAINS, ITEM_FAI_WAGON_MK5_CARRIAGE) {
-	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
-		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
-		bitmask_vehicle_info:			0;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_NONE;
-		
-		name:							string(STR_NAME_WAGON_MK5_CARRIAGE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2020,1,1);
-		
-		model_life:						40;
-		weight:                         38 ton;
-		speed:							140 mph;
-		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
-		length:							8 ;
-	}
-	graphics {
-		default: 							sw_WAGON_MK5_CARRIAGE_poscheck_f;
-		purchase:                           spriteset_WAGON_MK5_CARRIAGE_purchase;
 	}
 }
 # 1 "ukfs.pnml" 2

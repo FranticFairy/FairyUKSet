@@ -1,7 +1,7 @@
-spriteset(spriteset_CLASS_89_purchase, "gfx/Electric/CLASS_89.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_CLASS_89_purchase, "gfx/ELECTRIC/CLASS_89.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_89, "gfx/Electric/CLASS_89.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_89_flip, "gfx/Electric/CLASS_89.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_89, "gfx/ELECTRIC/CLASS_89.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_89_flip, "gfx/ELECTRIC/CLASS_89.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_89_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_89_flip;

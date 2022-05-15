@@ -1,7 +1,7 @@
-spriteset(spriteset_EDWARDIAN_purchase, "gfx/Steam/EDWARDIAN.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_EDWARDIAN_purchase, "gfx/STEAM/EDWARDIAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_EDWARDIAN, "gfx/Steam/EDWARDIAN.png") { template_fai_25(7, 39)}
-spriteset(spriteset_EDWARDIAN_tender, "gfx/Steam/EDWARDIAN.png") { template_fai_13(7, 64)}
+spriteset(spriteset_EDWARDIAN, "gfx/STEAM/EDWARDIAN.png") { template_fai_25(7, 39)}
+spriteset(spriteset_EDWARDIAN_tender, "gfx/STEAM/EDWARDIAN.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_EDWARDIAN_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

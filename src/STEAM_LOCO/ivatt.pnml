@@ -1,7 +1,7 @@
-spriteset(spriteset_IVATT_purchase, "gfx/Steam/IVATT.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_IVATT_purchase, "gfx/STEAM/IVATT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_IVATT, "gfx/Steam/IVATT.png") { template_fai_25(7, 39)}
-spriteset(spriteset_IVATT_flip, "gfx/Steam/IVATT.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_IVATT, "gfx/STEAM/IVATT.png") { template_fai_25(7, 39)}
+spriteset(spriteset_IVATT_flip, "gfx/STEAM/IVATT.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_IVATT_flipcheck, vehicle_is_reversed){
 	1: spriteset_IVATT_flip;

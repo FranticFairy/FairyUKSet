@@ -1,7 +1,7 @@
-spriteset(spriteset_HUNSLET_purchase, "gfx/Steam/HUNSLET.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_HUNSLET_purchase, "gfx/STEAM/HUNSLET.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_HUNSLET, "gfx/Steam/HUNSLET.png") { template_fai_21(7, 39)}
-spriteset(spriteset_HUNSLET_flip, "gfx/Steam/HUNSLET.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_HUNSLET, "gfx/STEAM/HUNSLET.png") { template_fai_21(7, 39)}
+spriteset(spriteset_HUNSLET_flip, "gfx/STEAM/HUNSLET.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_HUNSLET_flipcheck, vehicle_is_reversed){
 	1: spriteset_HUNSLET_flip;

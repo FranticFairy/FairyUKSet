@@ -1,7 +1,7 @@
-spriteset(spriteset_MINERAL_purchase, "gfx/Steam/MINERAL.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_MINERAL_purchase, "gfx/STEAM/MINERAL.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MINERAL, "gfx/Steam/MINERAL.png") { template_fai_25(7, 39)}
-spriteset(spriteset_MINERAL_tender, "gfx/Steam/MINERAL.png") { template_fai_12(7, 64)}
+spriteset(spriteset_MINERAL, "gfx/STEAM/MINERAL.png") { template_fai_25(7, 39)}
+spriteset(spriteset_MINERAL_tender, "gfx/STEAM/MINERAL.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_MINERAL_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

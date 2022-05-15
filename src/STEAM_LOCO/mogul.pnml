@@ -1,7 +1,7 @@
-spriteset(spriteset_MOGUL_purchase, "gfx/Steam/MOGUL.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_MOGUL_purchase, "gfx/STEAM/MOGUL.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MOGUL, "gfx/Steam/MOGUL.png") { template_fai_25(7, 39)}
-spriteset(spriteset_MOGUL_tender, "gfx/Steam/MOGUL.png") { template_fai_13(7, 64)}
+spriteset(spriteset_MOGUL, "gfx/STEAM/MOGUL.png") { template_fai_25(7, 39)}
+spriteset(spriteset_MOGUL_tender, "gfx/STEAM/MOGUL.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_MOGUL_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

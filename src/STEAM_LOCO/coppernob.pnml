@@ -1,7 +1,7 @@
-spriteset(spriteset_COPPERNOB_purchase, "gfx/Steam/COPPERNOB.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_COPPERNOB_purchase, "gfx/STEAM/COPPERNOB.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_COPPERNOB, "gfx/Steam/COPPERNOB.png") { template_fai_15(7, 39)}
-spriteset(spriteset_COPPERNOB_tender, "gfx/Steam/COPPERNOB.png") { template_fai_10c(7, 64)}
+spriteset(spriteset_COPPERNOB, "gfx/STEAM/COPPERNOB.png") { template_fai_15(7, 39)}
+spriteset(spriteset_COPPERNOB_tender, "gfx/STEAM/COPPERNOB.png") { template_fai_10c(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_COPPERNOB_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

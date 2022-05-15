@@ -1,7 +1,7 @@
-spriteset(spriteset_INDUSTRIAL_purchase, "gfx/Steam/INDUSTRIAL.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_INDUSTRIAL_purchase, "gfx/STEAM/INDUSTRIAL.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_INDUSTRIAL, "gfx/Steam/INDUSTRIAL.png") { template_fai_17(7, 39)}
-spriteset(spriteset_INDUSTRIAL_flip, "gfx/Steam/INDUSTRIAL.png") { template_fai_17_r(7, 39)}
+spriteset(spriteset_INDUSTRIAL, "gfx/STEAM/INDUSTRIAL.png") { template_fai_17(7, 39)}
+spriteset(spriteset_INDUSTRIAL_flip, "gfx/STEAM/INDUSTRIAL.png") { template_fai_17_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_INDUSTRIAL_flipcheck, vehicle_is_reversed){
 	1: spriteset_INDUSTRIAL_flip;

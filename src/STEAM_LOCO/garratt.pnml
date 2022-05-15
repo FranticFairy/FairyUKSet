@@ -1,8 +1,8 @@
-spriteset(spriteset_GARRATT_purchase, "gfx/Steam/GARRATT.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_GARRATT_purchase, "gfx/STEAM/GARRATT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_GARRATT, "gfx/Steam/GARRATT.png") { template_fai_garratt_front(7, 39)}
-spriteset(spriteset_GARRATT_middle, "gfx/Steam/GARRATT.png") { template_fai_garratt_mid(7, 64)}
-spriteset(spriteset_GARRATT_rear, "gfx/Steam/GARRATT.png") { template_fai_garratt_rear(7, 89)}
+spriteset(spriteset_GARRATT, "gfx/STEAM/GARRATT.png") { template_fai_garratt_front(7, 39)}
+spriteset(spriteset_GARRATT_middle, "gfx/STEAM/GARRATT.png") { template_fai_garratt_mid(7, 64)}
+spriteset(spriteset_GARRATT_rear, "gfx/STEAM/GARRATT.png") { template_fai_garratt_rear(7, 89)}
 
 switch(FEAT_TRAINS, SELF, sw_GARRATT_articulation, extra_callback_info1) {
     1: return ITEM_FAI_GARRATT_MID;

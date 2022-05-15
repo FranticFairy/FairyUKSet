@@ -1,7 +1,7 @@
-spriteset(spriteset_PLANET_purchase, "gfx/Steam/PLANET.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_PLANET_purchase, "gfx/STEAM/PLANET.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PLANET, "gfx/Steam/PLANET.png") { template_fai_13p(7, 39)}
-spriteset(spriteset_PLANET_tender, "gfx/Steam/PLANET.png") { template_fai_8(7, 64)}
+spriteset(spriteset_PLANET, "gfx/STEAM/PLANET.png") { template_fai_13p(7, 39)}
+spriteset(spriteset_PLANET_tender, "gfx/STEAM/PLANET.png") { template_fai_8(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_PLANET_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

@@ -1,7 +1,7 @@
-spriteset(spriteset_MERCHANT_NAVY_purchase, "gfx/Steam/MERCHANT_NAVY.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_MERCHANT_NAVY_purchase, "gfx/STEAM/MERCHANT_NAVY.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MERCHANT_NAVY, "gfx/Steam/MERCHANT_NAVY.png") { template_fai_29(7, 39)}
-spriteset(spriteset_MERCHANT_NAVY_tender, "gfx/Steam/MERCHANT_NAVY.png") { template_fai_16(7, 64)}
+spriteset(spriteset_MERCHANT_NAVY, "gfx/STEAM/MERCHANT_NAVY.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MERCHANT_NAVY_tender, "gfx/STEAM/MERCHANT_NAVY.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_MERCHANT_NAVY_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

@@ -1,7 +1,7 @@
-spriteset(spriteset_CRAMPTON_purchase, "gfx/Steam/CRAMPTON.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_CRAMPTON_purchase, "gfx/STEAM/CRAMPTON.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CRAMPTON, "gfx/Steam/CRAMPTON.png") { template_fai_19c(7, 39)}
-spriteset(spriteset_CRAMPTON_tender, "gfx/Steam/CRAMPTON.png") { template_fai_10(7, 64)}
+spriteset(spriteset_CRAMPTON, "gfx/STEAM/CRAMPTON.png") { template_fai_19c(7, 39)}
+spriteset(spriteset_CRAMPTON_tender, "gfx/STEAM/CRAMPTON.png") { template_fai_10(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_CRAMPTON_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

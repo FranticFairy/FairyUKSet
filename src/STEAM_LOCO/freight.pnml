@@ -1,7 +1,7 @@
-spriteset(spriteset_FREIGHT_purchase, "gfx/Steam/FREIGHT.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_FREIGHT_purchase, "gfx/STEAM/FREIGHT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_FREIGHT, "gfx/Steam/FREIGHT.png") { template_fai_21(7, 39)}
-spriteset(spriteset_FREIGHT_tender, "gfx/Steam/FREIGHT.png") { template_fai_13(7, 64)}
+spriteset(spriteset_FREIGHT, "gfx/STEAM/FREIGHT.png") { template_fai_21(7, 39)}
+spriteset(spriteset_FREIGHT_tender, "gfx/STEAM/FREIGHT.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_FREIGHT_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

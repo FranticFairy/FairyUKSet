@@ -1,7 +1,7 @@
-spriteset(spriteset_SPINNER_purchase, "gfx/Steam/SPINNER.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_SPINNER_purchase, "gfx/STEAM/SPINNER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_SPINNER, "gfx/Steam/SPINNER.png") { template_fai_21(7, 39)}
-spriteset(spriteset_SPINNER_tender, "gfx/Steam/SPINNER.png") { template_fai_12(7, 64)}
+spriteset(spriteset_SPINNER, "gfx/STEAM/SPINNER.png") { template_fai_21(7, 39)}
+spriteset(spriteset_SPINNER_tender, "gfx/STEAM/SPINNER.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_SPINNER_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

@@ -1,7 +1,7 @@
-spriteset(spriteset_PANNIER_II_purchase, "gfx/Steam/PANNIER_II.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_PANNIER_II_purchase, "gfx/STEAM/PANNIER_II.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PANNIER_II, "gfx/Steam/PANNIER_II.png") { template_fai_21(7, 39)}
-spriteset(spriteset_PANNIER_II_flip, "gfx/Steam/PANNIER_II.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_PANNIER_II, "gfx/STEAM/PANNIER_II.png") { template_fai_21(7, 39)}
+spriteset(spriteset_PANNIER_II_flip, "gfx/STEAM/PANNIER_II.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_PANNIER_II_flipcheck, vehicle_is_reversed){
 	1: spriteset_PANNIER_II_flip;

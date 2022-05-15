@@ -1,7 +1,7 @@
-spriteset(spriteset_jinty_purchase, "gfx/Steam/JINTY.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_jinty_purchase, "gfx/STEAM/JINTY.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_jinty, "gfx/Steam/JINTY.png") { template_fai_21(7, 39)}
-spriteset(spriteset_jinty_flip, "gfx/Steam/JINTY.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_jinty, "gfx/STEAM/JINTY.png") { template_fai_21(7, 39)}
+spriteset(spriteset_jinty_flip, "gfx/STEAM/JINTY.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_jinty_flipcheck, vehicle_is_reversed){
 	1: spriteset_jinty_flip;

@@ -1,7 +1,7 @@
-spriteset(spriteset_PRAIRIE_purchase, "gfx/Steam/PRAIRIE.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_PRAIRIE_purchase, "gfx/STEAM/PRAIRIE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_PRAIRIE, "gfx/Steam/PRAIRIE.png") { template_fai_25(7, 39)}
-spriteset(spriteset_PRAIRIE_flip, "gfx/Steam/PRAIRIE.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_PRAIRIE, "gfx/STEAM/PRAIRIE.png") { template_fai_25(7, 39)}
+spriteset(spriteset_PRAIRIE_flip, "gfx/STEAM/PRAIRIE.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_PRAIRIE_flipcheck, vehicle_is_reversed){
 	1: spriteset_PRAIRIE_flip;

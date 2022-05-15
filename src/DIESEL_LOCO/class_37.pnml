@@ -1,7 +1,7 @@
-spriteset(spriteset_CLASS_37_purchase, "gfx/Diesel/CLASS_37.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_CLASS_37_purchase, "gfx/DIESEL/CLASS_37.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_37, "gfx/Diesel/CLASS_37.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_37_flip, "gfx/Diesel/CLASS_37.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_CLASS_37, "gfx/DIESEL/CLASS_37.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_37_flip, "gfx/DIESEL/CLASS_37.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_CLASS_37_flipcheck, vehicle_is_reversed){
 	1: spriteset_CLASS_37_flip;

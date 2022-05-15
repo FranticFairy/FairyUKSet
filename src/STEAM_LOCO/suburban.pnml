@@ -1,7 +1,7 @@
-spriteset(spriteset_SUBURBAN_purchase, "gfx/Steam/SUBURBAN.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_SUBURBAN_purchase, "gfx/STEAM/SUBURBAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_SUBURBAN, "gfx/Steam/SUBURBAN.png") { template_fai_25(7, 39)}
-spriteset(spriteset_SUBURBAN_flip, "gfx/Steam/SUBURBAN.png") { template_fai_25_r(7, 39)}
+spriteset(spriteset_SUBURBAN, "gfx/STEAM/SUBURBAN.png") { template_fai_25(7, 39)}
+spriteset(spriteset_SUBURBAN_flip, "gfx/STEAM/SUBURBAN.png") { template_fai_25_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_flipcheck, vehicle_is_reversed){
 	1: spriteset_SUBURBAN_flip;

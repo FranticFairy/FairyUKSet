@@ -1,7 +1,7 @@
-spriteset(spriteset_METROPOLITAN_purchase, "gfx/Steam/METROPOLITAN.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_METROPOLITAN_purchase, "gfx/STEAM/METROPOLITAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_METROPOLITAN, "gfx/Steam/METROPOLITAN.png") { template_fai_21(7, 39)}
-spriteset(spriteset_METROPOLITAN_flip, "gfx/Steam/METROPOLITAN.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_METROPOLITAN, "gfx/STEAM/METROPOLITAN.png") { template_fai_21(7, 39)}
+spriteset(spriteset_METROPOLITAN_flip, "gfx/STEAM/METROPOLITAN.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_METROPOLITAN_flipcheck, vehicle_is_reversed){
 	1: spriteset_METROPOLITAN_flip;

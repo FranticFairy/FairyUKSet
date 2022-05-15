@@ -1,4 +1,4 @@
-spriteset(spriteset_tender_placeholder, "gfx/Steam/JINTY.png") { template_fai_21(187, 39)}
+spriteset(spriteset_tender_placeholder, "gfx/STEAM/JINTY.png") { template_fai_21(187, 39)}
 
 item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER) {
 	property {

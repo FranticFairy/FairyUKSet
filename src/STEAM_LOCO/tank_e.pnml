@@ -1,7 +1,7 @@
-spriteset(spriteset_tank_e_purchase, "gfx/Steam/TANK.png") { template_fai_purchase(187, 23)}
+spriteset(spriteset_tank_e_purchase, "gfx/STEAM/TANK.png") { template_fai_purchase(187, 23)}
 
-spriteset(spriteset_tank_e, "gfx/Steam/TANK.png") { template_fai_21(187, 39)}
-spriteset(spriteset_tank_e_flip, "gfx/Steam/TANK.png") { template_fai_21_r(187, 39)}
+spriteset(spriteset_tank_e, "gfx/STEAM/TANK.png") { template_fai_21(187, 39)}
+spriteset(spriteset_tank_e_flip, "gfx/STEAM/TANK.png") { template_fai_21_r(187, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_tank_e_flipcheck, vehicle_is_reversed){
 	1: spriteset_tank_e_flip;

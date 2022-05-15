@@ -1,7 +1,7 @@
-spriteset(spriteset_TRIPWORKER_purchase, "gfx/Electric/TRIPWORKER.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_TRIPWORKER_purchase, "gfx/ELECTRIC/TRIPWORKER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_TRIPWORKER, "gfx/Electric/TRIPWORKER.png") { template_fai_21(7, 39)}
-spriteset(spriteset_TRIPWORKER_flip, "gfx/Electric/TRIPWORKER.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_TRIPWORKER, "gfx/ELECTRIC/TRIPWORKER.png") { template_fai_21(7, 39)}
+spriteset(spriteset_TRIPWORKER_flip, "gfx/ELECTRIC/TRIPWORKER.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_TRIPWORKER_flipcheck, vehicle_is_reversed){
 	1: spriteset_TRIPWORKER_flip;

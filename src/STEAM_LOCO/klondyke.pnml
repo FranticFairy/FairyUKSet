@@ -1,7 +1,7 @@
-spriteset(spriteset_KLONDYKE_purchase, "gfx/Steam/KLONDYKE.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_KLONDYKE_purchase, "gfx/STEAM/KLONDYKE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_KLONDYKE, "gfx/Steam/KLONDYKE.png") { template_fai_25(7, 39)}
-spriteset(spriteset_KLONDYKE_tender, "gfx/Steam/KLONDYKE.png") { template_fai_12(7, 64)}
+spriteset(spriteset_KLONDYKE, "gfx/STEAM/KLONDYKE.png") { template_fai_25(7, 39)}
+spriteset(spriteset_KLONDYKE_tender, "gfx/STEAM/KLONDYKE.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_KLONDYKE_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

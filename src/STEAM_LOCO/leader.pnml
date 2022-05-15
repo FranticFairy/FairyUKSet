@@ -1,7 +1,7 @@
-spriteset(spriteset_LEADER_purchase, "gfx/Steam/LEADER.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_LEADER_purchase, "gfx/STEAM/LEADER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_LEADER, "gfx/Steam/LEADER.png") { template_fai_33(7, 39)}
-spriteset(spriteset_LEADER_flip, "gfx/Steam/LEADER.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_LEADER, "gfx/STEAM/LEADER.png") { template_fai_33(7, 39)}
+spriteset(spriteset_LEADER_flip, "gfx/STEAM/LEADER.png") { template_fai_33_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_LEADER_flipcheck, vehicle_is_reversed){
 	1: spriteset_LEADER_flip;

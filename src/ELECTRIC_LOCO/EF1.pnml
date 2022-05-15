@@ -1,7 +1,7 @@
-spriteset(spriteset_EF1_purchase, "gfx/Electric/EF1.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_EF1_purchase, "gfx/ELECTRIC/EF1.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_EF1, "gfx/Electric/EF1.png") { template_fai_21(7, 39)}
-spriteset(spriteset_EF1_flip, "gfx/Electric/EF1.png") { template_fai_21_r(7, 39)}
+spriteset(spriteset_EF1, "gfx/ELECTRIC/EF1.png") { template_fai_21(7, 39)}
+spriteset(spriteset_EF1_flip, "gfx/ELECTRIC/EF1.png") { template_fai_21_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_EF1_flipcheck, vehicle_is_reversed){
 	1: spriteset_EF1_flip;

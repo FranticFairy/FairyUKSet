@@ -1,7 +1,7 @@
-spriteset(spriteset_604_purchase, "gfx/Steam/604.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_604_purchase, "gfx/STEAM/604.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_604, "gfx/Steam/604.png") { template_fai_29(7, 39)}
-spriteset(spriteset_604_tender, "gfx/Steam/604.png") { template_fai_16(7, 64)}
+spriteset(spriteset_604, "gfx/STEAM/604.png") { template_fai_29(7, 39)}
+spriteset(spriteset_604_tender, "gfx/STEAM/604.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_604_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

@@ -1,7 +1,7 @@
-spriteset(spriteset_KING_ARTHUR_purchase, "gfx/Steam/KING_ARTHUR.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_KING_ARTHUR_purchase, "gfx/STEAM/KING_ARTHUR.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_KING_ARTHUR, "gfx/Steam/KING_ARTHUR.png") { template_fai_24(7, 39)}
-spriteset(spriteset_KING_ARTHUR_tender, "gfx/Steam/KING_ARTHUR.png") { template_fai_13(7, 64)}
+spriteset(spriteset_KING_ARTHUR, "gfx/STEAM/KING_ARTHUR.png") { template_fai_24(7, 39)}
+spriteset(spriteset_KING_ARTHUR_tender, "gfx/STEAM/KING_ARTHUR.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_KING_ARTHUR_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

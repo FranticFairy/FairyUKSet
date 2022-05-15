@@ -1,7 +1,7 @@
-spriteset(spriteset_TRAM_purchase, "gfx/Steam/TRAM.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_TRAM_purchase, "gfx/STEAM/TRAM.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_TRAM, "gfx/Steam/TRAM.png") { template_fai_17(7, 39)}
-spriteset(spriteset_TRAM_flip, "gfx/Steam/TRAM.png") { template_fai_17_r(7, 39)}
+spriteset(spriteset_TRAM, "gfx/STEAM/TRAM.png") { template_fai_17(7, 39)}
+spriteset(spriteset_TRAM_flip, "gfx/STEAM/TRAM.png") { template_fai_17_r(7, 39)}
 
 switch(FEAT_TRAINS, PARENT, sw_TRAM_flipcheck, vehicle_is_reversed){
 	1: spriteset_TRAM_flip;

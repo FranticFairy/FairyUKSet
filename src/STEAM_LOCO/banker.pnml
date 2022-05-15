@@ -1,7 +1,7 @@
-spriteset(spriteset_BANKER_purchase, "gfx/Steam/BANKER.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_BANKER_purchase, "gfx/STEAM/BANKER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_BANKER, "gfx/Steam/BANKER.png") { template_fai_25(7, 39)}
-spriteset(spriteset_BANKER_tender, "gfx/Steam/BANKER.png") { template_fai_12(7, 64)}
+spriteset(spriteset_BANKER, "gfx/STEAM/BANKER.png") { template_fai_25(7, 39)}
+spriteset(spriteset_BANKER_tender, "gfx/STEAM/BANKER.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_BANKER_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

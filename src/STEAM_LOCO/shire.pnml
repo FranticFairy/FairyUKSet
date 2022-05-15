@@ -1,7 +1,7 @@
-spriteset(spriteset_SHIRE_purchase, "gfx/Steam/SHIRE.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_SHIRE_purchase, "gfx/STEAM/SHIRE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_SHIRE, "gfx/Steam/SHIRE.png") { template_fai_25(7, 39)}
-spriteset(spriteset_SHIRE_tender, "gfx/Steam/SHIRE.png") { template_fai_12(7, 64)}
+spriteset(spriteset_SHIRE, "gfx/STEAM/SHIRE.png") { template_fai_25(7, 39)}
+spriteset(spriteset_SHIRE_tender, "gfx/STEAM/SHIRE.png") { template_fai_12(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_SHIRE_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
