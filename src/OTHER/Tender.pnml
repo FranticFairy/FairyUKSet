@@ -2,7 +2,7 @@ spriteset(spriteset_tender_placeholder, "gfx/Steam/JINTY.png") { template_fai_21
 
 item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER) {
 	property {
-		name: 							string(STR_NAME_WAGON_SIPHON);
+		name: 							string(STR_NAME_WAGON_TENDER);
 		climates_available: 			NO_CLIMATE;
 		introduction_date:				date(1830, 1, 1);
 		model_life:						VEHICLE_NEVER_EXPIRES;

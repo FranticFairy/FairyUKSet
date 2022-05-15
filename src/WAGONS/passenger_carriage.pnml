@@ -1,11 +1,17 @@
-spriteset(spriteset_CLASS_55_purchase, "gfx/Diesel/CLASS_55.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_purchase, "gfx/Wagons/Passenger Carriage.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_CLASS_55, "gfx/Diesel/CLASS_55.png") { template_fai_33(7, 39)}
-spriteset(spriteset_CLASS_55_flip, "gfx/Diesel/CLASS_55.png") { template_fai_33_r(7, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_f, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_m, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_r, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(367, 39)}
 
-switch(FEAT_TRAINS, PARENT, sw_CLASS_55_flipcheck, vehicle_is_reversed){
-	1: spriteset_CLASS_55_flip;
-	spriteset_CLASS_55 ;
+switch(FEAT_TRAINS, SELF, sw_WAGON_PASSENGER_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_PASSENGER_CARRIAGE_r;
+	spriteset_WAGON_PASSENGER_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_PASSENGER_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_PASSENGER_CARRIAGE_f;
+	sw_WAGON_PASSENGER_CARRIAGE_poscheck_r ;
 }
 
 //Sprite stack
@@ -24,27 +30,26 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_PASSENGER_CARRIAGE) {
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		default_cargo_type:				PASS;
-		cargo_capacity:					1 ;
+		cargo_capacity:					35 ;
 		
 		track_type:						RAIL;
 		
 		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_LOCO_CLASS_55);  
+		name:							string(STR_NAME_WAGON_PASSENGER_CARRIAGE);  
 		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1961,1,1);
+		introduction_date:				date(1912,1,1);
 		
 		model_life:						40;
-		weight:                         101 ton;
+		weight:                         33 ton;
 		speed:							100 mph;
 		
-		cost_factor:                    67 ;
-		running_cost_factor:            76 ;
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
 		length:							8 ;
 	}
 	graphics {
-		default: 							sw_CLASS_55_flipcheck;
-		create_effect:                      vfx_diesel_default ;
-		purchase:                           spriteset_CLASS_55_purchase;
+		default: 							sw_WAGON_PASSENGER_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_PASSENGER_CARRIAGE_purchase;
 	}
 }

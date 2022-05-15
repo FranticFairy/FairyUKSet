@@ -63,7 +63,7 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 
 item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 	property {
-		name: 							string(STR_NAME_WAGON_SIPHON);
+		name: 							string(STR_NAME_LOCO_GARRATT);
 		climates_available: 			NO_CLIMATE;
 		introduction_date:				date(1830, 1, 1);
 		model_life:						VEHICLE_NEVER_EXPIRES;

@@ -9,14 +9,18 @@ STR_NO_COUPLE: You may not couple anything to this train!
 STR_NO_COUPLE_SAME: You may only couple this train to another train of the same type!
 STR_CANNOT_START: This train is too long/short to start!
 
-STR_NAME_WAGON_CLERESTORY: Clerestory Coach
-STR_NAME_WAGON_CLERESTORY_FIRST: Clerestory Coach (First Class)
-STR_NAME_WAGON_SIPHON: Siphon Van
-STR_NAME_WAGON_PASSENGER: Passenger Coach
-STR_NAME_WAGON_PASSENGER_BIG: Passenger Coach
-STR_NAME_WAGON_PASSENGER_MK1: Passenger Coach (Mk1)
-STR_NAME_WAGON_PASSENGER_MK2: Passenger Coach (Mk2)
-STR_NAME_WAGON_PASSENGER_MK3: Passenger Coach (Mk3)
+STR_NAME_WAGON_TENDER: Tender
+
+STR_NAME_WAGON_PASSENGER_CARRIAGE: Passenger Carriage
+STR_NAME_WAGON_MK1_CARRIAGE: Mk1 Passenger Carriage
+STR_NAME_WAGON_MK2_CARRIAGE: Mk2 Passenger Carriage
+STR_NAME_WAGON_MK3_CARRIAGE: Mk3 Passenger Carriage
+STR_NAME_WAGON_MK4_CARRIAGE: Mk4 Passenger Carriage
+STR_NAME_WAGON_MK5_CARRIAGE: Mk5 Passenger Carriage
+STR_NAME_WAGON_INTERCITY_CARRIAGE: Intercity Carriage
+STR_NAME_WAGON_HIGH_SPEED_CARRIAGE: High-Speed Carriage
+STR_NAME_WAGON_COMMUTER_CARRIAGE: Commuter Carriage
+STR_NAME_WAGON_SLAM_DOOR_CARRIAGE: Slam-door Commuter Carriage
 
 STR_NAME_LOCO_ALT_PLANET:Stephenson 'Planet' [2-2-0] (Steam)
 STR_NAME_LOCO_ALT_COPPERNOB:Bury 'Coppernob' [0-4-0] (Steam)
