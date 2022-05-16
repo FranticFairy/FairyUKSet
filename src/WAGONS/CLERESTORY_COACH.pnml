@@ -1,12 +1,12 @@
-spriteset(spriteset_WAGON_CLESESTORY_COACH_purchase, "gfx/WAGONS/CLESESTORY_COACH.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_CLERESTORY_COACH_purchase, "gfx/WAGONS/CLERESTORY_COACH.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_CLESESTORY_COACH_m, "gfx/WAGONS/CLESESTORY_COACH.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_CLERESTORY_COACH_m, "gfx/WAGONS/CLERESTORY_COACH.png") { template_fai_29(7, 39)}
 
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_CLESESTORY_COACH) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_COACH) {
 	property {
 		vehicle_life:                   40;
 		model_life:						40;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_CLESESTORY_COACH) {
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_CLESESTORY_COACH);  
+		name:							string(STR_NAME_WAGON_CLERESTORY_COACH);  
 		introduction_date:				date(1880,1,1);
 		length:							7 ;
 		
@@ -36,7 +36,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_CLESESTORY_COACH) {
 		running_cost_factor:            128 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_CLESESTORY_COACH_m;
-		purchase:                           spriteset_WAGON_CLESESTORY_COACH_purchase;
+		default: 							spriteset_WAGON_CLERESTORY_COACH_m;
+		purchase:                           spriteset_WAGON_CLERESTORY_COACH_purchase;
 	}
 }

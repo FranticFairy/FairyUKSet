@@ -1,12 +1,12 @@
-spriteset(spriteset_WAGON_GRAIN_HOPPER_purchase, "gfx/WAGONS/GRAIN_HOPPER.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_GENERAL_UTILITY_VAN_purchase, "gfx/WAGONS/GENERAL_UTILITY_VAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_GRAIN_HOPPER_m, "gfx/WAGONS/GRAIN_HOPPER.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_GENERAL_UTILITY_VAN_m, "gfx/WAGONS/GENERAL_UTILITY_VAN.png") { template_fai_29(7, 39)}
 
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_HOPPER) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_GENERAL_UTILITY_VAN) {
 	property {
 		vehicle_life:                   40;
 		model_life:						40;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_HOPPER) {
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_GRAIN_HOPPER);  
+		name:							string(STR_NAME_WAGON_GENERAL_UTILITY_VAN);  
 		introduction_date:				date(1969,1,1);
 		length:							7 ;
 		
@@ -36,7 +36,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_HOPPER) {
 		running_cost_factor:            70 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_GRAIN_HOPPER_m;
-		purchase:                           spriteset_WAGON_GRAIN_HOPPER_purchase;
+		default: 							spriteset_WAGON_GENERAL_UTILITY_VAN_m;
+		purchase:                           spriteset_WAGON_GENERAL_UTILITY_VAN_purchase;
 	}
 }

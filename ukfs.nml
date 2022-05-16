@@ -1141,16 +1141,77 @@ ITEM_FAI_TRIPWORKER,
 //ITEM_FAI_CLASS_357,
 //ITEM_FAI_CLASS_390,
 //ITEM_FAI_CLASS_395
-//ITEM_FAI_WAGON_PASSENGER_CARRIAGE,
-//ITEM_FAI_WAGON_MK1_CARRIAGE,
-//ITEM_FAI_WAGON_MK2_CARRIAGE,
-//ITEM_FAI_WAGON_MK3_CARRIAGE,
-//ITEM_FAI_WAGON_COMMUTER_CARRIAGE,
-//ITEM_FAI_WAGON_SLAM_DOOR_CARRIAGE,
-//ITEM_FAI_WAGON_HIGH_SPEED_CARRIAGE,
-//ITEM_FAI_WAGON_INTERCITY_CARRIAGE,
-//ITEM_FAI_WAGON_MK4_CARRIAGE,
-//ITEM_FAI_WAGON_MK5_CARRIAGE,
+ITEM_FAI_WAGON_PASSENGER_COACH,
+ITEM_FAI_WAGON_COMPARTMENT_COACH,
+ITEM_FAI_WAGON_6_WHEEL_COACH,
+ITEM_FAI_WAGON_CLERESTORY_COACH,
+//ITEM_FAI_WAGON_ARTICULATED_CARRIAGES,
+ITEM_FAI_WAGON_PASSENGER_CARRIAGE,
+ITEM_FAI_WAGON_MK1_CARRIAGE,
+ITEM_FAI_WAGON_MK2_CARRIAGE,
+ITEM_FAI_WAGON_MK3_CARRIAGE,
+ITEM_FAI_WAGON_CLERESTORY_SUBURBAN,
+ITEM_FAI_WAGON_SLAM_DOOR_CARRIAGE,
+ITEM_FAI_WAGON_COMMUTER_CARRIAGE_SHORT,
+ITEM_FAI_WAGON_COMMUTER_CARRIAGE,
+ITEM_FAI_WAGON_HIGH_SPEED_CARRIAGE,
+ITEM_FAI_WAGON_INTERCITY_CARRIAGE,
+ITEM_FAI_WAGON_MK4_CARRIAGE,
+ITEM_FAI_WAGON_MK5_CARRIAGE,
+ITEM_FAI_WAGON_CLERESTORY_BUFFET,
+//ITEM_FAI_WAGON_BUFFET_ARTICULATED,
+ITEM_FAI_WAGON_BUFFET_CARRIAGE,
+ITEM_FAI_WAGON_BUFFET_MK1,
+ITEM_FAI_WAGON_BUFFET_MK2,
+ITEM_FAI_WAGON_BUFFET_MK3,
+ITEM_FAI_WAGON_BUFFET_HIGH_SPEED,
+ITEM_FAI_WAGON_BUFFET_INTERCITY,
+ITEM_FAI_WAGON_BUFFET_MK4,
+ITEM_FAI_WAGON_BUFFET_MK5,
+ITEM_FAI_WAGON_AUTOCOACH,
+ITEM_FAI_WAGON_CLERESTORY_BRAKE,
+ITEM_FAI_WAGON_MU_COACH,
+ITEM_FAI_WAGON_6_WHEEL_MAIL_COACH,
+ITEM_FAI_WAGON_EXPRESS_MAIL_CARRIAGE,
+ITEM_FAI_WAGON_MAIL_COACH_MK1,
+ITEM_FAI_WAGON_MAIL_CARRIAGE,
+ITEM_FAI_WAGON_GENERAL_UTILITY_VAN,
+ITEM_FAI_WAGON_TPO_VAN,
+ITEM_FAI_WAGON_COVERED_CARRIAGE_TRUCK,
+ITEM_FAI_WAGON_SIPHON_VAN,
+ITEM_FAI_WAGON_OPEN_WAGON,
+ITEM_FAI_WAGON_5_PLANK_WAGON,
+ITEM_FAI_WAGON_MINERAL_WAGON,
+ITEM_FAI_WAGON_BOGIE_HOPPER,
+ITEM_FAI_WAGON_HOPPER,
+ITEM_FAI_WAGON_MGR_HOPPER,
+ITEM_FAI_WAGON_PGA_HOPPER,
+ITEM_FAI_WAGON_SCRAP_WAGON,
+ITEM_FAI_WAGON_MONSTER_BOX,
+ITEM_FAI_WAGON_GRAIN_TRUCK,
+ITEM_FAI_WAGON_GRAIN_HOPPER,
+ITEM_FAI_WAGON_COVERED_HOPPER,
+ITEM_FAI_WAGON_PRESFLO_HOPPER,
+ITEM_FAI_WAGON_GRAIN_BULK_HOPPER,
+ITEM_FAI_WAGON_FLATBED_TINY,
+ITEM_FAI_WAGON_FLATBED,
+ITEM_FAI_WAGON_FLATBED_LARGE,
+//ITEM_FAI_WAGON_CARTIC,
+//ITEM_FAI_WAGON_FREIGHTLINER,
+ITEM_FAI_WAGON_STEEL_COIL_WAGON,
+ITEM_FAI_WAGON_TANKER_WAGON,
+ITEM_FAI_WAGON_6_WHEEL_TANKER,
+ITEM_FAI_WAGON_WELDED_TANKER,
+ITEM_FAI_WAGON_BULK_TANKER,
+ITEM_FAI_WAGON_VAN,
+ITEM_FAI_WAGON_SPEEDLINK_WAGON,
+ITEM_FAI_WAGON_SPEEDLINK_VAN,
+ITEM_FAI_WAGON_FERTILISER_VAN,
+ITEM_FAI_WAGON_HABFIS_VAN,
+ITEM_FAI_WAGON_LIVESTOCK_VAN,
+ITEM_FAI_WAGON_10T_BRAKE_VAN,
+ITEM_FAI_WAGON_20T_BRAKE_VAN,
+ITEM_FAI_WAGON_BR_BRAKE_VAN,
 ]);
 # 1 "ukfs.pnml" 2
 
@@ -6220,6 +6281,3093 @@ item (FEAT_TRAINS, ITEM_FAI_TRIPWORKER) {
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_TRIPWORKER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+
+# 1 "src/WAGONS/10T_BRAKE_VAN.pnml" 1
+spriteset(spriteset_WAGON_10T_BRAKE_VAN_purchase, "gfx/WAGONS/BRAKEVAN.png") { template_fai_purchase(367, 23)}
+
+spriteset(spriteset_WAGON_10T_BRAKE_VAN_m, "gfx/WAGONS/BRAKEVAN.png") { template_fai_12(367, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_10T_BRAKE_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_10T_BRAKE_VAN);  
+		introduction_date:				date(1800,1,1);
+		length:							3 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					35 ;
+		weight:                         10 ton;
+		speed:							40 mph;
+		
+		cost_factor:                    20 ;
+		running_cost_factor:            29 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_10T_BRAKE_VAN_m;
+		purchase:                           spriteset_WAGON_10T_BRAKE_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/20T_BRAKE_VAN.pnml" 1
+spriteset(spriteset_WAGON_20T_BRAKE_VAN_purchase, "gfx/WAGONS/BRAKEVAN.png") { template_fai_purchase(187, 23)}
+
+spriteset(spriteset_WAGON_20T_BRAKE_VAN_m, "gfx/WAGONS/BRAKEVAN.png") { template_fai_21(187, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_20T_BRAKE_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_20T_BRAKE_VAN);  
+		introduction_date:				date(1870,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					0 ;
+		weight:                         20 ton;
+		speed:							65 mph;
+		
+		cost_factor:                    32 ;
+		running_cost_factor:            37 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_20T_BRAKE_VAN_m;
+		purchase:                           spriteset_WAGON_20T_BRAKE_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/5_PLANK_WAGON.pnml" 1
+spriteset(spriteset_WAGON_5_PLANK_WAGON_purchase, "gfx/WAGONS/5_PLANK_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_5_PLANK_WAGON_m, "gfx/WAGONS/5_PLANK_WAGON.png") { template_fai_18(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_5_PLANK_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_5_PLANK_WAGON);  
+		introduction_date:				date(1865,1,1);
+		length:							4 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					10 ;
+		weight:                         8 ton;
+		speed:							40 mph;
+		
+		cost_factor:                    21 ;
+		running_cost_factor:            12 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_5_PLANK_WAGON_m;
+		purchase:                           spriteset_WAGON_5_PLANK_WAGON_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/6_WHEEL_COACH.pnml" 1
+spriteset(spriteset_WAGON_6_WHEEL_COACH_purchase, "gfx/WAGONS/6_WHEEL_COACH.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_6_WHEEL_COACH_m, "gfx/WAGONS/6_WHEEL_COACH.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_COACH) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_6_WHEEL_COACH);  
+		introduction_date:				date(1850,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         21 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    93 ;
+		running_cost_factor:            86 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_6_WHEEL_COACH_m;
+		purchase:                           spriteset_WAGON_6_WHEEL_COACH_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/6_WHEEL_MAIL_COACH.pnml" 1
+spriteset(spriteset_WAGON_6_WHEEL_MAIL_COACH_purchase, "gfx/WAGONS/6_WHEEL_MAIL_COACH.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_6_WHEEL_MAIL_COACH_m, "gfx/WAGONS/6_WHEEL_MAIL_COACH.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_MAIL_COACH) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_6_WHEEL_MAIL_COACH);  
+		introduction_date:				date(1850,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         16 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    76 ;
+		running_cost_factor:            45 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_6_WHEEL_MAIL_COACH_m;
+		purchase:                           spriteset_WAGON_6_WHEEL_MAIL_COACH_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/6_WHEEL_TANKER.pnml" 1
+spriteset(spriteset_WAGON_6_WHEEL_TANKER_purchase, "gfx/WAGONS/6_WHEEL_TANKER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_6_WHEEL_TANKER_m, "gfx/WAGONS/6_WHEEL_TANKER.png") { template_fai_18(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_TANKER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_6_WHEEL_TANKER);  
+		introduction_date:				date(1900,1,1);
+		length:							4 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					12 ;
+		weight:                         16 ton;
+		speed:							55 mph;
+		
+		cost_factor:                    34 ;
+		running_cost_factor:            29 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_6_WHEEL_TANKER_m;
+		purchase:                           spriteset_WAGON_6_WHEEL_TANKER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/ARTICULATED_CARRIAGES.pnml" 1
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/AUTOCOACH.pnml" 1
+spriteset(spriteset_WAGON_AUTOCOACH_purchase, "gfx/WAGONS/AUTOCOACH.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_AUTOCOACH_m, "gfx/WAGONS/AUTOCOACH.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_AUTOCOACH) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_AUTOCOACH);  
+		introduction_date:				date(1880,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         30 ton;
+		speed:							75 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_AUTOCOACH_m;
+		purchase:                           spriteset_WAGON_AUTOCOACH_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BOGIE_HOPPER.pnml" 1
+spriteset(spriteset_WAGON_BOGIE_HOPPER_purchase, "gfx/WAGONS/BOGIE_HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BOGIE_HOPPER_m, "gfx/WAGONS/BOGIE_HOPPER.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BOGIE_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BOGIE_HOPPER);  
+		introduction_date:				date(1935,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         16 ton;
+		speed:							50 mph;
+		
+		cost_factor:                    50 ;
+		running_cost_factor:            25 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BOGIE_HOPPER_m;
+		purchase:                           spriteset_WAGON_BOGIE_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BR_BRAKE_VAN.pnml" 1
+spriteset(spriteset_WAGON_BR_BRAKE_VAN_purchase, "gfx/WAGONS/BRAKEVAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BR_BRAKE_VAN_m, "gfx/WAGONS/BRAKEVAN.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BR_BRAKE_VAN);  
+		introduction_date:				date(1948,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					0 ;
+		weight:                         20 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    32 ;
+		running_cost_factor:            37 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BR_BRAKE_VAN_m;
+		purchase:                           spriteset_WAGON_BR_BRAKE_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_ARTICULATED.pnml" 1
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_CARRIAGE_purchase, "gfx/WAGONS/BUFFET_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_CARRIAGE_m, "gfx/WAGONS/BUFFET_CARRIAGE.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_CARRIAGE);  
+		introduction_date:				date(1912,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_CARRIAGE_m;
+		purchase:                           spriteset_WAGON_BUFFET_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_HIGH_SPEED.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_HIGH_SPEED_purchase, "gfx/WAGONS/BUFFET_HIGH_SPEED.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_HIGH_SPEED_m, "gfx/WAGONS/BUFFET_HIGH_SPEED.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_HIGH_SPEED) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_HIGH_SPEED);  
+		introduction_date:				date(1974,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_HIGH_SPEED_m;
+		purchase:                           spriteset_WAGON_BUFFET_HIGH_SPEED_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_INTERCITY.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_INTERCITY_purchase, "gfx/WAGONS/BUFFET_INTERCITY.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_INTERCITY_m, "gfx/WAGONS/BUFFET_INTERCITY.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_INTERCITY) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_INTERCITY);  
+		introduction_date:				date(1985,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_INTERCITY_m;
+		purchase:                           spriteset_WAGON_BUFFET_INTERCITY_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_MK1.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_MK1_purchase, "gfx/WAGONS/BUFFET_MK1.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_MK1_m, "gfx/WAGONS/BUFFET_MK1.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK1) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_MK1);  
+		introduction_date:				date(1948,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_MK1_m;
+		purchase:                           spriteset_WAGON_BUFFET_MK1_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_MK2.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_MK2_purchase, "gfx/WAGONS/BUFFET_MK2.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_MK2_m, "gfx/WAGONS/BUFFET_MK2.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK2) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_MK2);  
+		introduction_date:				date(1969,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_MK2_m;
+		purchase:                           spriteset_WAGON_BUFFET_MK2_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_MK3.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_MK3_purchase, "gfx/WAGONS/BUFFET_MK3.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_MK3_m, "gfx/WAGONS/BUFFET_MK3.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK3) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_MK3);  
+		introduction_date:				date(1985,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_MK3_m;
+		purchase:                           spriteset_WAGON_BUFFET_MK3_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_MK4.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_MK4_purchase, "gfx/WAGONS/BUFFET_MK4.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_MK4_m, "gfx/WAGONS/BUFFET_MK4.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK4) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_MK4);  
+		introduction_date:				date(2000,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_MK4_m;
+		purchase:                           spriteset_WAGON_BUFFET_MK4_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BUFFET_MK5.pnml" 1
+spriteset(spriteset_WAGON_BUFFET_MK5_purchase, "gfx/WAGONS/BUFFET_MK5.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BUFFET_MK5_m, "gfx/WAGONS/BUFFET_MK5.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK5) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BUFFET_MK5);  
+		introduction_date:				date(2020,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BUFFET_MK5_m;
+		purchase:                           spriteset_WAGON_BUFFET_MK5_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/BULK_TANKER.pnml" 1
+spriteset(spriteset_WAGON_BULK_TANKER_purchase, "gfx/WAGONS/BULK_TANKER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_BULK_TANKER_m, "gfx/WAGONS/BULK_TANKER.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_BULK_TANKER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_BULK_TANKER);  
+		introduction_date:				date(1977,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					28 ;
+		weight:                         26 ton;
+		speed:							80 mph;
+		
+		cost_factor:                    80 ;
+		running_cost_factor:            66 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_BULK_TANKER_m;
+		purchase:                           spriteset_WAGON_BULK_TANKER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/CARTIC.pnml" 1
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/CLERESTORY_BRAKE.pnml" 1
+spriteset(spriteset_WAGON_CLERESTORY_BRAKE_purchase, "gfx/WAGONS/CLERESTORY_BRAKE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_CLERESTORY_BRAKE_m, "gfx/WAGONS/CLERESTORY_BRAKE.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_BRAKE) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_CLERESTORY_BRAKE);  
+		introduction_date:				date(1880,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         28 ton;
+		speed:							80 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_CLERESTORY_BRAKE_m;
+		purchase:                           spriteset_WAGON_CLERESTORY_BRAKE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/CLERESTORY_BUFFET.pnml" 1
+spriteset(spriteset_WAGON_CLERESTORY_BUFFET_purchase, "gfx/WAGONS/CLERESTORY_BUFFET.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_CLERESTORY_BUFFET_m, "gfx/WAGONS/CLERESTORY_BUFFET.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_BUFFET) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_CLERESTORY_BUFFET);  
+		introduction_date:				date(1880,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					15 ;
+		weight:                         28 ton;
+		speed:							80 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_CLERESTORY_BUFFET_m;
+		purchase:                           spriteset_WAGON_CLERESTORY_BUFFET_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/CLERESTORY_COACH.pnml" 1
+spriteset(spriteset_WAGON_CLERESTORY_COACH_purchase, "gfx/WAGONS/CLERESTORY_COACH.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_CLERESTORY_COACH_m, "gfx/WAGONS/CLERESTORY_COACH.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_COACH) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_CLERESTORY_COACH);  
+		introduction_date:				date(1880,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         28 ton;
+		speed:							80 mph;
+		
+		cost_factor:                    104 ;
+		running_cost_factor:            128 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_CLERESTORY_COACH_m;
+		purchase:                           spriteset_WAGON_CLERESTORY_COACH_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/CLERESTORY_SUBURBAN.pnml" 1
+spriteset(spriteset_WAGON_CLERESTORY_SUBURBAN_purchase, "gfx/WAGONS/CLERESTORY_SUBURBAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_CLERESTORY_SUBURBAN_m, "gfx/WAGONS/CLERESTORY_SUBURBAN.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_SUBURBAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_CLERESTORY_SUBURBAN);  
+		introduction_date:				date(1880,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					35 ;
+		weight:                         28 ton;
+		speed:							75 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_CLERESTORY_SUBURBAN_m;
+		purchase:                           spriteset_WAGON_CLERESTORY_SUBURBAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/COMMUTER_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_purchase, "gfx/WAGONS/COMMUTER_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_f, "gfx/WAGONS/COMMUTER_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_m, "gfx/WAGONS/COMMUTER_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_r, "gfx/WAGONS/COMMUTER_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_COMMUTER_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_COMMUTER_CARRIAGE_r;
+	spriteset_WAGON_COMMUTER_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_COMMUTER_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_COMMUTER_CARRIAGE_f;
+	sw_WAGON_COMMUTER_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_COMMUTER_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					40 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_COMMUTER_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1955,1,1);
+		
+		model_life:						40;
+		weight:                         30 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_COMMUTER_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_COMMUTER_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/COMMUTER_CARRIAGE_SHORT.pnml" 1
+spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_SHORT_purchase, "gfx/WAGONS/COMMUTER_CARRIAGE_SHORT.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_COMMUTER_CARRIAGE_SHORT_m, "gfx/WAGONS/COMMUTER_CARRIAGE_SHORT.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_COMMUTER_CARRIAGE_SHORT) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_COMMUTER_CARRIAGE_SHORT);  
+		introduction_date:				date(1985,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					45 ;
+		weight:                         25 ton;
+		speed:							90 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_COMMUTER_CARRIAGE_SHORT_m;
+		purchase:                           spriteset_WAGON_COMMUTER_CARRIAGE_SHORT_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/COMPARTMENT_COACH.pnml" 1
+spriteset(spriteset_WAGON_COMPARTMENT_COACH_purchase, "gfx/WAGONS/COMPARTMENT_COACH.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_COMPARTMENT_COACH_m, "gfx/WAGONS/COMPARTMENT_COACH.png") { template_fai_19(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_COMPARTMENT_COACH) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_COMPARTMENT_COACH);  
+		introduction_date:				date(1840,1,1);
+		length:							4 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					14 ;
+		weight:                         15 ton;
+		speed:							60 mph;
+		
+		cost_factor:                    59 ;
+		running_cost_factor:            58 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_COMPARTMENT_COACH_m;
+		purchase:                           spriteset_WAGON_COMPARTMENT_COACH_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/COVERED_CARRIAGE_TRUCK.pnml" 1
+spriteset(spriteset_WAGON_COVERED_CARRIAGE_TRUCK_purchase, "gfx/WAGONS/COVERED_CARRIAGE_TRUCK.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_COVERED_CARRIAGE_TRUCK_m, "gfx/WAGONS/COVERED_CARRIAGE_TRUCK.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_COVERED_CARRIAGE_TRUCK) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_COVERED_CARRIAGE_TRUCK);  
+		introduction_date:				date(1890,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         19 ton;
+		speed:							75 mph;
+		
+		cost_factor:                    67 ;
+		running_cost_factor:            45 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_COVERED_CARRIAGE_TRUCK_m;
+		purchase:                           spriteset_WAGON_COVERED_CARRIAGE_TRUCK_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/COVERED_HOPPER.pnml" 1
+spriteset(spriteset_WAGON_COVERED_HOPPER_purchase, "gfx/WAGONS/COVERED_HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_COVERED_HOPPER_m, "gfx/WAGONS/COVERED_HOPPER.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_COVERED_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_COVERED_HOPPER);  
+		introduction_date:				date(1960,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					15 ;
+		weight:                         16 ton;
+		speed:							60 mph;
+		
+		cost_factor:                    42 ;
+		running_cost_factor:            21 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_COVERED_HOPPER_m;
+		purchase:                           spriteset_WAGON_COVERED_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/EXPRESS_MAIL_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_EXPRESS_MAIL_CARRIAGE_purchase, "gfx/WAGONS/EXPRESS_MAIL_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_EXPRESS_MAIL_CARRIAGE_m, "gfx/WAGONS/EXPRESS_MAIL_CARRIAGE.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_EXPRESS_MAIL_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_EXPRESS_MAIL_CARRIAGE);  
+		introduction_date:				date(1910,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         31 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    118 ;
+		running_cost_factor:            70 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_EXPRESS_MAIL_CARRIAGE_m;
+		purchase:                           spriteset_WAGON_EXPRESS_MAIL_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/FERTILISER_VAN.pnml" 1
+spriteset(spriteset_WAGON_FERTILISER_VAN_purchase, "gfx/WAGONS/FERTILISER_VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_FERTILISER_VAN_m, "gfx/WAGONS/FERTILISER_VAN.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_FERTILISER_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_FERTILISER_VAN);  
+		introduction_date:				date(1968,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					22 ;
+		weight:                         18 ton;
+		speed:							60 mph;
+		
+		cost_factor:                    47 ;
+		running_cost_factor:            37 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_FERTILISER_VAN_m;
+		purchase:                           spriteset_WAGON_FERTILISER_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/FLATBED.pnml" 1
+spriteset(spriteset_WAGON_FLATBED_purchase, "gfx/WAGONS/FLATBED.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_FLATBED_m, "gfx/WAGONS/FLATBED.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_FLATBED);  
+		introduction_date:				date(1865,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					12 ;
+		weight:                         9 ton;
+		speed:							45 mph;
+		
+		cost_factor:                    26 ;
+		running_cost_factor:            12 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_FLATBED_m;
+		purchase:                           spriteset_WAGON_FLATBED_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/FLATBED_LARGE.pnml" 1
+spriteset(spriteset_WAGON_FLATBED_LARGE_purchase, "gfx/WAGONS/FLATBED_LARGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_FLATBED_LARGE_m, "gfx/WAGONS/FLATBED_LARGE.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED_LARGE) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_FLATBED_LARGE);  
+		introduction_date:				date(1910,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         17 ton;
+		speed:							55 mph;
+		
+		cost_factor:                    56 ;
+		running_cost_factor:            25 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_FLATBED_LARGE_m;
+		purchase:                           spriteset_WAGON_FLATBED_LARGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/FLATBED_TINY.pnml" 1
+spriteset(spriteset_WAGON_FLATBED_TINY_purchase, "gfx/WAGONS/FLATBED_TINY.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_FLATBED_TINY_m, "gfx/WAGONS/FLATBED_TINY.png") { template_fai_12(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED_TINY) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_FLATBED_TINY);  
+		introduction_date:				date(1800,1,1);
+		length:							3 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					5 ;
+		weight:                         5 ton;
+		speed:							35 mph;
+		
+		cost_factor:                    11 ;
+		running_cost_factor:            4 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_FLATBED_TINY_m;
+		purchase:                           spriteset_WAGON_FLATBED_TINY_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/FREIGHTLINER.pnml" 1
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/GENERAL_UTILITY_VAN.pnml" 1
+spriteset(spriteset_WAGON_GENERAL_UTILITY_VAN_purchase, "gfx/WAGONS/GENERAL_UTILITY_VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_GENERAL_UTILITY_VAN_m, "gfx/WAGONS/GENERAL_UTILITY_VAN.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_GENERAL_UTILITY_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_GENERAL_UTILITY_VAN);  
+		introduction_date:				date(1969,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         28 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    108 ;
+		running_cost_factor:            70 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_GENERAL_UTILITY_VAN_m;
+		purchase:                           spriteset_WAGON_GENERAL_UTILITY_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/GRAIN_BULK_HOPPER.pnml" 1
+spriteset(spriteset_WAGON_GRAIN_BULK_HOPPER_purchase, "gfx/WAGONS/GRAIN_BULK_HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_GRAIN_BULK_HOPPER_m, "gfx/WAGONS/GRAIN_BULK_HOPPER.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_BULK_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_GRAIN_BULK_HOPPER);  
+		introduction_date:				date(1985,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					26 ;
+		weight:                         25 ton;
+		speed:							90 mph;
+		
+		cost_factor:                    79 ;
+		running_cost_factor:            37 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_GRAIN_BULK_HOPPER_m;
+		purchase:                           spriteset_WAGON_GRAIN_BULK_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/GRAIN_HOPPER.pnml" 1
+spriteset(spriteset_WAGON_GRAIN_HOPPER_purchase, "gfx/WAGONS/GRAIN_HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_GRAIN_HOPPER_m, "gfx/WAGONS/GRAIN_HOPPER.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_GRAIN_HOPPER);  
+		introduction_date:				date(1930,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					14 ;
+		weight:                         12 ton;
+		speed:							55 mph;
+		
+		cost_factor:                    40 ;
+		running_cost_factor:            16 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_GRAIN_HOPPER_m;
+		purchase:                           spriteset_WAGON_GRAIN_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/GRAIN_TRUCK.pnml" 1
+spriteset(spriteset_WAGON_GRAIN_TRUCK_purchase, "gfx/WAGONS/GRAIN_TRUCK.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_GRAIN_TRUCK_m, "gfx/WAGONS/GRAIN_TRUCK.png") { template_fai_18(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_TRUCK) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_GRAIN_TRUCK);  
+		introduction_date:				date(1885,1,1);
+		length:							4 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					10 ;
+		weight:                         9 ton;
+		speed:							50 mph;
+		
+		cost_factor:                    27 ;
+		running_cost_factor:            12 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_GRAIN_TRUCK_m;
+		purchase:                           spriteset_WAGON_GRAIN_TRUCK_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/HABFIS_VAN.pnml" 1
+spriteset(spriteset_WAGON_HABFIS_VAN_purchase, "gfx/WAGONS/HABFIS_VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_HABFIS_VAN_m, "gfx/WAGONS/HABFIS_VAN.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_HABFIS_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_HABFIS_VAN);  
+		introduction_date:				date(1985,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					35 ;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    169 ;
+		running_cost_factor:            152 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_HABFIS_VAN_m;
+		purchase:                           spriteset_WAGON_HABFIS_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/HIGH_SPEED_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_purchase, "gfx/WAGONS/HIGH_SPEED_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_f, "gfx/WAGONS/HIGH_SPEED_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_m, "gfx/WAGONS/HIGH_SPEED_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_HIGH_SPEED_CARRIAGE_r, "gfx/WAGONS/HIGH_SPEED_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_HIGH_SPEED_CARRIAGE_r;
+	spriteset_WAGON_HIGH_SPEED_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_HIGH_SPEED_CARRIAGE_f;
+	sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_HIGH_SPEED_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_HIGH_SPEED_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1974,1,1);
+		
+		model_life:						40;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_HIGH_SPEED_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_HIGH_SPEED_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/HOPPER.pnml" 1
+spriteset(spriteset_WAGON_HOPPER_purchase, "gfx/WAGONS/HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_HOPPER_m, "gfx/WAGONS/HOPPER.png") { template_fai_25(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_HOPPER);  
+		introduction_date:				date(1965,1,1);
+		length:							6 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         16 ton;
+		speed:							65 mph;
+		
+		cost_factor:                    44 ;
+		running_cost_factor:            21 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_HOPPER_m;
+		purchase:                           spriteset_WAGON_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/INTERCITY_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_purchase, "gfx/WAGONS/INTERCITY_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_f, "gfx/WAGONS/INTERCITY_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_m, "gfx/WAGONS/INTERCITY_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_INTERCITY_CARRIAGE_r, "gfx/WAGONS/INTERCITY_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_INTERCITY_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_INTERCITY_CARRIAGE_r;
+	spriteset_WAGON_INTERCITY_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_INTERCITY_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_INTERCITY_CARRIAGE_f;
+	sw_WAGON_INTERCITY_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_INTERCITY_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_INTERCITY_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1985,1,1);
+		
+		model_life:						40;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_INTERCITY_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_INTERCITY_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/LIVESTOCK_VAN.pnml" 1
+spriteset(spriteset_WAGON_LIVESTOCK_VAN_purchase, "gfx/WAGONS/LIVESTOCK_VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_LIVESTOCK_VAN_m, "gfx/WAGONS/LIVESTOCK_VAN.png") { template_fai_18(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_LIVESTOCK_VAN);  
+		introduction_date:				date(1865,1,1);
+		length:							4 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					8 ;
+		weight:                         10 ton;
+		speed:							45 mph;
+		
+		cost_factor:                    26 ;
+		running_cost_factor:            12 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_LIVESTOCK_VAN_m;
+		purchase:                           spriteset_WAGON_LIVESTOCK_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MAIL_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_MAIL_CARRIAGE_purchase, "gfx/WAGONS/MAIL_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MAIL_CARRIAGE_m, "gfx/WAGONS/MAIL_CARRIAGE.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MAIL_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MAIL_CARRIAGE);  
+		introduction_date:				date(1935,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         28 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    108 ;
+		running_cost_factor:            70 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_MAIL_CARRIAGE_m;
+		purchase:                           spriteset_WAGON_MAIL_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MAIL_COACH_MK1.pnml" 1
+spriteset(spriteset_WAGON_MAIL_COACH_MK1_purchase, "gfx/WAGONS/MAIL_COACH_MK1.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MAIL_COACH_MK1_m, "gfx/WAGONS/MAIL_COACH_MK1.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MAIL_COACH_MK1) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MAIL_COACH_MK1);  
+		introduction_date:				date(1948,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         31 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_MAIL_COACH_MK1_m;
+		purchase:                           spriteset_WAGON_MAIL_COACH_MK1_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MGR_HOPPER.pnml" 1
+spriteset(spriteset_WAGON_MGR_HOPPER_purchase, "gfx/WAGONS/MGR_HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MGR_HOPPER_m, "gfx/WAGONS/MGR_HOPPER.png") { template_fai_25(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MGR_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MGR_HOPPER);  
+		introduction_date:				date(1965,1,1);
+		length:							6 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         16 ton;
+		speed:							65 mph;
+		
+		cost_factor:                    44 ;
+		running_cost_factor:            21 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_MGR_HOPPER_m;
+		purchase:                           spriteset_WAGON_MGR_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MINERAL_WAGON.pnml" 1
+spriteset(spriteset_WAGON_MINERAL_WAGON_purchase, "gfx/WAGONS/MINERAL_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MINERAL_WAGON_m, "gfx/WAGONS/MINERAL_WAGON.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MINERAL_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MINERAL_WAGON);  
+		introduction_date:				date(1930,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					14 ;
+		weight:                         10 ton;
+		speed:							50 mph;
+		
+		cost_factor:                    32 ;
+		running_cost_factor:            16 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_MINERAL_WAGON_m;
+		purchase:                           spriteset_WAGON_MINERAL_WAGON_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MK1_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_MK1_CARRIAGE_purchase, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MK1_CARRIAGE_f, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_MK1_CARRIAGE_m, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_MK1_CARRIAGE_r, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK1_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_MK1_CARRIAGE_r;
+	spriteset_WAGON_MK1_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK1_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_MK1_CARRIAGE_f;
+	sw_WAGON_MK1_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MK1_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MK1_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1948,1,1);
+		
+		model_life:						40;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_MK1_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_MK1_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MK2_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_MK2_CARRIAGE_purchase, "gfx/WAGONS/MK2_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MK2_CARRIAGE_f, "gfx/WAGONS/MK2_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_MK2_CARRIAGE_m, "gfx/WAGONS/MK2_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_MK2_CARRIAGE_r, "gfx/WAGONS/MK2_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK2_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_MK2_CARRIAGE_r;
+	spriteset_WAGON_MK2_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK2_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_MK2_CARRIAGE_f;
+	sw_WAGON_MK2_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MK2_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MK2_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1969,1,1);
+		
+		model_life:						40;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_MK2_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_MK2_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MK3_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_MK3_CARRIAGE_purchase, "gfx/WAGONS/MK3_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MK3_CARRIAGE_f, "gfx/WAGONS/MK3_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_MK3_CARRIAGE_m, "gfx/WAGONS/MK3_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_MK3_CARRIAGE_r, "gfx/WAGONS/MK3_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK3_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_MK3_CARRIAGE_r;
+	spriteset_WAGON_MK3_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK3_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_MK3_CARRIAGE_f;
+	sw_WAGON_MK3_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MK3_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MK3_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1985,1,1);
+		
+		model_life:						40;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_MK3_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_MK3_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MK4_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_MK4_CARRIAGE_purchase, "gfx/WAGONS/MK4_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MK4_CARRIAGE_f, "gfx/WAGONS/MK4_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_MK4_CARRIAGE_m, "gfx/WAGONS/MK4_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_MK4_CARRIAGE_r, "gfx/WAGONS/MK4_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK4_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_MK4_CARRIAGE_r;
+	spriteset_WAGON_MK4_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK4_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_MK4_CARRIAGE_f;
+	sw_WAGON_MK4_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MK4_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MK4_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(2000,1,1);
+		
+		model_life:						40;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_MK4_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_MK4_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MK5_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_MK5_CARRIAGE_purchase, "gfx/WAGONS/MK5_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MK5_CARRIAGE_f, "gfx/WAGONS/MK5_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_MK5_CARRIAGE_m, "gfx/WAGONS/MK5_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_MK5_CARRIAGE_r, "gfx/WAGONS/MK5_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK5_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_MK5_CARRIAGE_r;
+	spriteset_WAGON_MK5_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_MK5_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_MK5_CARRIAGE_f;
+	sw_WAGON_MK5_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MK5_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MK5_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(2020,1,1);
+		
+		model_life:						40;
+		weight:                         38 ton;
+		speed:							140 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_MK5_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_MK5_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MONSTER_BOX.pnml" 1
+spriteset(spriteset_WAGON_MONSTER_BOX_purchase, "gfx/WAGONS/MONSTER_BOX.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MONSTER_BOX_m, "gfx/WAGONS/MONSTER_BOX.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MONSTER_BOX) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MONSTER_BOX);  
+		introduction_date:				date(1985,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					25 ;
+		weight:                         22 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    56 ;
+		running_cost_factor:            33 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_MONSTER_BOX_m;
+		purchase:                           spriteset_WAGON_MONSTER_BOX_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/MU_COACH.pnml" 1
+spriteset(spriteset_WAGON_MU_COACH_purchase, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_MU_COACH_m, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_33(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MU_COACH) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_MU_COACH);  
+		introduction_date:				date(1900,1,1);
+		length:							8 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    146 ;
+		running_cost_factor:            152 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_MU_COACH_m;
+		purchase:                           spriteset_WAGON_MU_COACH_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/OPEN_WAGON.pnml" 1
+spriteset(spriteset_WAGON_OPEN_WAGON_purchase, "gfx/WAGONS/OPEN_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_OPEN_WAGON_m, "gfx/WAGONS/OPEN_WAGON.png") { template_fai_12(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_OPEN_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_OPEN_WAGON);  
+		introduction_date:				date(1800,1,1);
+		length:							3 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					6 ;
+		weight:                         5 ton;
+		speed:							35 mph;
+		
+		cost_factor:                    11 ;
+		running_cost_factor:            4 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_OPEN_WAGON_m;
+		purchase:                           spriteset_WAGON_OPEN_WAGON_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/PASSENGER_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_purchase, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_f, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_m, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_r, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_PASSENGER_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_PASSENGER_CARRIAGE_r;
+	spriteset_WAGON_PASSENGER_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_PASSENGER_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_PASSENGER_CARRIAGE_f;
+	sw_WAGON_PASSENGER_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_PASSENGER_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					35 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_PASSENGER_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1912,1,1);
+		
+		model_life:						40;
+		weight:                         33 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_PASSENGER_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_PASSENGER_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/PASSENGER_COACH.pnml" 1
+spriteset(spriteset_WAGON_PASSENGER_COACH_purchase, "gfx/WAGONS/PASSENGER_COACH.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_PASSENGER_COACH_m, "gfx/WAGONS/PASSENGER_COACH.png") { template_fai_12(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_PASSENGER_COACH) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_PASSENGER_COACH);  
+		introduction_date:				date(1800,1,1);
+		length:							3 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					9 ;
+		weight:                         10 ton;
+		speed:							45 mph;
+		
+		cost_factor:                    31 ;
+		running_cost_factor:            37 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_PASSENGER_COACH_m;
+		purchase:                           spriteset_WAGON_PASSENGER_COACH_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/PGA_HOPPER.pnml" 1
+spriteset(spriteset_WAGON_PGA_HOPPER_purchase, "gfx/WAGONS/PGA_HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_PGA_HOPPER_m, "gfx/WAGONS/PGA_HOPPER.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_PGA_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_PGA_HOPPER);  
+		introduction_date:				date(1972,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					16 ;
+		weight:                         15 ton;
+		speed:							65 mph;
+		
+		cost_factor:                    40 ;
+		running_cost_factor:            21 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_PGA_HOPPER_m;
+		purchase:                           spriteset_WAGON_PGA_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/PRESFLO_HOPPER.pnml" 1
+spriteset(spriteset_WAGON_PRESFLO_HOPPER_purchase, "gfx/WAGONS/PRESFLO_HOPPER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_PRESFLO_HOPPER_m, "gfx/WAGONS/PRESFLO_HOPPER.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_PRESFLO_HOPPER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_PRESFLO_HOPPER);  
+		introduction_date:				date(1966,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					16 ;
+		weight:                         18 ton;
+		speed:							75 mph;
+		
+		cost_factor:                    49 ;
+		running_cost_factor:            37 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_PRESFLO_HOPPER_m;
+		purchase:                           spriteset_WAGON_PRESFLO_HOPPER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/SCRAP_WAGON.pnml" 1
+spriteset(spriteset_WAGON_SCRAP_WAGON_purchase, "gfx/WAGONS/SCRAP_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_SCRAP_WAGON_m, "gfx/WAGONS/SCRAP_WAGON.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_SCRAP_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_SCRAP_WAGON);  
+		introduction_date:				date(1978,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					20 ;
+		weight:                         15 ton;
+		speed:							60 mph;
+		
+		cost_factor:                    40 ;
+		running_cost_factor:            25 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_SCRAP_WAGON_m;
+		purchase:                           spriteset_WAGON_SCRAP_WAGON_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/SIPHON_VAN.pnml" 1
+spriteset(spriteset_WAGON_SIPHON_VAN_purchase, "gfx/WAGONS/SIPHON_VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_SIPHON_VAN_m, "gfx/WAGONS/SIPHON_VAN.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_SIPHON_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_SIPHON_VAN);  
+		introduction_date:				date(1890,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         30 ton;
+		speed:							75 mph;
+		
+		cost_factor:                    81 ;
+		running_cost_factor:            66 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_SIPHON_VAN_m;
+		purchase:                           spriteset_WAGON_SIPHON_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/SLAM_DOOR_CARRIAGE.pnml" 1
+spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_purchase, "gfx/WAGONS/SLAM_DOOR_CARRIAGE.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_f, "gfx/WAGONS/SLAM_DOOR_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_m, "gfx/WAGONS/SLAM_DOOR_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_SLAM_DOOR_CARRIAGE_r, "gfx/WAGONS/SLAM_DOOR_CARRIAGE.png") { template_fai_33(367, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
+	0: spriteset_WAGON_SLAM_DOOR_CARRIAGE_r;
+	spriteset_WAGON_SLAM_DOOR_CARRIAGE_m ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_f, position_in_vehid_chain){
+	0: spriteset_WAGON_SLAM_DOOR_CARRIAGE_f;
+	sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_r ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_SLAM_DOOR_CARRIAGE) {
+	property {
+		vehicle_life:                   40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		ai_special_flag:				AI_FLAG_CARGO;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		default_cargo_type:				PASS;
+		cargo_capacity:					45 ;
+		
+		track_type:						RAIL;
+		
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_SLAM_DOOR_CARRIAGE);  
+		climates_available:				ALL_CLIMATES;
+		introduction_date:				date(1974,1,1);
+		
+		model_life:						40;
+		weight:                         33 ton;
+		speed:							90 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+		length:							8 ;
+	}
+	graphics {
+		default: 							sw_WAGON_SLAM_DOOR_CARRIAGE_poscheck_f;
+		purchase:                           spriteset_WAGON_SLAM_DOOR_CARRIAGE_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/SPEEDLINK_VAN.pnml" 1
+spriteset(spriteset_WAGON_SPEEDLINK_VAN_purchase, "gfx/WAGONS/SPEEDLINK_VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_SPEEDLINK_VAN_m, "gfx/WAGONS/SPEEDLINK_VAN.png") { template_fai_25(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_SPEEDLINK_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_SPEEDLINK_VAN);  
+		introduction_date:				date(1968,1,1);
+		length:							6 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					18 ;
+		weight:                         15 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    44 ;
+		running_cost_factor:            33 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_SPEEDLINK_VAN_m;
+		purchase:                           spriteset_WAGON_SPEEDLINK_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/SPEEDLINK_WAGON.pnml" 1
+spriteset(spriteset_WAGON_SPEEDLINK_WAGON_purchase, "gfx/WAGONS/SPEEDLINK_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_SPEEDLINK_WAGON_m, "gfx/WAGONS/SPEEDLINK_WAGON.png") { template_fai_25(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_SPEEDLINK_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_SPEEDLINK_WAGON);  
+		introduction_date:				date(1968,1,1);
+		length:							6 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					18 ;
+		weight:                         15 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    44 ;
+		running_cost_factor:            33 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_SPEEDLINK_WAGON_m;
+		purchase:                           spriteset_WAGON_SPEEDLINK_WAGON_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/STEEL_COIL_WAGON.pnml" 1
+spriteset(spriteset_WAGON_STEEL_COIL_WAGON_purchase, "gfx/WAGONS/STEEL_COIL_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_STEEL_COIL_WAGON_m, "gfx/WAGONS/STEEL_COIL_WAGON.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_STEEL_COIL_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_STEEL_COIL_WAGON);  
+		introduction_date:				date(1980,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					24 ;
+		weight:                         20 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    54 ;
+		running_cost_factor:            33 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_STEEL_COIL_WAGON_m;
+		purchase:                           spriteset_WAGON_STEEL_COIL_WAGON_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/TANKER_WAGON.pnml" 1
+spriteset(spriteset_WAGON_TANKER_WAGON_purchase, "gfx/WAGONS/TANKER_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_TANKER_WAGON_m, "gfx/WAGONS/TANKER_WAGON.png") { template_fai_18(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_TANKER_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_TANKER_WAGON);  
+		introduction_date:				date(1865,1,1);
+		length:							4 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					9 ;
+		weight:                         12 ton;
+		speed:							35 mph;
+		
+		cost_factor:                    19 ;
+		running_cost_factor:            21 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_TANKER_WAGON_m;
+		purchase:                           spriteset_WAGON_TANKER_WAGON_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/TPO_VAN.pnml" 1
+spriteset(spriteset_WAGON_TPO_VAN_purchase, "gfx/WAGONS/TPO_VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_TPO_VAN_m, "gfx/WAGONS/TPO_VAN.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_TPO_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_TPO_VAN);  
+		introduction_date:				date(1985,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         28 ton;
+		speed:							100 mph;
+		
+		cost_factor:                    108 ;
+		running_cost_factor:            70 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_TPO_VAN_m;
+		purchase:                           spriteset_WAGON_TPO_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/VAN.pnml" 1
+spriteset(spriteset_WAGON_VAN_purchase, "gfx/WAGONS/VAN.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_VAN_m, "gfx/WAGONS/VAN.png") { template_fai_18(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_VAN) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_VAN);  
+		introduction_date:				date(1865,1,1);
+		length:							4 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					10 ;
+		weight:                         10 ton;
+		speed:							45 mph;
+		
+		cost_factor:                    27 ;
+		running_cost_factor:            16 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_VAN_m;
+		purchase:                           spriteset_WAGON_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/WELDED_TANKER.pnml" 1
+spriteset(spriteset_WAGON_WELDED_TANKER_purchase, "gfx/WAGONS/WELDED_TANKER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_WELDED_TANKER_m, "gfx/WAGONS/WELDED_TANKER.png") { template_fai_21(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_WELDED_TANKER) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_WELDED_TANKER);  
+		introduction_date:				date(1957,1,1);
+		length:							5 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					16 ;
+		weight:                         35 ton;
+		speed:							75 mph;
+		
+		cost_factor:                    49 ;
+		running_cost_factor:            37 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_WELDED_TANKER_m;
+		purchase:                           spriteset_WAGON_WELDED_TANKER_purchase;
 	}
 }
 # 1 "ukfs.pnml" 2

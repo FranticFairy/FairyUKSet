@@ -1,8 +1,8 @@
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_purchase, "gfx/Wagons/Passenger Carriage.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_purchase, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_f, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(187, 39)}
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_m, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_r, "gfx/Wagons/Passenger Carriage.png") { template_fai_33(367, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_f, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_m, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_PASSENGER_CARRIAGE_r, "gfx/WAGONS/PASSENGER_CARRIAGE.png") { template_fai_33(367, 39)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_PASSENGER_CARRIAGE_poscheck_r, position_in_vehid_chain_from_end){
 	0: spriteset_WAGON_PASSENGER_CARRIAGE_r;

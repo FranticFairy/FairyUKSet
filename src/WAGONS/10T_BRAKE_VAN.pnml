@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_10T_BRAKE_VAN_purchase, "gfx/WAGONS/10T_BRAKE_VAN.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_10T_BRAKE_VAN_purchase, "gfx/WAGONS/BRAKEVAN.png") { template_fai_purchase(367, 23)}
 
-spriteset(spriteset_WAGON_10T_BRAKE_VAN_m, "gfx/WAGONS/10T_BRAKE_VAN.png") { template_fai_12(7, 39)}
+spriteset(spriteset_WAGON_10T_BRAKE_VAN_m, "gfx/WAGONS/BRAKEVAN.png") { template_fai_12(367, 39)}
 
 //Sprite stack
 

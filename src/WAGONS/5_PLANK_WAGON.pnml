@@ -1,12 +1,12 @@
-spriteset(spriteset_WAGON_5-PLANK_WAGON_purchase, "gfx/WAGONS/5-PLANK_WAGON.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_5_PLANK_WAGON_purchase, "gfx/WAGONS/5_PLANK_WAGON.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_5-PLANK_WAGON_m, "gfx/WAGONS/5-PLANK_WAGON.png") { template_fai_18(7, 39)}
+spriteset(spriteset_WAGON_5_PLANK_WAGON_m, "gfx/WAGONS/5_PLANK_WAGON.png") { template_fai_18(7, 39)}
 
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_5-PLANK_WAGON) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_5_PLANK_WAGON) {
 	property {
 		vehicle_life:                   40;
 		model_life:						40;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_5-PLANK_WAGON) {
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_5-PLANK_WAGON);  
+		name:							string(STR_NAME_WAGON_5_PLANK_WAGON);  
 		introduction_date:				date(1865,1,1);
 		length:							4 ;
 		
@@ -36,7 +36,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_5-PLANK_WAGON) {
 		running_cost_factor:            12 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_5-PLANK_WAGON_m;
-		purchase:                           spriteset_WAGON_5-PLANK_WAGON_purchase;
+		default: 							spriteset_WAGON_5_PLANK_WAGON_m;
+		purchase:                           spriteset_WAGON_5_PLANK_WAGON_purchase;
 	}
 }

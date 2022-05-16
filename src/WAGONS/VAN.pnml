@@ -1,12 +1,12 @@
-spriteset(spriteset_WAGON_EXAMPLENAME_purchase, "gfx/WAGONS/EXAMPLENAME.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_VAN_purchase, "gfx/WAGONS/VAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_EXAMPLENAME_m, "gfx/WAGONS/EXAMPLENAME.png") { template_fai_18(7, 39)}
+spriteset(spriteset_WAGON_VAN_m, "gfx/WAGONS/VAN.png") { template_fai_18(7, 39)}
 
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_EXAMPLENAME) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_VAN) {
 	property {
 		vehicle_life:                   40;
 		model_life:						40;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_EXAMPLENAME) {
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_EXAMPLENAME);  
+		name:							string(STR_NAME_WAGON_VAN);  
 		introduction_date:				date(1865,1,1);
 		length:							4 ;
 		
@@ -36,7 +36,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_EXAMPLENAME) {
 		running_cost_factor:            16 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_EXAMPLENAME_m;
-		purchase:                           spriteset_WAGON_EXAMPLENAME_purchase;
+		default: 							spriteset_WAGON_VAN_m;
+		purchase:                           spriteset_WAGON_VAN_purchase;
 	}
 }

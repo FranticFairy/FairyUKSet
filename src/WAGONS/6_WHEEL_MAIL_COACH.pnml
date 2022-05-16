@@ -1,12 +1,12 @@
-spriteset(spriteset_WAGON_6-WHEEL_MAIL_COACH_purchase, "gfx/WAGONS/6-WHEEL_MAIL_COACH.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_6_WHEEL_MAIL_COACH_purchase, "gfx/WAGONS/6_WHEEL_MAIL_COACH.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_6-WHEEL_MAIL_COACH_m, "gfx/WAGONS/6-WHEEL_MAIL_COACH.png") { template_fai_21(7, 39)}
+spriteset(spriteset_WAGON_6_WHEEL_MAIL_COACH_m, "gfx/WAGONS/6_WHEEL_MAIL_COACH.png") { template_fai_21(7, 39)}
 
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_6-WHEEL_MAIL_COACH) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_MAIL_COACH) {
 	property {
 		vehicle_life:                   40;
 		model_life:						40;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_6-WHEEL_MAIL_COACH) {
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_6-WHEEL_MAIL_COACH);  
+		name:							string(STR_NAME_WAGON_6_WHEEL_MAIL_COACH);  
 		introduction_date:				date(1850,1,1);
 		length:							5 ;
 		
@@ -36,7 +36,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_6-WHEEL_MAIL_COACH) {
 		running_cost_factor:            45 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_6-WHEEL_MAIL_COACH_m;
-		purchase:                           spriteset_WAGON_6-WHEEL_MAIL_COACH_purchase;
+		default: 							spriteset_WAGON_6_WHEEL_MAIL_COACH_m;
+		purchase:                           spriteset_WAGON_6_WHEEL_MAIL_COACH_purchase;
 	}
 }
