@@ -1,8 +1,8 @@
-spriteset(spriteset_MU_SPRINTER_purchase, "gfx/DIESEL/MU_SPRINTER.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_MU_SPRINTER_purchase, "gfx/MUS/MU_SPRINTER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MU_SPRINTER, "gfx/DIESEL/MU_SPRINTER.png") { template_fai_33(7, 39)}
+spriteset(spriteset_MU_SPRINTER, "gfx/MUS/MU_SPRINTER.png") { template_fai_33(7, 39)}
 
-spriteset(spriteset_MU_SPRINTER_wagon, "gfx/DIESEL/MU_SPRINTER.png") { template_fai_33_r(187, 39)}
+spriteset(spriteset_MU_SPRINTER_wagon, "gfx/MUS/MU_SPRINTER.png") { template_fai_33_r(187, 39)}
 
 
 //Sprite stack
