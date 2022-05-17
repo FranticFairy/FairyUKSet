@@ -1,8 +1,8 @@
-spriteset(spriteset_MU_SPRINTER_purchase, "gfx/DIESEL/MU_SPRINTER.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_MU_SPRINTER_purchase, "gfx/MUS/MU_SPRINTER.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MU_SPRINTER, "gfx/DIESEL/MU_SPRINTER.png") { template_fai_33(7, 39)}
+spriteset(spriteset_MU_SPRINTER, "gfx/MUS/MU_SPRINTER.png") { template_fai_33(7, 39)}
 
-spriteset(spriteset_MU_SPRINTER_wagon, "gfx/DIESEL/MU_SPRINTER.png") { template_fai_33_r(187, 39)}
+spriteset(spriteset_MU_SPRINTER_wagon, "gfx/MUS/MU_SPRINTER.png") { template_fai_33_r(187, 39)}
 
 
 //Sprite stack
@@ -25,7 +25,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_SPRINTER) {
 		climates_available:				ALL_CLIMATES;
 		introduction_date:				date(1960,1,1);
 		default_cargo_type:				PASS;
-		cargo_capacity:					1 ;
+		cargo_capacity:					35 ;
 		
 		weight:                         72 ton;
 		speed:							75 mph;
@@ -53,7 +53,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_SPRINTER) {
 		default:			spriteset_MU_SPRINTER_wagon;
 		length:				8;
 		weight:				72 ton;
-		cargo_capacity:		1 ;
+		cargo_capacity:		35 ;
 		speed:				75 mph;
 	}
 }

@@ -1,0 +1,51 @@
+spriteset(spriteset_WAGON_CARTIC_purchase, "gfx/WAGONS/CARTIC.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_CARTIC_m, "gfx/WAGONS/CARTIC.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_CARTIC_m2, "gfx/WAGONS/CARTIC.png") { template_fai_29(7, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_CARTIC_articulation, extra_callback_info1) {
+    1: return ITEM_FAI_WAGON_CARTIC;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_CARTIC) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_CARTIC);  
+		introduction_date:				date(1967,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					12 ;
+		weight:                         64 ton;
+		speed:							90 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_CARTIC_m;
+		purchase:                           spriteset_WAGON_CARTIC_purchase;
+        articulated_part:                   sw_WAGON_CARTIC_articulation;
+	}
+	livery_override (ITEM_FAI_WAGON_CARTIC) {
+		default: spriteset_WAGON_CARTIC_m2;
+	}
+}
