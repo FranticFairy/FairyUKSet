@@ -1,8 +1,8 @@
-spriteset(spriteset_MU_EUROSTAR_purchase, "gfx/MUS/MU_EUROSTAR.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_MU_EUROSTAR_purchase, "gfx/MUS/EUROSTAR.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MU_EUROSTAR, "gfx/MUS/MU_EUROSTAR.png") { template_fai_33(7, 39)}
+spriteset(spriteset_MU_EUROSTAR, "gfx/MUS/EUROSTAR.png") { template_fai_33(7, 39)}
 
-spriteset(spriteset_MU_EUROSTAR_wagon, "gfx/MUS/MU_EUROSTAR.png") { template_fai_25_r(187, 39)}
+spriteset(spriteset_MU_EUROSTAR_wagon, "gfx/MUS/EUROSTAR.png") { template_fai_25_r(187, 39)}
 
 
 //Sprite stack
@@ -14,11 +14,11 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EUROSTAR) {
 		vehicle_life:                   40;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
 		bitmask_vehicle_info:			0;
-		dual_headed:					0;
+		dual_headed:					1;
 		model_life:						40;
 		
 		name:							string(STR_NAME_LOCO_MU_EUROSTAR);  
@@ -52,8 +52,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EUROSTAR) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:			spriteset_MU_EUROSTAR_wagon;
 		length:				6;
-		weight:				138 ton;
+		weight:				138;
 		cargo_capacity:		25 ;
-		speed:				186 mph;
+		speed:				186 ;
 	}
 }

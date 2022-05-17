@@ -1,8 +1,8 @@
-spriteset(spriteset_MU_AEC_RAILCAR_purchase, "gfx/MUS/MU_AEC_RAILCAR.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_MU_AEC_RAILCAR_purchase, "gfx/MUS/AEC_RAILCAR.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MU_AEC_RAILCAR, "gfx/MUS/MU_AEC_RAILCAR.png") { template_fai_33(7, 39)}
+spriteset(spriteset_MU_AEC_RAILCAR, "gfx/MUS/AEC_RAILCAR.png") { template_fai_33(7, 39)}
 
-spriteset(spriteset_MU_AEC_RAILCAR_wagon, "gfx/MUS/MU_AEC_RAILCAR.png") { template_fai_33_r(187, 39)}
+spriteset(spriteset_MU_AEC_RAILCAR_wagon, "gfx/MUS/AEC_RAILCAR.png") { template_fai_33_r(187, 39)}
 
 
 //Sprite stack
@@ -14,7 +14,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AEC_RAILCAR) {
 		vehicle_life:                   40;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
 		ai_special_flag:				AI_FLAG_CARGO;
 		bitmask_vehicle_info:			0;
@@ -52,8 +52,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AEC_RAILCAR) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:			spriteset_MU_AEC_RAILCAR_wagon;
 		length:				8;
-		weight:				29 ton;
+		weight:				29;
 		cargo_capacity:		30 ;
-		speed:				60 mph;
+		speed:				60 ;
 	}
 }

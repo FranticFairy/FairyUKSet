@@ -21,7 +21,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_GENERAL_UTILITY_VAN) {
 		running_cost_base:				RUNNING_COST_NONE;
 		
 		name:							string(STR_NAME_WAGON_GENERAL_UTILITY_VAN);  
-		introduction_date:				date(1969,1,1);
+		introduction_date:				date(1935,1,1);
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;

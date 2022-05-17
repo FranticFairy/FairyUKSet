@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_MU_COACH_purchase, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_MU_COACH_purchase, "gfx/WAGONS/MU_COACH.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_MU_COACH_m, "gfx/WAGONS/MK1_CARRIAGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_MU_COACH_m, "gfx/WAGONS/MU_COACH.png") { template_fai_33(7, 39)}
 
 //Sprite stack
 
