@@ -25,8 +25,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BOGIE_HOPPER) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					20 ;
 		weight:                         16 ton;
