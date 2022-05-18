@@ -132,6 +132,18 @@ template template_fai_purchase(x, y) {
     [x+136 , y,  1,  1,   0,  0, ANIM]
 }
 
+template template_fai_purchaseMU(x, y) {
+    //[left_x, upper_y, width, height, offset_x, offset_y]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+    [x     , y, 53, 12, -28, -8, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+    [x+136 , y,  1,  1,   0,  0, ANIM]
+    [x+136 , y,  1,  1,   0,  0, ANIM]
+}
+
 template template_anim_fai_purchase(x,y){
 	[ x, y, 53, 12, -28, -8, ANIM]
 }
@@ -4322,7 +4334,6 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 		power:							0 hp;
 		running_cost_base:				RUNNING_COST_NONE;
 		dual_headed:					0;
-		cargo_capacity:					0;
 		weight:							0;
 		tractive_effort_coefficient:	0.0;
 		air_drag_coefficient:			0.08;
@@ -6589,11 +6600,20 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_TANKER) {
 spriteset(spriteset_WAGON_QUAD_ARTICULATED_purchase, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_WAGON_QUAD_ARTICULATED_m, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(7, 39)}
-spriteset(spriteset_WAGON_QUAD_ARTICULATED_m2, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_m2, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(187, 39)}
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_m3, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(367, 39)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_QUAD_ARTICULATED_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_QUAD_ARTICULATED;
+    2: return ITEM_FAI_WAGON_QUAD_ARTICULATED;
+    3: return ITEM_FAI_WAGON_QUAD_ARTICULATED;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+switch(FEAT_TRAINS, SELF, sw_WAGON_QUAD_ARTICULATED_sprite, position_in_articulated_veh) {
+    1: spriteset_WAGON_QUAD_ARTICULATED_m2;
+    2: spriteset_WAGON_QUAD_ARTICULATED_m2;
+    3: spriteset_WAGON_QUAD_ARTICULATED_m3;
+    spriteset_WAGON_QUAD_ARTICULATED_m;
 }
 //Sprite stack
 
@@ -6629,12 +6649,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_QUAD_ARTICULATED) {
 		running_cost_factor:            1 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_QUAD_ARTICULATED_m;
+		default: 							sw_WAGON_QUAD_ARTICULATED_sprite;
 		purchase:                           spriteset_WAGON_QUAD_ARTICULATED_purchase;
         articulated_part:                   sw_WAGON_QUAD_ARTICULATED_articulation;
-	}
-	livery_override (ITEM_FAI_WAGON_QUAD_ARTICULATED) {
-		default: spriteset_WAGON_QUAD_ARTICULATED_m2;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -6642,11 +6659,16 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_QUAD_ARTICULATED) {
 spriteset(spriteset_WAGON_ARTICULATED_CARRIAGES_purchase, "gfx/WAGONS/ARTICULATED_CARRIAGES.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_WAGON_ARTICULATED_CARRIAGES_m, "gfx/WAGONS/ARTICULATED_CARRIAGES.png") { template_fai_29(7, 39)}
-spriteset(spriteset_WAGON_ARTICULATED_CARRIAGES_m2, "gfx/WAGONS/ARTICULATED_CARRIAGES.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_ARTICULATED_CARRIAGES_m2, "gfx/WAGONS/ARTICULATED_CARRIAGES.png") { template_fai_29_r(7, 39)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_ARTICULATED_CARRIAGES_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_ARTICULATED_CARRIAGES;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_ARTICULATED_CARRIAGES_sprite, position_in_articulated_veh) {
+    1: spriteset_WAGON_ARTICULATED_CARRIAGES_m2;
+    spriteset_WAGON_ARTICULATED_CARRIAGES_m;
 }
 //Sprite stack
 
@@ -6682,12 +6704,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_ARTICULATED_CARRIAGES) {
 		running_cost_factor:            1 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_ARTICULATED_CARRIAGES_m;
+		default: 							sw_WAGON_ARTICULATED_CARRIAGES_sprite;
 		purchase:                           spriteset_WAGON_ARTICULATED_CARRIAGES_purchase;
         articulated_part:                   sw_WAGON_ARTICULATED_CARRIAGES_articulation;
-	}
-	livery_override (ITEM_FAI_WAGON_ARTICULATED_CARRIAGES) {
-		default: spriteset_WAGON_ARTICULATED_CARRIAGES_m2;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -6830,12 +6849,17 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
 spriteset(spriteset_WAGON_BUFFET_ARTICULATED_purchase, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_WAGON_BUFFET_ARTICULATED_m, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_29(7, 39)}
-spriteset(spriteset_WAGON_BUFFET_ARTICULATED_m2, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_BUFFET_ARTICULATED_m2, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_29_r(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_BUFFET_ARTICULATED_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_BUFFET_ARTICULATED;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
+switch(FEAT_TRAINS, SELF, sw_WAGON_BUFFET_ARTICULATED_sprite, position_in_articulated_veh) {
+    1: spriteset_WAGON_BUFFET_ARTICULATED_m2;
+    spriteset_WAGON_BUFFET_ARTICULATED_m;
+}
+
 //Sprite stack
 
 //Item
@@ -6870,12 +6894,12 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_ARTICULATED) {
 		running_cost_factor:            1 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_BUFFET_ARTICULATED_m;
+		default: 							sw_WAGON_BUFFET_ARTICULATED_sprite;
 		purchase:                           spriteset_WAGON_BUFFET_ARTICULATED_purchase;
         articulated_part:                   sw_WAGON_BUFFET_ARTICULATED_articulation;
 	}
 	livery_override (ITEM_FAI_WAGON_BUFFET_ARTICULATED) {
-		default: spriteset_WAGON_BUFFET_ARTICULATED_m2;
+		default: sw_WAGON_BUFFET_ARTICULATED_sprite;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -7325,11 +7349,20 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SINGLE_CARTIC) {
 spriteset(spriteset_WAGON_CARTIC_purchase, "gfx/WAGONS/CARTIC.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_WAGON_CARTIC_m, "gfx/WAGONS/CARTIC.png") { template_fai_29(7, 39)}
-spriteset(spriteset_WAGON_CARTIC_m2, "gfx/WAGONS/CARTIC.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_CARTIC_m2, "gfx/WAGONS/CARTIC.png") { template_fai_29(187, 39)}
+spriteset(spriteset_WAGON_CARTIC_m3, "gfx/WAGONS/CARTIC.png") { template_fai_29(367, 39)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_CARTIC_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_CARTIC;
+    2: return ITEM_FAI_WAGON_CARTIC;
+    3: return ITEM_FAI_WAGON_CARTIC;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+switch(FEAT_TRAINS, SELF, sw_WAGON_CARTIC_sprite, position_in_articulated_veh) {
+    1: spriteset_WAGON_CARTIC_m2;
+    2: spriteset_WAGON_CARTIC_m2;
+    3: spriteset_WAGON_CARTIC_m3;
+    spriteset_WAGON_CARTIC_m;
 }
 //Sprite stack
 
@@ -7366,12 +7399,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_CARTIC) {
 		running_cost_factor:            1 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_CARTIC_m;
+		default: 							sw_WAGON_CARTIC_sprite;
 		purchase:                           spriteset_WAGON_CARTIC_purchase;
         articulated_part:                   sw_WAGON_CARTIC_articulation;
-	}
-	livery_override (ITEM_FAI_WAGON_CARTIC) {
-		default: spriteset_WAGON_CARTIC_m2;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -8150,11 +8180,19 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED_TINY) {
 spriteset(spriteset_WAGON_FREIGHTLINER_purchase, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_WAGON_FREIGHTLINER_m, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_33(7, 39)}
-spriteset(spriteset_WAGON_FREIGHTLINER_m2, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_FREIGHTLINER_m2, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_33(187, 39)}
+spriteset(spriteset_WAGON_FREIGHTLINER_m3, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_33(367, 39)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_FREIGHTLINER_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_FREIGHTLINER;
+    2: return ITEM_FAI_WAGON_FREIGHTLINER;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_FREIGHTLINER_sprite, position_in_articulated_veh) {
+    1: spriteset_WAGON_FREIGHTLINER_m2;
+    3: spriteset_WAGON_FREIGHTLINER_m2;
+    spriteset_WAGON_FREIGHTLINER_m;
 }
 //Sprite stack
 
@@ -8191,12 +8229,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FREIGHTLINER) {
 		running_cost_factor:            1 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_FREIGHTLINER_m;
+		default: 							sw_WAGON_FREIGHTLINER_sprite;
 		purchase:                           spriteset_WAGON_FREIGHTLINER_purchase;
         articulated_part:                   sw_WAGON_FREIGHTLINER_articulation;
-	}
-	livery_override (ITEM_FAI_WAGON_FREIGHTLINER) {
-		default: spriteset_WAGON_FREIGHTLINER_m2;
 	}
 }
 # 1 "ukfs.pnml" 2

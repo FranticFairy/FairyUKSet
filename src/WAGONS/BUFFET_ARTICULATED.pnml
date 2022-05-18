@@ -1,12 +1,17 @@
 spriteset(spriteset_WAGON_BUFFET_ARTICULATED_purchase, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_WAGON_BUFFET_ARTICULATED_m, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_29(7, 39)}
-spriteset(spriteset_WAGON_BUFFET_ARTICULATED_m2, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_BUFFET_ARTICULATED_m2, "gfx/WAGONS/BUFFET_ARTICULATED.png") { template_fai_29_r(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_BUFFET_ARTICULATED_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_BUFFET_ARTICULATED;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
+switch(FEAT_TRAINS, SELF, sw_WAGON_BUFFET_ARTICULATED_sprite, position_in_articulated_veh) {
+    1: spriteset_WAGON_BUFFET_ARTICULATED_m2;
+    spriteset_WAGON_BUFFET_ARTICULATED_m;
+}
+
 //Sprite stack
 
 //Item
@@ -41,11 +46,11 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_ARTICULATED) {
 		running_cost_factor:            1 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_BUFFET_ARTICULATED_m;
+		default: 							sw_WAGON_BUFFET_ARTICULATED_sprite;
 		purchase:                           spriteset_WAGON_BUFFET_ARTICULATED_purchase;
         articulated_part:                   sw_WAGON_BUFFET_ARTICULATED_articulation;
 	}
 	livery_override (ITEM_FAI_WAGON_BUFFET_ARTICULATED) {
-		default: spriteset_WAGON_BUFFET_ARTICULATED_m2;
+		default: sw_WAGON_BUFFET_ARTICULATED_sprite;
 	}
 }

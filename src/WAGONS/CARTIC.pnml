@@ -1,11 +1,20 @@
 spriteset(spriteset_WAGON_CARTIC_purchase, "gfx/WAGONS/CARTIC.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_WAGON_CARTIC_m, "gfx/WAGONS/CARTIC.png") { template_fai_29(7, 39)}
-spriteset(spriteset_WAGON_CARTIC_m2, "gfx/WAGONS/CARTIC.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_CARTIC_m2, "gfx/WAGONS/CARTIC.png") { template_fai_29(187, 39)}
+spriteset(spriteset_WAGON_CARTIC_m3, "gfx/WAGONS/CARTIC.png") { template_fai_29(367, 39)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_CARTIC_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_CARTIC;
+    2: return ITEM_FAI_WAGON_CARTIC;
+    3: return ITEM_FAI_WAGON_CARTIC;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+switch(FEAT_TRAINS, SELF, sw_WAGON_CARTIC_sprite, position_in_articulated_veh) {
+    1: spriteset_WAGON_CARTIC_m2;
+    2: spriteset_WAGON_CARTIC_m2;
+    3: spriteset_WAGON_CARTIC_m3;
+    spriteset_WAGON_CARTIC_m;
 }
 //Sprite stack
 
@@ -42,11 +51,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_CARTIC) {
 		running_cost_factor:            1 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_CARTIC_m;
+		default: 							sw_WAGON_CARTIC_sprite;
 		purchase:                           spriteset_WAGON_CARTIC_purchase;
         articulated_part:                   sw_WAGON_CARTIC_articulation;
-	}
-	livery_override (ITEM_FAI_WAGON_CARTIC) {
-		default: spriteset_WAGON_CARTIC_m2;
 	}
 }

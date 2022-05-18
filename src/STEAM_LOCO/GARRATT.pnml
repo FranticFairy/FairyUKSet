@@ -80,7 +80,6 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 		power:							0 hp;
 		running_cost_base:				RUNNING_COST_NONE;
 		dual_headed:					0;
-		cargo_capacity:					0;
 		weight:							0;
 		tractive_effort_coefficient:	0.0;
 		air_drag_coefficient:			0.08;
