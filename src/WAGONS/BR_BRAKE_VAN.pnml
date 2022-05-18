@@ -27,8 +27,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
 		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
 		
-		cargo_capacity:					0 ;
 		weight:                         20 ton;
 		speed:							70 mph;
 		
@@ -38,5 +38,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
 	graphics {
 		default: 							spriteset_WAGON_BR_BRAKE_VAN_m;
 		purchase:                           spriteset_WAGON_BR_BRAKE_VAN_purchase;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
 	}
 }

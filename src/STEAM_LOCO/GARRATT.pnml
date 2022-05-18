@@ -71,6 +71,7 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 		cost_factor:					0;
 		running_cost_factor:			0;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		engine_class:                   ENGINE_CLASS_STEAM;
 		speed:							80 mph;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK,TRAIN_FLAG_AUTOREFIT);
 		refit_cost:						0;

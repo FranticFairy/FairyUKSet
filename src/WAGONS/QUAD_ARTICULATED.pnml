@@ -1,7 +1,7 @@
-spriteset(spriteset_WAGON_QUAD_ARTICULATED_purchase, "gfx/WAGONS/ARTICULATED_CARRIAGES.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_purchase, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_QUAD_ARTICULATED_m, "gfx/WAGONS/ARTICULATED_CARRIAGES.png") { template_fai_29(7, 39)}
-spriteset(spriteset_WAGON_QUAD_ARTICULATED_m2, "gfx/WAGONS/ARTICULATED_CARRIAGES.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_m, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_m2, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(7, 39)}
 
 switch(FEAT_TRAINS, SELF, sw_WAGON_QUAD_ARTICULATED_articulation, extra_callback_info1) {
     1: return ITEM_FAI_WAGON_QUAD_ARTICULATED;

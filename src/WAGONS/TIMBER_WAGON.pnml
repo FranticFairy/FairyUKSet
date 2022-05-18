@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_TIMBER_WAGON_purchase, "gfx/WAGONS/FLATBED.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_TIMBER_WAGON_purchase, "gfx/WAGONS/TIMBER_WAGON.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_TIMBER_WAGON_m, "gfx/WAGONS/FLATBED.png") { template_fai_25(7, 39)}
+spriteset(spriteset_WAGON_TIMBER_WAGON_m, "gfx/WAGONS/TIMBER_WAGON.png") { template_fai_25(7, 39)}
 
 //Sprite stack
 

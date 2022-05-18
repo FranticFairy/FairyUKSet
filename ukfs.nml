@@ -112,8 +112,24 @@ template base_32bpp(){
 
 spriteset(gfx_blank){base_32bpp()}
 
-template template_fai_purchase(x,y){
+template template_fai_purchaseb(x,y){
 	[ x, y, 53, 12, -28, -8]
+}
+
+template template_fai_purchaseL(x,y){
+	[ x, y, 72, 12, -28, -8]
+}
+
+template template_fai_purchase(x, y) {
+    //[left_x, upper_y, width, height, offset_x, offset_y]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+	[x+136 , y,  1,  1,   0,  0, ANIM]
+    [x+136 , y,  1,  1,   0,  0, ANIM]
+    [x     , y, 53, 12, -28, -8, ANIM]
+    [x+136 , y,  1,  1,   0,  0, ANIM]
 }
 
 template template_anim_fai_purchase(x,y){
@@ -1151,6 +1167,7 @@ ITEM_FAI_WAGON_COMPARTMENT_COACH,
 ITEM_FAI_WAGON_6_WHEEL_COACH,
 ITEM_FAI_WAGON_CLERESTORY_COACH,
 ITEM_FAI_WAGON_ARTICULATED_CARRIAGES,
+ITEM_FAI_WAGON_QUAD_ARTICULATED,
 ITEM_FAI_WAGON_PASSENGER_CARRIAGE,
 ITEM_FAI_WAGON_MK1_CARRIAGE,
 ITEM_FAI_WAGON_MK2_CARRIAGE,
@@ -1202,9 +1219,11 @@ ITEM_FAI_WAGON_FLATBED_TINY,
 ITEM_FAI_WAGON_FLATBED,
 ITEM_FAI_WAGON_FLATBED_LARGE,
 ITEM_FAI_WAGON_FLATBED_EXPRESS,
-ITEM_FAI_WAGON_INTERMODAL,
+ITEM_FAI_WAGON_SINGLE_CARTIC,
 ITEM_FAI_WAGON_CARTIC,
+ITEM_FAI_WAGON_INTERMODAL,
 ITEM_FAI_WAGON_FREIGHTLINER,
+ITEM_FAI_WAGON_TIMBER_WAGON,
 ITEM_FAI_WAGON_STEEL_COIL_WAGON,
 ITEM_FAI_WAGON_TANKER_WAGON,
 ITEM_FAI_WAGON_6_WHEEL_TANKER,
@@ -4294,6 +4313,7 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 		cost_factor:					0;
 		running_cost_factor:			0;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		engine_class:                   ENGINE_CLASS_STEAM;
 		speed:							80 mph;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK,TRAIN_FLAG_AUTOREFIT);
 		refit_cost:						0;
@@ -6324,8 +6344,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_10T_BRAKE_VAN) {
 		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
 		
-		cargo_capacity:					35 ;
 		weight:                         10 ton;
 		speed:							40 mph;
 		
@@ -6335,6 +6355,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_10T_BRAKE_VAN) {
 	graphics {
 		default: 							spriteset_WAGON_10T_BRAKE_VAN_m;
 		purchase:                           spriteset_WAGON_10T_BRAKE_VAN_purchase;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -6368,8 +6390,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_20T_BRAKE_VAN) {
 		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
 		
-		cargo_capacity:					0 ;
 		weight:                         20 ton;
 		speed:							65 mph;
 		
@@ -6379,6 +6401,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_20T_BRAKE_VAN) {
 	graphics {
 		default: 							spriteset_WAGON_20T_BRAKE_VAN_m;
 		purchase:                           spriteset_WAGON_20T_BRAKE_VAN_purchase;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -6410,8 +6434,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_5_PLANK_WAGON) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					10 ;
 		weight:                         8 ton;
@@ -6498,8 +6523,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_MAIL_COACH) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					20 ;
 		weight:                         16 ton;
@@ -6542,8 +6568,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_TANKER) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_LIQUID);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				OIL_;
 		
 		cargo_capacity:					12 ;
 		weight:                         16 ton;
@@ -6555,6 +6582,59 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_6_WHEEL_TANKER) {
 	graphics {
 		default: 							spriteset_WAGON_6_WHEEL_TANKER_m;
 		purchase:                           spriteset_WAGON_6_WHEEL_TANKER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/QUAD_ARTICULATED.pnml" 1
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_purchase, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_m, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_QUAD_ARTICULATED_m2, "gfx/WAGONS/QUAD_ARTICULATED.png") { template_fai_29(7, 39)}
+
+switch(FEAT_TRAINS, SELF, sw_WAGON_QUAD_ARTICULATED_articulation, extra_callback_info1) {
+    1: return ITEM_FAI_WAGON_QUAD_ARTICULATED;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_QUAD_ARTICULATED) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_QUAD_ARTICULATED);  
+		introduction_date:				date(1880,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		
+		cargo_capacity:					30 ;
+		weight:                         28 ton;
+		speed:							80 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_QUAD_ARTICULATED_m;
+		purchase:                           spriteset_WAGON_QUAD_ARTICULATED_purchase;
+        articulated_part:                   sw_WAGON_QUAD_ARTICULATED_articulation;
+	}
+	livery_override (ITEM_FAI_WAGON_QUAD_ARTICULATED) {
+		default: spriteset_WAGON_QUAD_ARTICULATED_m2;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -6683,8 +6763,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BOGIE_HOPPER) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					20 ;
 		weight:                         16 ton;
@@ -6729,8 +6810,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
 		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
 		
-		cargo_capacity:					0 ;
 		weight:                         20 ton;
 		speed:							70 mph;
 		
@@ -6740,6 +6821,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
 	graphics {
 		default: 							spriteset_WAGON_BR_BRAKE_VAN_m;
 		purchase:                           spriteset_WAGON_BR_BRAKE_VAN_purchase;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -7176,8 +7259,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BULK_TANKER) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_LIQUID);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				OIL_;
 		
 		cargo_capacity:					28 ;
 		weight:                         26 ton;
@@ -7189,6 +7273,51 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BULK_TANKER) {
 	graphics {
 		default: 							spriteset_WAGON_BULK_TANKER_m;
 		purchase:                           spriteset_WAGON_BULK_TANKER_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/SINGLE_CARTIC.pnml" 1
+spriteset(spriteset_WAGON_SINGLE_CARTIC_purchase, "gfx/WAGONS/CARTIC.png") { template_fai_purchase(187, 23)}
+
+spriteset(spriteset_WAGON_SINGLE_CARTIC_m, "gfx/WAGONS/CARTIC.png") { template_fai_29(187, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_SINGLE_CARTIC) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_SINGLE_CARTIC);  
+		introduction_date:				date(1967,1,1);
+		length:							7 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
+		default_cargo_type:				VEHI;
+		
+		cargo_capacity:					12 ;
+		weight:                         64 ton;
+		speed:							90 mph;
+		
+		cost_factor:                    1 ;
+		running_cost_factor:            1 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_SINGLE_CARTIC_m;
+		purchase:                           spriteset_WAGON_SINGLE_CARTIC_purchase;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -7225,8 +7354,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_CARTIC) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
+		default_cargo_type:				VEHI;
 		
 		cargo_capacity:					12 ;
 		weight:                         64 ton;
@@ -7273,8 +7403,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_BRAKE) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS, CC_MAIL);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         28 ton;
@@ -7550,7 +7680,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_COMPARTMENT_COACH) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS, CC_ARMOURED, CC_EXPRESS, CC_MAIL);
 		default_cargo_type:				PASS;
 		
 		cargo_capacity:					14 ;
@@ -7594,8 +7724,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_COVERED_CARRIAGE_TRUCK) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					20 ;
 		weight:                         19 ton;
@@ -7638,8 +7769,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_COVERED_HOPPER) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_NON_POURABLE);
+		default_cargo_type:				GRAI;
 		
 		cargo_capacity:					15 ;
 		weight:                         16 ton;
@@ -7682,8 +7814,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_EXPRESS_MAIL_CARRIAGE) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         31 ton;
@@ -7726,8 +7859,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_EXPRESS_VAN) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					10 ;
 		weight:                         10 ton;
@@ -7770,8 +7904,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FERTILISER_VAN) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_NON_POURABLE);
+		default_cargo_type:				FERT;
 		
 		cargo_capacity:					22 ;
 		weight:                         18 ton;
@@ -7783,6 +7918,51 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FERTILISER_VAN) {
 	graphics {
 		default: 							spriteset_WAGON_FERTILISER_VAN_m;
 		purchase:                           spriteset_WAGON_FERTILISER_VAN_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/WAGONS/TIMBER_WAGON.pnml" 1
+spriteset(spriteset_WAGON_TIMBER_WAGON_purchase, "gfx/WAGONS/TIMBER_WAGON.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_TIMBER_WAGON_m, "gfx/WAGONS/TIMBER_WAGON.png") { template_fai_25(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_TIMBER_WAGON) {
+	property {
+		vehicle_life:                   40;
+		model_life:						40;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		air_drag_coefficient:			0.05;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_NONE;
+		
+		name:							string(STR_NAME_WAGON_TIMBER_WAGON);  
+		introduction_date:				date(1985,1,1);
+		length:							6 ;
+		
+		ai_special_flag:				AI_FLAG_CARGO;
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				WOOD;
+		
+		cargo_capacity:					20 ;
+		weight:                         14 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    26 ;
+		running_cost_factor:            12 ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_TIMBER_WAGON_m;
+		purchase:                           spriteset_WAGON_TIMBER_WAGON_purchase;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -7814,8 +7994,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					12 ;
 		weight:                         9 ton;
@@ -7858,8 +8039,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED_EXPRESS) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					20 ;
 		weight:                         17 ton;
@@ -7902,8 +8084,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED_LARGE) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					20 ;
 		weight:                         17 ton;
@@ -7946,8 +8129,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FLATBED_TINY) {
 		length:							3 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					5 ;
 		weight:                         5 ton;
@@ -7995,8 +8179,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_FREIGHTLINER) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_BULK, CC_PIECE_GOODS, CC_LIQUID, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					27 ;
 		weight:                         42 ton;
@@ -8043,8 +8228,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_GENERAL_UTILITY_VAN) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         28 ton;
@@ -8087,8 +8273,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_BULK_HOPPER) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+				refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_NON_POURABLE);
+		default_cargo_type:				GRAI;
 		
 		cargo_capacity:					26 ;
 		weight:                         25 ton;
@@ -8131,8 +8318,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_HOPPER) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_NON_POURABLE);
+		default_cargo_type:				GRAI;
 		
 		cargo_capacity:					14 ;
 		weight:                         12 ton;
@@ -8175,8 +8363,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_GRAIN_TRUCK) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_NON_POURABLE);
+		default_cargo_type:				GRAI;
 		
 		cargo_capacity:					10 ;
 		weight:                         9 ton;
@@ -8219,8 +8408,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_HABFIS_VAN) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					35 ;
 		weight:                         38 ton;
@@ -8320,8 +8510,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_HOPPER) {
 		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					20 ;
 		weight:                         16 ton;
@@ -8394,9 +8585,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_INTERCITY_CARRIAGE) {
 }
 # 1 "ukfs.pnml" 2
 # 1 "src/WAGONS/INTERMODAL.pnml" 1
-spriteset(spriteset_WAGON_INTERMODAL_purchase, "gfx/WAGONS/FLATBED_LARGE.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_INTERMODAL_purchase, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_purchase(187, 23)}
 
-spriteset(spriteset_WAGON_INTERMODAL_m, "gfx/WAGONS/FLATBED_LARGE.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_INTERMODAL_m, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_33(187, 39)}
 
 //Sprite stack
 
@@ -8421,8 +8612,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_INTERMODAL) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_BULK, CC_PIECE_GOODS, CC_LIQUID, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					27 ;
 		weight:                         42 ton;
@@ -8465,8 +8657,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				LVST;
 		
 		cargo_capacity:					8 ;
 		weight:                         10 ton;
@@ -8509,8 +8702,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN_LARGE) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				LVST;
 		
 		cargo_capacity:					30 ;
 		weight:                         30 ton;
@@ -8553,8 +8747,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MAIL_CARRIAGE) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         28 ton;
@@ -8597,8 +8792,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MAIL_COACH_MK1) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         31 ton;
@@ -8641,8 +8837,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MGR_HOPPER) {
 		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					20 ;
 		weight:                         16 ton;
@@ -8685,8 +8882,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MINERAL_WAGON) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					14 ;
 		weight:                         10 ton;
@@ -9014,8 +9212,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MONSTER_BOX) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					25 ;
 		weight:                         22 ton;
@@ -9102,8 +9301,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_OPEN_WAGON) {
 		length:							3 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					6 ;
 		weight:                         5 ton;
@@ -9203,7 +9403,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_PASSENGER_COACH) {
 		length:							3 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS, CC_ARMOURED, CC_EXPRESS, CC_MAIL);
 		default_cargo_type:				PASS;
 		
 		cargo_capacity:					9 ;
@@ -9247,8 +9447,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_PGA_HOPPER) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					16 ;
 		weight:                         15 ton;
@@ -9291,8 +9492,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_PRESFLO_HOPPER) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_NON_POURABLE);
+		default_cargo_type:				GRAI;
 		
 		cargo_capacity:					16 ;
 		weight:                         18 ton;
@@ -9335,8 +9537,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SCRAP_WAGON) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					20 ;
 		weight:                         15 ton;
@@ -9379,8 +9582,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SIPHON_VAN) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         30 ton;
@@ -9480,8 +9684,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SPEEDLINK_VAN) {
 		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					18 ;
 		weight:                         15 ton;
@@ -9524,8 +9729,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SPEEDLINK_WAGON) {
 		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_BULK, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					18 ;
 		weight:                         15 ton;
@@ -9568,8 +9774,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_STEEL_COIL_WAGON) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				STEL;
 		
 		cargo_capacity:					24 ;
 		weight:                         20 ton;
@@ -9612,8 +9819,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_TANKER_WAGON) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_LIQUID);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				OIL_;
 		
 		cargo_capacity:					9 ;
 		weight:                         12 ton;
@@ -9656,8 +9864,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_TPO_VAN) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         28 ton;
@@ -9700,8 +9909,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_VAN) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					10 ;
 		weight:                         10 ton;
@@ -9744,8 +9954,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_WELDED_TANKER) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_LIQUID);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				OIL_;
 		
 		cargo_capacity:					16 ;
 		weight:                         35 ton;
@@ -10290,7 +10501,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_BR_HST) {
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
-		purchase:                           spriteset_MU_BR_HST;
+		purchase:                           spriteset_MU_BR_HST_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:			spriteset_MU_BR_HST_wagon;
@@ -11266,7 +11477,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_SPRINTER) {
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
-		purchase:                           spriteset_MU_SPRINTER;
+		purchase:                           spriteset_MU_SPRINTER_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:			spriteset_MU_SPRINTER_wagon;
