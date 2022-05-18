@@ -25,8 +25,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_WELDED_TANKER) {
 		length:							5 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_LIQUID);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				OIL_;
 		
 		cargo_capacity:					16 ;
 		weight:                         35 ton;

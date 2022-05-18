@@ -1,12 +1,12 @@
-spriteset(spriteset_WAGON_LIVESTOCK_VAN_purchase, "gfx/WAGONS/LIVESTOCK_VAN.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_TIMBER_WAGON_purchase, "gfx/WAGONS/FLATBED.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_LIVESTOCK_VAN_m, "gfx/WAGONS/LIVESTOCK_VAN.png") { template_fai_18(7, 39)}
+spriteset(spriteset_WAGON_TIMBER_WAGON_m, "gfx/WAGONS/FLATBED.png") { template_fai_25(7, 39)}
 
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_TIMBER_WAGON) {
 	property {
 		vehicle_life:                   40;
 		model_life:						40;
@@ -20,24 +20,24 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN) {
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_LIVESTOCK_VAN);  
-		introduction_date:				date(1865,1,1);
-		length:							4 ;
+		name:							string(STR_NAME_WAGON_TIMBER_WAGON);  
+		introduction_date:				date(1985,1,1);
+		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
-		default_cargo_type:				LVST;
+		default_cargo_type:				WOOD;
 		
-		cargo_capacity:					8 ;
-		weight:                         10 ton;
-		speed:							45 mph;
+		cargo_capacity:					20 ;
+		weight:                         14 ton;
+		speed:							70 mph;
 		
 		cost_factor:                    26 ;
 		running_cost_factor:            12 ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_LIVESTOCK_VAN_m;
-		purchase:                           spriteset_WAGON_LIVESTOCK_VAN_purchase;
+		default: 							spriteset_WAGON_TIMBER_WAGON_m;
+		purchase:                           spriteset_WAGON_TIMBER_WAGON_purchase;
 	}
 }

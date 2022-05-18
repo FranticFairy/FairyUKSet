@@ -25,8 +25,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MAIL_COACH_MK1) {
 		length:							8 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_MAIL);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
 		
 		cargo_capacity:					30 ;
 		weight:                         31 ton;

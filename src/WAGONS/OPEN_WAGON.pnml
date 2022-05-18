@@ -25,8 +25,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_OPEN_WAGON) {
 		length:							3 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_BULK, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				COAL;
 		
 		cargo_capacity:					6 ;
 		weight:                         5 ton;

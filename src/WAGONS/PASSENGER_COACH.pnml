@@ -25,7 +25,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_PASSENGER_COACH) {
 		length:							3 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS, CC_ARMOURED, CC_EXPRESS, CC_MAIL);
 		default_cargo_type:				PASS;
 		
 		cargo_capacity:					9 ;

@@ -25,8 +25,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_STEEL_COIL_WAGON) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				STEL;
 		
 		cargo_capacity:					24 ;
 		weight:                         20 ton;

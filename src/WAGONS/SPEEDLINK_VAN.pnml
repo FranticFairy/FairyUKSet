@@ -25,8 +25,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SPEEDLINK_VAN) {
 		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
 		
 		cargo_capacity:					18 ;
 		weight:                         15 ton;
