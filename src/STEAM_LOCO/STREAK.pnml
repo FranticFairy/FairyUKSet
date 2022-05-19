@@ -1,7 +1,7 @@
-spriteset(spriteset_STREAK_purchase, "gfx/STEAM/STREAK.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_STREAK_purchase, "gfx/STEAM/BLACK_STREAK.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_STREAK, "gfx/STEAM/STREAK.png") { template_fai_29(7, 39)}
-spriteset(spriteset_STREAK_tender, "gfx/STEAM/STREAK.png") { template_fai_16(7, 64)}
+spriteset(spriteset_STREAK, "gfx/STEAM/BLACK_STREAK.png") { template_fai_29(7, 39)}
+spriteset(spriteset_STREAK_tender, "gfx/STEAM/BLACK_STREAK.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_STREAK_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;

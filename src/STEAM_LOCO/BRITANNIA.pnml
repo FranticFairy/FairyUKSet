@@ -1,7 +1,7 @@
-spriteset(spriteset_BRITANNIA_purchase, "gfx/STEAM/BRITANNIA.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_BRITANNIA_purchase, "gfx/STEAM/BLACK_BRITANNIA.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_BRITANNIA, "gfx/STEAM/BRITANNIA.png") { template_fai_29(7, 39)}
-spriteset(spriteset_BRITANNIA_tender, "gfx/STEAM/BRITANNIA.png") { template_fai_16(7, 64)}
+spriteset(spriteset_BRITANNIA, "gfx/STEAM/BLACK_BRITANNIA.png") { template_fai_29(7, 39)}
+spriteset(spriteset_BRITANNIA_tender, "gfx/STEAM/BLACK_BRITANNIA.png") { template_fai_16(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_BRITANNIA_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
