@@ -52,26 +52,147 @@ traininfo_y_offset = 2 ;
 # 1 "ukfs.pnml" 2
 # 1 "src/CODE/CARGO_TABLE.PNML" 1
 cargotable {
-//Default cargos
-   PASS, MAIL, COAL, FOOD, GOLD, GOOD, GRAI, IORE, LVST, OIL_, PAPR, STEL, VALU, WHEA, WOOD,
-
-//Tropical cargos
-   CORE, DIAM, FRUT, MAIZ, RUBR, WATR, 
-
-//ECS
-   AORE, BDMT, BRCK, CERA, CERE, CMNT, DYES, FERT, FICR, FISH, GLAS, LIME, OLSD, PETR, PLAS, POTA, RFPR, SAND, SULP, TOUR, VEHI, WDPR, WOOL, 
-   
-//FIRS
-   BEAN, BEER, BOOM, CLAY, CASS, COKE, ENSP, EOIL, FMSP, FRVG, GRVL, IRON, METL, MNO2, MILK, MNSP, NICK, NITR, NUTS, PHOS, PIPE, PORE, QLME, RCYC, SASH, SCMT, SGBT, SGCN, SLAG, VBOD, VPTS, JAVA, COPR, SUGR, ZINC,
-   
-   SCRP, //Old scrap metal
-   
-//Nuclear stuff
-	URAN, NWST,
-	
-//OTIS
-
-	OTI1, OTI2
+ACID,
+BEER,
+STAL,
+ALUM,
+NH3_,
+BATT,
+AORE,
+BEAN,
+BRCK,
+BUBL,
+BDMT,
+CBLK,
+STCB,
+CASS,
+CSTI,
+CMNT,
+CERA,
+CERE,
+CHSE,
+CHLO,
+CIGR,
+CLAY,
+SOAP,
+COAL,
+CTAR,
+COBL,
+JAVA,
+COKE,
+COLA,
+COPR,
+CORE,
+CTCD,
+DIAM,
+DYES,
+EOIL,
+POWR,
+ELTR,
+ENSP,
+BOOM,
+FMSP,
+FECR,
+FERT,
+FICR,
+FISH,
+FZDR,
+BAKE,
+FOOD,
+FRUT,
+FRVG,
+FURN,
+GLAS,
+GOLD,
+GOOD,
+GRAI,
+IORE,
+KAOL,
+LIME,
+LVST,
+MPTS,
+MAIL,
+MAIZ,
+MNO2,
+MNSP,
+SESP,
+MEAT,
+METL,
+MILK,
+MOLS,
+FUEL,
+NICK,
+NKOR,
+NITR,
+NUKF,
+NUKW,
+NUTS,
+OIL_,
+OILD,
+OILI,
+OLSD,
+O2__,
+OYST,
+COAT,
+PAPR,
+PCL_,
+PASS,
+PEAT,
+PETR,
+PHOS,
+IRON,
+PIPE,
+PLST,
+PLAS,
+POTA,
+TATO,
+PORE,
+QLME,
+RCYC,
+RFPR,
+RUBR,
+SALT,
+SAND,
+SCMT,
+SEED,
+SLAG,
+SASH,
+LYE_,
+STST,
+STEL,
+STSE,
+STSH,
+STWR,
+GRVL,
+SUGR,
+SGBT,
+SGCN,
+SULP,
+SWET,
+TEXT,
+YETY,
+TBCO,
+TOFF,
+OTI2,
+TOUR,
+TOYS,
+TWOD,
+TYRE,
+URAN,
+VALU,
+VBOD,
+VENG,
+VPTS,
+VEHI,
+WSTE,
+WATR,
+WHEA,
+WOOD,
+WDPR,
+WOOL,
+OTI1,
+YETI,
+ZINC,
 }
 # 1 "ukfs.pnml" 2
 # 1 "src/CODE/RAILTYPE_TABLE.PNML" 1
@@ -610,6 +731,28 @@ template template_fai_29_r(x,y){
     [ x+155, y, 22, 20,  -9, -13, ANIM]
 }
 
+template template_fai_29_mu(x,y){
+    [ x+89 , y, 8 , 24,  -3, -14, ANIM] 
+    [ x+98 , y, 22, 20, -13, -12, ANIM]
+    [ x+121, y, 33, 16, -17, -12, ANIM]
+    [ x+155, y, 22, 20,  -9, -13, ANIM]
+    [ x    , y, 8 , 24,  -3, -14, ANIM]
+    [ x+9  , y, 22, 20, -11, -13, ANIM]
+    [ x+32 , y, 33, 16, -13, -12, ANIM]
+    [ x+66 , y, 22, 20,  -7, -12, ANIM]
+}
+
+template template_fai_29_mu_r(x,y){
+    [ x    , y, 8 , 24,  -3, -14, ANIM]
+    [ x+9  , y, 22, 20, -13, -12, ANIM]
+    [ x+32 , y, 33, 16, -17, -12, ANIM]
+    [ x+66 , y, 22, 20,  -9, -13, ANIM]
+    [ x+89 , y, 8 , 24,  -3, -14, ANIM]
+    [ x+98 , y, 22, 20, -11, -13, ANIM]
+    [ x+121, y, 33, 16, -13, -12, ANIM]
+    [ x+155, y, 22, 20,  -7, -12, ANIM]
+}
+
 template template_fai_33(x,y){
     [ x+89 , y, 8 , 24,  -3, -12, ANIM] 
     [ x+98 , y, 22, 20, -13, -12, ANIM]
@@ -718,6 +861,7 @@ switch(FEAT_TRAINS, SELF, vfx_dual_voltage, current_railtype){
 
 switch(FEAT_TRAINS, SELF, vfx_3rd_only, current_railtype){
 	SAA3: vfx_3rd;
+	SAAZ: vfx_3rd;
 	return 0;
 }
 
@@ -6383,7 +6527,7 @@ item (FEAT_TRAINS, ITEM_FAI_EE1) {
 		climates_available:				ALL_CLIMATES;
 		introduction_date:				date(1920,1,1);
 		
-		tractive_effort_coefficient:    0.106;
+		tractive_effort_coefficient:    0x1C nfo;
 		model_life:						40;
 		weight:                         110 ton;
 		speed:							80 mph;
@@ -6555,8 +6699,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_10T_BRAKE_VAN) {
 		weight:                         10 ton;
 		speed:							40 mph;
 		
-		cost_factor:                    20 ;
-		running_cost_factor:            29 ;
+		cost_factor:                    150 ;
+		running_cost_factor:            150 ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_10T_BRAKE_VAN_m;
@@ -6601,8 +6745,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_20T_BRAKE_VAN) {
 		weight:                         20 ton;
 		speed:							65 mph;
 		
-		cost_factor:                    32 ;
-		running_cost_factor:            37 ;
+		cost_factor:                    200 ;
+		running_cost_factor:            200 ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_20T_BRAKE_VAN_m;
@@ -7029,8 +7173,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
 		weight:                         20 ton;
 		speed:							70 mph;
 		
-		cost_factor:                    32 ;
-		running_cost_factor:            37 ;
+		cost_factor:                    250 ;
+		running_cost_factor:            250 ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_BR_BRAKE_VAN_m;
@@ -8174,9 +8318,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_TIMBER_WAGON) {
 		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				WOOD;
+		cargo_allow_refit:				[WOOD,TWOD,WDPR];
 		
 		cargo_capacity:					20 ;
 		weight:                         14 ton;
@@ -8880,15 +9023,13 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN) {
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
+		//running_cost_base:				RUNNING_COST_NONE;
 		
 		name:							string(STR_NAME_WAGON_LIVESTOCK_VAN);  
 		introduction_date:				date(1865,1,1);
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				LVST;
 		
 		cargo_capacity:					8 ;
@@ -8932,8 +9073,6 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN_LARGE) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				LVST;
 		
 		cargo_capacity:					30 ;
@@ -10004,9 +10143,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_STEEL_COIL_WAGON) {
 		length:							7 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				STEL;
+		cargo_allow_refit:				[STEL,COPR,CSTI,ZINC,IRON,METL,ALUM,STAL,STCB,STSE,STSH,STST,STWR];
 		
 		cargo_capacity:					24 ;
 		weight:                         20 ton;
@@ -10139,7 +10277,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_VAN) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_PIECE_GOODS);
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_PIECE_GOODS, CC_EXPRESS);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				GOOD;
 		
@@ -10206,9 +10344,14 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_WELDED_TANKER) {
 spriteset(spriteset_MU_1903_STOCK_purchase, "gfx/MUS/1903_STOCK.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_MU_1903_STOCK, "gfx/MUS/1903_STOCK.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_1903_STOCK_r, "gfx/MUS/1903_STOCK.png") { template_fai_29_mu(7, 39)}
 
-spriteset(spriteset_MU_1903_STOCK_wagon, "gfx/MUS/1903_STOCK.png") { template_fai_29_r(7, 64)}
+spriteset(spriteset_MU_1903_STOCK_wagon, "gfx/MUS/1903_STOCK.png") { template_fai_29(187, 39)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_1903_STOCK_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_1903_STOCK_r;
+	spriteset_MU_1903_STOCK ;
+}
 
 //Sprite stack
 
@@ -10241,17 +10384,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1903_STOCK) {
 		cost_factor:                    6 ;
 		running_cost_factor:            6 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						MTRO;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_1903_STOCK;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_1903_STOCK_flipcheck;
+		sound_effect:						sw_sfx_emu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1903_STOCK_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10267,9 +10410,14 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1903_STOCK) {
 spriteset(spriteset_MU_1938_STOCK_purchase, "gfx/MUS/1938_STOCK.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_MU_1938_STOCK, "gfx/MUS/1938_STOCK.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_1938_STOCK_r, "gfx/MUS/1938_STOCK.png") { template_fai_29_mu(7, 39)}
 
-spriteset(spriteset_MU_1938_STOCK_wagon, "gfx/MUS/1938_STOCK.png") { template_fai_29_r(7, 64)}
+spriteset(spriteset_MU_1938_STOCK_wagon, "gfx/MUS/1938_STOCK.png") { template_fai_29(187, 39)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_1938_STOCK_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_1938_STOCK_r;
+	spriteset_MU_1938_STOCK ;
+}
 
 //Sprite stack
 
@@ -10302,17 +10450,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1938_STOCK) {
 		cost_factor:                    8 ;
 		running_cost_factor:            8 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						MTRO;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_1938_STOCK;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_1938_STOCK_flipcheck;
+		sound_effect:						sw_sfx_emu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1938_STOCK_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10328,9 +10476,14 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1938_STOCK) {
 spriteset(spriteset_MU_1967_STOCK_purchase, "gfx/MUS/1967_STOCK.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_MU_1967_STOCK, "gfx/MUS/1967_STOCK.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_1967_STOCK_r, "gfx/MUS/1967_STOCK.png") { template_fai_29_mu(7, 39)}
 
-spriteset(spriteset_MU_1967_STOCK_wagon, "gfx/MUS/1967_STOCK.png") { template_fai_29_r(7, 64)}
+spriteset(spriteset_MU_1967_STOCK_wagon, "gfx/MUS/1967_STOCK.png") { template_fai_29(187, 39)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_1967_STOCK_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_1967_STOCK_r;
+	spriteset_MU_1967_STOCK ;
+}
 
 //Sprite stack
 
@@ -10363,22 +10516,22 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
 		cost_factor:                    9 ;
 		running_cost_factor:           9 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						MTRO;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_1967_STOCK;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_1967_STOCK_flipcheck;
+		sound_effect:						sw_sfx_emu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1967_STOCK_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:			spriteset_MU_1967_STOCK_wagon;
-		length:				8;
+		length:				7;
 		weight:				44;
 		cargo_capacity:		20 ;
 		speed:				50 ;
@@ -10389,9 +10542,14 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
 spriteset(spriteset_MU_1992_STOCK_purchase, "gfx/MUS/1992_STOCK.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_MU_1992_STOCK, "gfx/MUS/1992_STOCK.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_1992_STOCK_r, "gfx/MUS/1992_STOCK.png") { template_fai_29_mu(7, 39)}
 
 spriteset(spriteset_MU_1992_STOCK_wagon, "gfx/MUS/1992_STOCK.png") { template_fai_29_r(7, 64)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_1992_STOCK_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_1992_STOCK_r;
+	spriteset_MU_1992_STOCK ;
+}
 
 //Sprite stack
 
@@ -10424,17 +10582,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1992_STOCK) {
 		cost_factor:                    11 ;
 		running_cost_factor:            11 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						MTRO;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_1992_STOCK;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_1992_STOCK_flipcheck;
+		sound_effect:						sw_sfx_emu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1992_STOCK_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10490,7 +10648,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AEC_RAILBUS) {
 	}
 	graphics {
 		default: 							spriteset_MU_AEC_RAILBUS;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_diesel_dmu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -10544,7 +10702,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AEC_RAILCAR) {
 	}
 	graphics {
 		default: 							spriteset_MU_AEC_RAILCAR;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_diesel_dmu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -10598,17 +10756,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AM10) {
 		cost_factor:                    23 ;
 		running_cost_factor:            18 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_AM10;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_AM10_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10659,17 +10817,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_BREL_APT) {
 		cost_factor:                    112 ;
 		running_cost_factor:            208 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_BREL_APT;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_BREL_APT_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10685,9 +10843,14 @@ item (FEAT_TRAINS, ITEM_FAI_MU_BREL_APT) {
 spriteset(spriteset_MU_BR_HST_purchase, "gfx/MUS/BR_HST.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_MU_BR_HST, "gfx/MUS/BR_HST.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_BR_HST_r, "gfx/MUS/BR_HST.png") { template_fai_29_mu(7, 39)}
 
-spriteset(spriteset_MU_BR_HST_wagon, "gfx/MUS/BR_HST.png") { template_fai_29_r(187, 39)}
+spriteset(spriteset_MU_BR_HST_wagon, "gfx/MUS/BR_HST.png") { template_fai_33(7, 64)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_BR_HST_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_BR_HST_r;
+	spriteset_MU_BR_HST ;
+}
 
 //Sprite stack
 
@@ -10726,8 +10889,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_BR_HST) {
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_BR_HST;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_BR_HST_flipcheck;
+		sound_effect:						sw_sfx_diesel_hst ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -10735,7 +10898,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_BR_HST) {
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:			spriteset_MU_BR_HST_wagon;
-		length:				7;
+		length:				8;
 		weight:				140;
 		cargo_capacity:		35 ;
 		speed:				125 ;
@@ -10781,17 +10944,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_CLASS_313) {
 		cost_factor:                    18 ;
 		running_cost_factor:            16 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAAZ;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_CLASS_313;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_CLASS_313_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10842,17 +11005,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_CLASS_321) {
 		cost_factor:                    25 ;
 		running_cost_factor:            25 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_CLASS_321;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_CLASS_321_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10903,17 +11066,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_CLASS_325) {
 		cost_factor:                    21 ;
 		running_cost_factor:            21 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAAZ;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_CLASS_325;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_CLASS_325_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -10964,17 +11127,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_ELECTROSTAR) {
 		cost_factor:                    30 ;
 		running_cost_factor:            24 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAAZ;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_ELECTROSTAR;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_ELECTROSTAR_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11025,17 +11188,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EUROSTAR) {
 		cost_factor:                    255 ;
 		running_cost_factor:            255 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAAZ;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_EUROSTAR;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_EUROSTAR_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11093,7 +11256,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER) {
 	}
 	graphics {
 		default: 							spriteset_MU_EXPRESS_SPRINTER;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_diesel_dmu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -11147,17 +11310,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_GEC_CLASS_91) {
 		cost_factor:                    79 ;
 		running_cost_factor:            123 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_GEC_CLASS_91;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_GEC_CLASS_91_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11208,17 +11371,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HITACHI_A_TRAIN) {
 		cost_factor:                    174 ;
 		running_cost_factor:            124 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAAZ;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_HITACHI_A_TRAIN;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_HITACHI_A_TRAIN_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11233,10 +11396,15 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HITACHI_A_TRAIN) {
 # 1 "src/MUS/HST_PROTOTYPE.pnml" 1
 spriteset(spriteset_MU_HST_PROTOTYPE_purchase, "gfx/MUS/HST_PROTOTYPE.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_MU_HST_PROTOTYPE, "gfx/MUS/HST_PROTOTYPE.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_HST_PROTOTYPE, "gfx/MUS/HST_PROTOTYPE.png") { template_fai_29_r(7, 39)}
+spriteset(spriteset_MU_HST_PROTOTYPE_r, "gfx/MUS/HST_PROTOTYPE.png") { template_fai_29_mu_r(7, 39)}
 
-spriteset(spriteset_MU_HST_PROTOTYPE_wagon, "gfx/MUS/HST_PROTOTYPE.png") { template_fai_29_r(187, 39)}
+spriteset(spriteset_MU_HST_PROTOTYPE_wagon, "gfx/MUS/HST_PROTOTYPE.png") { template_fai_33(187, 39)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_HST_PROTOTYPE_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_HST_PROTOTYPE_r;
+	spriteset_MU_HST_PROTOTYPE ;
+}
 
 //Sprite stack
 
@@ -11275,8 +11443,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_HST_PROTOTYPE;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_HST_PROTOTYPE_flipcheck;
+		sound_effect:						sw_sfx_diesel_hst ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -11284,7 +11452,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:			spriteset_MU_HST_PROTOTYPE_wagon;
-		length:				7;
+		length:				8;
 		weight:				140;
 		cargo_capacity:		35 ;
 		speed:				125 ;
@@ -11295,9 +11463,14 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
 spriteset(spriteset_MU_METRO_CAMMELL_DMU_purchase, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_MU_METRO_CAMMELL_DMU, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_METRO_CAMMELL_DMU_r, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29_mu(7, 39)}
 
-spriteset(spriteset_MU_METRO_CAMMELL_DMU_wagon, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29_r(187, 39)}
+spriteset(spriteset_MU_METRO_CAMMELL_DMU_wagon, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29(7, 64)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_METRO_CAMMELL_DMU_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_METRO_CAMMELL_DMU_r;
+	spriteset_MU_METRO_CAMMELL_DMU ;
+}
 
 //Sprite stack
 
@@ -11336,8 +11509,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU) {
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_METRO_CAMMELL_DMU;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_METRO_CAMMELL_DMU_flipcheck;
+		sound_effect:						sw_sfx_diesel_dmu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -11391,17 +11564,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_EMU) {
 		cost_factor:                    25 ;
 		running_cost_factor:            20 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_METRO_CAMMELL_EMU;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_METRO_CAMMELL_EMU_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11452,17 +11625,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO) {
 		cost_factor:                    142 ;
 		running_cost_factor:            126 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_PENDOLINO;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_PENDOLINO_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11503,6 +11676,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILMOTOR) {
 		introduction_date:				date(1903,1,1);
 		default_cargo_type:				PASS;
 		cargo_capacity:					20 ;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
 		
 		weight:                         36 ton;
 		speed:							45 mph;
@@ -11514,16 +11688,16 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILMOTOR) {
 		running_cost_factor:            4 ;
 		
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class:                   ENGINE_CLASS_STEAM;
 		length:							7 ;
 	}
 	graphics {
 		default: 							spriteset_MU_RAILMOTOR;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_steam_fai_med_jin ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_steam ;
 		purchase:                           spriteset_MU_RAILMOTOR_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11574,17 +11748,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RENEWAL_EMU) {
 		cost_factor:                    21 ;
 		running_cost_factor:            19 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_RENEWAL_EMU;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_RENEWAL_EMU_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11635,17 +11809,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_SOUTHERN_EMU) {
 		cost_factor:                    23 ;
 		running_cost_factor:            18 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_SOUTHERN_EMU;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_SOUTHERN_EMU_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
@@ -11703,7 +11877,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_SPRINTER) {
 	}
 	graphics {
 		default: 							spriteset_MU_SPRINTER;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_diesel_dmu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -11764,7 +11938,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_TURBOSTAR) {
 	}
 	graphics {
 		default: 							spriteset_MU_TURBOSTAR;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_diesel_dmu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -11825,7 +11999,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER) {
 	}
 	graphics {
 		default: 							spriteset_MU_VOYAGER;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_diesel_hst ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
@@ -11879,17 +12053,17 @@ item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU) {
 		cost_factor:                    21 ;
 		running_cost_factor:            15 ;
 		
-		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
 		length:							8 ;
 	}
 	graphics {
 		default: 							spriteset_MU_WESSEX_EMU;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_emu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
-		create_effect:                      vfx_diesel_default ;
+		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_WESSEX_EMU_purchase;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {

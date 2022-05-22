@@ -25,7 +25,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_VAN) {
 		length:							4 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_PIECE_GOODS);
+		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_PIECE_GOODS, CC_EXPRESS);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				GOOD;
 		

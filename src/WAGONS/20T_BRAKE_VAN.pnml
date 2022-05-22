@@ -32,8 +32,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_20T_BRAKE_VAN) {
 		weight:                         20 ton;
 		speed:							65 mph;
 		
-		cost_factor:                    32 ;
-		running_cost_factor:            37 ;
+		cost_factor:                    200 ;
+		running_cost_factor:            200 ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_20T_BRAKE_VAN_m;

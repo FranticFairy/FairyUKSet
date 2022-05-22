@@ -1,9 +1,14 @@
 spriteset(spriteset_MU_METRO_CAMMELL_DMU_purchase, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_purchase(7, 23)}
 
 spriteset(spriteset_MU_METRO_CAMMELL_DMU, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29(7, 39)}
+spriteset(spriteset_MU_METRO_CAMMELL_DMU_r, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29_mu(7, 39)}
 
-spriteset(spriteset_MU_METRO_CAMMELL_DMU_wagon, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29_r(187, 39)}
+spriteset(spriteset_MU_METRO_CAMMELL_DMU_wagon, "gfx/MUS/METRO_CAMMELL_DMU.png") { template_fai_29(7, 64)}
 
+switch(FEAT_TRAINS, SELF, sw_MU_METRO_CAMMELL_DMU_flipcheck, vehicle_is_flipped){
+	1: spriteset_MU_METRO_CAMMELL_DMU_r;
+	spriteset_MU_METRO_CAMMELL_DMU ;
+}
 
 //Sprite stack
 
@@ -42,8 +47,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU) {
 		length:							7 ;
 	}
 	graphics {
-		default: 							spriteset_MU_METRO_CAMMELL_DMU;
-		sound_effect:						sw_sfx_diesel_ee ;
+		default: 							sw_MU_METRO_CAMMELL_DMU_flipcheck;
+		sound_effect:						sw_sfx_diesel_dmu_old ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;

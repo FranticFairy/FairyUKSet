@@ -35,7 +35,7 @@ item (FEAT_TRAINS, ITEM_FAI_EE1) {
 		climates_available:				ALL_CLIMATES;
 		introduction_date:				date(1920,1,1);
 		
-		tractive_effort_coefficient:    0.106;
+		tractive_effort_coefficient:    0x1C nfo;
 		model_life:						40;
 		weight:                         110 ton;
 		speed:							80 mph;

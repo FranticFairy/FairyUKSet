@@ -25,9 +25,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_TIMBER_WAGON) {
 		length:							6 ;
 		
 		ai_special_flag:				AI_FLAG_CARGO;
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				WOOD;
+		cargo_allow_refit:				[WOOD,TWOD,WDPR];
 		
 		cargo_capacity:					20 ;
 		weight:                         14 ton;

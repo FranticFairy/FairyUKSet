@@ -43,7 +43,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER) {
 	}
 	graphics {
 		default: 							spriteset_MU_EXPRESS_SPRINTER;
-		sound_effect:						sw_sfx_diesel_ee ;
+		sound_effect:						sw_sfx_diesel_dmu ;
 		purchase_cargo_capacity:            0 ;
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
