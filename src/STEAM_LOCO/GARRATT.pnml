@@ -16,37 +16,36 @@ switch(FEAT_TRAINS, SELF, sw_GARRATT_articulation, extra_callback_info1) {
 
 item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.14;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class:                   ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_GARRATT);  
+		introduction_date:				date(1927,1,1);
+		vehicle_life:                   28;
+		model_life:						40;
+		length:							4;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_STEAM;
-		engine_class:                   ENGINE_CLASS_STEAM;
-		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, ENABLE_WAGON_POWER);
-		
-		name:							string(STR_NAME_LOCO_GARRATT);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1927,1,1);
-		
-		tractive_effort_coefficient:    0.134;
-		model_life:						40;
 		weight:                         151 ton;
 		speed:							45 mph;
 		power:							1250 hp;
 		
-		cost_factor:                    38 ;
-		running_cost_factor:            29 ;
-		length:							4 ;
+		tractive_effort_coefficient:    0x23 nfo;
+		
+		cost_factor:                    0x26 nfo;
+		running_cost_factor:            0x28 nfo;
 	}
 	graphics {
 		default: 							spriteset_GARRATT;
@@ -63,29 +62,29 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 
 item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 	property {
-		name: 							string(STR_NAME_LOCO_GARRATT);
-		climates_available: 			NO_CLIMATE;
-		introduction_date:				date(1830, 1, 1);
-		model_life:						VEHICLE_NEVER_EXPIRES;
-		loading_speed:					0;
-		cost_factor:					0;
-		running_cost_factor:			0;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		engine_class:                   ENGINE_CLASS_STEAM;
-		speed:							80 mph;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK,TRAIN_FLAG_AUTOREFIT);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		track_type:						RAIL;
-		ai_special_flag:				AI_FLAG_CARGO;
-		power:							0 hp;
-		running_cost_base:				RUNNING_COST_NONE;
-		dual_headed:					0;
-		weight:							0;
-		tractive_effort_coefficient:	0.0;
-		air_drag_coefficient:			0.08;
-		length:							6;
+		climates_available:				NO_CLIMATE;
 		bitmask_vehicle_info:			0;
-		cargo_age_period:				185;
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class:                   ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_GARRATT);  
+		introduction_date:				date(1927,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							6;
+		
+		speed:							45 mph;
+		
+		tractive_effort_coefficient:    0x00 nfo;
+		
+		cost_factor:                    0x00 nfo;
+		running_cost_factor:            0x00 nfo;
 		
 		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
 	}

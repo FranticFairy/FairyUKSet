@@ -14,36 +14,36 @@ switch(FEAT_TRAINS, SELF, sw_GT3_articulation, extra_callback_info1) {
 
 item (FEAT_TRAINS, ITEM_FAI_GT3) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					1 ;
 		
 		track_type:						RAIL;
-		
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
 		
 		name:							string(STR_NAME_LOCO_GT3);  
-		climates_available:				ALL_CLIMATES;
 		introduction_date:				date(1958,1,1);
+		vehicle_life:                   35;
+		model_life:						20;
+		length:							6;
 		
-		tractive_effort_coefficient:    0.137;
-		model_life:						40;
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					1;
+		
 		weight:                         123 ton;
 		speed:							90 mph;
 		power:							2750 hp;
 		
-		cost_factor:                    62 ;
-		running_cost_factor:            81 ;
-		length:							6;
+		tractive_effort_coefficient:    0x24 nfo;
+		
+		cost_factor:                    0x3E nfo;
+		running_cost_factor:            0x71 nfo;
 	}
 	graphics {
 		default: 							spriteset_GT3;

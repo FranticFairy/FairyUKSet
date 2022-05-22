@@ -14,7 +14,6 @@ switch(FEAT_TRAINS, PARENT, sw_LOCOTEMPLATE_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_LOCOTEMPLATE) {
 	property {
-		vehicle_life:                   40;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
@@ -29,6 +28,7 @@ item (FEAT_TRAINS, ITEM_FAI_LOCOTEMPLATE) {
 		
 		name:							string(STR_NAME_LOCO_LOCOTEMPLATE);  
 		introduction_date:				date(1948,1,1);
+		vehicle_life:                   40;
 		model_life:						40;
 		length:							8 ;
 		

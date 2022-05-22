@@ -14,37 +14,36 @@ switch(FEAT_TRAINS, SELF, sw_MINERAL_articulation, extra_callback_info1) {
 
 item (FEAT_TRAINS, ITEM_FAI_MINERAL) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.14;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class:                   ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_MINERAL);  
+		introduction_date:				date(1912,1,1);
+		vehicle_life:                   33;
+		model_life:						45;
+		length:							6;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_STEAM;
-		engine_class:                   ENGINE_CLASS_STEAM;
-		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
-		
-		name:							string(STR_NAME_LOCO_MINERAL);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1912,1,1);
-		
-		tractive_effort_coefficient:    0.130;
-		model_life:						40;
 		weight:                         94 ton;
 		speed:							40 mph;
 		power:							1000 hp;
 		
-		cost_factor:                    24 ;
-		running_cost_factor:            22 ;
-		length:							6;
+		tractive_effort_coefficient:    0x22 nfo;
+		
+		cost_factor:                    0x18 nfo;
+		running_cost_factor:            0x1F nfo;
 	}
 	graphics {
 		default: 							spriteset_MINERAL;

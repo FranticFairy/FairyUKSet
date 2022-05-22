@@ -19,37 +19,36 @@ switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_II_flipcheck_steam, vehicle_is_reversed)
 
 item (FEAT_TRAINS, ITEM_FAI_SUBURBAN_II) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_PASSENGER;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class:                   ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_SUBURBAN_II);  
+		introduction_date:				date(1927,1,1);
+		vehicle_life:                   35;
+		model_life:						35;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_STEAM;
-		engine_class:                   ENGINE_CLASS_STEAM;
-		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
-		
-		name:							string(STR_NAME_LOCO_SUBURBAN_II);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1927,1,1);
-		
-		tractive_effort_coefficient:    0.122;
-		model_life:						40;
 		weight:                         88 ton;
 		speed:							70 mph;
-		power:							1200 hp;
+		power:							1000 hp;
 		
-		cost_factor:                    26 ;
-		running_cost_factor:            31 ;
-		length:							7;
+		tractive_effort_coefficient:    0x20 nfo;
+		
+		cost_factor:                    0x1A nfo;
+		running_cost_factor:            0x2C nfo;
 	}
 	graphics {
 		default: 							sw_SUBURBAN_II_flipcheck;

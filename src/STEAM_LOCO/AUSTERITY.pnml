@@ -14,37 +14,36 @@ switch(FEAT_TRAINS, SELF, sw_AUSTERITY_articulation, extra_callback_info1) {
 
 item (FEAT_TRAINS, ITEM_FAI_AUSTERITY) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class:                   ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_AUSTERITY);  
+		introduction_date:				date(1942,1,1);
+		vehicle_life:                   30;
+		model_life:						30;
+		length:							5 ;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_STEAM;
-		engine_class:                   ENGINE_CLASS_STEAM;
-		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
-		
-		name:							string(STR_NAME_LOCO_AUSTERITY);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1942,1,1);
-		
-		tractive_effort_coefficient:    0.144;
-		model_life:						40;
 		weight:                         90 ton;
 		speed:							65 mph;
 		power:							1000 hp;
 		
-		cost_factor:                    20 ;
-		running_cost_factor:            24 ;
-		length:							5;
+		tractive_effort_coefficient:    0x26 nfo;
+		
+		cost_factor:                    0x14 nfo;
+		running_cost_factor:            0x21 nfo;
 	}
 	graphics {
 		default: 							spriteset_AUSTERITY;
