@@ -26,7 +26,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_14) {
 		engine_class:                   ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_CARGO;
 		
-		name:							string(STR_NAME_LOCO_LOCOTEMPLATE);  
+		name:							string(STR_NAME_LOCO_CLASS_14);  
 		introduction_date:				date(1964,1,1);
 		vehicle_life:                   33;
 		model_life:						56;

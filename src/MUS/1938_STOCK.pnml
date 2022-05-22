@@ -16,41 +16,40 @@ switch(FEAT_TRAINS, SELF, sw_MU_1938_STOCK_flipcheck, vehicle_is_flipped){
 
 item (FEAT_TRAINS, ITEM_FAI_MU_1938_STOCK) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_1938_STOCK);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1938,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		
-		weight:                         48 ton;
-		speed:							45 mph;
-		power:							400 hp;
-		tractive_effort_coefficient:    0.133;
-		air_drag_coefficient:			0.12;
-		
-		cost_factor:                    8 ;
-		running_cost_factor:            8 ;
 		
 		track_type:						MTRO;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_1938_STOCK);  
+		introduction_date:				date(1938,1,1);
+		vehicle_life:                   30;
+		model_life:						57;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					40;
+		
+		weight:                         48 ton;
+		speed:							45 mph;
+		power:							400 hp;
+		
+		tractive_effort_coefficient:    0x23 nfo;
+		
+		cost_factor:                    0x08 nfo;
+		running_cost_factor:            0x0B nfo;
 	}
 	graphics {
 		default: 							sw_MU_1938_STOCK_flipcheck;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1938_STOCK_purchase;
 	}

@@ -11,41 +11,40 @@ spriteset(spriteset_MU_SOUTHERN_EMU_wagon, "gfx/MUS/SOUTHERN_EMU.png") { templat
 
 item (FEAT_TRAINS, ITEM_FAI_MU_SOUTHERN_EMU) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_SOUTHERN_EMU);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1935,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					28 ;
-		
-		weight:                         76 ton;
-		speed:							75 mph;
-		power:							9000 hp;
-		tractive_effort_coefficient:    0.089;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    23 ;
-		running_cost_factor:            18 ;
 		
 		track_type:						SAA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_SOUTHERN_EMU);  
+		introduction_date:				date(1935,1,1);
+		vehicle_life:                   25;
+		model_life:						55;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					28;
+		
+		weight:                         76 ton;
+		speed:							75 mph;
+		power:							900 hp;
+		
+		tractive_effort_coefficient:    0x22 nfo;
+		
+		cost_factor:                    0x17 nfo;
+		running_cost_factor:            0x19 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_SOUTHERN_EMU;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_SOUTHERN_EMU_purchase;
 	}

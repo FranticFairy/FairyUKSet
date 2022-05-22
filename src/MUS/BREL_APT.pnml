@@ -11,35 +11,36 @@ spriteset(spriteset_MU_BREL_APT_wagon, "gfx/MUS/BREL_APT.png") { template_fai_33
 
 item (FEAT_TRAINS, ITEM_FAI_MU_BREL_APT) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_BREL_APT);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1980,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					0 ;
-		
-		weight:                         140 ton;
-		speed:							140 mph;
-		power:							8000 hp;
-		tractive_effort_coefficient:    0.271;
-		air_drag_coefficient:			0.04;
-		
-		cost_factor:                    112 ;
-		running_cost_factor:            208 ;
 		
 		track_type:						ELRL;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_BREL_APT);  
+		introduction_date:				date(1980,1,1);
+		vehicle_life:                   26;
+		model_life:						48;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					1;
+		
+		weight:                         140 ton;
+		speed:							140 mph;
+		power:							8000 hp;
+		
+		tractive_effort_coefficient:    0x47 nfo;
+		
+		cost_factor:                    0x70 nfo;
+		running_cost_factor:            0x55 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_BREL_APT;

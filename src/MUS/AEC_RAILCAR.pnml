@@ -11,41 +11,40 @@ spriteset(spriteset_MU_AEC_RAILCAR_wagon, "gfx/MUS/AEC_RAILCAR.png") { template_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_AEC_RAILCAR) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_AEC_RAILCAR);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1935,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
-		
-		weight:                         29 ton;
-		speed:							60 mph;
-		power:							260 hp;
-		tractive_effort_coefficient:    0.117;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    6 ;
-		running_cost_factor:            6 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_AEC_RAILCAR);  
+		introduction_date:				date(1935,1,1);
+		vehicle_life:                   20;
+		model_life:						40;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+		weight:                         29 ton;
+		speed:							60 mph;
+		power:							260 hp;
+		
+		tractive_effort_coefficient:    0x1F nfo;
+		
+		cost_factor:                    0x06 nfo;
+		running_cost_factor:            0x08 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_AEC_RAILCAR;
 		sound_effect:						sw_sfx_diesel_dmu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_AEC_RAILCAR_purchase;
 	}

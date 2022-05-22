@@ -11,41 +11,40 @@ spriteset(spriteset_MU_RENEWAL_EMU_wagon, "gfx/MUS/RENEWAL_EMU.png") { template_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_RENEWAL_EMU) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_RENEWAL_EMU);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1964,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					32 ;
-		
-		weight:                         72 ton;
-		speed:							90 mph;
-		power:							1000 hp;
-		tractive_effort_coefficient:    0.188;
-		air_drag_coefficient:			0.06;
-		
-		cost_factor:                    21 ;
-		running_cost_factor:            19 ;
 		
 		track_type:						SAA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_RENEWAL_EMU);  
+		introduction_date:				date(1964,1,1);
+		vehicle_life:                   25;
+		model_life:						56;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					32;
+		
+		weight:                         72 ton;
+		speed:							90 mph;
+		power:							1000 hp;
+		
+		tractive_effort_coefficient:    0x31 nfo;
+		
+		cost_factor:                    0x15 nfo;
+		running_cost_factor:            0x1B nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_RENEWAL_EMU;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_RENEWAL_EMU_purchase;
 	}

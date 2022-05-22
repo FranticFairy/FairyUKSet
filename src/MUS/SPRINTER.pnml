@@ -11,41 +11,40 @@ spriteset(spriteset_MU_SPRINTER_wagon, "gfx/MUS/SPRINTER.png") { template_fai_33
 
 item (FEAT_TRAINS, ITEM_FAI_MU_SPRINTER) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_SPRINTER);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1960,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		weight:                         72 ton;
-		speed:							75 mph;
-		power:							775 hp;
-		tractive_effort_coefficient:    0.125;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    21 ;
-		running_cost_factor:            15 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_SPRINTER);  
+		introduction_date:				date(1984,1,1);
+		vehicle_life:                   20;
+		model_life:						36;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					35;
+		
+		weight:                         72 ton;
+		speed:							75 mph;
+		power:							775 hp;
+		
+		tractive_effort_coefficient:    0x21 nfo;
+		
+		cost_factor:                    0x15 nfo;
+		running_cost_factor:            0x15 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_SPRINTER;
 		sound_effect:						sw_sfx_diesel_dmu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_SPRINTER_purchase;
 	}

@@ -14,36 +14,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_70_II_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_70_II) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_70_II);  
+		introduction_date:				date(2010,1,1);
+		vehicle_life:                   33;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_70_II);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2010,1,1);
-		
-		tractive_effort_coefficient:    0.413;
-		model_life:						40;
 		weight:                         129 ton;
 		speed:							75 mph;
 		power:							3700 hp;
 		
-		cost_factor:                    48 ;
-		running_cost_factor:            50 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x6C nfo;
+		
+		cost_factor:                    0x30 nfo;
+		running_cost_factor:            0x46 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_70_II_flipcheck;

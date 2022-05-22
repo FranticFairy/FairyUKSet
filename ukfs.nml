@@ -4659,36 +4659,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_08_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_08) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.2;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_08);  
+		introduction_date:				date(1939,1,1);
+		vehicle_life:                   40;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							4;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_08);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1939,1,1);
-		
-		tractive_effort_coefficient:    0.310;
-		model_life:						40;
 		weight:                         50 ton;
 		speed:							25 mph;
 		power:							350 hp;
 		
-		cost_factor:                    7 ;
-		running_cost_factor:            5 ;
-		length:							4 ;
+		tractive_effort_coefficient:    0x51 nfo;
+		
+		cost_factor:                    0x07 nfo;
+		running_cost_factor:            0x07 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_08_flipcheck;
@@ -4717,36 +4717,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_14_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_14) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.12;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_14);  
+		introduction_date:				date(1964,1,1);
+		vehicle_life:                   33;
+		model_life:						56;
+		length:							4;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_14);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1964,1,1);
-		
-		tractive_effort_coefficient:    0.281;
-		model_life:						40;
 		weight:                         48 ton;
 		speed:							40 mph;
 		power:							650 hp;
 		
-		cost_factor:                    8 ;
-		running_cost_factor:            9 ;
-		length:							4 ;
+		tractive_effort_coefficient:    0x4A nfo;
+		
+		cost_factor:                    0x08 nfo;
+		running_cost_factor:            0x0D nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_14_flipcheck;
@@ -4775,36 +4775,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_17_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_17) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_17);  
+		introduction_date:				date(1962,1,1);
+		vehicle_life:                   30;
+		model_life:						28;
+		length:							6;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_17);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1962,1,1);
-		
-		tractive_effort_coefficient:    0.255;
-		model_life:						40;
 		weight:                         69 ton;
 		speed:							60 mph;
 		power:							900 hp;
 		
-		cost_factor:                    11 ;
-		running_cost_factor:            16 ;
-		length:							6 ;
+		tractive_effort_coefficient:    0x43 nfo;
+		
+		cost_factor:                    0x0B nfo;
+		running_cost_factor:            0x16 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_17_flipcheck;
@@ -4833,36 +4833,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_20_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_20) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_20);  
+		introduction_date:				date(1957,1,1);
+		vehicle_life:                   35;
+		model_life:						73;
+		length:							6;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_20);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1957,1,1);
-		
-		tractive_effort_coefficient:    0.256;
-		model_life:						40;
 		weight:                         73 ton;
 		speed:							75 mph;
 		power:							1000 hp;
 		
-		cost_factor:                    15 ;
-		running_cost_factor:            19 ;
-		length:							6 ;
+		tractive_effort_coefficient:    0x43 nfo;
+		
+		cost_factor:                    0x0F nfo;
+		running_cost_factor:            0x1B nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_20_flipcheck;
@@ -4891,36 +4891,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_23_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_23) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_CLASS_23);  
+		introduction_date:				date(1959,1,1);
+		vehicle_life:                   26;
+		model_life:						31;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_23);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1959,1,1);
-		
-		tractive_effort_coefficient:    0.259;
-		model_life:						40;
 		weight:                         74 ton;
 		speed:							75 mph;
 		power:							1100 hp;
 		
-		cost_factor:                    16 ;
-		running_cost_factor:            21 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x44 nfo;
+		
+		cost_factor:                    0x10 nfo;
+		running_cost_factor:            0x1D nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_23_flipcheck;
@@ -4949,36 +4949,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_24_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_24) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_24);  
+		introduction_date:				date(1958,1,1);
+		vehicle_life:                   31;
+		model_life:						32;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
+		weight:                         79 ton;
+		speed:							75 mph;
+		power:							850 hp;
 		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
+		tractive_effort_coefficient:    0x3C nfo;
 		
-		name:							string(STR_NAME_LOCO_CLASS_24);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1958,1,1);
-		
-		tractive_effort_coefficient:    0.260;
-		model_life:						40;
-		weight:                         72 ton;
-		speed:							90 mph;
-		power:							1250 hp;
-		
-		cost_factor:                    18 ;
-		running_cost_factor:            25 ;
-		length:							7 ;
+		cost_factor:                    0x12 nfo;
+		running_cost_factor:            0x23 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_24_flipcheck;
@@ -5007,36 +5007,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_25_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_25) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_25);  
+		introduction_date:				date(1961,1,1);
+		vehicle_life:                   31;
+		model_life:						45;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_25);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1958,1,1);
-		
-		tractive_effort_coefficient:    0.260;
-		model_life:						40;
-		weight:                         72 ton;
+		weight:                         73 ton;
 		speed:							90 mph;
 		power:							1250 hp;
 		
-		cost_factor:                    18 ;
-		running_cost_factor:            25 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x3B nfo;
+		
+		cost_factor:                    0x14 nfo;
+		running_cost_factor:            0x26 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_25_flipcheck;
@@ -5065,36 +5065,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_27_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_27) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_27);  
+		introduction_date:				date(1961,1,1);
+		vehicle_life:                   31;
+		model_life:						45;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_27);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1958,1,1);
-		
-		tractive_effort_coefficient:    0.260;
-		model_life:						40;
 		weight:                         72 ton;
 		speed:							90 mph;
-		power:							1250 hp;
+		power:							950 hp;
 		
-		cost_factor:                    18 ;
-		running_cost_factor:            25 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x42 nfo;
+		
+		cost_factor:                    0x14 nfo;
+		running_cost_factor:            0x26 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_27_flipcheck;
@@ -5123,36 +5123,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_37_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_37) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_37);  
+		introduction_date:				date(1960,1,1);
+		vehicle_life:                   33;
+		model_life:						60;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_37);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1960,1,1);
-		
-		tractive_effort_coefficient:    0.236;
-		model_life:						40;
 		weight:                         107 ton;
 		speed:							80 mph;
 		power:							1750 hp;
 		
-		cost_factor:                    28 ;
-		running_cost_factor:            32 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x3E nfo;
+		
+		cost_factor:                    0x1C nfo;
+		running_cost_factor:            0x2D nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_37_flipcheck;
@@ -5181,36 +5181,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_41_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_41) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER ;
+		
+		name:							string(STR_NAME_LOCO_CLASS_41);  
+		introduction_date:				date(1958,1,1);
+		vehicle_life:                   26;
+		model_life:						52;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_41);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1958,1,1);
-		
-		tractive_effort_coefficient:    0.272;
-		model_life:						40;
 		weight:                         78 ton;
 		speed:							90 mph;
 		power:							2200 hp;
 		
-		cost_factor:                    30 ;
-		running_cost_factor:            44 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x47 nfo;
+		
+		cost_factor:                    0x1E nfo;
+		running_cost_factor:            0x3D nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_41_flipcheck;
@@ -5239,36 +5239,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_44_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_44) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER ;
+		
+		name:							string(STR_NAME_LOCO_CLASS_44);  
+		introduction_date:				date(1959,1,1);
+		vehicle_life:                   30;
+		model_life:						41;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_44);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1959,1,1);
-		
-		tractive_effort_coefficient:    0.184;
-		model_life:						40;
 		weight:                         135 ton;
 		speed:							90 mph;
 		power:							2500 hp;
 		
-		cost_factor:                    46 ;
-		running_cost_factor:            49 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x30 nfo;
+		
+		cost_factor:                    0x2E nfo;
+		running_cost_factor:            0x45 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_44_flipcheck;
@@ -5297,36 +5297,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_47_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_47) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_47);  
+		introduction_date:				date(1962,1,1);
+		vehicle_life:                   32;
+		model_life:						58;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_47);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1962,1,1);
-		
-		tractive_effort_coefficient:    0.222;
-		model_life:						40;
 		weight:                         120 ton;
 		speed:							95 mph;
 		power:							2580 hp;
 		
-		cost_factor:                    39 ;
-		running_cost_factor:            51 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x3A nfo;
+		
+		cost_factor:                    0x27 nfo;
+		running_cost_factor:            0x47 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_47_flipcheck;
@@ -5355,36 +5355,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_52_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_52) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER ;
+		
+		name:							string(STR_NAME_LOCO_CLASS_52);  
+		introduction_date:				date(1962,1,1);
+		vehicle_life:                   28;
+		model_life:						48;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_52);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1962,1,1);
-		
-		tractive_effort_coefficient:    0.275;
-		model_life:						40;
 		weight:                         108 ton;
 		speed:							90 mph;
 		power:							2700 hp;
 		
-		cost_factor:                    51 ;
-		running_cost_factor:            54 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x48 nfo;
+		
+		cost_factor:                    0x33 nfo;
+		running_cost_factor:            0x4B nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_52_flipcheck;
@@ -5413,36 +5413,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_55_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_55) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER ;
+		
+		name:							string(STR_NAME_LOCO_CLASS_55);  
+		introduction_date:				date(1956,1,1);
+		vehicle_life:                   32;
+		model_life:						39;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_55);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1961,1,1);
-		
-		tractive_effort_coefficient:    0.218;
-		model_life:						40;
 		weight:                         101 ton;
 		speed:							100 mph;
 		power:							3300 hp;
 		
-		cost_factor:                    67 ;
-		running_cost_factor:            76 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x39 nfo;
+		
+		cost_factor:                    0x43 nfo;
+		running_cost_factor:            0x6A nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_55_flipcheck;
@@ -5471,36 +5471,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_58_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_58) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_58);  
+		introduction_date:				date(1983,1,1);
+		vehicle_life:                   35;
+		model_life:						47;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_58);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1983,1,1);
-		
-		tractive_effort_coefficient:    0.210;
-		model_life:						40;
 		weight:                         129 ton;
 		speed:							80 mph;
 		power:							3300 hp;
 		
-		cost_factor:                    43 ;
-		running_cost_factor:            50 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x37 nfo;
+		
+		cost_factor:                    0x2B nfo;
+		running_cost_factor:            0x46 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_58_flipcheck;
@@ -5529,36 +5529,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_60_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_60) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_60);  
+		introduction_date:				date(1990,1,1);
+		vehicle_life:                   30;
+		model_life:						60;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_60);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1990,1,1);
-		
-		tractive_effort_coefficient:    0.367;
-		model_life:						40;
 		weight:                         129 ton;
 		speed:							60 mph;
 		power:							3100 hp;
 		
-		cost_factor:                    40 ;
-		running_cost_factor:            40 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x60 nfo;
+		
+		cost_factor:                    0x28 nfo;
+		running_cost_factor:            0x38 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_60_flipcheck;
@@ -5587,36 +5587,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_66_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_66) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_66);  
+		introduction_date:				date(1998,1,1);
+		vehicle_life:                   35;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_66);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1998,1,1);
-		
-		tractive_effort_coefficient:    0.321;
-		model_life:						40;
 		weight:                         128 ton;
 		speed:							75 mph;
 		power:							3300 hp;
 		
-		cost_factor:                    42 ;
-		running_cost_factor:            44 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x54 nfo;
+		
+		cost_factor:                    0x2A nfo;
+		running_cost_factor:            0x3E nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_66_flipcheck;
@@ -5661,7 +5661,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_67) {
 		introduction_date:				date(1999,1,1);
 		vehicle_life:                   35;
 		model_life:						VEHICLE_NEVER_EXPIRES;
-		length:							8 ;
+		length:							8;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
@@ -5672,10 +5672,9 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_67) {
 		power:							3200 hp;
 		
 		tractive_effort_coefficient:    0x2B nfo;
-		air_drag_coefficient:			0x0A nfo;
 		
-		cost_factor:                    0x25 nfo ;
-		running_cost_factor:            0x54 nfo ;
+		cost_factor:                    0x25 nfo;
+		running_cost_factor:            0x54 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_67_flipcheck;
@@ -5704,36 +5703,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_70_II_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_70_II) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_70_II);  
+		introduction_date:				date(2010,1,1);
+		vehicle_life:                   33;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_70_II);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2010,1,1);
-		
-		tractive_effort_coefficient:    0.413;
-		model_life:						40;
 		weight:                         129 ton;
 		speed:							75 mph;
 		power:							3700 hp;
 		
-		cost_factor:                    48 ;
-		running_cost_factor:            50 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x6C nfo;
+		
+		cost_factor:                    0x30 nfo;
+		running_cost_factor:            0x46 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_70_II_flipcheck;
@@ -5762,36 +5761,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_D16_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_D16) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER ;
+		
+		name:							string(STR_NAME_LOCO_CLASS_D16);  
+		introduction_date:				date(1948,1,1);
+		vehicle_life:                   27;
+		model_life:						27;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_D16);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1948,1,1);
-		
-		tractive_effort_coefficient:    0.142;
-		model_life:						40;
 		weight:                         130 ton;
 		speed:							90 mph;
 		power:							1600 hp;
 		
-		cost_factor:                    36 ;
-		running_cost_factor:            41 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x25 nfo;
+		
+		cost_factor:                    0x24 nfo;
+		running_cost_factor:            0x3A nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_D16_flipcheck;
@@ -5820,36 +5819,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_DP1_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_DP1) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER ;
+		
+		name:							string(STR_NAME_LOCO_CLASS_DP1);  
+		introduction_date:				date(1955,1,1);
+		vehicle_life:                   30;
+		model_life:						45;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						RAIL;
-		
-		running_cost_base:				RUNNING_COST_DIESEL;
-		engine_class:                   ENGINE_CLASS_DIESEL;
-		
-		name:							string(STR_NAME_LOCO_CLASS_DP1);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1955,1,1);
-		
-		tractive_effort_coefficient:    0.218;
-		model_life:						40;
 		weight:                         101 ton;
 		speed:							100 mph;
 		power:							3300 hp;
 		
-		cost_factor:                    67 ;
-		running_cost_factor:            76 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x39 nfo;
+		
+		cost_factor:                    0x41 nfo;
+		running_cost_factor:            0x6E nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_DP1_flipcheck;
@@ -5879,36 +5878,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_70_I_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_70_I) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_CLASS_70_I);  
+		introduction_date:				date(1941,1,1);
+		vehicle_life:                   35;
+		model_life:						44;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						SAA3;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_70_I);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1941,1,1);
-		
-		tractive_effort_coefficient:    0.175;
-		model_life:						40;
 		weight:                         101 ton;
 		speed:							75 mph;
 		power:							1470 hp;
 		
-		cost_factor:                    37 ;
-		running_cost_factor:            24 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x2E nfo;
+		
+		cost_factor:                    0x25 nfo;
+		running_cost_factor:            0x21 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_70_I_flipcheck;
@@ -5937,36 +5936,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_71_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_71) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_CLASS_71);  
+		introduction_date:				date(1958,1,1);
+		vehicle_life:                   34;
+		model_life:						42;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						SAA3;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_71);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1958,1,1);
-		
-		tractive_effort_coefficient:    0.249;
-		model_life:						40;
 		weight:                         78 ton;
 		speed:							90 mph;
 		power:							2300 hp;
 		
-		cost_factor:                    30 ;
-		running_cost_factor:            38 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x41 nfo;
+		
+		cost_factor:                    0x1E nfo;
+		running_cost_factor:            0x35 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_71_flipcheck;
@@ -5995,36 +5994,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_73_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_73) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_73);  
+		introduction_date:				date(1965,1,1);
+		vehicle_life:                   37;
+		model_life:						60;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						SAA3;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_73);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1965,1,1);
-		
-		tractive_effort_coefficient:    0.229;
-		model_life:						40;
 		weight:                         77 ton;
 		speed:							90 mph;
 		power:							1420 hp;
 		
-		cost_factor:                    22 ;
-		running_cost_factor:            21 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x3C nfo;
+		
+		cost_factor:                    0x16 nfo;
+		running_cost_factor:            0x1D nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_73_flipcheck;
@@ -6053,36 +6052,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_76_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_76) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.07;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_76);  
+		introduction_date:				date(1941,1,1);
+		vehicle_life:                   30;
+		model_life:						49;
+		length:							6;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_76);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1941,1,1);
-		
-		tractive_effort_coefficient:    0.229;
-		model_life:						40;
 		weight:                         87 ton;
 		speed:							65 mph;
 		power:							1360 hp;
 		
-		cost_factor:                    30 ;
-		running_cost_factor:            21 ;
-		length:							6 ;
+		tractive_effort_coefficient:    0x3C nfo;
+		
+		cost_factor:                    0x1E nfo;
+		running_cost_factor:            0x1E nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_76_flipcheck;
@@ -6111,36 +6110,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_77_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_77) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_77);  
+		introduction_date:				date(1953,1,1);
+		vehicle_life:                   30;
+		model_life:						47;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_77);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1953,1,1);
-		
-		tractive_effort_coefficient:    0.191;
-		model_life:						40;
 		weight:                         104 ton;
 		speed:							90 mph;
 		power:							2490 hp;
 		
-		cost_factor:                    65 ;
-		running_cost_factor:            49 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x32 nfo;
+		
+		cost_factor:                    0x41 nfo;
+		running_cost_factor:            0x44 nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_77_flipcheck;
@@ -6169,36 +6168,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_81_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_81) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_CLASS_81);  
+		introduction_date:				date(1959,1,1);
+		vehicle_life:                   30;
+		model_life:						31;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_81);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1959,1,1);
-		
-		tractive_effort_coefficient:    0.278;
-		model_life:						40;
 		weight:                         79 ton;
 		speed:							100 mph;
 		power:							3200 hp;
 		
-		cost_factor:                    32 ;
-		running_cost_factor:            53 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x49 nfo;
+		
+		cost_factor:                    0x20 nfo;
+		running_cost_factor:            0x4A nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_81_flipcheck;
@@ -6227,36 +6226,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_86_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_86) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.05;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_CLASS_86);  
+		introduction_date:				date(1965,1,1);
+		vehicle_life:                   35;
+		model_life:						55;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_86);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1965,1,1);
-		
-		tractive_effort_coefficient:    0.317;
-		model_life:						40;
 		weight:                         81 ton;
 		speed:							100 mph;
 		power:							3600 hp;
 		
-		cost_factor:                    36 ;
-		running_cost_factor:            55 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x53 nfo;
+		
+		cost_factor:                    0x24 nfo;
+		running_cost_factor:            0x4D nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_86_flipcheck;
@@ -6285,36 +6284,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_89_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_89) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.04;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_CLASS_89);  
+		introduction_date:				date(1986,1,1);
+		vehicle_life:                   35;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_89);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1986,1,1);
-		
-		tractive_effort_coefficient:    0.194;
-		model_life:						40;
 		weight:                         105 ton;
 		speed:							125 mph;
 		power:							5850 hp;
 		
-		cost_factor:                    92 ;
-		running_cost_factor:            100 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x33 nfo;
+		
+		cost_factor:                    0x5C nfo;
+		running_cost_factor:            0x8C nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_89_flipcheck;
@@ -6343,36 +6342,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_90_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_90) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.04;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_CLASS_90);  
+		introduction_date:				date(1987,1,1);
+		vehicle_life:                   35;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_90);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1987,1,1);
-		
-		tractive_effort_coefficient:    0.306;
-		model_life:						40;
 		weight:                         84 ton;
 		speed:							110 mph;
 		power:							5000 hp;
 		
-		cost_factor:                    63 ;
-		running_cost_factor:            77 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x50 nfo;
+		
+		cost_factor:                    0x3F nfo;
+		running_cost_factor:            0x6B nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_90_flipcheck;
@@ -6401,36 +6400,36 @@ switch(FEAT_TRAINS, PARENT, sw_CLASS_92_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_CLASS_92) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						SAAZ;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_92);  
+		introduction_date:				date(1993,1,1);
+		vehicle_life:                   35;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						SAAZ;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_CLASS_92);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1993,1,1);
-		
-		tractive_effort_coefficient:    0.283;
-		model_life:						40;
 		weight:                         126 ton;
 		speed:							90 mph;
 		power:							6700 hp;
 		
-		cost_factor:                    113 ;
-		running_cost_factor:            90 ;
-		length:							8 ;
+		tractive_effort_coefficient:    0x4A nfo;
+		
+		cost_factor:                    0x71 nfo;
+		running_cost_factor:            0x7E nfo;
 	}
 	graphics {
 		default: 							sw_CLASS_92_flipcheck;
@@ -6459,36 +6458,36 @@ switch(FEAT_TRAINS, PARENT, sw_EE1_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_EE1) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.06;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_EE1);  
+		introduction_date:				date(1920,1,1);
+		vehicle_life:                   30;
+		model_life:						40;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_EE1);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1920,1,1);
-		
-		tractive_effort_coefficient:    0x1C nfo;
-		model_life:						40;
 		weight:                         110 ton;
 		speed:							80 mph;
 		power:							1800 hp;
 		
-		cost_factor:                    66 ;
-		running_cost_factor:            32 ;
-		length:							7 ;
+		tractive_effort_coefficient:    0x1C nfo;
+		
+		cost_factor:                    0x42 nfo;
+		running_cost_factor:            0x2D nfo;
 	}
 	graphics {
 		default: 							sw_EE1_flipcheck;
@@ -6517,36 +6516,36 @@ switch(FEAT_TRAINS, PARENT, sw_EF1_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_EF1) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.11;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_EF1);  
+		introduction_date:				date(1914,1,1);
+		vehicle_life:                   30;
+		model_life:						56;
+		length:							5;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						ELRL;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_EF1);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1914,1,1);
-		
-		tractive_effort_coefficient:    0.159;
-		model_life:						40;
 		weight:                         74 ton;
 		speed:							45 mph;
 		power:							1100 hp;
 		
-		cost_factor:                    27 ;
-		running_cost_factor:            15 ;
-		length:							5 ;
+		tractive_effort_coefficient:    0x55 nfo;
+		
+		cost_factor:                    0x10 nfo;
+		running_cost_factor:            0x16 nfo;
 	}
 	graphics {
 		default: 							sw_EF1_flipcheck;
@@ -6575,36 +6574,36 @@ switch(FEAT_TRAINS, PARENT, sw_TRIPWORKER_flipcheck, vehicle_is_reversed){
 
 item (FEAT_TRAINS, ITEM_FAI_TRIPWORKER) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
-		air_drag_coefficient:			0.08;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
+		
+		track_type:						SAAZ;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_TRIPWORKER);  
+		introduction_date:				date(2020,1,1);
+		vehicle_life:                   30;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							5;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		track_type:						SAAZ;
-		
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		
-		name:							string(STR_NAME_LOCO_TRIPWORKER);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2020,1,1);
-		
-		tractive_effort_coefficient:    0.325;
-		model_life:						40;
 		weight:                         67 ton;
 		speed:							60 mph;
 		power:							1200 hp;
 		
-		cost_factor:                    16 ;
-		running_cost_factor:            16 ;
-		length:							5 ;
+		tractive_effort_coefficient:    0x55 nfo;
+		
+		cost_factor:                    0x10 nfo;
+		running_cost_factor:            0x16 nfo;
 	}
 	graphics {
 		default: 							sw_TRIPWORKER_flipcheck;
@@ -10312,41 +10311,40 @@ switch(FEAT_TRAINS, SELF, sw_MU_1903_STOCK_flipcheck, vehicle_is_flipped){
 
 item (FEAT_TRAINS, ITEM_FAI_MU_1903_STOCK) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_1903_STOCK);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1903,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		
-		weight:                         46 ton;
-		speed:							40 mph;
-		power:							300 hp;
-		tractive_effort_coefficient:    0.117;
-		air_drag_coefficient:			0.14;
-		
-		cost_factor:                    6 ;
-		running_cost_factor:            6 ;
 		
 		track_type:						MTRO;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_1903_STOCK);  
+		introduction_date:				date(1903,1,1);
+		vehicle_life:                   30;
+		model_life:						52;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					40;
+		
+		weight:                         46 ton;
+		speed:							40 mph;
+		power:							300 hp;
+		
+		tractive_effort_coefficient:    0x1F nfo;
+		
+		cost_factor:                    0x06 nfo;
+		running_cost_factor:            0x09 nfo;
 	}
 	graphics {
 		default: 							sw_MU_1903_STOCK_flipcheck;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1903_STOCK_purchase;
 	}
@@ -10378,41 +10376,40 @@ switch(FEAT_TRAINS, SELF, sw_MU_1938_STOCK_flipcheck, vehicle_is_flipped){
 
 item (FEAT_TRAINS, ITEM_FAI_MU_1938_STOCK) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_1938_STOCK);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1938,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		
-		weight:                         48 ton;
-		speed:							45 mph;
-		power:							400 hp;
-		tractive_effort_coefficient:    0.133;
-		air_drag_coefficient:			0.12;
-		
-		cost_factor:                    8 ;
-		running_cost_factor:            8 ;
 		
 		track_type:						MTRO;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_1938_STOCK);  
+		introduction_date:				date(1938,1,1);
+		vehicle_life:                   30;
+		model_life:						57;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					40;
+		
+		weight:                         48 ton;
+		speed:							45 mph;
+		power:							400 hp;
+		
+		tractive_effort_coefficient:    0x23 nfo;
+		
+		cost_factor:                    0x08 nfo;
+		running_cost_factor:            0x0B nfo;
 	}
 	graphics {
 		default: 							sw_MU_1938_STOCK_flipcheck;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1938_STOCK_purchase;
 	}
@@ -10444,41 +10441,40 @@ switch(FEAT_TRAINS, SELF, sw_MU_1967_STOCK_flipcheck, vehicle_is_flipped){
 
 item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_1967_STOCK);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1967,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		
-		weight:                         44 ton;
-		speed:							50 mph;
-		power:							500 hp;
-		tractive_effort_coefficient:    0.18;
-		air_drag_coefficient:			0.11;
-		
-		cost_factor:                    9 ;
-		running_cost_factor:           9 ;
 		
 		track_type:						MTRO;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_1967_STOCK);  
+		introduction_date:				date(1967,1,1);
+		vehicle_life:                   30;
+		model_life:						53;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					40;
+		
+		weight:                         44 ton;
+		speed:							50 mph;
+		power:							500 hp;
+		
+		tractive_effort_coefficient:    0x2F nfo;
+		
+		cost_factor:                    0x09 nfo;
+		running_cost_factor:            0x0D nfo;
 	}
 	graphics {
 		default: 							sw_MU_1967_STOCK_flipcheck;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1967_STOCK_purchase;
 	}
@@ -10510,41 +10506,40 @@ switch(FEAT_TRAINS, SELF, sw_MU_1992_STOCK_flipcheck, vehicle_is_flipped){
 
 item (FEAT_TRAINS, ITEM_FAI_MU_1992_STOCK) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_1992_STOCK);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1992,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		
-		weight:                         46 ton;
-		speed:							60 mph;
-		power:							600 hp;
-		tractive_effort_coefficient:    0.172;
-		air_drag_coefficient:			0.09;
-		
-		cost_factor:                    11 ;
-		running_cost_factor:            11 ;
 		
 		track_type:						MTRO;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_1992_STOCK);  
+		introduction_date:				date(1992,1,1);
+		vehicle_life:                   30;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					40;
+		
+		weight:                         46 ton;
+		speed:							60 mph;
+		power:							600 hp;
+		
+		tractive_effort_coefficient:    0x2D nfo;
+		
+		cost_factor:                    0x0B nfo;
+		running_cost_factor:            0x0F nfo;
 	}
 	graphics {
 		default: 							sw_MU_1992_STOCK_flipcheck;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_1992_STOCK_purchase;
 	}
@@ -10569,41 +10564,40 @@ spriteset(spriteset_MU_AEC_RAILBUS, "gfx/MUS/AEC_RAILBUS.png") { template_fai_25
 
 item (FEAT_TRAINS, ITEM_FAI_MU_AEC_RAILBUS) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_AEC_RAILBUS);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1950,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		
-		weight:                         20 ton;
-		speed:							50 mph;
-		power:							150 hp;
-		tractive_effort_coefficient:    0.095;
-		air_drag_coefficient:			0.1;
-		
-		cost_factor:                    3 ;
-		running_cost_factor:            4 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							6 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_AEC_RAILBUS);  
+		introduction_date:				date(1950,1,1);
+		vehicle_life:                   20;
+		model_life:						40;
+		length:							6;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		
+		weight:                         20 ton;
+		speed:							50 mph;
+		power:							150 hp;
+		
+		tractive_effort_coefficient:    0x1A nfo;
+		
+		cost_factor:                    0x03 nfo;
+		running_cost_factor:            0x05 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_AEC_RAILBUS;
 		sound_effect:						sw_sfx_diesel_dmu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_AEC_RAILBUS_purchase;
 	}
@@ -10623,41 +10617,40 @@ spriteset(spriteset_MU_AEC_RAILCAR_wagon, "gfx/MUS/AEC_RAILCAR.png") { template_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_AEC_RAILCAR) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_AEC_RAILCAR);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1935,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
-		
-		weight:                         29 ton;
-		speed:							60 mph;
-		power:							260 hp;
-		tractive_effort_coefficient:    0.117;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    6 ;
-		running_cost_factor:            6 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_AEC_RAILCAR);  
+		introduction_date:				date(1935,1,1);
+		vehicle_life:                   20;
+		model_life:						40;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+		weight:                         29 ton;
+		speed:							60 mph;
+		power:							260 hp;
+		
+		tractive_effort_coefficient:    0x1F nfo;
+		
+		cost_factor:                    0x06 nfo;
+		running_cost_factor:            0x08 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_AEC_RAILCAR;
 		sound_effect:						sw_sfx_diesel_dmu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_AEC_RAILCAR_purchase;
 	}
@@ -10684,41 +10677,40 @@ spriteset(spriteset_MU_AM10_wagon, "gfx/MUS/AM10.png") { template_fai_33_r(187, 
 
 item (FEAT_TRAINS, ITEM_FAI_MU_AM10) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_AM10);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1965,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
-		
-		weight:                         92 ton;
-		speed:							75 mph;
-		power:							1080 hp;
-		tractive_effort_coefficient:    0.141;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    23 ;
-		running_cost_factor:            18 ;
 		
 		track_type:						ELRL;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_AM10);  
+		introduction_date:				date(1965,1,1);
+		vehicle_life:                   25;
+		model_life:						45;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+		weight:                         92 ton;
+		speed:							75 mph;
+		power:							1080 hp;
+		
+		tractive_effort_coefficient:    0x25 nfo;
+		
+		cost_factor:                    0x17 nfo;
+		running_cost_factor:            0x19 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_AM10;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_AM10_purchase;
 	}
@@ -10745,35 +10737,36 @@ spriteset(spriteset_MU_BREL_APT_wagon, "gfx/MUS/BREL_APT.png") { template_fai_33
 
 item (FEAT_TRAINS, ITEM_FAI_MU_BREL_APT) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_BREL_APT);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1980,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					0 ;
-		
-		weight:                         140 ton;
-		speed:							140 mph;
-		power:							8000 hp;
-		tractive_effort_coefficient:    0.271;
-		air_drag_coefficient:			0.04;
-		
-		cost_factor:                    112 ;
-		running_cost_factor:            208 ;
 		
 		track_type:						ELRL;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_BREL_APT);  
+		introduction_date:				date(1980,1,1);
+		vehicle_life:                   26;
+		model_life:						48;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					1;
+		
+		weight:                         140 ton;
+		speed:							140 mph;
+		power:							8000 hp;
+		
+		tractive_effort_coefficient:    0x47 nfo;
+		
+		cost_factor:                    0x70 nfo;
+		running_cost_factor:            0x55 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_BREL_APT;
@@ -10811,41 +10804,40 @@ switch(FEAT_TRAINS, SELF, sw_MU_BR_HST_flipcheck, vehicle_is_flipped){
 
 item (FEAT_TRAINS, ITEM_FAI_MU_BR_HST) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_BR_HST);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1976,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					10 ;
-		
-		weight:                         140 ton;
-		speed:							125 mph;
-		power:							4500 hp;
-		tractive_effort_coefficient:    0.114;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    63 ;
-		running_cost_factor:            90 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_BR_HST);  
+		introduction_date:				date(1976,1,1);
+		vehicle_life:                   30;
+		model_life:						54;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL);
+		default_cargo_type:				MAIL;
+		cargo_capacity:					10;
+		
+		weight:                         140 ton;
+		speed:							125 mph;
+		power:							4500 hp;
+		
+		tractive_effort_coefficient:    0x1E nfo;
+		
+		cost_factor:                    0x3F nfo;
+		running_cost_factor:            0x7E nfo;
 	}
 	graphics {
 		default: 							sw_MU_BR_HST_flipcheck;
 		sound_effect:						sw_sfx_diesel_hst ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_BR_HST_purchase;
 	}
@@ -10872,41 +10864,40 @@ spriteset(spriteset_MU_CLASS_313_wagon, "gfx/MUS/CLASS_313.png") { template_fai_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_CLASS_313) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_CLASS_313);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1976,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					28 ;
-		
-		weight:                         72 ton;
-		speed:							75 mph;
-		power:							880 hp;
-		tractive_effort_coefficient:    0.175;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    18 ;
-		running_cost_factor:            16 ;
 		
 		track_type:						SAAZ;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_CLASS_313);  
+		introduction_date:				date(1976,1,1);
+		vehicle_life:                   24;
+		model_life:						50;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+		weight:                         72 ton;
+		speed:							75 mph;
+		power:							800 hp;
+		
+		tractive_effort_coefficient:    0x2E nfo;
+		
+		cost_factor:                    0x12 nfo;
+		running_cost_factor:            0x16 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_CLASS_313;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_CLASS_313_purchase;
 	}
@@ -10933,41 +10924,40 @@ spriteset(spriteset_MU_CLASS_321_wagon, "gfx/MUS/CLASS_321.png") { template_fai_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_CLASS_321) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_CLASS_321);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1988,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
-		
-		weight:                         82 ton;
-		speed:							100 mph;
-		power:							1400 hp;
-		tractive_effort_coefficient:    0.179;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    25 ;
-		running_cost_factor:            25 ;
 		
 		track_type:						ELRL;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_CLASS_321);  
+		introduction_date:				date(1988,1,1);
+		vehicle_life:                   23;
+		model_life:						47;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+		weight:                         82 ton;
+		speed:							100 mph;
+		power:							1400 hp;
+		
+		tractive_effort_coefficient:    0x2F nfo;
+		
+		cost_factor:                    0x19 nfo;
+		running_cost_factor:            0x23 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_CLASS_321;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_CLASS_321_purchase;
 	}
@@ -10994,41 +10984,40 @@ spriteset(spriteset_MU_CLASS_325_wagon, "gfx/MUS/CLASS_325.png") { template_fai_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_CLASS_325) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_CLASS_325);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1995,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
-		
-		weight:                         82 ton;
-		speed:							100 mph;
-		power:							1300 hp;
-		tractive_effort_coefficient:    0.16;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    21 ;
-		running_cost_factor:            21 ;
 		
 		track_type:						SAAZ;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_MU_CLASS_325);  
+		introduction_date:				date(1995,1,1);
+		vehicle_life:                   28;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS);
+		default_cargo_type:				MAIL;
+		cargo_capacity:					30;
+		
+		weight:                         82 ton;
+		speed:							100 mph;
+		power:							1300 hp;
+		
+		tractive_effort_coefficient:    0x2A nfo;
+		
+		cost_factor:                    0x15 nfo;
+		running_cost_factor:            0x1E nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_CLASS_325;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_CLASS_325_purchase;
 	}
@@ -11055,41 +11044,40 @@ spriteset(spriteset_MU_ELECTROSTAR_wagon, "gfx/MUS/ELECTROSTAR.png") { template_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_ELECTROSTAR) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_ELECTROSTAR);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1999,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		weight:                         100 ton;
-		speed:							100 mph;
-		power:							1500 hp;
-		tractive_effort_coefficient:    0.179;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    30 ;
-		running_cost_factor:            24 ;
 		
 		track_type:						SAAZ;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_ELECTROSTAR);  
+		introduction_date:				date(1999,1,1);
+		vehicle_life:                   23;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					35;
+		
+		weight:                         100 ton;
+		speed:							100 mph;
+		power:							1500 hp;
+		
+		tractive_effort_coefficient:    0x2F nfo;
+		
+		cost_factor:                    0x1E nfo;
+		running_cost_factor:            0x21 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_ELECTROSTAR;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_ELECTROSTAR_purchase;
 	}
@@ -11116,35 +11104,36 @@ spriteset(spriteset_MU_EUROSTAR_wagon, "gfx/MUS/EUROSTAR.png") { template_fai_25
 
 item (FEAT_TRAINS, ITEM_FAI_MU_EUROSTAR) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_EUROSTAR);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1993,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					0 ;
-		
-		weight:                         138 ton;
-		speed:							186 mph;
-		power:							16400 hp;
-		tractive_effort_coefficient:    0.252;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    255 ;
-		running_cost_factor:            255 ;
 		
 		track_type:						SAAZ;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_EUROSTAR);  
+		introduction_date:				date(1993,1,1);
+		vehicle_life:                   30;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					1;
+		
+		weight:                         138 ton;
+		speed:							186 mph;
+		power:							16400 hp;
+		
+		tractive_effort_coefficient:    0x42 nfo;
+		
+		cost_factor:                    0xFF nfo;
+		running_cost_factor:            0x68 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_EUROSTAR;
@@ -11177,41 +11166,40 @@ spriteset(spriteset_MU_EXPRESS_SPRINTER_wagon, "gfx/MUS/EXPRESS_SPRINTER.png") {
 
 item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_EXPRESS_SPRINTER);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1990,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		weight:                         76 ton;
-		speed:							90 mph;
-		power:							800 hp;
-		tractive_effort_coefficient:    0.129;
-		air_drag_coefficient:			0.06;
-		
-		cost_factor:                    23 ;
-		running_cost_factor:            18 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_EXPRESS_SPRINTER);  
+		introduction_date:				date(1990,1,1);
+		vehicle_life:                   20;
+		model_life:						50;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					35;
+		
+		weight:                         76 ton;
+		speed:							90 mph;
+		power:							800 hp;
+		
+		tractive_effort_coefficient:    0x22 nfo;
+		
+		cost_factor:                    0x17 nfo;
+		running_cost_factor:            0x19 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_EXPRESS_SPRINTER;
 		sound_effect:						sw_sfx_diesel_dmu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_EXPRESS_SPRINTER_purchase;
 	}
@@ -11238,41 +11226,40 @@ spriteset(spriteset_MU_GEC_CLASS_91_wagon, "gfx/MUS/GEC_CLASS_91.png") { templat
 
 item (FEAT_TRAINS, ITEM_FAI_MU_GEC_CLASS_91) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_GEC_CLASS_91);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1988,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					10 ;
-		
-		weight:                         114 ton;
-		speed:							140 mph;
-		power:							6300 hp;
-		tractive_effort_coefficient:    0.195;
-		air_drag_coefficient:			0.04;
-		
-		cost_factor:                    79 ;
-		running_cost_factor:            123 ;
 		
 		track_type:						ELRL;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_GEC_CLASS_91);  
+		introduction_date:				date(1988,1,1);
+		vehicle_life:                   35;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL);
+		default_cargo_type:				MAIL;
+		cargo_capacity:					10;
+		
+		weight:                         114 ton;
+		speed:							140 mph;
+		power:							6300 hp;
+		
+		tractive_effort_coefficient:    0x66 nfo;
+		
+		cost_factor:                    0x4F nfo;
+		running_cost_factor:            0xAC nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_GEC_CLASS_91;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_GEC_CLASS_91_purchase;
 	}
@@ -11299,41 +11286,40 @@ spriteset(spriteset_MU_HITACHI_A_TRAIN_wagon, "gfx/MUS/HITACHI_A_TRAIN.png") { t
 
 item (FEAT_TRAINS, ITEM_FAI_MU_HITACHI_A_TRAIN) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_HITACHI_A_TRAIN);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2016,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		
-		weight:                         98 ton;
-		speed:							155 mph;
-		power:							6500 hp;
-		tractive_effort_coefficient:    0.233;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    174 ;
-		running_cost_factor:            124 ;
 		
 		track_type:						SAAZ;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_HITACHI_A_TRAIN);  
+		introduction_date:				date(2016,1,1);
+		vehicle_life:                   25;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		
+		weight:                         98 ton;
+		speed:							155 mph;
+		power:							6500 hp;
+		
+		tractive_effort_coefficient:    0x3D nfo;
+		
+		cost_factor:                    0xAE nfo;
+		running_cost_factor:            0xAE nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_HITACHI_A_TRAIN;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_dual_voltage ;
 		purchase:                           spriteset_MU_HITACHI_A_TRAIN_purchase;
 	}
@@ -11365,35 +11351,36 @@ switch(FEAT_TRAINS, SELF, sw_MU_HST_PROTOTYPE_flipcheck, vehicle_is_flipped){
 
 item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_HST_PROTOTYPE);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1976,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					10 ;
-		
-		weight:                         140 ton;
-		speed:							125 mph;
-		power:							4500 hp;
-		tractive_effort_coefficient:    0.114;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    63 ;
-		running_cost_factor:            90 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_HST_PROTOTYPE);  
+		introduction_date:				date(1972,1,1);
+		vehicle_life:                   30;
+		model_life:						20;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					1;
+		
+		weight:                         140 ton;
+		speed:							125 mph;
+		power:							4500 hp;
+		
+		tractive_effort_coefficient:    0x1E nfo;
+		
+		cost_factor:                    0x3F nfo;
+		running_cost_factor:            0x7E nfo;
 	}
 	graphics {
 		default: 							sw_MU_HST_PROTOTYPE_flipcheck;
@@ -11431,41 +11418,40 @@ switch(FEAT_TRAINS, SELF, sw_MU_METRO_CAMMELL_DMU_flipcheck, vehicle_is_flipped)
 
 item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_METRO_CAMMELL_DMU);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1955,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					25 ;
-		
-		weight:                         64 ton;
-		speed:							70 mph;
-		power:							600 hp;
-		tractive_effort_coefficient:    0.125;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    19 ;
-		running_cost_factor:            14 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_METRO_CAMMELL_DMU);  
+		introduction_date:				date(1955,1,1);
+		vehicle_life:                   20;
+		model_life:						45;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					25;
+		
+		weight:                         64 ton;
+		speed:							70 mph;
+		power:							600 hp;
+		
+		tractive_effort_coefficient:    0x21 nfo;
+		
+		cost_factor:                    0x13 nfo;
+		running_cost_factor:            0x12 nfo;
 	}
 	graphics {
 		default: 							sw_MU_METRO_CAMMELL_DMU_flipcheck;
 		sound_effect:						sw_sfx_diesel_dmu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_METRO_CAMMELL_DMU_purchase;
 	}
@@ -11492,41 +11478,40 @@ spriteset(spriteset_MU_METRO_CAMMELL_EMU_wagon, "gfx/MUS/METRO_CAMMELL_EMU.png")
 
 item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_EMU) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_METRO_CAMMELL_EMU);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1914,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					25 ;
-		
-		weight:                         68 ton;
-		speed:							60 mph;
-		power:							1120 hp;
-		tractive_effort_coefficient:    0.122;
-		air_drag_coefficient:			0.09;
-		
-		cost_factor:                    25 ;
-		running_cost_factor:            20 ;
 		
 		track_type:						SAA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_METRO_CAMMELL_EMU);  
+		introduction_date:				date(1914,1,1);
+		vehicle_life:                   25;
+		model_life:						46;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					25;
+		
+		weight:                         68 ton;
+		speed:							60 mph;
+		power:							1120 hp;
+		
+		tractive_effort_coefficient:    0x40 nfo;
+		
+		cost_factor:                    0x19 nfo;
+		running_cost_factor:            0x1C nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_METRO_CAMMELL_EMU;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_METRO_CAMMELL_EMU_purchase;
 	}
@@ -11553,41 +11538,40 @@ spriteset(spriteset_MU_PENDOLINO_wagon, "gfx/MUS/PENDOLINO.png") { template_fai_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER;
 		
 		name:							string(STR_NAME_LOCO_MU_PENDOLINO);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1960,1,1);
+		introduction_date:				date(2002,1,1);
+		vehicle_life:                   25;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
+		cargo_capacity:					30;
 		
 		weight:                         104 ton;
 		speed:							140 mph;
 		power:							6840 hp;
-		tractive_effort_coefficient:    0.229;
-		air_drag_coefficient:			0.04;
 		
-		cost_factor:                    142 ;
-		running_cost_factor:            126 ;
+		tractive_effort_coefficient:    0x3C nfo;
 		
-		track_type:						ELRL;
-		running_cost_base:				RUNNING_COST_ELECTRIC;
-		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		cost_factor:                    0x8E nfo;
+		running_cost_factor:            0xB0 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_PENDOLINO;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_ohle_only ;
 		purchase:                           spriteset_MU_PENDOLINO_purchase;
 	}
@@ -11614,42 +11598,40 @@ spriteset(spriteset_MU_RAILMOTOR_wagon, "gfx/MUS/RAILMOTOR.png") { template_fai_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_RAILMOTOR) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_RAILMOTOR);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1903,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
-		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
-		
-		weight:                         36 ton;
-		speed:							45 mph;
-		power:							150 hp;
-		tractive_effort_coefficient:    0.053;
-		air_drag_coefficient:			0.11;
-		
-		cost_factor:                    11 ;
-		running_cost_factor:            4 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class:                   ENGINE_CLASS_STEAM;
-		length:							7 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_RAILMOTOR);  
+		introduction_date:				date(1903,1,1);
+		vehicle_life:                   22;
+		model_life:						37;
+		length:							7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		
+		weight:                         36 ton;
+		speed:							45 mph;
+		power:							150 hp;
+		
+		tractive_effort_coefficient:    0x0E nfo;
+		
+		cost_factor:                    0x0B nfo;
+		running_cost_factor:            0x06 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_RAILMOTOR;
 		sound_effect:						sw_sfx_steam_fai_med_jin ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_steam ;
 		purchase:                           spriteset_MU_RAILMOTOR_purchase;
 	}
@@ -11676,41 +11658,40 @@ spriteset(spriteset_MU_RENEWAL_EMU_wagon, "gfx/MUS/RENEWAL_EMU.png") { template_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_RENEWAL_EMU) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_RENEWAL_EMU);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1964,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					32 ;
-		
-		weight:                         72 ton;
-		speed:							90 mph;
-		power:							1000 hp;
-		tractive_effort_coefficient:    0.188;
-		air_drag_coefficient:			0.06;
-		
-		cost_factor:                    21 ;
-		running_cost_factor:            19 ;
 		
 		track_type:						SAA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_RENEWAL_EMU);  
+		introduction_date:				date(1964,1,1);
+		vehicle_life:                   25;
+		model_life:						56;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					32;
+		
+		weight:                         72 ton;
+		speed:							90 mph;
+		power:							1000 hp;
+		
+		tractive_effort_coefficient:    0x31 nfo;
+		
+		cost_factor:                    0x15 nfo;
+		running_cost_factor:            0x1B nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_RENEWAL_EMU;
 		sound_effect:						sw_sfx_emu_old ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_RENEWAL_EMU_purchase;
 	}
@@ -11737,41 +11718,40 @@ spriteset(spriteset_MU_SOUTHERN_EMU_wagon, "gfx/MUS/SOUTHERN_EMU.png") { templat
 
 item (FEAT_TRAINS, ITEM_FAI_MU_SOUTHERN_EMU) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_SOUTHERN_EMU);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1935,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					28 ;
-		
-		weight:                         76 ton;
-		speed:							75 mph;
-		power:							9000 hp;
-		tractive_effort_coefficient:    0.089;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    23 ;
-		running_cost_factor:            18 ;
 		
 		track_type:						SAA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_SOUTHERN_EMU);  
+		introduction_date:				date(1935,1,1);
+		vehicle_life:                   25;
+		model_life:						55;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					28;
+		
+		weight:                         76 ton;
+		speed:							75 mph;
+		power:							900 hp;
+		
+		tractive_effort_coefficient:    0x22 nfo;
+		
+		cost_factor:                    0x17 nfo;
+		running_cost_factor:            0x19 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_SOUTHERN_EMU;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_SOUTHERN_EMU_purchase;
 	}
@@ -11798,41 +11778,40 @@ spriteset(spriteset_MU_SPRINTER_wagon, "gfx/MUS/SPRINTER.png") { template_fai_33
 
 item (FEAT_TRAINS, ITEM_FAI_MU_SPRINTER) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_SPRINTER);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1960,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		weight:                         72 ton;
-		speed:							75 mph;
-		power:							775 hp;
-		tractive_effort_coefficient:    0.125;
-		air_drag_coefficient:			0.08;
-		
-		cost_factor:                    21 ;
-		running_cost_factor:            15 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_SPRINTER);  
+		introduction_date:				date(1984,1,1);
+		vehicle_life:                   20;
+		model_life:						36;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					35;
+		
+		weight:                         72 ton;
+		speed:							75 mph;
+		power:							775 hp;
+		
+		tractive_effort_coefficient:    0x21 nfo;
+		
+		cost_factor:                    0x15 nfo;
+		running_cost_factor:            0x15 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_SPRINTER;
 		sound_effect:						sw_sfx_diesel_dmu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_SPRINTER_purchase;
 	}
@@ -11859,41 +11838,40 @@ spriteset(spriteset_MU_TURBOSTAR_wagon, "gfx/MUS/TURBOSTAR.png") { template_fai_
 
 item (FEAT_TRAINS, ITEM_FAI_MU_TURBOSTAR) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_TURBOSTAR);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(1998,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					35 ;
-		
-		weight:                         90 ton;
-		speed:							100 mph;
-		power:							1250 hp;
-		tractive_effort_coefficient:    0.157;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    21 ;
-		running_cost_factor:            15 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_TURBOSTAR);  
+		introduction_date:				date(1998,1,1);
+		vehicle_life:                   20;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					35;
+		
+		weight:                         90 ton;
+		speed:							100 mph;
+		power:							1250 hp;
+		
+		tractive_effort_coefficient:    0x29 nfo;
+		
+		cost_factor:                    0x22 nfo;
+		running_cost_factor:            0x23 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_TURBOSTAR;
 		sound_effect:						sw_sfx_diesel_dmu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_TURBOSTAR_purchase;
 	}
@@ -11920,41 +11898,40 @@ spriteset(spriteset_MU_VOYAGER_wagon, "gfx/MUS/VOYAGER.png") { template_fai_33_r
 
 item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_VOYAGER);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2001,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
-		
-		weight:                         86 ton;
-		speed:							125 mph;
-		power:							3000 hp;
-		tractive_effort_coefficient:    0.184;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    52 ;
-		running_cost_factor:            25 ;
 		
 		track_type:						RAIL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_VOYAGER);  
+		introduction_date:				date(2001,1,1);
+		vehicle_life:                   25;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+		weight:                         86 ton;
+		speed:							125 mph;
+		power:							3000 hp;
+		
+		tractive_effort_coefficient:    0x30 nfo;
+		
+		cost_factor:                    0x34 nfo;
+		running_cost_factor:            0x75 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_VOYAGER;
 		sound_effect:						sw_sfx_diesel_hst ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_MU_VOYAGER_purchase;
 	}
@@ -11981,41 +11958,40 @@ spriteset(spriteset_MU_WESSEX_EMU_wagon, "gfx/MUS/WESSEX_EMU.png") { template_fa
 
 item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU) {
 	property {
-		vehicle_life:                   40;
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		ai_special_flag:				AI_FLAG_CARGO;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		dual_headed:					1;
-		model_life:						40;
-		
-		name:							string(STR_NAME_LOCO_MU_WESSEX_EMU);  
-		climates_available:				ALL_CLIMATES;
-		introduction_date:				date(2001,1,1);
-		default_cargo_type:				PASS;
-		cargo_capacity:					30 ;
-		
-		weight:                         78 ton;
-		speed:							125 mph;
-		power:							3000 hp;
-		tractive_effort_coefficient:    0.184;
-		air_drag_coefficient:			0.05;
-		
-		cost_factor:                    21 ;
-		running_cost_factor:            15 ;
 		
 		track_type:						SAA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class:                   ENGINE_CLASS_ELECTRIC;
-		length:							8 ;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_WESSEX_EMU);  
+		introduction_date:				date(1988,1,1);
+		vehicle_life:                   22;
+		model_life:						47;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+		weight:                         78 ton;
+		speed:							100 mph;
+		power:							1210 hp;
+		
+		tractive_effort_coefficient:    0x2F nfo;
+		
+		cost_factor:                    0x1B nfo;
+		running_cost_factor:            0x22 nfo;
 	}
 	graphics {
 		default: 							spriteset_MU_WESSEX_EMU;
 		sound_effect:						sw_sfx_emu ;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_3rd_only ;
 		purchase:                           spriteset_MU_WESSEX_EMU_purchase;
 	}
