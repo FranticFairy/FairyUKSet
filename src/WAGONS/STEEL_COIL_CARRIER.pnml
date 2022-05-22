@@ -1,0 +1,39 @@
+spriteset(spriteset_WAGON_STEEL_COIL_CARRIER_purchase, "gfx/WAGONS/STEEL_COIL_CARRIER.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_WAGON_STEEL_COIL_CARRIER_m, "gfx/WAGONS/STEEL_COIL_CARRIER.png") { template_fai_29(7, 39)}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_WAGON_STEEL_COIL_CARRIER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		climates_available:				ALL_CLIMATES;
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_WAGON_STEEL_COIL_CARRIER);  
+		introduction_date:				date(1980,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							7 ;
+		
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				STEL;
+		cargo_capacity:					24 ;
+		
+		weight:                         20 ton;
+		speed:							70 mph;
+		
+		cost_factor:                    0x36 nfo ;
+		running_cost_factor:            0x11 nfo ;
+	}
+	graphics {
+		default: 							spriteset_WAGON_STEEL_COIL_CARRIER_m;
+		purchase:                           spriteset_WAGON_STEEL_COIL_CARRIER_purchase;
+	}
+}

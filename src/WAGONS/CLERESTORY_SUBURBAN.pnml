@@ -8,32 +8,29 @@ spriteset(spriteset_WAGON_CLERESTORY_SUBURBAN_m, "gfx/WAGONS/CLERESTORY_SUBURBAN
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_SUBURBAN) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
 		name:							string(STR_NAME_WAGON_CLERESTORY_SUBURBAN);  
 		introduction_date:				date(1880,1,1);
+		model_life:						60;
 		length:							7 ;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
 		
+		default_cargo_type:				PASS;
 		cargo_capacity:					35 ;
+		
 		weight:                         28 ton;
 		speed:							75 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0x68 nfo ;
+		running_cost_factor:            0x43 nfo ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_CLERESTORY_SUBURBAN_m;

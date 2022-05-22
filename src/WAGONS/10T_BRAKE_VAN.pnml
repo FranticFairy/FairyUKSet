@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_10T_BRAKE_VAN_purchase, "gfx/WAGONS/BRAKEVAN.png") { template_fai_purchase(367, 23)}
+spriteset(spriteset_WAGON_10T_BRAKE_VAN_purchase, "gfx/WAGONS/10T_BRAKE_VAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_10T_BRAKE_VAN_m, "gfx/WAGONS/BRAKEVAN.png") { template_fai_12(367, 39)}
+spriteset(spriteset_WAGON_10T_BRAKE_VAN_m, "gfx/WAGONS/10T_BRAKE_VAN.png") { template_fai_12(7, 39)}
 
 //Sprite stack
 
@@ -8,37 +8,32 @@ spriteset(spriteset_WAGON_10T_BRAKE_VAN_m, "gfx/WAGONS/BRAKEVAN.png") { template
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_10T_BRAKE_VAN) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
 		name:							string(STR_NAME_WAGON_10T_BRAKE_VAN);  
 		introduction_date:				date(1800,1,1);
+		model_life:						100;
 		length:							3 ;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
 		weight:                         10 ton;
 		speed:							40 mph;
 		
-		cost_factor:                    150 ;
-		running_cost_factor:            150 ;
+		cost_factor:                    0x14 nfo ;
+		running_cost_factor:            0x10 nfo ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_10T_BRAKE_VAN_m;
 		purchase:                           spriteset_WAGON_10T_BRAKE_VAN_purchase;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
 	}
 }
