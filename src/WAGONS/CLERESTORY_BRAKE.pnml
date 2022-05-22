@@ -8,32 +8,29 @@ spriteset(spriteset_WAGON_CLERESTORY_BRAKE_m, "gfx/WAGONS/CLERESTORY_BRAKE.png")
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_CLERESTORY_BRAKE) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
 		name:							string(STR_NAME_WAGON_CLERESTORY_BRAKE);  
 		introduction_date:				date(1880,1,1);
+		model_life:						60;
 		length:							7 ;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS, CC_MAIL);
-		default_cargo_type:				MAIL;
 		
+		default_cargo_type:				MAIL;
 		cargo_capacity:					30 ;
-		weight:                         28 ton;
+		
+		weight:                         24 ton;
 		speed:							80 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0x68 nfo ;
+		running_cost_factor:            0x43 nfo ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_CLERESTORY_BRAKE_m;

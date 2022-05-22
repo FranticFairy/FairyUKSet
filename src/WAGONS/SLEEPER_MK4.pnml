@@ -1,12 +1,12 @@
-spriteset(spriteset_WAGON_BUFFET_MK4_purchase, "gfx/WAGONS/BUFFET_MK4.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_SLEEPER_MK4_purchase, "gfx/WAGONS/SLEEPER_MK4.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_BUFFET_MK4_m, "gfx/WAGONS/BUFFET_MK4.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_SLEEPER_MK4_m, "gfx/WAGONS/SLEEPER_MK4.png") { template_fai_33(7, 39)}
 
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK4) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_SLEEPER_MK4) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
@@ -16,7 +16,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK4) {
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
 		
-		name:							string(STR_NAME_WAGON_BUFFET_MK4);  
+		name:							string(STR_NAME_WAGON_SLEEPER_MK4);  
 		introduction_date:				date(2000,1,1);
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							8 ;
@@ -24,16 +24,16 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_MK4) {
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		
 		default_cargo_type:				PASS;
-		cargo_capacity:					20 ;
+		cargo_capacity:					16 ;
 		
-		weight:                         40 ton;
+		weight:                         43 ton;
 		speed:							140 mph;
 		
 		cost_factor:                    0xAA nfo ;
-		running_cost_factor:            0x52 nfo ;
+		running_cost_factor:            0x69 nfo ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_BUFFET_MK4_m;
-		purchase:                           spriteset_WAGON_BUFFET_MK4_purchase;
+		default: 							spriteset_WAGON_SLEEPER_MK4_m;
+		purchase:                           spriteset_WAGON_SLEEPER_MK4_purchase;
 	}
 }

@@ -8,33 +8,29 @@ spriteset(spriteset_WAGON_MINERAL_WAGON_m, "gfx/WAGONS/MINERAL_WAGON.png") { tem
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_MINERAL_WAGON) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
 		name:							string(STR_NAME_WAGON_MINERAL_WAGON);  
 		introduction_date:				date(1930,1,1);
+		model_life:						60;
 		length:							5 ;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
 		default_cargo_type:				COAL;
-		
 		cargo_capacity:					14 ;
+		
 		weight:                         10 ton;
 		speed:							50 mph;
 		
-		cost_factor:                    32 ;
-		running_cost_factor:            16 ;
+		cost_factor:                    0x20 nfo ;
+		running_cost_factor:            0x09 nfo ;
 	}
 	graphics {
 		default: 							spriteset_WAGON_MINERAL_WAGON_m;
