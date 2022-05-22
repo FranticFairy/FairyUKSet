@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_EXPRESS_VAN_purchase, "gfx/WAGONS/EXPRESS_VAN.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_EXPRESS_VAN_purchase, "gfx/WAGONS/VAN.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_EXPRESS_VAN_m, "gfx/WAGONS/EXPRESS_VAN.png") { template_fai_18(7, 39)}
+spriteset(spriteset_WAGON_EXPRESS_VAN_m, "gfx/WAGONS/VAN.png") { template_fai_18(7, 39)}
 
 //Sprite stack
 

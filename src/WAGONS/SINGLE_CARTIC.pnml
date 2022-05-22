@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_SINGLE_CARTIC_purchase, "gfx/WAGONS/SINGLE_CARTIC.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_SINGLE_CARTIC_purchase, "gfx/WAGONS/CARTIC.png") { template_fai_purchase(187, 23)}
 
-spriteset(spriteset_WAGON_SINGLE_CARTIC_m, "gfx/WAGONS/SINGLE_CARTIC.png") { template_fai_29(7, 39)}
+spriteset(spriteset_WAGON_SINGLE_CARTIC_m, "gfx/WAGONS/CARTIC.png") { template_fai_29(187, 39)}
 
 //Sprite stack
 

@@ -36,7 +36,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_08) {
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		weight:                         50 ton;
+		weight:                         50;
 		speed:							25 mph;
 		power:							350 hp;
 		

@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_INTERMODAL_purchase, "gfx/WAGONS/INTERMODAL.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_INTERMODAL_purchase, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_purchase(187, 23)}
 
-spriteset(spriteset_WAGON_INTERMODAL_m, "gfx/WAGONS/INTERMODAL.png") { template_fai_33(7, 39)}
+spriteset(spriteset_WAGON_INTERMODAL_m, "gfx/WAGONS/FREIGHTLINER.png") { template_fai_33(187, 39)}
 
 //Sprite stack
 
