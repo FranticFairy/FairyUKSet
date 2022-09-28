@@ -21,8 +21,6 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN) {
 		model_life:						115;
 		length:							4 ;
 		
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				LVST;
 		cargo_capacity:					8 ;
 		

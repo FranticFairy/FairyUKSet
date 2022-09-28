@@ -21,9 +21,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_STEEL_COIL_WAGON) {
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							7 ;
 		
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				STEL;
+		cargo_allow_refit:				[STEL,COPR,CSTI,ZINC,IRON,METL,ALUM,STAL,STCB,STSE,STSH,STST,STWR];
 		cargo_capacity:					24 ;
 		
 		weight:                         20 ton;

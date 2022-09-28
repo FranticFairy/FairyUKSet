@@ -22,33 +22,30 @@ switch(FEAT_TRAINS, SELF, sw_WAGON_CARTIC_sprite, position_in_articulated_veh) {
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_CARTIC) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
+		name:							string(STR_NAME_WAGON_CARTIC);  
+		
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_CARTIC);  
 		introduction_date:				date(1967,1,1);
-		length:							7 ;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							7;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
-		default_cargo_type:				VEHI;
+		default_cargo_type:				12;
+		cargo_capacity:					VEHI;
 		
-		cargo_capacity:					12 ;
 		weight:                         64 ton;
 		speed:							90 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0xB9 nfo;
+		running_cost_factor:            0x33 nfo;
 	}
 	graphics {
 		default: 							sw_WAGON_CARTIC_sprite;

@@ -208,3 +208,5 @@ disable_item(FEAT_TRAINS);
 #include "src/MUS/TURBOSTAR.pnml"
 #include "src/MUS/VOYAGER.pnml"
 #include "src/MUS/WESSEX_EMU.pnml"
+#include "src/MUS/BRIGHTON_BELLE.pnml"
+#include "src/MUS/SR_4DD.pnml"

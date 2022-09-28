@@ -1304,7 +1304,9 @@ ITEM_FAI_MU_BR_HST,
 ITEM_FAI_MU_TURBOSTAR,
 ITEM_FAI_MU_VOYAGER,
 ITEM_FAI_MU_METRO_CAMMELL_EMU,
+ITEM_FAI_MU_BRIGHTON_BELLE,
 ITEM_FAI_MU_SOUTHERN_EMU,
+ITEM_FAI_MU_SR_4DD,
 ITEM_FAI_MU_RENEWAL_EMU,
 ITEM_FAI_MU_WESSEX_EMU,
 ITEM_FAI_MU_AM10,
@@ -4681,7 +4683,7 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_08) {
 		default_cargo_type:				PASS;
 		cargo_capacity:					1 ;
 		
-		weight:                         50;
+		weight:                         50 ton;
 		speed:							25 mph;
 		power:							350 hp;
 		
@@ -6887,32 +6889,29 @@ switch(FEAT_TRAINS, SELF, sw_WAGON_QUAD_ARTICULATED_sprite, position_in_articula
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_QUAD_ARTICULATED) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
+		name:							string(STR_NAME_WAGON_QUAD_ARTICULATED);  		
+		
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_QUAD_ARTICULATED);  
-		introduction_date:				date(1880,1,1);
-		length:							7 ;
+		introduction_date:				date(1924,1,1);
+		model_life:						25;
+		length:							7;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
+		cargo_capacity:					25;
 		
-		cargo_capacity:					30 ;
-		weight:                         28 ton;
+		weight:                         30 ton;
 		speed:							80 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0xFA nfo;
+		running_cost_factor:            0x84 nfo;
 	}
 	graphics {
 		default: 							sw_WAGON_QUAD_ARTICULATED_sprite;
@@ -6942,32 +6941,29 @@ switch(FEAT_TRAINS, SELF, sw_WAGON_ARTICULATED_CARRIAGES_sprite, position_in_art
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_ARTICULATED_CARRIAGES) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
+		name:							string(STR_NAME_WAGON_ARTICULATED_CARRIAGES);  
+		
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_ARTICULATED_CARRIAGES);  
 		introduction_date:				date(1925,1,1);
-		length:							7 ;
+		model_life:						30;
+		length:							7;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
+		cargo_capacity:					30;
 		
-		cargo_capacity:					30 ;
 		weight:                         50 ton;
 		speed:							120 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0xFD nfo;
+		running_cost_factor:            0x84 nfo;
 	}
 	graphics {
 		default: 							sw_WAGON_ARTICULATED_CARRIAGES_sprite;
@@ -7120,32 +7116,29 @@ switch(FEAT_TRAINS, SELF, sw_WAGON_BUFFET_ARTICULATED_sprite, position_in_articu
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_BUFFET_ARTICULATED) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
+		name:							string(STR_NAME_WAGON_BUFFET_ARTICULATED);  
+		
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_BUFFET_ARTICULATED);  
 		introduction_date:				date(1925,1,1);
-		length:							7 ;
+		model_life:						30;
+		length:							7;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
+		cargo_capacity:					15;
 		
-		cargo_capacity:					15 ;
-		weight:                         50 ton;
+		weight:                         55 ton;
 		speed:							120 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0xFF nfo;
+		running_cost_factor:            0x87 nfo;
 	}
 	graphics {
 		default: 							sw_WAGON_BUFFET_ARTICULATED_sprite;
@@ -7592,33 +7585,30 @@ switch(FEAT_TRAINS, SELF, sw_WAGON_CARTIC_sprite, position_in_articulated_veh) {
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_CARTIC) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
+		name:							string(STR_NAME_WAGON_CARTIC);  
+		
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_CARTIC);  
 		introduction_date:				date(1967,1,1);
-		length:							7 ;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							7;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_EXPRESS, CC_PIECE_GOODS);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED);
-		default_cargo_type:				VEHI;
+		default_cargo_type:				12;
+		cargo_capacity:					VEHI;
 		
-		cargo_capacity:					12 ;
 		weight:                         64 ton;
 		speed:							90 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0xB9 nfo;
+		running_cost_factor:            0x33 nfo;
 	}
 	graphics {
 		default: 							sw_WAGON_CARTIC_sprite;
@@ -8143,9 +8133,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_TIMBER_WAGON) {
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							6 ;
 		
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				WOOD;
+		cargo_allow_refit:				[WOOD,TWOD,WDPR];
 		cargo_capacity:					20 ;
 		
 		weight:                         14 ton;
@@ -8348,33 +8337,30 @@ switch(FEAT_TRAINS, SELF, sw_WAGON_FREIGHTLINER_sprite, position_in_articulated_
 
 item (FEAT_TRAINS, ITEM_FAI_WAGON_FREIGHTLINER) {
 	property {
-		vehicle_life:                   40;
-		model_life:						40;
+		name:							string(STR_NAME_WAGON_FREIGHTLINER);  
+		
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		refit_cost:						0;
-		air_drag_coefficient:			0.05;
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
 		track_type:						RAIL;
-		running_cost_base:				RUNNING_COST_NONE;
 		
-		name:							string(STR_NAME_WAGON_FREIGHTLINER);  
 		introduction_date:				date(1972,1,1);
-		length:							8 ;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
 		
-		ai_special_flag:				AI_FLAG_CARGO;
 		refittable_cargo_classes:		bitmask(CC_ARMOURED, CC_EXPRESS, CC_BULK, CC_PIECE_GOODS, CC_LIQUID, CC_MAIL);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				GOOD;
+		cargo_capacity:					27;
 		
-		cargo_capacity:					27 ;
 		weight:                         42 ton;
-		speed:							90 mph;
+		speed:							20 mph;
 		
-		cost_factor:                    1 ;
-		running_cost_factor:            1 ;
+		cost_factor:                    0xA6 nfo;
+		running_cost_factor:            0x33 nfo;
 	}
 	graphics {
 		default: 							sw_WAGON_FREIGHTLINER_sprite;
@@ -8776,8 +8762,6 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN) {
 		model_life:						115;
 		length:							4 ;
 		
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				LVST;
 		cargo_capacity:					8 ;
 		
@@ -8817,8 +8801,6 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_LIVESTOCK_VAN_LARGE) {
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							7 ;
 		
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				LVST;
 		cargo_capacity:					24 ;
 		
@@ -9514,9 +9496,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SCRAP_WAGON) {
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							5 ;
 		
-		refittable_cargo_classes:		bitmask(CC_BULK);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
-		default_cargo_type:				COAL;
+		default_cargo_type:				SCMT;
 		cargo_capacity:					20 ;
 		
 		weight:                         15 ton;
@@ -9719,9 +9699,8 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_STEEL_COIL_WAGON) {
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							7 ;
 		
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
 		default_cargo_type:				STEL;
+		cargo_allow_refit:				[STEL,COPR,CSTI,ZINC,IRON,METL,ALUM,STAL,STCB,STSE,STSH,STST,STWR];
 		cargo_capacity:					24 ;
 		
 		weight:                         20 ton;
@@ -11610,6 +11589,126 @@ item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU) {
 		weight:				78;
 		cargo_capacity:		35 ;
 		speed:				125 ;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/MUS/BRIGHTON_BELLE.pnml" 1
+spriteset(spriteset_MU_BRIGHTON_BELLE_purchase, "gfx/MUS/BRIGHTON_BELLE.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_MU_BRIGHTON_BELLE, "gfx/MUS/BRIGHTON_BELLE.png") { template_fai_33(0, 20)}
+
+spriteset(spriteset_MU_BRIGHTON_BELLE_wagon, "gfx/MUS/BRIGHTON_BELLE.png") { template_fai_33_r(0, 50)}
+
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_MU_BRIGHTON_BELLE) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		dual_headed:					1;
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_BRIGHTON_BELLE);  
+		introduction_date:				date(1932,1,1);
+		vehicle_life:                   25;
+		model_life:						55;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		
+		weight:                         77 ton;
+		speed:							75 mph;
+		power:							900 hp;
+		
+		tractive_effort_coefficient:    0x22 nfo;
+		
+		cost_factor:                    0x17 nfo;
+		running_cost_factor:            0x19 nfo;
+	}
+	graphics {
+		default: 							spriteset_MU_BRIGHTON_BELLE;
+		sound_effect:						sw_sfx_emu ;
+		create_effect:                      vfx_3rd_only ;
+		purchase:                           spriteset_MU_BRIGHTON_BELLE_purchase;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:			spriteset_MU_BRIGHTON_BELLE_wagon;
+		length:				8;
+		weight:				77;
+		cargo_capacity:		20 ;
+		speed:				75 ;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/MUS/SR_4DD.pnml" 1
+spriteset(spriteset_MU_SR_4DD_purchase, "gfx/MUS/SR_4DD.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_MU_SR_4DD, "gfx/MUS/SR_4DD.png") { template_fai_33(0, 20)}
+
+spriteset(spriteset_MU_SR_4DD_wagon, "gfx/MUS/SR_4DD.png") { template_fai_33_r(0, 50)}
+
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_MU_SR_4DD) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		dual_headed:					1;
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class:                   ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_LOCO_MU_SR_4DD);  
+		introduction_date:				date(1949,1,1);
+		vehicle_life:                   25;
+		model_life:						55;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					35;
+		
+		weight:                         80 ton;
+		speed:							75 mph;
+		power:							900 hp;
+		
+		tractive_effort_coefficient:    0x22 nfo;
+		
+		cost_factor:                    0x19 nfo;
+		running_cost_factor:            0x1E nfo;
+	}
+	graphics {
+		default: 							spriteset_MU_SR_4DD;
+		sound_effect:						sw_sfx_emu ;
+		create_effect:                      vfx_3rd_only ;
+		purchase:                           spriteset_MU_SR_4DD_purchase;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:			spriteset_MU_SR_4DD_wagon;
+		length:				8;
+		weight:				80;
+		cargo_capacity:		40 ;
+		speed:				75 ;
 	}
 }
 # 1 "ukfs.pnml" 2

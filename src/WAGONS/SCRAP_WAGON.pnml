@@ -21,9 +21,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_SCRAP_WAGON) {
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							5 ;
 		
-		refittable_cargo_classes:		bitmask(CC_BULK);
-		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
-		default_cargo_type:				COAL;
+		default_cargo_type:				SCMT;
 		cargo_capacity:					20 ;
 		
 		weight:                         15 ton;
