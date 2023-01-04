@@ -13,7 +13,7 @@ You should have received a copy of the GNU General Public License along
 with NML; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA."""
 
-from nml import expression, nmlop
+from nml import nmlop
 
 callbacks = 0x14 * [{}]
 
@@ -43,7 +43,7 @@ general_vehicle_cbs = {
 
 # Function to convert vehicle length to the actual property value, which is (8 - length)
 def vehicle_length(value):
-    return expression.BinOp(nmlop.SUB, expression.ConstantNumeric(8, value.pos), value, value.pos)
+    return nmlop.SUB(8, value)
 
 # Trains
 callbacks[0x00] = {
@@ -68,6 +68,7 @@ callbacks[0x00] = {
     'purchase_tractive_effort_coefficient' : {'type': 'cb', 'num': 0x36, 'var10': 0x1F, 'purchase': 2},
     'bitmask_vehicle_info'                 : {'type': 'cb', 'num': 0x36, 'var10': 0x25},
     'cargo_age_period'                     : {'type': 'cb', 'num': 0x36, 'var10': 0x2B},
+    'curve_speed_mod'                      : {'type': 'cb', 'num': 0x36, 'var10': 0x2E},
     'create_effect'                        : {'type': 'cb', 'num': 0x160},
 }
 callbacks[0x00].update(general_vehicle_cbs)
@@ -133,9 +134,23 @@ callbacks[0x03] = {
 }
 callbacks[0x03].update(general_vehicle_cbs)
 
-# Stations (0x04) are not yet fully implemented
+# Stations
 callbacks[0x04] = {
-    'default' : {'type': 'cargo', 'num': None},
+    'availability'                  : {'type': 'cb', 'num':  0x13, 'flag_bit': 0},
+    'select_sprite_layout'          : {'type': 'cb', 'num':  0x14, 'flag_bit': 1, 'purchase': 'purchase_select_sprite_layout'},
+    'purchase_select_sprite_layout' : {'type': 'cb', 'num':  0x14, 'flag_bit': 1, 'purchase': 2},
+    'select_tile_type'              : {'type': 'cb', 'num':  0x24, 'purchase': 2},
+    'anim_control'                  : {'type': 'cb', 'num': 0x140},
+    'anim_next_frame'               : {'type': 'cb', 'num': 0x141, 'flag_bit': 2},
+    'anim_speed'                    : {'type': 'cb', 'num': 0x142, 'flag_bit': 3},
+    'tile_check'                    : {'type': 'cb', 'num': 0x149, 'flag_bit': 4, 'purchase': 2},
+    'sprite_layouts'                : {'type': 'layout'},
+    'prepare_layout'                : {'type': 'prepare_layout'},
+    'purchase_prepare_layout'       : {'type': 'prepare_layout', 'purchase': 2},
+    'foundations'                   : {'type': 'foundations'},
+    'custom_spritesets'             : {'type': 'custom_spritesets'},
+    'default'                       : {'type': 'cargo', 'num': None},
+    'purchase'                      : {'type': 'cargo', 'num': 0xFF},
 }
 
 # Canals
@@ -208,19 +223,8 @@ callbacks[0x0A] = {
 }
 
 # Cargos
-def cargo_profit_value(value):
-    # In NFO, calculation is (amount * price_factor * cb_result) / 8192
-    # Units of the NML price factor differ by about 41.12, i.e. 1 NML unit = 41 NFO units
-    # That'd make the formula (amount * price_factor * cb_result) / (8192 / 41)
-    # This is almost (error 0.01%) equivalent to the following, which is what this calculation does
-    # (amount * price_factor * (cb_result * 329 / 256)) / 256
-    # This allows us to report a factor of 256 in the documentation, which makes a lot more sense than 199.804...
-    # Not doing the division here would improve accuracy, but limits the range of the return value too much
-    value = expression.BinOp(nmlop.MUL, value, expression.ConstantNumeric(329), value.pos)
-    return expression.BinOp(nmlop.DIV, value, expression.ConstantNumeric(256), value.pos)
-
 callbacks[0x0B] = {
-    'profit'         : {'type': 'cb', 'num':  0x39, 'flag_bit': 0, 'value_function': cargo_profit_value},
+    'profit'         : {'type': 'cb', 'num':  0x39, 'flag_bit': 0},
     'station_rating' : {'type': 'cb', 'num': 0x145, 'flag_bit': 1},
     'default'        : {'type': 'cargo', 'num': None},
 }
@@ -282,6 +286,7 @@ callbacks[0x12] = {
     'gui'             : {'type': 'cargo', 'num': 0x00},
     'track_overlay'   : {'type': 'cargo', 'num': 0x01},
     'underlay'        : {'type': 'cargo', 'num': 0x02},
+    'tunnels'         : {'type': 'cargo', 'num': 0x03},
     'catenary_front'  : {'type': 'cargo', 'num': 0x04},
     'catenary_back'   : {'type': 'cargo', 'num': 0x05},
     'bridge_surfaces' : {'type': 'cargo', 'num': 0x06},
@@ -295,6 +300,7 @@ callbacks[0x13] = {
     'gui'             : {'type': 'cargo', 'num': 0x00},
     'track_overlay'   : {'type': 'cargo', 'num': 0x01},
     'underlay'        : {'type': 'cargo', 'num': 0x02},
+    'tunnels'         : {'type': 'cargo', 'num': 0x03},
     'catenary_front'  : {'type': 'cargo', 'num': 0x04},
     'catenary_back'   : {'type': 'cargo', 'num': 0x05},
     'bridge_surfaces' : {'type': 'cargo', 'num': 0x06},

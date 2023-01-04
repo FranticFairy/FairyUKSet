@@ -13,17 +13,22 @@ You should have received a copy of the GNU General Public License along
 with NML; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA."""
 
-# -*- coding: utf-8 -*-
-import sys, os, time
+import os
+import sys
+import time
 
 # Enable VT100 sequences on windows consoles
 if os.name == "nt":
-    class Break(Exception): pass
+
+    class Break(Exception):
+        pass
+
     try:
         from ctypes import byref, windll
         from ctypes.wintypes import DWORD, HANDLE
+
         kernel32 = windll.kernel32
-        h = kernel32.GetStdHandle(-11) # stdout
+        h = kernel32.GetStdHandle(-11)  # stdout
         if h is None or h == HANDLE(-1):
             raise Break()
         FILE_TYPE_CHAR = 0x0002
@@ -35,7 +40,9 @@ if os.name == "nt":
         if (mode.value & ENABLE_VIRTUAL_TERMINAL_PROCESSING) == 0:
             kernel32.SetConsoleMode(h, mode.value | ENABLE_VIRTUAL_TERMINAL_PROCESSING)
     except Break:
+        # Early exit
         pass
+
 
 def truncate_int32(value):
     """
@@ -49,8 +56,9 @@ def truncate_int32(value):
     @return: The truncated value.
     @rtype: C{int}.
     """
-    #source: http://www.tiac.net/~sw/2010/02/PureSalsa20/index.html
-    return int( (value & 0x7fffFFFF) | -(value & 0x80000000) )
+    # source: http://www.tiac.net/~sw/2010/02/PureSalsa20/index.html
+    return int((value & 0x7FFFFFFF) | -(value & 0x80000000))
+
 
 def check_range(value, min_value, max_value, name, pos):
     """
@@ -74,6 +82,7 @@ def check_range(value, min_value, max_value, name, pos):
     if not min_value <= value <= max_value:
         raise RangeError(value, min_value, max_value, name, pos)
 
+
 def greatest_common_divisor(a, b):
     """
     Get the greatest common divisor of two numbers
@@ -93,6 +102,7 @@ def greatest_common_divisor(a, b):
         a = t
     return a
 
+
 def reverse_lookup(dic, val):
     """
     Perform reverse lookup of any key that has the provided value.
@@ -107,8 +117,10 @@ def reverse_lookup(dic, val):
     @rtype:  Type of the matching key.
     """
     for k, v in dic.items():
-        if v == val: return k
+        if v == val:
+            return k
     raise AssertionError("Value not found in the dictionary.")
+
 
 def build_position(poslist):
     """
@@ -129,6 +141,7 @@ def build_position(poslist):
     pos.includes = pos.includes + poslist[:-1]
     return pos
 
+
 class Position:
     """
     Base class representing a position in a file.
@@ -139,9 +152,11 @@ class Position:
     @ivar includes: List of file includes
     @type includes: C{list} of L{Position}
     """
+
     def __init__(self, filename, includes):
         self.filename = filename
         self.includes = includes
+
 
 class LinePosition(Position):
     """
@@ -150,12 +165,14 @@ class LinePosition(Position):
     @ivar line_start: Line number (starting with 1) where the position starts.
     @type line_start: C{int}
     """
-    def __init__(self, filename, line_start, includes = []):
-        Position.__init__(self, filename, includes)
+
+    def __init__(self, filename, line_start, includes=None):
+        Position.__init__(self, filename, includes or [])
         self.line_start = line_start
 
     def __str__(self):
         return '"{}", line {:d}'.format(self.filename, self.line_start)
+
 
 class PixelPosition(Position):
     """
@@ -167,6 +184,7 @@ class PixelPosition(Position):
     @ivar ypos: Vertical position of the pixel.
     @type ypos: C{int}
     """
+
     def __init__(self, filename, xpos, ypos):
         Position.__init__(self, filename, [])
         self.xpos = xpos
@@ -175,30 +193,36 @@ class PixelPosition(Position):
     def __str__(self):
         return '"{}" at [x: {:d}, y: {:d}]'.format(self.filename, self.xpos, self.ypos)
 
+
 class ImageFilePosition(Position):
     """
     Generic (not position-dependant) error with an image file
     """
-    def __init__(self, filename, pos = None):
+
+    def __init__(self, filename, pos=None):
         poslist = []
-        if pos is not None: poslist.append(pos)
+        if pos is not None:
+            poslist.append(pos)
         Position.__init__(self, filename, poslist)
 
     def __str__(self):
         return 'Image file "{}"'.format(self.filename)
 
+
 class LanguageFilePosition(Position):
     """
     Generic (not position-dependant) error with a language file.
     """
+
     def __init__(self, filename):
         Position.__init__(self, filename, [])
 
     def __str__(self):
         return 'Language file "{}"'.format(self.filename)
 
+
 class ScriptError(Exception):
-    def __init__(self, value, pos = None):
+    def __init__(self, value, pos=None):
         self.value = value
         self.pos = pos
 
@@ -211,26 +235,39 @@ class ScriptError(Exception):
                 ret += "\nIncluded from: " + str(inc)
             return ret
 
+
 class ConstError(ScriptError):
     """
     Error to denote a compile-time integer constant was expected but not found.
     """
-    def __init__(self, pos = None):
+
+    def __init__(self, pos=None):
         ScriptError.__init__(self, "Expected a compile-time integer constant", pos)
 
+
 class RangeError(ScriptError):
-    def __init__(self, value, min_value, max_value, name, pos = None):
-        ScriptError.__init__(self, name + " out of range " + str(min_value) + ".." + str(max_value) + ", encountered " + str(value), pos)
+    def __init__(self, value, min_value, max_value, name, pos=None):
+        ScriptError.__init__(
+            self, name + " out of range " + str(min_value) + ".." + str(max_value) + ", encountered " + str(value), pos
+        )
+
+
+class ProcCallSyntaxError(ScriptError):
+    def __init__(self, name, pos=None):
+        ScriptError.__init__(self, "Missing '()' after '{}'.".format(name), pos)
+
 
 class ImageError(ScriptError):
-    def __init__(self, value, filename, pos = None):
+    def __init__(self, value, filename, pos=None):
         ScriptError.__init__(self, value, ImageFilePosition(filename, pos))
+
 
 class OnlyOnceError(ScriptError):
     """
     An error denoting two elements in a single grf were found, where only one is allowed.
     """
-    def __init__(self, typestr, pos = None):
+
+    def __init__(self, typestr, pos=None):
         """
         @param typestr: Description of the type of element encountered.
         @type  typestr: C{str}
@@ -240,10 +277,12 @@ class OnlyOnceError(ScriptError):
         """
         ScriptError.__init__(self, "A grf may contain only one {}.".format(typestr), pos)
 
+
 class OnlyOnce:
     """
     Class to enforce that certain objects / constructs appear only once.
     """
+
     seen = {}
 
     @classmethod
@@ -261,21 +300,31 @@ class OnlyOnce:
     def clear(cls):
         cls.seen = {}
 
-VERBOSITY_WARNING  = 1 # Verbosity level for warnings
-VERBOSITY_INFO     = 2 # Verbosity level for info messages
-VERBOSITY_PROGRESS = 3 # Verbosity level for progress feedback
-VERBOSITY_TIMING   = 4 # Verbosity level for timing information
 
-VERBOSITY_MAX      = 4 # Maximum verbosity level
+class Warning:
+    GENERIC = 0
+    DEPRECATION = 1
+    OPTIMISATION = 2
+    disabled = None
+
+
+VERBOSITY_WARNING = 1  # Verbosity level for warnings
+VERBOSITY_INFO = 2  # Verbosity level for info messages
+VERBOSITY_PROGRESS = 3  # Verbosity level for progress feedback
+VERBOSITY_TIMING = 4  # Verbosity level for timing information
+
+VERBOSITY_MAX = 4  # Maximum verbosity level
 
 """
 Verbosity level for console output.
 """
 verbosity_level = VERBOSITY_PROGRESS
 
+
 def set_verbosity(level):
     global verbosity_level
     verbosity_level = level
+
 
 def print_eol(msg):
     """
@@ -285,6 +334,7 @@ def print_eol(msg):
         return
 
     print("\r" + msg + "\033[K", end="")
+
 
 """
 Current progress message.
@@ -301,13 +351,16 @@ Timestamp of the last incremental progress update.
 """
 progress_update_time = None
 
+
 def hide_progress():
     if progress_message is not None:
         print_eol("")
 
+
 def show_progress():
     if progress_message is not None:
         print_eol(progress_message)
+
 
 def clear_progress():
     global progress_message
@@ -322,7 +375,8 @@ def clear_progress():
     progress_start_time = None
     progress_update_time = None
 
-def print_progress(msg, incremental = False):
+
+def print_progress(msg, incremental=False):
     """
     Output progess information to the user.
 
@@ -354,6 +408,7 @@ def print_progress(msg, incremental = False):
 
     print_eol(msg)
 
+
 def print_info(msg):
     """
     Output a pure informational message to th euser.
@@ -365,11 +420,14 @@ def print_info(msg):
     print(" nmlc info: " + msg)
     show_progress()
 
-def print_warning(msg, pos = None):
+
+def print_warning(type, msg, pos=None):
     """
     Output a warning message to the user.
     """
     if verbosity_level < VERBOSITY_WARNING:
+        return
+    if Warning.disabled and type in Warning.disabled:
         return
     if pos:
         msg = str(pos) + ": " + msg
@@ -383,18 +441,25 @@ def print_warning(msg, pos = None):
     print(msg, file=sys.stderr)
     show_progress()
 
-def print_error(msg):
+
+def print_error(msg, pos=None):
     """
     Output an error message to the user.
     """
-    clear_progress()
+    if pos:
+        msg = str(pos) + ": " + msg
+    else:
+        clear_progress()
 
     msg = " nmlc ERROR: " + msg
 
     if sys.stderr.isatty():
         msg = "\033[91m" + msg + "\033[0m"
 
+    hide_progress()
     print(msg, file=sys.stderr)
+    show_progress()
+
 
 def print_dbg(indent, *args):
     """
@@ -407,7 +472,7 @@ def print_dbg(indent, *args):
     @type  args: C{Tuple} of C{str}
     """
     hide_progress()
-    print(indent * ' ' + ' '.join(str(arg) for arg in args))
+    print(indent * " " + " ".join(str(arg) for arg in args))
     show_progress()
 
 
@@ -415,7 +480,8 @@ def print_dbg(indent, *args):
 Paths already resolved to correct paths on the system.
 The key is the path as specified in the sources. The value is the validated path on the system.
 """
-_paths = dict()
+_paths = {}
+
 
 def find_file(filepath):
     """
@@ -435,16 +501,16 @@ def find_file(filepath):
     # To prevent that, handle the leading os.sep separately.
     if filepath.startswith(os.sep):
         drive = drive + os.sep
-        filepath = filepath[len(os.sep):]
+        filepath = filepath[len(os.sep) :]
 
-    components = [] # Path stored in reverse order (filename at index[0])
-    while filepath != '':
+    components = []  # Path stored in reverse order (filename at index[0])
+    while filepath != "":
         filepath, filepart = os.path.split(filepath)
         components.append(filepart)
 
     # Re-build the absolute path.
     path = drive
-    if path == '':
+    if path == "":
         path = os.getcwd()
     while len(components) > 0:
         comp = components.pop()
@@ -460,21 +526,29 @@ def find_file(filepath):
             matches = [entry for entry in entries if lcomp == entry.lower()]
 
             if len(matches) == 0:
-                raise ScriptError("Path \"{}\" does not exist (even after case conversions)".format(os.path.join(path, comp)))
+                raise ScriptError(
+                    'Path "{}" does not exist (even after case conversions)'.format(os.path.join(path, comp))
+                )
             elif len(matches) > 1:
-                raise ScriptError("Path \"{}\" is not unique (case conversion gave {:d} solutions)".format(os.path.join(path, comp), len(matches)))
+                raise ScriptError(
+                    'Path "{}" is not unique (case conversion gave {:d} solutions)'.format(
+                        os.path.join(path, comp), len(matches)
+                    )
+                )
 
             if matches[0] != comp:
                 given_path = os.path.join(path, comp)
                 real_path = os.path.join(path, matches[0])
-                msg = "Path \"{}\" at the file system does not match path \"{}\" given in the input (case mismatch in the last component)"
-                msg = msg.format(real_path, given_path)
-                print_warning(msg)
+                msg = (
+                    'Path "{}" at the file system does not match path "{}" given in the input'
+                    " (case mismatch in the last component)"
+                ).format(real_path, given_path)
+                print_warning(Warning.GENERIC, msg)
         elif os.access(path, os.X_OK):
             # Path is only accessible, cannot inspect the file system.
             matches = [comp]
         else:
-            raise ScriptError("Path \"{}\" does not exist or is not accessible".format(path))
+            raise ScriptError('Path "{}" does not exist or is not accessible'.format(path))
 
         path = os.path.join(path, matches[0])
         if len(components) > 0:
@@ -482,13 +556,16 @@ def find_file(filepath):
 
     return path
 
+
 cache_root_dir = ".nmlcache"
 
-def set_cache_root_dir(dir):
-    cache_root_dir = os.path.abspath(dir)
-    os.makedirs(cache_root_dir, exist_ok=True)
 
-def get_cache_file(sources, extension):
+def set_cache_root_dir(dir):
+    global cache_root_dir
+    cache_root_dir = None if dir is None else os.path.abspath(dir)
+
+
+def _cache_file_path(sources, extension):
     """
     Compose a filename for a cache file.
 
@@ -511,10 +588,31 @@ def get_cache_file(sources, extension):
                 # Make sure that the path does not leave the cache dir
                 path = os.path.normpath(path).replace(os.path.pardir, "__")
                 path = os.path.join(cache_root_dir, path)
-                os.makedirs(path, exist_ok=True)
                 result = os.path.join(path, name)
             else:
                 # In case of multiple soure files, ignore the path component for all but the first
                 result += "_" + name
 
     return result + extension
+
+
+def open_cache_file(sources, extension, mode):
+    if cache_root_dir is None:
+        raise FileNotFoundError("No cache directory")
+
+    if not any(sources):
+        raise FileNotFoundError("Can't create cache file with no sources")
+
+    path = _cache_file_path(sources, extension)
+
+    try:
+        if "w" in mode:
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+        return open(path, mode)
+    except OSError:
+        if "w" in mode:
+            print_warning(
+                Warning.GENERIC,
+                "Can't create cache file {}. Check permissions, or use --cache-dir or --no-cache.".format(path),
+            )
+        raise

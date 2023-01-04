@@ -13,13 +13,7 @@ You should have received a copy of the GNU General Public License along
 with NML; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA."""
 
-from nml import expression, nmlop, generic
-
-# Use feature 0x14 for towns (accessible via station/house/industry parent scope)
-varact2vars = 0x15 * [{}]
-varact2vars60x = 0x15 * [{}]
-# feature number:      0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13
-varact2parent_scope = [0x00, 0x01, 0x02, 0x03, 0x14, None, 0x14, 0x14, None, 0x0A, 0x14, None, None, None, None, 0x14, None, None, None, None]
+from nml import expression, generic, nmlop
 
 def default_60xvar(name, args, pos, info):
     """
@@ -53,18 +47,16 @@ def default_60xvar(name, args, pos, info):
 def value_sign_extend(var, info):
     #r = (x ^ m) - m; with m being (1 << (num_bits -1))
     m = expression.ConstantNumeric(1 << (info['size'] - 1))
-    return expression.BinOp(nmlop.SUB, expression.BinOp(nmlop.XOR, var, m, var.pos), m, var.pos)
+    return nmlop.SUB(nmlop.XOR(var, m), m)
 
 def value_mul_div(mul, div):
-    return lambda var, info: expression.BinOp(nmlop.DIV,
-            expression.BinOp(nmlop.MUL, var, expression.ConstantNumeric(mul, var.pos), var.pos),
-            expression.ConstantNumeric(div, var.pos), var.pos)
+    return lambda var, info: nmlop.DIV(nmlop.MUL(var, mul), div)
 
 def value_add_constant(const):
-    return lambda var, info: expression.BinOp(nmlop.ADD, var, expression.ConstantNumeric(const, var.pos), var.pos)
+    return lambda var, info: nmlop.ADD(var, const)
 
 def value_equals(const):
-    return lambda var, info: expression.BinOp(nmlop.CMP_EQ, var, expression.ConstantNumeric(const, var.pos), var.pos)
+    return lambda var, info: nmlop.CMP_EQ(var, const)
 
 # Commonly used functions to let a variable accept an (x, y)-offset as parameters
 
@@ -75,11 +67,11 @@ def tile_offset(name, args, pos, info, min, max):
         if isinstance(arg, expression.ConstantNumeric):
             generic.check_range(arg.value, min, max, "Argument of '{}'".format(name), arg.pos)
 
-    x = expression.BinOp(nmlop.AND, args[0], expression.ConstantNumeric(0xF), args[0].pos)
-    y = expression.BinOp(nmlop.AND, args[1], expression.ConstantNumeric(0xF), args[1].pos)
+    x = nmlop.AND(args[0], 0xF)
+    y = nmlop.AND(args[1], 0xF)
     # Shift y left by four
-    y = expression.BinOp(nmlop.SHIFT_LEFT, y, expression.ConstantNumeric(4), y.pos)
-    param = expression.BinOp(nmlop.ADD, x, y, x.pos)
+    y = nmlop.SHIFT_LEFT(y, 4)
+    param = nmlop.ADD(x, y)
     #Make sure to reduce the result
     return ( param.reduce(), [] )
 
@@ -140,7 +132,7 @@ varact2vars_vehicles = {
     'curv_info_cur_next'               : {'var': 0x45, 'start':  8, 'size':  4, 'value_function': value_sign_extend},
     'curv_info_prev_next'              : {'var': 0x45, 'start': 16, 'size':  4, 'value_function': value_sign_extend},
     'curv_info'                        : {'var': 0x45, 'start':  0, 'size': 12,
-            'value_function': lambda var, info: expression.BinOp(nmlop.AND, var, expression.ConstantNumeric(0x0F0F, var.pos), var.pos).reduce()},
+            'value_function': lambda var, info: nmlop.AND(var, 0x0F0F).reduce()},
     'motion_counter'                   : {'var': 0x46, 'start':  8, 'size': 24},
     'cargo_type_in_veh'                : {'var': 0x47, 'start':  0, 'size':  8},
     'cargo_unit_weight'                : {'var': 0x47, 'start':  8, 'size':  8},
@@ -150,6 +142,7 @@ varact2vars_vehicles = {
     'vehicle_is_offered'               : {'var': 0x48, 'start':  2, 'size':  1},
     'build_year'                       : {'var': 0x49, 'start':  0, 'size': 32},
     'vehicle_is_potentially_powered'   : {'var': 0x4A, 'start':  8, 'size':  1},
+    'tile_has_catenary'                : {'var': 0x4A, 'start':  9, 'size':  1},
     'date_of_last_service'             : {'var': 0x4B, 'start':  0, 'size': 32},
     'position_in_articulated_veh'          : {'var': 0x4D, 'start':  0, 'size':  8},
     'position_in_articulated_veh_from_end' : {'var': 0x4D, 'start':  8, 'size':  8},
@@ -179,6 +172,7 @@ varact2vars_vehicles = {
 # Vehicle-type-specific variables
 
 varact2vars_trains = {
+    **varact2vars_vehicles,
     #0x4786 / 0x10000 is an approximation of 3.5790976, the conversion factor
     #for train speed
     'max_speed'           : {'var': 0x98, 'start': 0, 'size': 16, 'value_function': value_mul_div(0x4786, 0x10000)},
@@ -187,9 +181,9 @@ varact2vars_trains = {
     'current_max_speed'   : {'var': 0x4C, 'start': 0, 'size': 16, 'value_function': value_mul_div(0x4786, 0x10000)},
     'vehicle_is_in_depot' : {'var': 0xE2, 'start': 7, 'size':  1},
 }
-varact2vars_trains.update(varact2vars_vehicles)
 
 varact2vars_roadvehs = {
+    **varact2vars_vehicles,
     #0x23C3 / 0x10000 is an approximation of 7.1581952, the conversion factor
     #for road vehicle speed
     'max_speed'           : {'var': 0x98, 'start': 0, 'size': 16, 'value_function': value_mul_div(0x23C3, 0x10000)},
@@ -199,9 +193,9 @@ varact2vars_roadvehs = {
     'current_max_speed'   : {'var': 0x4C, 'start': 0, 'size': 16, 'value_function': value_mul_div(0x23C3, 0x10000)},
     'vehicle_is_in_depot' : {'var': 0xE2, 'start': 0, 'size':  8, 'value_function': value_equals(0xFE)},
 }
-varact2vars_roadvehs.update(varact2vars_vehicles)
 
 varact2vars_ships = {
+    **varact2vars_vehicles,
     #0x23C3 / 0x10000 is an approximation of 7.1581952, the conversion factor
     #for ship speed
     'max_speed'           : {'var': 0x98, 'start': 0, 'size': 16, 'value_function': value_mul_div(0x23C3, 0x10000)},
@@ -209,9 +203,9 @@ varact2vars_ships = {
     'current_max_speed'   : {'var': 0x4C, 'start': 0, 'size': 16, 'value_function': value_mul_div(0x23C3, 0x10000)},
     'vehicle_is_in_depot' : {'var': 0xE2, 'start': 7, 'size':  1},
 }
-varact2vars_ships.update(varact2vars_vehicles)
 
 varact2vars_aircraft = {
+    **varact2vars_vehicles,
     #0x3939 / 0x1000 is an approximation of 0.279617, the conversion factor
     #Note that the denominator has one less zero here!
     #for aircraft speed
@@ -220,7 +214,6 @@ varact2vars_aircraft = {
     'current_max_speed'   : {'var': 0x4C, 'start': 0, 'size': 16, 'value_function': value_mul_div(0x3939, 0x1000)},
     'vehicle_is_in_depot' : {'var': 0xE6, 'start': 0, 'size':  8, 'value_function': value_equals(0)},
 }
-varact2vars_aircraft.update(varact2vars_vehicles)
 
 def signed_byte_parameter(name, args, pos, info):
     # Convert to a signed byte by AND-ing with 0xFF
@@ -229,8 +222,17 @@ def signed_byte_parameter(name, args, pos, info):
     if isinstance(args[0], expression.ConstantNumeric):
 
         generic.check_range(args[0].value, -128, 127, "parameter of {}()".format(name), pos)
-    ret = expression.BinOp(nmlop.AND, args[0], expression.ConstantNumeric(0xFF, pos), pos).reduce()
+    ret = nmlop.AND(args[0], 0xFF, pos).reduce()
     return (ret, [])
+
+def vehicle_railtype(name, args, pos, info):
+    return (expression.functioncall.builtin_resolve_typelabel(name, args, pos, table_name="railtype"), [])
+
+def vehicle_roadtype(name, args, pos, info):
+    return (expression.functioncall.builtin_resolve_typelabel(name, args, pos, table_name="roadtype"), [])
+
+def vehicle_tramtype(name, args, pos, info):
+    return (expression.functioncall.builtin_resolve_typelabel(name, args, pos, table_name="tramtype"), [])
 
 varact2vars60x_vehicles = {
     'count_veh_id'        : {'var': 0x60, 'start':  0, 'size': 8},
@@ -241,12 +243,32 @@ varact2vars60x_vehicles = {
     'other_veh_z_offset'  : {'var': 0x62, 'start': 24, 'size': 8, 'param_function':signed_byte_parameter, 'value_function':value_sign_extend},
 }
 
+varact2vars60x_trains = {
+    **varact2vars60x_vehicles,
+    # Var 0x63 bit 0 is only useful when testing multiple bits at once. On its own it is already covered by railtype_available().
+    'tile_supports_railtype' : {'var': 0x63, 'start':  1, 'size': 1, 'param_function':vehicle_railtype},
+    'tile_powers_railtype'   : {'var': 0x63, 'start':  2, 'size': 1, 'param_function':vehicle_railtype},
+    'tile_is_railtype'       : {'var': 0x63, 'start':  3, 'size': 1, 'param_function':vehicle_railtype},
+}
+
+varact2vars60x_roadvehs = {
+    **varact2vars60x_vehicles,
+    # Var 0x63 bit 0 is only useful when testing multiple bits at once. On its own it is already covered by road/tramtype_available().
+    'tile_supports_roadtype' : {'var': 0x63, 'start':  1, 'size': 1, 'param_function':vehicle_roadtype},
+    'tile_supports_tramtype' : {'var': 0x63, 'start':  1, 'size': 1, 'param_function':vehicle_tramtype},
+    'tile_powers_roadtype'   : {'var': 0x63, 'start':  2, 'size': 1, 'param_function':vehicle_roadtype},
+    'tile_powers_tramtype'   : {'var': 0x63, 'start':  2, 'size': 1, 'param_function':vehicle_tramtype},
+    'tile_is_roadtype'       : {'var': 0x63, 'start':  3, 'size': 1, 'param_function':vehicle_roadtype},
+    'tile_is_tramtype'       : {'var': 0x63, 'start':  3, 'size': 1, 'param_function':vehicle_tramtype},
+}
+
 #
 # Stations (feature 0x04)
 #
 
 # 'Base station' variables are shared between stations and airports
 varact2vars_base_stations = {
+    'random_bits_station' : {'var': 0x5F, 'start': 8, 'size': 16},
     # Var 48 doesn't work with newcargos, do not use
     'had_vehicle_of_type' : {'var': 0x8A, 'start': 1, 'size': 5}, # Only read bits 1-5
     'is_waypoint'         : {'var': 0x8A, 'start': 6, 'size': 1},
@@ -273,6 +295,7 @@ varact2vars60x_base_stations = {
 }
 
 varact2vars_stations = {
+    **varact2vars_base_stations,
     # Vars 40, 41, 46, 47, 49 are implemented as 60+x vars,
     # except for the 'tile type' part which is always the same anyways
     'tile_type'                : {'var': 0x40, 'start': 24, 'size': 4},
@@ -288,8 +311,8 @@ varact2vars_stations = {
     'rail_continuation'        : {'var': 0x45, 'start':  0, 'size': 8},
     'rail_present'             : {'var': 0x45, 'start':  8, 'size': 8},
     'animation_frame'          : {'var': 0x4A, 'start':  0, 'size': 8},
+    'random_bits_tile'         : {'var': 0x5F, 'start': 24, 'size': 4},
 }
-varact2vars_stations.update(varact2vars_base_stations)
 
 # Mapping of param values for platform_xx vars to variable numbers
 mapping_platform_param = {
@@ -320,6 +343,7 @@ def platform_info_fix_var(var, info):
     return var
 
 varact2vars60x_stations = {
+    **varact2vars60x_base_stations,
     'nearby_tile_animation_frame'   : {'var': 0x66, 'start':  0, 'size': 32, 'param_function': signed_tile_offset},
     'nearby_tile_slope'             : {'var': 0x67, 'start':  0, 'size':  5, 'param_function': signed_tile_offset},
     'nearby_tile_is_water'          : {'var': 0x67, 'start':  9, 'size':  1, 'param_function': signed_tile_offset},
@@ -327,14 +351,14 @@ varact2vars60x_stations = {
     'nearby_tile_water_class'       : {'var': 0x67, 'start': 13, 'size':  2, 'param_function': signed_tile_offset},
     'nearby_tile_height'            : {'var': 0x67, 'start': 16, 'size':  8, 'param_function': signed_tile_offset},
     'nearby_tile_class'             : {'var': 0x67, 'start': 24, 'size':  4, 'param_function': signed_tile_offset},
-    'nearby_tile_is_station'        : {'var': 0x68, 'start':  0, 'size': 32, 'param_function': signed_tile_offset, 'value_function': lambda var, info: expression.BinOp(nmlop.CMP_NEQ, var, expression.ConstantNumeric(0xFFFFFFFF, var.pos), var.pos)},
+    'nearby_tile_is_station'        : {'var': 0x68, 'start':  0, 'size': 32, 'param_function': signed_tile_offset, 'value_function': lambda var, info: nmlop.CMP_NEQ(var, 0xFFFFFFFF)},
     'nearby_tile_station_id'        : {'var': 0x68, 'start':  0, 'size':  8, 'param_function': signed_tile_offset},
     'nearby_tile_same_grf'          : {'var': 0x68, 'start':  8, 'size':  2, 'param_function': signed_tile_offset, 'value_function': value_equals(0)},
     'nearby_tile_other_grf'         : {'var': 0x68, 'start':  8, 'size':  2, 'param_function': signed_tile_offset, 'value_function': value_equals(1)},
     'nearby_tile_original_gfx'      : {'var': 0x68, 'start':  8, 'size':  2, 'param_function': signed_tile_offset, 'value_function': value_equals(2)},
     'nearby_tile_same_station'      : {'var': 0x68, 'start': 10, 'size':  1, 'param_function': signed_tile_offset},
     'nearby_tile_perpendicular'     : {'var': 0x68, 'start': 11, 'size':  1, 'param_function': signed_tile_offset},
-    'nearby_tile_platform_type'     : {'var': 0x68, 'start': 12, 'size':  2, 'param_function': signed_tile_offset},
+    'nearby_tile_tile_type'         : {'var': 0x68, 'start': 11, 'size':  3, 'param_function': signed_tile_offset},
     'nearby_tile_grfid'             : {'var': 0x6A, 'start':  0, 'size': 32, 'param_function': signed_tile_offset},
     # 'var' will be set in the value_function, depending on parameter
     'platform_length'               : {'var': 0x00, 'start': 16, 'size':  4, 'param_function': platform_info_param, 'value_function': platform_info_fix_var},
@@ -348,7 +372,6 @@ varact2vars60x_stations = {
     'platform_number_from_middle'   : {'var': 0x00, 'start':  4, 'size':  4, 'param_function': platform_info_param, 'middle': True, # 'middle' is used by platform_info_param
                                             'value_function': lambda var, info: value_sign_extend(platform_info_fix_var(var, info), info)},
 }
-varact2vars60x_stations.update(varact2vars60x_base_stations)
 
 #
 # Canals (feature 0x05)
@@ -378,7 +401,7 @@ def house_same_class(var, info):
                                      expression.ConstantNumeric(0xFF), expression.ConstantNumeric(0xFF), var.pos)
     var61 = expression.Variable(expression.ConstantNumeric(0x7B), expression.ConstantNumeric(info['start']),
                                      expression.ConstantNumeric((1 << info['size']) - 1), expression.ConstantNumeric(0x61), var.pos)
-    return expression.BinOp(nmlop.VAL2, north_tile, var61, var.pos)
+    return nmlop.VAL2(north_tile, var61, var.pos)
 
 
 varact2vars_houses = {
@@ -413,9 +436,9 @@ def cargo_accepted_nearby(name, args, pos, info):
         for i, offs in enumerate(offsets[:]):
             if isinstance(offs, expression.ConstantNumeric):
                 generic.check_range(offs.value, -128, 127, "{}-parameter {:d} '{}offset'".format(name, i + 1, "x" if i == 0 else "y"), pos)
-            offsets[i] = expression.BinOp(nmlop.AND, offs, expression.ConstantNumeric(0xFF, pos), pos).reduce()
+            offsets[i] = nmlop.AND(offs, 0xFF, pos).reduce()
         # Register 0x100 should be set to xoffset | (yoffset << 8)
-        reg100 = expression.BinOp(nmlop.OR, expression.BinOp(nmlop.MUL, offsets[1], expression.ConstantNumeric(256, pos), pos), offsets[0], pos).reduce()
+        reg100 = nmlop.OR(nmlop.MUL(offsets[1], 256, pos), offsets[0]).reduce()
     else:
         reg100 = expression.ConstantNumeric(0, pos)
 
@@ -431,10 +454,10 @@ def nearest_house_matching_criterion(name, args, pos, info):
     if isinstance(args[1], expression.ConstantNumeric) and args[1].value not in (0, 1, 2):
         raise generic.ScriptError("Invalid value for {}()-parameter 2 'criterion'".format(name), pos)
 
-    radius = expression.BinOp(nmlop.AND, args[0], expression.ConstantNumeric(0x3F, pos), pos)
-    criterion = expression.BinOp(nmlop.AND, args[1], expression.ConstantNumeric(0x03, pos), pos)
-    criterion = expression.BinOp(nmlop.MUL, criterion, expression.ConstantNumeric(0x40, pos), pos)
-    retval = expression.BinOp(nmlop.OR, criterion, radius, pos).reduce()
+    radius = nmlop.AND(args[0], 0x3F, pos)
+    criterion = nmlop.AND(args[1], 0x03, pos)
+    criterion = nmlop.MUL(criterion, 0x40)
+    retval = nmlop.OR(criterion, radius).reduce()
     return (retval, [])
 
 varact2vars60x_houses = {
@@ -498,6 +521,9 @@ varact2vars60x_industrytiles = {
 #
 
 varact2vars_industries = {
+    'waiting_cargo_1'              : {'var': 0x40, 'start':  0, 'size': 16, 'replaced_by': 'incoming_cargo_waiting'},
+    'waiting_cargo_2'              : {'var': 0x41, 'start':  0, 'size': 16, 'replaced_by': 'incoming_cargo_waiting'},
+    'waiting_cargo_3'              : {'var': 0x42, 'start':  0, 'size': 16, 'replaced_by': 'incoming_cargo_waiting'},
     'water_distance'               : {'var': 0x43, 'start':  0, 'size': 32},
     'layout_num'                   : {'var': 0x44, 'start':  0, 'size':  8},
     # bits 0 .. 16 are either useless or already covered by var A7
@@ -505,8 +531,25 @@ varact2vars_industries = {
     'founder_colour1'              : {'var': 0x45, 'start': 24, 'size':  4},
     'founder_colour2'              : {'var': 0x45, 'start': 28, 'size':  4},
     'build_date'                   : {'var': 0x46, 'start':  0, 'size': 32},
+    'gs_disallows_prod_decrease'   : {'var': 0x47, 'start':  0, 'size': 1},
+    'gs_disallows_prod_increase'   : {'var': 0x47, 'start':  1, 'size': 1},
+    'gs_disallows_closure'         : {'var': 0x47, 'start':  2, 'size': 1},
     'random_bits'                  : {'var': 0x5F, 'start':  8, 'size': 16},
+    'produced_cargo_waiting_1'     : {'var': 0x8A, 'start':  0, 'size': 16, 'replaced_by': 'produced_cargo_waiting'},
+    'produced_cargo_waiting_2'     : {'var': 0x8C, 'start':  0, 'size': 16, 'replaced_by': 'produced_cargo_waiting'},
+    'production_rate_1'            : {'var': 0x8E, 'start':  0, 'size':  8, 'replaced_by': 'production_rate'},
+    'production_rate_2'            : {'var': 0x8F, 'start':  0, 'size':  8, 'replaced_by': 'production_rate'},
     'production_level'             : {'var': 0x93, 'start':  0, 'size':  8},
+    'produced_this_month_1'        : {'var': 0x94, 'start':  0, 'size': 16, 'replaced_by': 'this_month_production'},
+    'produced_this_month_2'        : {'var': 0x96, 'start':  0, 'size': 16, 'replaced_by': 'this_month_production'},
+    'transported_this_month_1'     : {'var': 0x98, 'start':  0, 'size': 16, 'replaced_by': 'this_month_transported'},
+    'transported_this_month_2'     : {'var': 0x9A, 'start':  0, 'size': 16, 'replaced_by': 'this_month_transported'},
+    'transported_last_month_pct_1' : {'var': 0x9C, 'start':  0, 'size':  8, 'value_function': value_mul_div(101, 256), 'replaced_by': 'transported_last_month_pct'},
+    'transported_last_month_pct_2' : {'var': 0x9D, 'start':  0, 'size':  8, 'value_function': value_mul_div(101, 256), 'replaced_by': 'transported_last_month_pct'},
+    'produced_last_month_1'        : {'var': 0x9E, 'start':  0, 'size': 16, 'replaced_by': 'last_month_production'},
+    'produced_last_month_2'        : {'var': 0xA0, 'start':  0, 'size': 16, 'replaced_by': 'last_month_production'},
+    'transported_last_month_1'     : {'var': 0xA2, 'start':  0, 'size': 16, 'replaced_by': 'last_month_transported'},
+    'transported_last_month_2'     : {'var': 0xA4, 'start':  0, 'size': 16, 'replaced_by': 'last_month_transported'},
     'founder'                      : {'var': 0xA7, 'start':  0, 'size':  8},
     'colour'                       : {'var': 0xA8, 'start':  0, 'size':  8},
     'counter'                      : {'var': 0xAA, 'start':  0, 'size': 16},
@@ -532,7 +575,7 @@ def industry_layout_count(name, args, pos, info):
 
     extra_params = []
     extra_params.append( (0x100, grfid) )
-    extra_params.append( (0x101, expression.BinOp(nmlop.AND, args[1], expression.ConstantNumeric(0xFF)).reduce()) )
+    extra_params.append( (0x101, nmlop.AND(args[1], 0xFF).reduce()) )
     return (args[0], extra_params)
 
 def industry_town_count(name, args, pos, info):
@@ -547,8 +590,7 @@ def industry_town_count(name, args, pos, info):
     return (args[0], extra_params)
 
 def industry_cargotype(name, args, pos, info):
-    from nml.expression.functioncall import builtin_cargotype
-    return (builtin_cargotype(name, args, pos), [])
+    return (expression.functioncall.builtin_resolve_typelabel(name, args, pos, table_name="cargotype"), [])
 
 varact2vars60x_industries = {
     'nearby_tile_industry_tile_id' : {'var': 0x60, 'start':  0, 'size': 16, 'param_function': unsigned_tile_offset},
@@ -562,7 +604,7 @@ varact2vars60x_industries = {
     'nearby_tile_animation_frame'  : {'var': 0x63, 'start':  0, 'size':  8, 'param_function': unsigned_tile_offset},
     'town_manhattan_dist'          : {'var': 0x65, 'start':  0, 'size': 16, 'param_function': signed_tile_offset},
     'town_zone'                    : {'var': 0x65, 'start': 16, 'size':  8, 'param_function': signed_tile_offset},
-    'town_euclidean_dist'          : {'var': 0x66, 'start':  0, 'size': 32, 'param_function': signed_tile_offset},
+    'town_euclidean_dist'          : {'var': 0x66, 'start':  0, 'size': 16, 'param_function': signed_tile_offset},
     'industry_count'               : {'var': 0x67, 'start': 16, 'size':  8, 'param_function': industry_count},
     'industry_distance'            : {'var': 0x67, 'start':  0, 'size': 16, 'param_function': industry_count},
     'industry_layout_count'        : {'var': 0x68, 'start': 16, 'size':  8, 'param_function': industry_layout_count},
@@ -576,7 +618,7 @@ varact2vars60x_industries = {
     'last_cargo_accepted_at'       : {'var': 0x6E, 'start':  0, 'size': 32, 'param_function': industry_cargotype},
     'incoming_cargo_waiting'       : {'var': 0x6F, 'start':  0, 'size': 32, 'param_function': industry_cargotype},
     'production_rate'              : {'var': 0x70, 'start':  0, 'size': 32, 'param_function': industry_cargotype},
-    'transported_last_month_pct'   : {'var': 0x71, 'start':  0, 'size': 32, 'param_function': industry_cargotype},
+    'transported_last_month_pct'   : {'var': 0x71, 'start':  0, 'size': 32, 'param_function': industry_cargotype, 'value_function': value_mul_div(101, 256)},
 }
 
 #
@@ -589,10 +631,12 @@ varact2vars60x_industries = {
 #
 
 varact2vars_airports = {
+    **varact2vars_base_stations,
     'layout' : {'var': 0x40, 'start': 0, 'size': 32},
 }
-varact2vars_airports.update(varact2vars_base_stations)
-varact2vars60x_airports = varact2vars60x_base_stations
+varact2vars60x_airports = {
+    **varact2vars60x_base_stations,
+}
 
 #
 # New Signals (feature 0x0E) are not implemented in OpenTTD
@@ -611,16 +655,14 @@ varact2vars_objects = {
     'tile_slope'             : {'var': 0x41, 'start':  8, 'size':  5},
 
     'build_date'             : {'var': 0x42, 'start':  0, 'size': 32},
-
     'animation_frame'        : {'var': 0x43, 'start':  0, 'size':  8},
-    'company_colour'         : {'var': 0x43, 'start':  0, 'size':  8},
-
     'owner'                  : {'var': 0x44, 'start':  0, 'size':  8},
 
     'town_manhattan_dist'    : {'var': 0x45, 'start':  0, 'size': 16},
     'town_zone'              : {'var': 0x45, 'start': 16, 'size':  8},
 
-    'town_euclidean_dist'    : {'var': 0x46, 'start':  0, 'size': 32},
+    'town_euclidean_dist'    : {'var': 0x46, 'start':  0, 'size': 16},
+    'colour'                 : {'var': 0x47, 'start':  0, 'size':  8},
     'view'                   : {'var': 0x48, 'start':  0, 'size':  8},
     'random_bits'            : {'var': 0x5F, 'start':  8, 'size':  8},
 }
@@ -664,12 +706,14 @@ varact2vars_railtype = {
 #
 
 varact2vars_airporttiles = {
-    'terrain_type'      : {'var': 0x41, 'start': 0, 'size':  8},
-    'town_radius_group' : {'var': 0x42, 'start': 0, 'size':  3},
-    'relative_x'        : {'var': 0x43, 'start': 0, 'size':  8},
-    'relative_y'        : {'var': 0x43, 'start': 8, 'size':  8},
-    'relative_pos'      : {'var': 0x43, 'start': 0, 'size': 16},
-    'animation_frame'   : {'var': 0x44, 'start': 0, 'size':  8},
+    'terrain_type'        : {'var': 0x41, 'start':  0, 'size':  8},
+    'town_radius_group'   : {'var': 0x42, 'start':  0, 'size':  3},
+    'relative_x'          : {'var': 0x43, 'start':  0, 'size':  8},
+    'relative_y'          : {'var': 0x43, 'start':  8, 'size':  8},
+    'relative_pos'        : {'var': 0x43, 'start':  0, 'size': 16},
+    'animation_frame'     : {'var': 0x44, 'start':  0, 'size':  8},
+    'random_bits_station' : {'var': 0x5F, 'start':  8, 'size': 16},
+    'random_bits_tile'    : {'var': 0x5F, 'start': 24, 'size':  4},
 }
 
 varact2vars60x_airporttiles = {
@@ -720,6 +764,7 @@ varact2vars_tramtype = {
 varact2vars_towns = {
     'is_city'                        : {'var': 0x40, 'start': 0, 'size': 1},
     'cities_enabled'                 : {'var': 0x40, 'start': 1, 'size': 1, 'value_function': lambda var, info: expression.Not(var, var.pos)},
+    'town_index'                     : {'var': 0x41, 'start': 0, 'size': 16},
     'population'                     : {'var': 0x82, 'start': 0, 'size': 16},
     'has_church'                     : {'var': 0x92, 'start': 1, 'size': 1},
     'has_stadium'                    : {'var': 0x92, 'start': 2, 'size': 1},
@@ -734,30 +779,64 @@ varact2vars_towns = {
 }
 
 
-varact2vars[0x00] = varact2vars_trains
-varact2vars60x[0x00] = varact2vars60x_vehicles
-varact2vars[0x01] = varact2vars_roadvehs
-varact2vars60x[0x01] = varact2vars60x_vehicles
-varact2vars[0x02] = varact2vars_ships
-varact2vars60x[0x02] = varact2vars60x_vehicles
-varact2vars[0x03] = varact2vars_aircraft
-varact2vars60x[0x03] = varact2vars60x_vehicles
-varact2vars[0x04] = varact2vars_stations
-varact2vars60x[0x04] = varact2vars60x_stations
-varact2vars[0x05] = varact2vars_canals
-varact2vars[0x07] = varact2vars_houses
-varact2vars60x[0x07] = varact2vars60x_houses
-varact2vars[0x09] = varact2vars_industrytiles
-varact2vars60x[0x09] = varact2vars60x_industrytiles
-varact2vars[0x0A] = varact2vars_industries
-varact2vars60x[0x0A] = varact2vars60x_industries
-varact2vars[0x0D] = varact2vars_airports
-varact2vars60x[0x0D] = varact2vars60x_airports
-varact2vars[0x0F] = varact2vars_objects
-varact2vars60x[0x0F] = varact2vars60x_objects
-varact2vars[0x10] = varact2vars_railtype
-varact2vars[0x11] = varact2vars_airporttiles
-varact2vars60x[0x11] = varact2vars60x_airporttiles
-varact2vars[0x12] = varact2vars_roadtype
-varact2vars[0x13] = varact2vars_tramtype
-varact2vars[0x14] = varact2vars_towns
+class VarAct2Scope:
+    def __init__(self, name, vars_normal, vars_60x, has_persistent_storage=False):
+        self.name = name
+        self.vars_normal = vars_normal
+        self.vars_60x = vars_60x
+        self.has_persistent_storage = has_persistent_storage
+
+
+class VarAct2Feature:
+    def __init__(self, self_scope, parent_scope):
+        self.self_scope = self_scope
+        self.parent_scope = parent_scope
+
+    def get_scope(self, var_range):
+        assert var_range in (0x89, 0x8A)
+        return self.self_scope if var_range == 0x89 else self.parent_scope
+
+
+scope_towns = VarAct2Scope("Towns", varact2vars_towns, {}, has_persistent_storage=True)
+scope_trains = VarAct2Scope("Trains", varact2vars_trains, varact2vars60x_trains)
+scope_roadvehs = VarAct2Scope("RoadVehs", varact2vars_roadvehs, varact2vars60x_roadvehs)
+scope_ships = VarAct2Scope("Ships", varact2vars_ships, varact2vars60x_vehicles)
+scope_aircraft = VarAct2Scope("Aircraft", varact2vars_aircraft, varact2vars60x_vehicles)
+scope_stations = VarAct2Scope("Stations", varact2vars_stations, varact2vars60x_stations)
+scope_canals = VarAct2Scope("Canals", varact2vars_canals, {})
+scope_houses = VarAct2Scope("Houses", varact2vars_houses, varact2vars60x_houses)
+scope_industrytiles = VarAct2Scope("IndustryTiles", varact2vars_industrytiles, varact2vars60x_industrytiles)
+scope_industries = VarAct2Scope(
+    "Industries", varact2vars_industries, varact2vars60x_industries, has_persistent_storage=True
+)
+scope_cargos = VarAct2Scope("Cargos", {}, {})
+scope_soundeffects = VarAct2Scope("SoundEffects", {}, {})
+scope_airports = VarAct2Scope("Airports", varact2vars_airports, varact2vars60x_airports, has_persistent_storage=True)
+scope_objects = VarAct2Scope("Objects", varact2vars_objects, varact2vars60x_objects)
+scope_railtypes = VarAct2Scope("RailTypes", varact2vars_railtype, {})
+scope_airporttiles = VarAct2Scope("AirportTiles", varact2vars_airporttiles, varact2vars60x_airporttiles)
+scope_roadtypes = VarAct2Scope("RoadTypes", varact2vars_roadtype, {})
+scope_tramtypes = VarAct2Scope("TramTypes", varact2vars_tramtype, {})
+
+varact2features = [
+    VarAct2Feature(scope_trains, scope_trains),
+    VarAct2Feature(scope_roadvehs, scope_roadvehs),
+    VarAct2Feature(scope_ships, scope_ships),
+    VarAct2Feature(scope_aircraft, scope_aircraft),
+    VarAct2Feature(scope_stations, scope_towns),
+    VarAct2Feature(scope_canals, None),
+    None,  # bridges
+    VarAct2Feature(scope_houses, scope_towns),
+    None,  # globalvars
+    VarAct2Feature(scope_industrytiles, scope_industries),
+    VarAct2Feature(scope_industries, scope_towns),
+    VarAct2Feature(scope_cargos, None),
+    VarAct2Feature(scope_soundeffects, None),
+    VarAct2Feature(scope_airports, None),
+    None,  # signals
+    VarAct2Feature(scope_objects, scope_towns),
+    VarAct2Feature(scope_railtypes, None),
+    VarAct2Feature(scope_airporttiles, None),
+    VarAct2Feature(scope_roadtypes, None),
+    VarAct2Feature(scope_tramtypes, None),
+]
