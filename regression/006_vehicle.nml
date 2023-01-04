@@ -55,7 +55,7 @@ alternative_sprites(foster_express_set, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "ope
 
 param[0] = 9;
 
-switch(FEAT_ROADVEHS, SELF, switch_length, position_in_consist) {
+switch(FEAT_ROADVEHS, SELF, switch_length, d, position_in_consist + d) {
     1: return 5;
     return 6;
 }
@@ -72,7 +72,7 @@ item(FEAT_ROADVEHS, foster_express_tram, 89) {
         running_cost_base:            RUNNING_COST_ROADVEH;     // Default road vehicle running cost base
         running_cost_factor:          135;
         cost_factor:                  143;
-        speed:                        75 km/h;
+        speed:                        90 km/h;
         power:                        220 hp;
         weight:                       22 ton;
         sprite_id:                    SPRITE_ID_NEW_ROADVEH;    // We have our own sprites
@@ -85,7 +85,7 @@ item(FEAT_ROADVEHS, foster_express_tram, 89) {
         misc_flags:                   bitmask(ROADVEH_FLAG_TRAM); // This is a tram
     }
     graphics {
-        length:  switch_length;
+        length:  switch_length(0);
         default: foster_express_set;
     }
 }

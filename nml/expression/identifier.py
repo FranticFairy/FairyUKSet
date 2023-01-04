@@ -13,15 +13,20 @@ You should have received a copy of the GNU General Public License along
 with NML; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA."""
 
-from nml import generic
-from .base_expression import Expression, ConstantNumeric
+from nml import generic, global_constants
+
+from .base_expression import ConstantNumeric, Expression
 from .string_literal import StringLiteral
 
 ignore_all_invalid_ids = False
 
-def default_id_func(x, pos):
+
+def default_id_func(name, x, pos):
     """
     Default id conversion function.
+
+    @param name: Key in the containing dictionary.
+    @type  name: Any, unused (to match other id_dicts callbacks)
 
     @param x: Value to convert.
     @type  x: C{str}, C{int}, or C{float}
@@ -32,6 +37,7 @@ def default_id_func(x, pos):
     @return: Expression of the id.
     @rtype:  L{Expression}
     """
+    del name  # unused
     if isinstance(x, str):
         return StringLiteral(x, pos)
     else:
@@ -39,18 +45,22 @@ def default_id_func(x, pos):
 
 
 class Identifier(Expression):
-    def __init__(self, value, pos = None):
+    def __init__(self, value, pos=None):
         Expression.__init__(self, pos)
         self.value = value
+        if value in global_constants.identifier_refcount:
+            global_constants.identifier_refcount[value] += 1
+        else:
+            global_constants.identifier_refcount[value] = 0
 
     def debug_print(self, indentation):
-        generic.print_dbg(indentation, 'ID:', self.value)
+        generic.print_dbg(indentation, "ID:", self.value)
 
     def __str__(self):
         return self.value
 
-    def reduce(self, id_dicts = [], unknown_id_fatal = True, search_func_ptr = False):
-        for id_dict in id_dicts:
+    def reduce(self, id_dicts=None, unknown_id_fatal=True, search_func_ptr=False):
+        for id_dict in id_dicts or []:
             if isinstance(id_dict, tuple):
                 id_d, func = id_dict
             else:
@@ -59,9 +69,9 @@ class Identifier(Expression):
             if self.value in id_d:
                 if search_func_ptr:
                     # Do not reduce function pointers, since they have no (numerical) value
-                    return func(id_d[self.value], self.pos)
+                    return func(self.value, id_d[self.value], self.pos)
                 else:
-                    return func(id_d[self.value], self.pos).reduce(id_dicts)
+                    return func(self.value, id_d[self.value], self.pos).reduce(id_dicts)
 
         if unknown_id_fatal and not ignore_all_invalid_ids:
             raise generic.ScriptError("Unrecognized identifier '" + self.value + "' encountered", self.pos)
