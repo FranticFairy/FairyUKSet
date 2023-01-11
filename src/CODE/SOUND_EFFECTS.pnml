@@ -96,7 +96,7 @@ random_switch(FEAT_TRAINS, SELF, sw_sfx_electric_idle){
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_slow, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_v_slow ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -105,7 +105,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_slow, getbits(extra_callback_info1,
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_slow ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -114,7 +114,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_jin, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_med ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -123,7 +123,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_jin, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -132,7 +132,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_jin, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_slow ;
 	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -141,7 +141,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_lms, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_med ;
 	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -150,7 +150,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_lms, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
 	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -159,7 +159,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_lms, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_qr, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
 	SOUND_EVENT_START         : sound("sfx/qr_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/qr_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -168,7 +168,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_qr, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_fast_qr, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_v_fast ;
 	SOUND_EVENT_START         : sound("sfx/qr_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/qr_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -177,7 +177,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_fast_qr, getbits(extra_callback_inf
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_hs, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_hs ;
 	SOUND_EVENT_START         : sound("sfx/a4_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/a4_whistle_short.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -187,7 +187,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_hs, getbits(extra_callback_info1, 0, 
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_default, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/47_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/47_idle.wav") ;
 }
@@ -195,7 +195,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_default, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class20, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/20_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/20_idle.wav") ;
 }
@@ -203,7 +203,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class20, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class47, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/47_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn47.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn47.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/47_idle.wav") ;
 }
@@ -211,7 +211,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class47, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class66, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/66_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn66.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn66.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_66_idle ;
 }
@@ -219,7 +219,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class66, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_deltic, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/deltic_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_deltic_idle ;
 }
@@ -227,7 +227,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_deltic, getbits(extra_callback_info1, 0,
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_ee, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/ee_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_ee_idle ;
 }
@@ -235,7 +235,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_ee, getbits(extra_callback_info1, 0, 8))
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu_old, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_dmu_run ;
 	SOUND_EVENT_START         : sound("sfx/steam_whistle_small.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_small.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_dmu_idle ;
 }
@@ -243,7 +243,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu_old, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_dmu_run ;
 	SOUND_EVENT_START         : sound("sfx/br_horn66.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn66.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_dmu_idle ;
 }
@@ -251,7 +251,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu, getbits(extra_callback_info1, 0, 8)
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_hst, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/hst_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn47.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn47.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/hst_idle.wav") ;
 }
@@ -259,7 +259,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_hst, getbits(extra_callback_info1, 0, 8)
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_gt3, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/turbot_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/us_1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/us_1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_gt3_idle ;
 }
@@ -267,7 +267,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_gt3, getbits(extra_callback_info1, 0, 8)
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_small, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/20_idle.wav") ;
 	SOUND_EVENT_START         : sound("sfx/gronk_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/gronk_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
 }
@@ -275,7 +275,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_small, getbits(extra_callback_inf
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_rat, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/thump_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/gronk_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/gronk_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/thump_idle.wav");
 }
@@ -283,7 +283,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_rat, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_early, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/20_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/thump_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/thump_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
 }
@@ -293,28 +293,28 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_early, getbits(extra_callback_inf
 switch(FEAT_TRAINS, SELF, sw_sfx_electric_old, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/steam_whistle_small.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_small.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
 switch(FEAT_TRAINS, SELF, sw_sfx_electric, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn47.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn47.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
 switch(FEAT_TRAINS, SELF, sw_sfx_emu_old, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
 switch(FEAT_TRAINS, SELF, sw_sfx_emu, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn66.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn66.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
@@ -322,7 +322,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_emu, getbits(extra_callback_info1, 0, 8)){
 //HOSS
 
 switch(FEAT_TRAINS, SELF, sw_sfx_fai_horse, getbits(extra_callback_info1, 0, 8)){
-	SOUND_EVENT_START         : SOUND_HORSE ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_HORSE ;
-	SOUND_EVENT_TUNNEL        : SOUND_HORSE ;
+	SOUND_EVENT_START         : SOUND_FARM_3 ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_FARM_3 ;
+	SOUND_EVENT_TUNNEL        : SOUND_FARM_3 ;
 }

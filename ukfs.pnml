@@ -67,6 +67,7 @@ disable_item(FEAT_TRAINS);
 
 #include "src/DIESEL_LOCO/CLASS_08.PNML"
 #include "src/DIESEL_LOCO/CLASS_14.PNML"
+#include "src/DIESEL_LOCO/CLASS_15.PNML"
 #include "src/DIESEL_LOCO/CLASS_17.PNML"
 #include "src/DIESEL_LOCO/CLASS_20.PNML"
 #include "src/DIESEL_LOCO/CLASS_23.PNML"
@@ -85,6 +86,7 @@ disable_item(FEAT_TRAINS);
 #include "src/DIESEL_LOCO/CLASS_67.PNML"
 #include "src/DIESEL_LOCO/CLASS_70_II.PNML"
 #include "src/DIESEL_LOCO/CLASS_D16.PNML"
+#include "src/DIESEL_LOCO/CLASS_D162.PNML"
 #include "src/DIESEL_LOCO/CLASS_DP1.PNML"
 
 #include "src/ELECTRIC_LOCO/CLASS_70_I.PNML"

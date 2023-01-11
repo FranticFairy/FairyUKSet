@@ -974,7 +974,7 @@ random_switch(FEAT_TRAINS, SELF, sw_sfx_electric_idle){
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_slow, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_v_slow ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -983,7 +983,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_slow, getbits(extra_callback_info1,
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_slow ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -992,7 +992,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_jin, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_med ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1001,7 +1001,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_jin, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_jin, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
 	SOUND_EVENT_START         : sound("sfx/jin_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/jin_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1010,7 +1010,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_jin, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_slow ;
 	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1019,7 +1019,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_slow_lms, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_med ;
 	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1028,7 +1028,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_med_lms, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_lms, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
 	SOUND_EVENT_START         : sound("sfx/lms_hooter.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/lms_hooter.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1037,7 +1037,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_lms, getbits(extra_callback_info
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_qr, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_fast ;
 	SOUND_EVENT_START         : sound("sfx/qr_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/qr_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1046,7 +1046,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_fast_qr, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_fast_qr, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_v_fast ;
 	SOUND_EVENT_START         : sound("sfx/qr_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/qr_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1055,7 +1055,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_fast_qr, getbits(extra_callback_inf
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_hs, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai_running_hs ;
 	SOUND_EVENT_START         : sound("sfx/a4_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/a4_whistle_short.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/steam_idle.wav") ;
 }
@@ -1065,7 +1065,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_hs, getbits(extra_callback_info1, 0, 
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_default, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/47_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/47_idle.wav") ;
 }
@@ -1073,7 +1073,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_default, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class20, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/20_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/20_idle.wav") ;
 }
@@ -1081,7 +1081,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class20, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class47, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/47_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn47.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn47.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/47_idle.wav") ;
 }
@@ -1089,7 +1089,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class47, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class66, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/66_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn66.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn66.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_66_idle ;
 }
@@ -1097,7 +1097,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_class66, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_deltic, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/deltic_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_deltic_idle ;
 }
@@ -1105,7 +1105,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_deltic, getbits(extra_callback_info1, 0,
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_ee, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/ee_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_ee_idle ;
 }
@@ -1113,7 +1113,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_ee, getbits(extra_callback_info1, 0, 8))
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu_old, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_dmu_run ;
 	SOUND_EVENT_START         : sound("sfx/steam_whistle_small.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_small.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_dmu_idle ;
 }
@@ -1121,7 +1121,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu_old, getbits(extra_callback_info1, 0
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_dmu_run ;
 	SOUND_EVENT_START         : sound("sfx/br_horn66.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn66.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_dmu_idle ;
 }
@@ -1129,7 +1129,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_dmu, getbits(extra_callback_info1, 0, 8)
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_hst, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/hst_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn47.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn47.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/hst_idle.wav") ;
 }
@@ -1137,7 +1137,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_hst, getbits(extra_callback_info1, 0, 8)
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_gt3, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/turbot_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/us_1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/us_1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_gt3_idle ;
 }
@@ -1145,7 +1145,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_gt3, getbits(extra_callback_info1, 0, 8)
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_small, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/20_idle.wav") ;
 	SOUND_EVENT_START         : sound("sfx/gronk_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/gronk_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
 }
@@ -1153,7 +1153,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_small, getbits(extra_callback_inf
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_rat, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/thump_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/gronk_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/gronk_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/thump_idle.wav");
 }
@@ -1161,7 +1161,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_rat, getbits(extra_callback_info1
 switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_early, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/20_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/thump_whistle.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/thump_whistle.wav") ;
 	SOUND_EVENT_STOPPED       : sound("sfx/20_stop.wav");
 }
@@ -1171,28 +1171,28 @@ switch(FEAT_TRAINS, SELF, sw_sfx_diesel_diesel_early, getbits(extra_callback_inf
 switch(FEAT_TRAINS, SELF, sw_sfx_electric_old, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/steam_whistle_small.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_small.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
 switch(FEAT_TRAINS, SELF, sw_sfx_electric, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn47.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn47.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
 switch(FEAT_TRAINS, SELF, sw_sfx_emu_old, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
 switch(FEAT_TRAINS, SELF, sw_sfx_emu, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn66.wav") ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_TRAIN_BREAKDOWN ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
 	SOUND_EVENT_TUNNEL        : sound("sfx/br_horn66.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
@@ -1200,9 +1200,9 @@ switch(FEAT_TRAINS, SELF, sw_sfx_emu, getbits(extra_callback_info1, 0, 8)){
 //HOSS
 
 switch(FEAT_TRAINS, SELF, sw_sfx_fai_horse, getbits(extra_callback_info1, 0, 8)){
-	SOUND_EVENT_START         : SOUND_HORSE ;
-	SOUND_EVENT_BREAKDOWN     : SOUND_HORSE ;
-	SOUND_EVENT_TUNNEL        : SOUND_HORSE ;
+	SOUND_EVENT_START         : SOUND_FARM_3 ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_FARM_3 ;
+	SOUND_EVENT_TUNNEL        : SOUND_FARM_3 ;
 }
 # 1 "ukfs.pnml" 2
 # 1 "src/CODE/COUPLING_RESTRICTIONS.PNML" 1
@@ -1261,6 +1261,7 @@ ITEM_FAI_5AT,
 ITEM_FAI_604,
 ITEM_FAI_CLASS_08,
 ITEM_FAI_CLASS_14,
+ITEM_FAI_CLASS_15,
 ITEM_FAI_CLASS_20,
 ITEM_FAI_CLASS_17,
 ITEM_FAI_CLASS_24,
@@ -1268,6 +1269,7 @@ ITEM_FAI_CLASS_25,
 ITEM_FAI_CLASS_27,
 ITEM_FAI_CLASS_23,
 ITEM_FAI_CLASS_D16,
+ITEM_FAI_CLASS_D162,
 ITEM_FAI_CLASS_37,
 ITEM_FAI_CLASS_41,
 ITEM_FAI_CLASS_52,
@@ -1435,6 +1437,39 @@ item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER) {
 	}
 	graphics {
 		default: 							spriteset_tender_placeholder;
+	}
+}
+item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER_2) {
+	property {
+		name: 							string(STR_NAME_WAGON_TENDER);
+		climates_available: 			NO_CLIMATE;
+		introduction_date:				date(1830, 1, 1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		loading_speed:					0;
+		cost_factor:					0;
+		running_cost_factor:			0;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		speed:							80 mph;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK,TRAIN_FLAG_AUTOREFIT);
+		refit_cost:						0;
+		track_type:						RAIL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		power:							0 hp;
+		running_cost_base:				RUNNING_COST_NONE;
+		dual_headed:					0;
+		cargo_capacity:					0;
+		weight:							0;
+		tractive_effort_coefficient:	0.0;
+		air_drag_coefficient:			0.08;
+		length:							5;
+		bitmask_vehicle_info:			0;
+		cargo_age_period:				185;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
+	}
+	graphics {
+		default: 							spriteset_GARRATT_middle;
+		sound_effect:						sw_sfx_steam_fai_slow_lms ;
+		create_effect:                      vfx_steam ;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -1825,8 +1860,8 @@ item (FEAT_TRAINS, ITEM_FAI_GT3) {
 # 1 "src/STEAM_LOCO/5AT.PNML" 1
 spriteset(spriteset_5at_purchase, "gfx/STEAM/5AT.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_5at, "gfx/STEAM/5AT.png") { template_fai_29(7, 39)}
-spriteset(spriteset_5at_tender, "gfx/STEAM/5AT.png") { template_fai_16(7, 64)}
+spriteset(spriteset_5at, "gfx/STEAM/5AT.png") { template_fai_27(7, 39)}
+spriteset(spriteset_5at_tender, "gfx/STEAM/5AT.png") { template_fai_14(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_5at_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER;
@@ -1855,7 +1890,7 @@ item (FEAT_TRAINS, ITEM_FAI_5AT) {
 		introduction_date:				date(2010,1,1);
 		vehicle_life:                   35 ;
 		model_life:						VEHICLE_NEVER_EXPIRES ;
-		length:							7 ;
+		length:							6 ;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				PASS;
@@ -2266,7 +2301,7 @@ item (FEAT_TRAINS, ITEM_FAI_FREIGHT) {
 # 1 "src/STEAM_LOCO/GOODS.PNML" 1
 spriteset(spriteset_GOODS_purchase, "gfx/STEAM/GOODS.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_GOODS, "gfx/STEAM/GOODS.png") { template_fai_25(7, 39)}
+spriteset(spriteset_GOODS, "gfx/STEAM/GOODS.png") { template_fai_21(7, 39)}
 spriteset(spriteset_GOODS_tender, "gfx/STEAM/GOODS.png") { template_fai_13(7, 64)}
 
 switch(FEAT_TRAINS, SELF, sw_GOODS_articulation, extra_callback_info1) {
@@ -4553,7 +4588,7 @@ spriteset(spriteset_GARRATT_middle, "gfx/STEAM/GARRATT.png") { template_fai_garr
 spriteset(spriteset_GARRATT_rear, "gfx/STEAM/GARRATT.png") { template_fai_garratt_rear(7, 89)}
 
 switch(FEAT_TRAINS, SELF, sw_GARRATT_articulation, extra_callback_info1) {
-    1: return ITEM_FAI_GARRATT_MID;
+    1: return ITEM_WAGON_FAI_TENDER_2;
     2: return ITEM_WAGON_FAI_TENDER;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
@@ -4582,10 +4617,6 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 		model_life:						40;
 		length:							4;
 		
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
-		cargo_capacity:					1 ;
-		
 		weight:                         151 ton;
 		speed:							45 mph;
 		power:							1250 hp;
@@ -4597,14 +4628,16 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 	}
 	graphics {
 		default: 							spriteset_GARRATT;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
         articulated_part:                   sw_GARRATT_articulation;
 		purchase:                           spriteset_GARRATT_purchase;
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER) {
 		default: spriteset_GARRATT_rear;
 		length: 4;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER_2) {
+		default: spriteset_GARRATT_middle;
+		length: 6;
 	}
 }
 
@@ -4625,9 +4658,13 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 		name:							string(STR_NAME_LOCO_GARRATT);  
 		introduction_date:				date(1927,1,1);
 		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:                   28;
+		model_life:						40;
 		length:							6;
 		
+		weight:                         0 ton;
 		speed:							45 mph;
+		power:							0 hp;
 		
 		tractive_effort_coefficient:    0x00 nfo;
 		
@@ -4757,6 +4794,64 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_14) {
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_CLASS_14_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/CLASS_15.PNML" 1
+spriteset(spriteset_CLASS_15_purchase, "gfx/DIESEL/CLASS_15.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_15, "gfx/DIESEL/CLASS_15.png") { template_fai_25(7, 39)}
+spriteset(spriteset_CLASS_15_flip, "gfx/DIESEL/CLASS_15.png") { template_fai_25_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_15_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_15_flip;
+	spriteset_CLASS_15 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_15) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LOCO_CLASS_15);  
+		introduction_date:				date(1957,1,1);
+		vehicle_life:                   30;
+		model_life:						25;
+		length:							6;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		weight:                         69 ton;
+		speed:							60 mph;
+		power:							800 hp;
+		
+		tractive_effort_coefficient:    0x3D nfo;
+		
+		cost_factor:                    0x0D nfo;
+		running_cost_factor:            0x19 nfo;
+	}
+	graphics {
+		default: 							sw_CLASS_15_flipcheck;
+		sound_effect:						sw_sfx_diesel_class20 ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_15_purchase;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -5801,6 +5896,64 @@ item (FEAT_TRAINS, ITEM_FAI_CLASS_D16) {
 		cargo_capacity:                     return 0 ;
 		create_effect:                      vfx_diesel_default ;
 		purchase:                           spriteset_CLASS_D16_purchase;
+	}
+}
+# 1 "ukfs.pnml" 2
+# 1 "src/DIESEL_LOCO/CLASS_D162.PNML" 1
+spriteset(spriteset_CLASS_D162_purchase, "gfx/DIESEL/CLASS_D162.png") { template_fai_purchase(7, 23)}
+
+spriteset(spriteset_CLASS_D162, "gfx/DIESEL/CLASS_D162.png") { template_fai_33(7, 39)}
+spriteset(spriteset_CLASS_D162_flip, "gfx/DIESEL/CLASS_D162.png") { template_fai_33_r(7, 39)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_D162_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_D162_flip;
+	spriteset_CLASS_D162 ;
+}
+
+//Sprite stack
+
+//Item
+
+item (FEAT_TRAINS, ITEM_FAI_CLASS_D162) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class:                   ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER ;
+		
+		name:							string(STR_NAME_LOCO_CLASS_D162);  
+		introduction_date:				date(1950,1,1);
+		vehicle_life:                   25;
+		model_life:						25;
+		length:							8;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					1 ;
+		
+		weight:                         133 ton;
+		speed:							90 mph;
+		power:							1300 hp;
+		
+		tractive_effort_coefficient:    0x28 nfo;
+		
+		cost_factor:                    0x26 nfo;
+		running_cost_factor:            0x38 nfo;
+	}
+	graphics {
+		default: 							sw_CLASS_D162_flipcheck;
+		sound_effect:						sw_sfx_diesel_diesel_early ;
+		purchase_cargo_capacity:            0 ;
+		cargo_capacity:                     return 0 ;
+		create_effect:                      vfx_diesel_default ;
+		purchase:                           spriteset_CLASS_D162_purchase;
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -8637,7 +8790,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_HOPPER) {
 		name:							string(STR_NAME_WAGON_HOPPER);  
 		introduction_date:				date(1965,1,1);
 		model_life:						55;
-		length:							7 ;
+		length:							6 ;
 		
 		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);
@@ -8940,9 +9093,9 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MGR_HOPPER) {
 }
 # 1 "ukfs.pnml" 2
 # 1 "src/WAGONS/MINERAL_WAGON.pnml" 1
-spriteset(spriteset_WAGON_MINERAL_WAGON_purchase, "gfx/WAGONS/MINERAL_WAGON.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_MINERAL_WAGON_purchase, "gfx/WAGONS/STEEL_OPEN_WAGON.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_MINERAL_WAGON_m, "gfx/WAGONS/MINERAL_WAGON.png") { template_fai_21(7, 39)}
+spriteset(spriteset_WAGON_MINERAL_WAGON_m, "gfx/WAGONS/STEEL_OPEN_WAGON.png") { template_fai_21(7, 39)}
 
 //Sprite stack
 

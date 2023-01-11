@@ -5,7 +5,7 @@ spriteset(spriteset_GARRATT_middle, "gfx/STEAM/GARRATT.png") { template_fai_garr
 spriteset(spriteset_GARRATT_rear, "gfx/STEAM/GARRATT.png") { template_fai_garratt_rear(7, 89)}
 
 switch(FEAT_TRAINS, SELF, sw_GARRATT_articulation, extra_callback_info1) {
-    1: return ITEM_FAI_GARRATT_MID;
+    1: return ITEM_WAGON_FAI_TENDER_2;
     2: return ITEM_WAGON_FAI_TENDER;
     return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
@@ -34,10 +34,6 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 		model_life:						40;
 		length:							4;
 		
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
-		default_cargo_type:				PASS;
-		cargo_capacity:					1 ;
-		
 		weight:                         151 ton;
 		speed:							45 mph;
 		power:							1250 hp;
@@ -49,14 +45,16 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT) {
 	}
 	graphics {
 		default: 							spriteset_GARRATT;
-		purchase_cargo_capacity:            0 ;
-		cargo_capacity:                     return 0 ;
         articulated_part:                   sw_GARRATT_articulation;
 		purchase:                           spriteset_GARRATT_purchase;
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER) {
 		default: spriteset_GARRATT_rear;
 		length: 4;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER_2) {
+		default: spriteset_GARRATT_middle;
+		length: 6;
 	}
 }
 
@@ -77,9 +75,13 @@ item (FEAT_TRAINS, ITEM_FAI_GARRATT_MID) {
 		name:							string(STR_NAME_LOCO_GARRATT);  
 		introduction_date:				date(1927,1,1);
 		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:                   28;
+		model_life:						40;
 		length:							6;
 		
+		weight:                         0 ton;
 		speed:							45 mph;
+		power:							0 hp;
 		
 		tractive_effort_coefficient:    0x00 nfo;
 		

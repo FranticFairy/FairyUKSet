@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_HOPPER) {
 		name:							string(STR_NAME_WAGON_HOPPER);  
 		introduction_date:				date(1965,1,1);
 		model_life:						55;
-		length:							7 ;
+		length:							6 ;
 		
 		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS, CC_COVERED, CC_POWDERIZED);

@@ -1,6 +1,6 @@
-spriteset(spriteset_WAGON_MINERAL_WAGON_purchase, "gfx/WAGONS/MINERAL_WAGON.png") { template_fai_purchase(7, 23)}
+spriteset(spriteset_WAGON_MINERAL_WAGON_purchase, "gfx/WAGONS/STEEL_OPEN_WAGON.png") { template_fai_purchase(7, 23)}
 
-spriteset(spriteset_WAGON_MINERAL_WAGON_m, "gfx/WAGONS/MINERAL_WAGON.png") { template_fai_21(7, 39)}
+spriteset(spriteset_WAGON_MINERAL_WAGON_m, "gfx/WAGONS/STEEL_OPEN_WAGON.png") { template_fai_21(7, 39)}
 
 //Sprite stack
 
