@@ -1,0 +1,74 @@
+//Sprite References & Switches
+spriteset(spriteset_IVATT_purchase, "gfx/STEAM/IVATT.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_IVATT, "gfx/STEAM/IVATT.png") { template_fai_25(0, 16)}
+spriteset(spriteset_IVATT_flip, "gfx/STEAM/IVATT.png") { template_fai_25_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_IVATT_flipcheck, vehicle_is_reversed){
+	1: spriteset_IVATT;
+	spriteset_IVATT_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_IVATT_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_IVATT_flip;
+	spriteset_IVATT ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_IVATT_randomflip) {
+	1: sw_IVATT_flipcheck;
+	1: sw_IVATT_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_IVATT_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_IVATT_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_IVATT_randomflip_steam) {
+	dependent:	sw_IVATT_randomflip;
+	1: sw_IVATT_flipcheck_steam_inv;
+	1: sw_IVATT_flipcheck_steam;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_IVATT) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x12 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_IVATT); 
+		introduction_date:				date(1946,1,1);
+		vehicle_life: 					36;
+		model_life:						21;
+		length:							6;
+		
+		weight: 						64 ton;
+		speed:							70 mph;
+		power:							800 hp;
+		tractive_effort_coefficient: 	0x1D nfo;
+		cost_factor: 					0x13 nfo;
+		running_cost_factor: 			0x1C nfo;
+		
+	}
+	graphics {
+		default:						sw_IVATT_randomflip;
+		visual_effect_and_powered:		sw_IVATT_randomflip_steam;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_IVATT_purchase;
+		create_effect:					vfx_steam;
+	}
+}

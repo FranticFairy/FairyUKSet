@@ -90,342 +90,1170 @@ STR_NAME_WAGON_VAN:Covered Van
 STR_NAME_WAGON_EXPRESS_VAN:Express Van
 STR_NAME_WAGON_WELDED_TANKER:Welded Tank Wagon
 
-STR_NAME_LOCO_ALT_PLANET:Stephenson 'Planet' [2-2-0] (Steam)
-STR_NAME_LOCO_ALT_COPPERNOB:Bury 'Coppernob' [0-4-0] (Steam)
-STR_NAME_LOCO_ALT_CRAMPTON:Crampton [4-2-0] (Steam)
-STR_NAME_LOCO_ALT_LONG_BOILER:NER 1001 'Long Boiler' [0-6-0] (Steam)
-STR_NAME_LOCO_ALT_INDUSTRIAL:Avonside 'Industrial' [0-4-0ST](Steam)
-STR_NAME_LOCO_ALT_TRAM:Holden C53 'Tram Engine' [0-6-0T] (Steam)
-STR_NAME_LOCO_ALT_HUNSLET:Hunslet 4F 'Austerity' [0-6-0ST] (Steam)
-STR_NAME_LOCO_ALT_TANK_E:GWR 517 'Tank' [0-4-2T] (Steam)
-STR_NAME_LOCO_ALT_TANK:Armstrong 3571 'Tank' [0-4-2T](Steam)
-STR_NAME_LOCO_ALT_METROPOLITAN:MR 'Metropolitan' [0-4-4T] (Steam)
-STR_NAME_LOCO_ALT_JINTY_E:Johnson 1377 'Half-cab' [0-6-0T] (Steam)
-STR_NAME_LOCO_ALT_JINTY:Fowler 3F 'Jinty' [0-6-0T] (Steam)
-STR_NAME_LOCO_ALT_SUBURBAN:Drummond M7 'Suburban' [4-4-2T] (Steam)
-STR_NAME_LOCO_ALT_PRAIRIE:Churchward 5100 'Prairie' [2-6-2T] (Steam)
-STR_NAME_LOCO_ALT_LADY:LNWR 'Lady of the Lake' [2-2-2] (Steam)
-STR_NAME_LOCO_ALT_SPINNER:GNR 'Spinner' [4-2-2] (Steam)
-STR_NAME_LOCO_ALT_GOODS:Stirling J3 'Goods' [0-6-0] (Steam)
-STR_NAME_LOCO_ALT_KLONDYKE:Ivatt C2 'Klondike' [4-4-2] (Steam)
-STR_NAME_LOCO_ALT_EDWARDIAN:Johnson 1000 'Compound' [4-4-0] (Steam)
-STR_NAME_LOCO_ALT_FREIGHT:Gresley J6 'Freight' [0-6-0] (Steam)
-STR_NAME_LOCO_ALT_MOGUL:Gresley K1 'Mogul' [2-6-0] (Steam)
-STR_NAME_LOCO_ALT_MINERAL:Raven Q6 'Mineral' [0-8-0] (Steam)
-STR_NAME_LOCO_ALT_BANKER:Anderson Lickey Banker 'Big Bertha' [0-10-0](Steam)
+STR_NAME_ARMSTRONG:0-4-2T 'Armstrong'
+STR_NAME_ARMSTRONG_1:0-4-2T 'Armstrong' - Variant 1
+STR_NAME_ARMSTRONG_1_CC:0-4-2T 'Armstrong' - Variant 1 (CC)
+STR_NAME_ARMSTRONG_1_RCC:0-4-2T 'Armstrong' - Variant 1 (Reversed CC)
+STR_NAME_ARMSTRONG_1_BLK:0-4-2T 'Armstrong' - Variant 1 (Black)
+STR_NAME_ARMSTRONG_1_AG:0-4-2T 'Armstrong' - Variant 1 (Apple Green)
+STR_NAME_ARMSTRONG_1_LR:0-4-2T 'Armstrong' - Variant 1 (LMS Red)
+STR_NAME_ARMSTRONG_1_GG:0-4-2T 'Armstrong' - Variant 1 (GWR/BR Green)
+STR_NAME_BUFFALO:0-6-0ST 'Buffalo'
+STR_NAME_BUFFALO_1:0-6-0ST 'Buffalo' - Variant 1
+STR_NAME_BUFFALO_1_CC:0-6-0ST 'Buffalo' - Variant 1 (CC)
+STR_NAME_BUFFALO_1_RCC:0-6-0ST 'Buffalo' - Variant 1 (Reversed CC)
+STR_NAME_BUFFALO_1_BLK:0-6-0ST 'Buffalo' - Variant 1 (Black)
+STR_NAME_BUFFALO_1_AG:0-6-0ST 'Buffalo' - Variant 1 (Apple Green)
+STR_NAME_BUFFALO_1_LR:0-6-0ST 'Buffalo' - Variant 1 (LMS Red)
+STR_NAME_BUFFALO_1_GG:0-6-0ST 'Buffalo' - Variant 1 (GWR/BR Green)
+STR_NAME_HALFCAB:0-6-0T 'Half-cab'
+STR_NAME_HALFCAB_1:0-6-0T 'Half-cab' - Variant 1
+STR_NAME_HALFCAB_1_CC:0-6-0T 'Half-cab' - Variant 1 (CC)
+STR_NAME_HALFCAB_1_RCC:0-6-0T 'Half-cab' - Variant 1 (Reversed CC)
+STR_NAME_HALFCAB_1_BLK:0-6-0T 'Half-cab' - Variant 1 (Black)
+STR_NAME_HALFCAB_1_AG:0-6-0T 'Half-cab' - Variant 1 (Apple Green)
+STR_NAME_HALFCAB_1_LR:0-6-0T 'Half-cab' - Variant 1 (LMS Red)
+STR_NAME_HALFCAB_1_GG:0-6-0T 'Half-cab' - Variant 1 (GWR/BR Green)
+STR_NAME_SADDLE:0-6-0ST 'Saddle Tank'
+STR_NAME_SADDLE_1:0-6-0ST 'Saddle Tank' - Variant 1
+STR_NAME_SADDLE_1_CC:0-6-0ST 'Saddle Tank' - Variant 1 (CC)
+STR_NAME_SADDLE_1_RCC:0-6-0ST 'Saddle Tank' - Variant 1 (Reversed CC)
+STR_NAME_SADDLE_1_BLK:0-6-0ST 'Saddle Tank' - Variant 1 (Black)
+STR_NAME_SADDLE_1_AG:0-6-0ST 'Saddle Tank' - Variant 1 (Apple Green)
+STR_NAME_SADDLE_1_LR:0-6-0ST 'Saddle Tank' - Variant 1 (LMS Red)
+STR_NAME_SADDLE_1_GG:0-6-0ST 'Saddle Tank' - Variant 1 (GWR/BR Green)
+STR_NAME_JINTY:0-6-0T 'Jinty'
+STR_NAME_JINTY_1:0-6-0T 'Jinty' - Variant 1
+STR_NAME_JINTY_1_CC:0-6-0T 'Jinty' - Variant 1 (CC)
+STR_NAME_JINTY_1_RCC:0-6-0T 'Jinty' - Variant 1 (Reversed CC)
+STR_NAME_JINTY_1_BLK:0-6-0T 'Jinty' - Variant 1 (Black)
+STR_NAME_JINTY_1_AG:0-6-0T 'Jinty' - Variant 1 (Apple Green)
+STR_NAME_JINTY_1_LR:0-6-0T 'Jinty' - Variant 1 (LMS Red)
+STR_NAME_JINTY_1_GG:0-6-0T 'Jinty' - Variant 1 (GWR/BR Green)
+STR_NAME_TANK:0-4-2T 'Tank'
+STR_NAME_TANK_1:0-4-2T 'Tank' - Variant 1
+STR_NAME_TANK_1_CC:0-4-2T 'Tank' - Variant 1 (CC)
+STR_NAME_TANK_1_RCC:0-4-2T 'Tank' - Variant 1 (Reversed CC)
+STR_NAME_TANK_1_BLK:0-4-2T 'Tank' - Variant 1 (Black)
+STR_NAME_TANK_1_AG:0-4-2T 'Tank' - Variant 1 (Apple Green)
+STR_NAME_TANK_1_LR:0-4-2T 'Tank' - Variant 1 (LMS Red)
+STR_NAME_TANK_1_GG:0-4-2T 'Tank' - Variant 1 (GWR/BR Green)
+STR_NAME_METROPOLITAN:4-4-0T 'Metropolitan A'
+STR_NAME_METROPOLITAN_1:4-4-0T 'Metropolitan A' - Variant 1
+STR_NAME_METROPOLITAN_1_CC:4-4-0T 'Metropolitan A' - Variant 1 (CC)
+STR_NAME_METROPOLITAN_1_RCC:4-4-0T 'Metropolitan A' - Variant 1 (Reversed CC)
+STR_NAME_METROPOLITAN_1_BLK:4-4-0T 'Metropolitan A' - Variant 1 (Black)
+STR_NAME_METROPOLITAN_1_AG:4-4-0T 'Metropolitan A' - Variant 1 (Apple Green)
+STR_NAME_METROPOLITAN_1_LR:4-4-0T 'Metropolitan A' - Variant 1 (LMS Red)
+STR_NAME_METROPOLITAN_1_GG:4-4-0T 'Metropolitan A' - Variant 1 (GWR/BR Green)
+STR_NAME_METROPOLITAN_BP:4-4-0T 'Metropolitan B'
+STR_NAME_METROPOLITAN_BP_1:4-4-0T 'Metropolitan B' - Variant 1
+STR_NAME_METROPOLITAN_BP_1_CC:4-4-0T 'Metropolitan B' - Variant 1 (CC)
+STR_NAME_METROPOLITAN_BP_1_RCC:4-4-0T 'Metropolitan B' - Variant 1 (Reversed CC)
+STR_NAME_METROPOLITAN_BP_1_BLK:4-4-0T 'Metropolitan B' - Variant 1 (Black)
+STR_NAME_METROPOLITAN_BP_1_AG:4-4-0T 'Metropolitan B' - Variant 1 (Apple Green)
+STR_NAME_METROPOLITAN_BP_1_LR:4-4-0T 'Metropolitan B' - Variant 1 (LMS Red)
+STR_NAME_METROPOLITAN_BP_1_GG:4-4-0T 'Metropolitan B' - Variant 1 (GWR/BR Green)
+STR_NAME_RADIAL:0-6-2T 'Radial'
+STR_NAME_RADIAL_1:0-6-2T 'Radial' - Variant 1
+STR_NAME_RADIAL_1_CC:0-6-2T 'Radial' - Variant 1 (CC)
+STR_NAME_RADIAL_1_RCC:0-6-2T 'Radial' - Variant 1 (Reversed CC)
+STR_NAME_RADIAL_1_BLK:0-6-2T 'Radial' - Variant 1 (Black)
+STR_NAME_RADIAL_1_AG:0-6-2T 'Radial' - Variant 1 (Apple Green)
+STR_NAME_RADIAL_1_LR:0-6-2T 'Radial' - Variant 1 (LMS Red)
+STR_NAME_RADIAL_1_GG:0-6-2T 'Radial' - Variant 1 (GWR/BR Green)
+STR_NAME_SUBURBAN:4-4-2T 'Suburban'
+STR_NAME_SUBURBAN_1:4-4-2T 'Suburban' - Variant 1
+STR_NAME_SUBURBAN_1_CC:4-4-2T 'Suburban' - Variant 1 (CC)
+STR_NAME_SUBURBAN_1_RCC:4-4-2T 'Suburban' - Variant 1 (Reversed CC)
+STR_NAME_SUBURBAN_1_BLK:4-4-2T 'Suburban' - Variant 1 (Black)
+STR_NAME_SUBURBAN_1_AG:4-4-2T 'Suburban' - Variant 1 (Apple Green)
+STR_NAME_SUBURBAN_1_LR:4-4-2T 'Suburban' - Variant 1 (LMS Red)
+STR_NAME_SUBURBAN_1_GG:4-4-2T 'Suburban' - Variant 1 (GWR/BR Green)
+STR_NAME_PRAIRIE:2-6-2T 'Prairie'
+STR_NAME_PRAIRIE_1:2-6-2T 'Prairie' - Variant 1
+STR_NAME_PRAIRIE_1_CC:2-6-2T 'Prairie' - Variant 1 (CC)
+STR_NAME_PRAIRIE_1_RCC:2-6-2T 'Prairie' - Variant 1 (Reversed CC)
+STR_NAME_PRAIRIE_1_BLK:2-6-2T 'Prairie' - Variant 1 (Black)
+STR_NAME_PRAIRIE_1_AG:2-6-2T 'Prairie' - Variant 1 (Apple Green)
+STR_NAME_PRAIRIE_1_LR:2-6-2T 'Prairie' - Variant 1 (LMS Red)
+STR_NAME_PRAIRIE_1_GG:2-6-2T 'Prairie' - Variant 1 (GWR/BR Green)
+STR_NAME_SUBURBAN_II:2-6-4T 'Suburban'
+STR_NAME_SUBURBAN_II_1:2-6-4T 'Suburban' - Variant 1
+STR_NAME_SUBURBAN_II_1_CC:2-6-4T 'Suburban' - Variant 1 (CC)
+STR_NAME_SUBURBAN_II_1_RCC:2-6-4T 'Suburban' - Variant 1 (Reversed CC)
+STR_NAME_SUBURBAN_II_1_BLK:2-6-4T 'Suburban' - Variant 1 (Black)
+STR_NAME_SUBURBAN_II_1_AG:2-6-4T 'Suburban' - Variant 1 (Apple Green)
+STR_NAME_SUBURBAN_II_1_LR:2-6-4T 'Suburban' - Variant 1 (LMS Red)
+STR_NAME_SUBURBAN_II_1_GG:2-6-4T 'Suburban' - Variant 1 (GWR/BR Green)
+STR_NAME_PANNIER:0-6-0PT 'Pannier'
+STR_NAME_PANNIER_1:0-6-0PT 'Pannier' - Variant 1
+STR_NAME_PANNIER_1_CC:0-6-0PT 'Pannier' - Variant 1 (CC)
+STR_NAME_PANNIER_1_RCC:0-6-0PT 'Pannier' - Variant 1 (Reversed CC)
+STR_NAME_PANNIER_1_BLK:0-6-0PT 'Pannier' - Variant 1 (Black)
+STR_NAME_PANNIER_1_AG:0-6-0PT 'Pannier' - Variant 1 (Apple Green)
+STR_NAME_PANNIER_1_LR:0-6-0PT 'Pannier' - Variant 1 (LMS Red)
+STR_NAME_PANNIER_1_GG:0-6-0PT 'Pannier' - Variant 1 (GWR/BR Green)
+STR_NAME_IVATT:2-6-2T 'Ivatt'
+STR_NAME_IVATT_1:2-6-2T 'Ivatt' - Variant 1
+STR_NAME_IVATT_1_CC:2-6-2T 'Ivatt' - Variant 1 (CC)
+STR_NAME_IVATT_1_RCC:2-6-2T 'Ivatt' - Variant 1 (Reversed CC)
+STR_NAME_IVATT_1_BLK:2-6-2T 'Ivatt' - Variant 1 (Black)
+STR_NAME_IVATT_1_AG:2-6-2T 'Ivatt' - Variant 1 (Apple Green)
+STR_NAME_IVATT_1_LR:2-6-2T 'Ivatt' - Variant 1 (LMS Red)
+STR_NAME_IVATT_1_GG:2-6-2T 'Ivatt' - Variant 1 (GWR/BR Green)
+STR_NAME_PANNIER_II:0-6-0PT 'Pannier II'
+STR_NAME_PANNIER_II_1:0-6-0PT 'Pannier II' - Variant 1
+STR_NAME_PANNIER_II_1_CC:0-6-0PT 'Pannier II' - Variant 1 (CC)
+STR_NAME_PANNIER_II_1_RCC:0-6-0PT 'Pannier II' - Variant 1 (Reversed CC)
+STR_NAME_PANNIER_II_1_BLK:0-6-0PT 'Pannier II' - Variant 1 (Black)
+STR_NAME_PANNIER_II_1_AG:0-6-0PT 'Pannier II' - Variant 1 (Apple Green)
+STR_NAME_PANNIER_II_1_LR:0-6-0PT 'Pannier II' - Variant 1 (LMS Red)
+STR_NAME_PANNIER_II_1_GG:0-6-0PT 'Pannier II' - Variant 1 (GWR/BR Green)
+STR_NAME_INDUSTRIAL:0-4-0ST 'Industrial'
+STR_NAME_INDUSTRIAL_1:0-4-0ST 'Industrial' - Variant 1
+STR_NAME_INDUSTRIAL_1_CC:0-4-0ST 'Industrial' - Variant 1 (CC)
+STR_NAME_INDUSTRIAL_1_RCC:0-4-0ST 'Industrial' - Variant 1 (Reversed CC)
+STR_NAME_INDUSTRIAL_1_BLK:0-4-0ST 'Industrial' - Variant 1 (Black)
+STR_NAME_INDUSTRIAL_1_AG:0-4-0ST 'Industrial' - Variant 1 (Apple Green)
+STR_NAME_INDUSTRIAL_1_LR:0-4-0ST 'Industrial' - Variant 1 (LMS Red)
+STR_NAME_INDUSTRIAL_1_GG:0-4-0ST 'Industrial' - Variant 1 (GWR/BR Green)
+STR_NAME_TRAM:0-6-0T 'Tram'
+STR_NAME_TRAM_1:0-6-0T 'Tram' - Variant 1
+STR_NAME_TRAM_1_CC:0-6-0T 'Tram' - Variant 1 (CC)
+STR_NAME_TRAM_1_RCC:0-6-0T 'Tram' - Variant 1 (Reversed CC)
+STR_NAME_TRAM_1_BLK:0-6-0T 'Tram' - Variant 1 (Black)
+STR_NAME_TRAM_1_AG:0-6-0T 'Tram' - Variant 1 (Apple Green)
+STR_NAME_TRAM_1_LR:0-6-0T 'Tram' - Variant 1 (LMS Red)
+STR_NAME_TRAM_1_GG:0-6-0T 'Tram' - Variant 1 (GWR/BR Green)
+STR_NAME_SHUNTER:0-6-0ST 'Shunter'
+STR_NAME_SHUNTER_1:0-6-0ST 'Shunter' - Variant 1
+STR_NAME_SHUNTER_1_CC:0-6-0ST 'Shunter' - Variant 1 (CC)
+STR_NAME_SHUNTER_1_RCC:0-6-0ST 'Shunter' - Variant 1 (Reversed CC)
+STR_NAME_SHUNTER_1_BLK:0-6-0ST 'Shunter' - Variant 1 (Black)
+STR_NAME_SHUNTER_1_AG:0-6-0ST 'Shunter' - Variant 1 (Apple Green)
+STR_NAME_SHUNTER_1_LR:0-6-0ST 'Shunter' - Variant 1 (LMS Red)
+STR_NAME_SHUNTER_1_GG:0-6-0ST 'Shunter' - Variant 1 (GWR/BR Green)
+STR_NAME_HUNSLET:0-6-0ST 'Hunslet'
+STR_NAME_HUNSLET_1:0-6-0ST 'Hunslet' - Variant 1
+STR_NAME_HUNSLET_1_CC:0-6-0ST 'Hunslet' - Variant 1 (CC)
+STR_NAME_HUNSLET_1_RCC:0-6-0ST 'Hunslet' - Variant 1 (Reversed CC)
+STR_NAME_HUNSLET_1_BLK:0-6-0ST 'Hunslet' - Variant 1 (Black)
+STR_NAME_HUNSLET_1_AG:0-6-0ST 'Hunslet' - Variant 1 (Apple Green)
+STR_NAME_HUNSLET_1_LR:0-6-0ST 'Hunslet' - Variant 1 (LMS Red)
+STR_NAME_HUNSLET_1_GG:0-6-0ST 'Hunslet' - Variant 1 (GWR/BR Green)
+STR_NAME_PLANET:2-2-0 'Planet'
+STR_NAME_PLANET_1:2-2-0 'Planet' - Variant 1
+STR_NAME_PLANET_1_CC:2-2-0 'Planet' - Variant 1 (CC)
+STR_NAME_PLANET_1_RCC:2-2-0 'Planet' - Variant 1 (Reversed CC)
+STR_NAME_PLANET_1_BLK:2-2-0 'Planet' - Variant 1 (Black)
+STR_NAME_PLANET_1_AG:2-2-0 'Planet' - Variant 1 (Apple Green)
+STR_NAME_PLANET_1_LR:2-2-0 'Planet' - Variant 1 (LMS Red)
+STR_NAME_PLANET_1_GG:2-2-0 'Planet' - Variant 1 (GWR/BR Green)
+STR_NAME_COPPERNOB:0-4-0 'Coppernob'
+STR_NAME_COPPERNOB_1:0-4-0 'Coppernob' - Variant 1
+STR_NAME_COPPERNOB_1_CC:0-4-0 'Coppernob' - Variant 1 (CC)
+STR_NAME_COPPERNOB_1_RCC:0-4-0 'Coppernob' - Variant 1 (Reversed CC)
+STR_NAME_COPPERNOB_1_BLK:0-4-0 'Coppernob' - Variant 1 (Black)
+STR_NAME_COPPERNOB_1_AG:0-4-0 'Coppernob' - Variant 1 (Apple Green)
+STR_NAME_COPPERNOB_1_LR:0-4-0 'Coppernob' - Variant 1 (LMS Red)
+STR_NAME_COPPERNOB_1_GG:0-4-0 'Coppernob' - Variant 1 (GWR/BR Green)
+STR_NAME_MOGUL:2-6-0 'Mogul'
+STR_NAME_MOGUL_1:2-6-0 'Mogul' - Variant 1
+STR_NAME_MOGUL_1_CC:2-6-0 'Mogul' - Variant 1 (CC)
+STR_NAME_MOGUL_1_RCC:2-6-0 'Mogul' - Variant 1 (Reversed CC)
+STR_NAME_MOGUL_1_BLK:2-6-0 'Mogul' - Variant 1 (Black)
+STR_NAME_MOGUL_1_AG:2-6-0 'Mogul' - Variant 1 (Apple Green)
+STR_NAME_MOGUL_1_LR:2-6-0 'Mogul' - Variant 1 (LMS Red)
+STR_NAME_MOGUL_1_GG:2-6-0 'Mogul' - Variant 1 (GWR/BR Green)
+STR_NAME_CRAMPTON:4-2-0 'Crampton'
+STR_NAME_CRAMPTON_1:4-2-0 'Crampton' - Variant 1
+STR_NAME_CRAMPTON_1_CC:4-2-0 'Crampton' - Variant 1 (CC)
+STR_NAME_CRAMPTON_1_RCC:4-2-0 'Crampton' - Variant 1 (Reversed CC)
+STR_NAME_CRAMPTON_1_BLK:4-2-0 'Crampton' - Variant 1 (Black)
+STR_NAME_CRAMPTON_1_AG:4-2-0 'Crampton' - Variant 1 (Apple Green)
+STR_NAME_CRAMPTON_1_LR:4-2-0 'Crampton' - Variant 1 (LMS Red)
+STR_NAME_CRAMPTON_1_GG:4-2-0 'Crampton' - Variant 1 (GWR/BR Green)
+STR_NAME_LADY:2-2-2 'Lady'
+STR_NAME_LADY_1:2-2-2 'Lady' - Variant 1
+STR_NAME_LADY_1_CC:2-2-2 'Lady' - Variant 1 (CC)
+STR_NAME_LADY_1_RCC:2-2-2 'Lady' - Variant 1 (Reversed CC)
+STR_NAME_LADY_1_BLK:2-2-2 'Lady' - Variant 1 (Black)
+STR_NAME_LADY_1_AG:2-2-2 'Lady' - Variant 1 (Apple Green)
+STR_NAME_LADY_1_LR:2-2-2 'Lady' - Variant 1 (LMS Red)
+STR_NAME_LADY_1_GG:2-2-2 'Lady' - Variant 1 (GWR/BR Green)
+STR_NAME_SPINNER:4-2-2 'Spinner'
+STR_NAME_SPINNER_1:4-2-2 'Spinner' - Variant 1
+STR_NAME_SPINNER_1_CC:4-2-2 'Spinner' - Variant 1 (CC)
+STR_NAME_SPINNER_1_RCC:4-2-2 'Spinner' - Variant 1 (Reversed CC)
+STR_NAME_SPINNER_1_BLK:4-2-2 'Spinner' - Variant 1 (Black)
+STR_NAME_SPINNER_1_AG:4-2-2 'Spinner' - Variant 1 (Apple Green)
+STR_NAME_SPINNER_1_LR:4-2-2 'Spinner' - Variant 1 (LMS Red)
+STR_NAME_SPINNER_1_GG:4-2-2 'Spinner' - Variant 1 (GWR/BR Green)
+STR_NAME_EDWARDIAN:4-4-0 'Edwardian'
+STR_NAME_EDWARDIAN_1:4-4-0 'Edwardian' - Variant 1
+STR_NAME_EDWARDIAN_1_CC:4-4-0 'Edwardian' - Variant 1 (CC)
+STR_NAME_EDWARDIAN_1_RCC:4-4-0 'Edwardian' - Variant 1 (Reversed CC)
+STR_NAME_EDWARDIAN_1_BLK:4-4-0 'Edwardian' - Variant 1 (Black)
+STR_NAME_EDWARDIAN_1_AG:4-4-0 'Edwardian' - Variant 1 (Apple Green)
+STR_NAME_EDWARDIAN_1_LR:4-4-0 'Edwardian' - Variant 1 (LMS Red)
+STR_NAME_EDWARDIAN_1_GG:4-4-0 'Edwardian' - Variant 1 (GWR/BR Green)
+STR_NAME_SHIRE:4-4-0 'Shire'
+STR_NAME_SHIRE_1:4-4-0 'Shire' - Variant 1
+STR_NAME_SHIRE_1_CC:4-4-0 'Shire' - Variant 1 (CC)
+STR_NAME_SHIRE_1_RCC:4-4-0 'Shire' - Variant 1 (Reversed CC)
+STR_NAME_SHIRE_1_BLK:4-4-0 'Shire' - Variant 1 (Black)
+STR_NAME_SHIRE_1_AG:4-4-0 'Shire' - Variant 1 (Apple Green)
+STR_NAME_SHIRE_1_LR:4-4-0 'Shire' - Variant 1 (LMS Red)
+STR_NAME_SHIRE_1_GG:4-4-0 'Shire' - Variant 1 (GWR/BR Green)
+STR_NAME_ROYAL_SCOT:4-6-0 'Royal Scot'
+STR_NAME_ROYAL_SCOT_1:4-6-0 'Royal Scot' - Variant 1
+STR_NAME_ROYAL_SCOT_1_CC:4-6-0 'Royal Scot' - Variant 1 (CC)
+STR_NAME_ROYAL_SCOT_1_RCC:4-6-0 'Royal Scot' - Variant 1 (Reversed CC)
+STR_NAME_ROYAL_SCOT_1_BLK:4-6-0 'Royal Scot' - Variant 1 (Black)
+STR_NAME_ROYAL_SCOT_1_AG:4-6-0 'Royal Scot' - Variant 1 (Apple Green)
+STR_NAME_ROYAL_SCOT_1_LR:4-6-0 'Royal Scot' - Variant 1 (LMS Red)
+STR_NAME_ROYAL_SCOT_1_GG:4-6-0 'Royal Scot' - Variant 1 (GWR/BR Green)
+STR_NAME_JUBILEE:4-6-0 'Jubilee'
+STR_NAME_JUBILEE_1:4-6-0 'Jubilee' - Variant 1
+STR_NAME_JUBILEE_1_CC:4-6-0 'Jubilee' - Variant 1 (CC)
+STR_NAME_JUBILEE_1_RCC:4-6-0 'Jubilee' - Variant 1 (Reversed CC)
+STR_NAME_JUBILEE_1_BLK:4-6-0 'Jubilee' - Variant 1 (Black)
+STR_NAME_JUBILEE_1_AG:4-6-0 'Jubilee' - Variant 1 (Apple Green)
+STR_NAME_JUBILEE_1_LR:4-6-0 'Jubilee' - Variant 1 (LMS Red)
+STR_NAME_JUBILEE_1_GG:4-6-0 'Jubilee' - Variant 1 (GWR/BR Green)
+STR_NAME_P2:2-8-2 'Highlander'
+STR_NAME_P2_1:2-8-2 'Highlander' - Variant 1
+STR_NAME_P2_1_CC:2-8-2 'Highlander' - Variant 1 (CC)
+STR_NAME_P2_1_RCC:2-8-2 'Highlander' - Variant 1 (Reversed CC)
+STR_NAME_P2_1_BLK:2-8-2 'Highlander' - Variant 1 (Black)
+STR_NAME_P2_1_AG:2-8-2 'Highlander' - Variant 1 (Apple Green)
+STR_NAME_P2_1_LR:2-8-2 'Highlander' - Variant 1 (LMS Red)
+STR_NAME_P2_1_GG:2-8-2 'Highlander' - Variant 1 (GWR/BR Green)
+STR_NAME_P2_2:2-8-2 'Highlander' - Variant 2
+STR_NAME_P2_2_CC:2-8-2 'Highlander' - Variant 2 (CC)
+STR_NAME_P2_2_RCC:2-8-2 'Highlander' - Variant 2 (Reversed CC)
+STR_NAME_P2_2_BLK:2-8-2 'Highlander' - Variant 2 (Black)
+STR_NAME_P2_2_AG:2-8-2 'Highlander' - Variant 2 (Apple Green)
+STR_NAME_P2_2_LR:2-8-2 'Highlander' - Variant 2 (LMS Red)
+STR_NAME_P2_2_GG:2-8-2 'Highlander' - Variant 2 (GWR/BR Green)
+STR_NAME_ARROW:2-6-2 'Arrow'
+STR_NAME_ARROW_1:2-6-2 'Arrow' - Variant 1
+STR_NAME_ARROW_1_CC:2-6-2 'Arrow' - Variant 1 (CC)
+STR_NAME_ARROW_1_RCC:2-6-2 'Arrow' - Variant 1 (Reversed CC)
+STR_NAME_ARROW_1_BLK:2-6-2 'Arrow' - Variant 1 (Black)
+STR_NAME_ARROW_1_AG:2-6-2 'Arrow' - Variant 1 (Apple Green)
+STR_NAME_ARROW_1_LR:2-6-2 'Arrow' - Variant 1 (LMS Red)
+STR_NAME_ARROW_1_GG:2-6-2 'Arrow' - Variant 1 (GWR/BR Green)
+STR_NAME_MICKEY:2-6-0 'Mickey Mouse'
+STR_NAME_MICKEY_1:2-6-0 'Mickey Mouse' - Variant 1
+STR_NAME_MICKEY_1_CC:2-6-0 'Mickey Mouse' - Variant 1 (CC)
+STR_NAME_MICKEY_1_RCC:2-6-0 'Mickey Mouse' - Variant 1 (Reversed CC)
+STR_NAME_MICKEY_1_BLK:2-6-0 'Mickey Mouse' - Variant 1 (Black)
+STR_NAME_MICKEY_1_AG:2-6-0 'Mickey Mouse' - Variant 1 (Apple Green)
+STR_NAME_MICKEY_1_LR:2-6-0 'Mickey Mouse' - Variant 1 (LMS Red)
+STR_NAME_MICKEY_1_GG:2-6-0 'Mickey Mouse' - Variant 1 (GWR/BR Green)
+STR_NAME_STANDARD:2-6-0 'Standard'
+STR_NAME_STANDARD_1:2-6-0 'Standard' - Variant 1
+STR_NAME_STANDARD_1_CC:2-6-0 'Standard' - Variant 1 (CC)
+STR_NAME_STANDARD_1_RCC:2-6-0 'Standard' - Variant 1 (Reversed CC)
+STR_NAME_STANDARD_1_BLK:2-6-0 'Standard' - Variant 1 (Black)
+STR_NAME_STANDARD_1_AG:2-6-0 'Standard' - Variant 1 (Apple Green)
+STR_NAME_STANDARD_1_LR:2-6-0 'Standard' - Variant 1 (LMS Red)
+STR_NAME_STANDARD_1_GG:2-6-0 'Standard' - Variant 1 (GWR/BR Green)
+STR_NAME_KLONDYKE:4-4-2 'Klondyke'
+STR_NAME_KLONDYKE_1:4-4-2 'Klondyke' - Variant 1
+STR_NAME_KLONDYKE_1_CC:4-4-2 'Klondyke' - Variant 1 (CC)
+STR_NAME_KLONDYKE_1_RCC:4-4-2 'Klondyke' - Variant 1 (Reversed CC)
+STR_NAME_KLONDYKE_1_BLK:4-4-2 'Klondyke' - Variant 1 (Black)
+STR_NAME_KLONDYKE_1_AG:4-4-2 'Klondyke' - Variant 1 (Apple Green)
+STR_NAME_KLONDYKE_1_LR:4-4-2 'Klondyke' - Variant 1 (LMS Red)
+STR_NAME_KLONDYKE_1_GG:4-4-2 'Klondyke' - Variant 1 (GWR/BR Green)
+STR_NAME_ATLANTIC:4-4-2 'Atlantic'
+STR_NAME_ATLANTIC_1:4-4-2 'Atlantic' - Variant 1
+STR_NAME_ATLANTIC_1_CC:4-4-2 'Atlantic' - Variant 1 (CC)
+STR_NAME_ATLANTIC_1_RCC:4-4-2 'Atlantic' - Variant 1 (Reversed CC)
+STR_NAME_ATLANTIC_1_BLK:4-4-2 'Atlantic' - Variant 1 (Black)
+STR_NAME_ATLANTIC_1_AG:4-4-2 'Atlantic' - Variant 1 (Apple Green)
+STR_NAME_ATLANTIC_1_LR:4-4-2 'Atlantic' - Variant 1 (LMS Red)
+STR_NAME_ATLANTIC_1_GG:4-4-2 'Atlantic' - Variant 1 (GWR/BR Green)
+STR_NAME_CITY:4-4-0 'City'
+STR_NAME_CITY_1:4-4-0 'City' - Variant 1
+STR_NAME_CITY_1_CC:4-4-0 'City' - Variant 1 (CC)
+STR_NAME_CITY_1_RCC:4-4-0 'City' - Variant 1 (Reversed CC)
+STR_NAME_CITY_1_BLK:4-4-0 'City' - Variant 1 (Black)
+STR_NAME_CITY_1_AG:4-4-0 'City' - Variant 1 (Apple Green)
+STR_NAME_CITY_1_LR:4-4-0 'City' - Variant 1 (LMS Red)
+STR_NAME_CITY_1_GG:4-4-0 'City' - Variant 1 (GWR/BR Green)
+STR_NAME_CLAUGHTON:4-6-0 'Claughton'
+STR_NAME_CLAUGHTON_1:4-6-0 'Claughton' - Variant 1
+STR_NAME_CLAUGHTON_1_CC:4-6-0 'Claughton' - Variant 1 (CC)
+STR_NAME_CLAUGHTON_1_RCC:4-6-0 'Claughton' - Variant 1 (Reversed CC)
+STR_NAME_CLAUGHTON_1_BLK:4-6-0 'Claughton' - Variant 1 (Black)
+STR_NAME_CLAUGHTON_1_AG:4-6-0 'Claughton' - Variant 1 (Apple Green)
+STR_NAME_CLAUGHTON_1_LR:4-6-0 'Claughton' - Variant 1 (LMS Red)
+STR_NAME_CLAUGHTON_1_GG:4-6-0 'Claughton' - Variant 1 (GWR/BR Green)
+STR_NAME_KING_ARTHUR:4-6-0 'King Arthur'
+STR_NAME_KING_ARTHUR_1:4-6-0 'King Arthur' - Variant 1
+STR_NAME_KING_ARTHUR_1_CC:4-6-0 'King Arthur' - Variant 1 (CC)
+STR_NAME_KING_ARTHUR_1_RCC:4-6-0 'King Arthur' - Variant 1 (Reversed CC)
+STR_NAME_KING_ARTHUR_1_BLK:4-6-0 'King Arthur' - Variant 1 (Black)
+STR_NAME_KING_ARTHUR_1_AG:4-6-0 'King Arthur' - Variant 1 (Apple Green)
+STR_NAME_KING_ARTHUR_1_LR:4-6-0 'King Arthur' - Variant 1 (LMS Red)
+STR_NAME_KING_ARTHUR_1_GG:4-6-0 'King Arthur' - Variant 1 (GWR/BR Green)
+STR_NAME_PACIFIC:4-6-2 'Pacific'
+STR_NAME_PACIFIC_1:4-6-2 'Pacific' - Variant 1
+STR_NAME_PACIFIC_1_CC:4-6-2 'Pacific' - Variant 1 (CC)
+STR_NAME_PACIFIC_1_RCC:4-6-2 'Pacific' - Variant 1 (Reversed CC)
+STR_NAME_PACIFIC_1_BLK:4-6-2 'Pacific' - Variant 1 (Black)
+STR_NAME_PACIFIC_1_AG:4-6-2 'Pacific' - Variant 1 (Apple Green)
+STR_NAME_PACIFIC_1_LR:4-6-2 'Pacific' - Variant 1 (LMS Red)
+STR_NAME_PACIFIC_1_GG:4-6-2 'Pacific' - Variant 1 (GWR/BR Green)
+STR_NAME_PACIFIC_2:4-6-2 'Pacific' - Variant 2
+STR_NAME_PACIFIC_2_CC:4-6-2 'Pacific' - Variant 2 (CC)
+STR_NAME_PACIFIC_2_RCC:4-6-2 'Pacific' - Variant 2 (Reversed CC)
+STR_NAME_PACIFIC_2_BLK:4-6-2 'Pacific' - Variant 2 (Black)
+STR_NAME_PACIFIC_2_AG:4-6-2 'Pacific' - Variant 2 (Apple Green)
+STR_NAME_PACIFIC_2_LR:4-6-2 'Pacific' - Variant 2 (LMS Red)
+STR_NAME_PACIFIC_2_GG:4-6-2 'Pacific' - Variant 2 (GWR/BR Green)
+STR_NAME_PACIFIC_II:4-6-2 'Pacific II'
+STR_NAME_PACIFIC_II_1:4-6-2 'Pacific II' - Variant 1
+STR_NAME_PACIFIC_II_1_CC:4-6-2 'Pacific II' - Variant 1 (CC)
+STR_NAME_PACIFIC_II_1_RCC:4-6-2 'Pacific II' - Variant 1 (Reversed CC)
+STR_NAME_PACIFIC_II_1_BLK:4-6-2 'Pacific II' - Variant 1 (Black)
+STR_NAME_PACIFIC_II_1_AG:4-6-2 'Pacific II' - Variant 1 (Apple Green)
+STR_NAME_PACIFIC_II_1_LR:4-6-2 'Pacific II' - Variant 1 (LMS Red)
+STR_NAME_PACIFIC_II_1_GG:4-6-2 'Pacific II' - Variant 1 (GWR/BR Green)
+STR_NAME_PACIFIC_II_2:4-6-2 'Pacific II' - Variant 2
+STR_NAME_PACIFIC_II_2_CC:4-6-2 'Pacific II' - Variant 2 (CC)
+STR_NAME_PACIFIC_II_2_RCC:4-6-2 'Pacific II' - Variant 2 (Reversed CC)
+STR_NAME_PACIFIC_II_2_BLK:4-6-2 'Pacific II' - Variant 2 (Black)
+STR_NAME_PACIFIC_II_2_AG:4-6-2 'Pacific II' - Variant 2 (Apple Green)
+STR_NAME_PACIFIC_II_2_LR:4-6-2 'Pacific II' - Variant 2 (LMS Red)
+STR_NAME_PACIFIC_II_2_GG:4-6-2 'Pacific II' - Variant 2 (GWR/BR Green)
+STR_NAME_PRINCESS:4-6-2 'Princess'
+STR_NAME_PRINCESS_1:4-6-2 'Princess' - Variant 1
+STR_NAME_PRINCESS_1_CC:4-6-2 'Princess' - Variant 1 (CC)
+STR_NAME_PRINCESS_1_RCC:4-6-2 'Princess' - Variant 1 (Reversed CC)
+STR_NAME_PRINCESS_1_BLK:4-6-2 'Princess' - Variant 1 (Black)
+STR_NAME_PRINCESS_1_AG:4-6-2 'Princess' - Variant 1 (Apple Green)
+STR_NAME_PRINCESS_1_LR:4-6-2 'Princess' - Variant 1 (LMS Red)
+STR_NAME_PRINCESS_1_GG:4-6-2 'Princess' - Variant 1 (GWR/BR Green)
+STR_NAME_STREAK:4-6-2 'Streak'
+STR_NAME_STREAK_1:4-6-2 'Streak' - Variant 1
+STR_NAME_STREAK_1_CC:4-6-2 'Streak' - Variant 1 (CC)
+STR_NAME_STREAK_1_RCC:4-6-2 'Streak' - Variant 1 (Reversed CC)
+STR_NAME_STREAK_1_BLK:4-6-2 'Streak' - Variant 1 (Black)
+STR_NAME_STREAK_1_AG:4-6-2 'Streak' - Variant 1 (Apple Green)
+STR_NAME_STREAK_1_LR:4-6-2 'Streak' - Variant 1 (LMS Red)
+STR_NAME_STREAK_1_GG:4-6-2 'Streak' - Variant 1 (GWR/BR Green)
+STR_NAME_STREAK_2:4-6-2 'Streak' - Variant 2
+STR_NAME_STREAK_2_CC:4-6-2 'Streak' - Variant 2 (CC)
+STR_NAME_STREAK_2_RCC:4-6-2 'Streak' - Variant 2 (Reversed CC)
+STR_NAME_STREAK_2_BLK:4-6-2 'Streak' - Variant 2 (Black)
+STR_NAME_STREAK_2_AG:4-6-2 'Streak' - Variant 2 (Apple Green)
+STR_NAME_STREAK_2_LR:4-6-2 'Streak' - Variant 2 (LMS Red)
+STR_NAME_STREAK_2_GG:4-6-2 'Streak' - Variant 2 (GWR/BR Green)
+STR_NAME_CORONATION:4-6-2 'Coronation'
+STR_NAME_CORONATION_1:4-6-2 'Coronation' - Variant 1
+STR_NAME_CORONATION_1_CC:4-6-2 'Coronation' - Variant 1 (CC)
+STR_NAME_CORONATION_1_RCC:4-6-2 'Coronation' - Variant 1 (Reversed CC)
+STR_NAME_CORONATION_1_BLK:4-6-2 'Coronation' - Variant 1 (Black)
+STR_NAME_CORONATION_1_AG:4-6-2 'Coronation' - Variant 1 (Apple Green)
+STR_NAME_CORONATION_1_LR:4-6-2 'Coronation' - Variant 1 (LMS Red)
+STR_NAME_CORONATION_1_GG:4-6-2 'Coronation' - Variant 1 (GWR/BR Green)
+STR_NAME_CORONATION_2:4-6-2 'Coronation' - Variant 2
+STR_NAME_CORONATION_2_CC:4-6-2 'Coronation' - Variant 2 (CC)
+STR_NAME_CORONATION_2_RCC:4-6-2 'Coronation' - Variant 2 (Reversed CC)
+STR_NAME_CORONATION_2_BLK:4-6-2 'Coronation' - Variant 2 (Black)
+STR_NAME_CORONATION_2_AG:4-6-2 'Coronation' - Variant 2 (Apple Green)
+STR_NAME_CORONATION_2_LR:4-6-2 'Coronation' - Variant 2 (LMS Red)
+STR_NAME_CORONATION_2_GG:4-6-2 'Coronation' - Variant 2 (GWR/BR Green)
+STR_NAME_MERCHANT_NAVY:4-6-2 'Merchant Navy'
+STR_NAME_MERCHANT_NAVY_1:4-6-2 'Merchant Navy' - Variant 1
+STR_NAME_MERCHANT_NAVY_1_CC:4-6-2 'Merchant Navy' - Variant 1 (CC)
+STR_NAME_MERCHANT_NAVY_1_RCC:4-6-2 'Merchant Navy' - Variant 1 (Reversed CC)
+STR_NAME_MERCHANT_NAVY_1_BLK:4-6-2 'Merchant Navy' - Variant 1 (Black)
+STR_NAME_MERCHANT_NAVY_1_AG:4-6-2 'Merchant Navy' - Variant 1 (Apple Green)
+STR_NAME_MERCHANT_NAVY_1_LR:4-6-2 'Merchant Navy' - Variant 1 (LMS Red)
+STR_NAME_MERCHANT_NAVY_1_GG:4-6-2 'Merchant Navy' - Variant 1 (GWR/BR Green)
+STR_NAME_MERCHANT_NAVY_2:4-6-2 'Merchant Navy' - Variant 2
+STR_NAME_MERCHANT_NAVY_2_CC:4-6-2 'Merchant Navy' - Variant 2 (CC)
+STR_NAME_MERCHANT_NAVY_2_RCC:4-6-2 'Merchant Navy' - Variant 2 (Reversed CC)
+STR_NAME_MERCHANT_NAVY_2_BLK:4-6-2 'Merchant Navy' - Variant 2 (Black)
+STR_NAME_MERCHANT_NAVY_2_AG:4-6-2 'Merchant Navy' - Variant 2 (Apple Green)
+STR_NAME_MERCHANT_NAVY_2_LR:4-6-2 'Merchant Navy' - Variant 2 (LMS Red)
+STR_NAME_MERCHANT_NAVY_2_GG:4-6-2 'Merchant Navy' - Variant 2 (GWR/BR Green)
+STR_NAME_MERCHANT_NAVY_3:4-6-2 'Merchant Navy' - Variant 3
+STR_NAME_MERCHANT_NAVY_3_CC:4-6-2 'Merchant Navy' - Variant 3 (CC)
+STR_NAME_MERCHANT_NAVY_3_RCC:4-6-2 'Merchant Navy' - Variant 3 (Reversed CC)
+STR_NAME_MERCHANT_NAVY_3_BLK:4-6-2 'Merchant Navy' - Variant 3 (Black)
+STR_NAME_MERCHANT_NAVY_3_AG:4-6-2 'Merchant Navy' - Variant 3 (Apple Green)
+STR_NAME_MERCHANT_NAVY_3_LR:4-6-2 'Merchant Navy' - Variant 3 (LMS Red)
+STR_NAME_MERCHANT_NAVY_3_GG:4-6-2 'Merchant Navy' - Variant 3 (GWR/BR Green)
+STR_NAME_LIGHT_PACIFIC:4-6-2 'Light Pacific'
+STR_NAME_LIGHT_PACIFIC_1:4-6-2 'Light Pacific' - Variant 1
+STR_NAME_LIGHT_PACIFIC_1_CC:4-6-2 'Light Pacific' - Variant 1 (CC)
+STR_NAME_LIGHT_PACIFIC_1_RCC:4-6-2 'Light Pacific' - Variant 1 (Reversed CC)
+STR_NAME_LIGHT_PACIFIC_1_BLK:4-6-2 'Light Pacific' - Variant 1 (Black)
+STR_NAME_LIGHT_PACIFIC_1_AG:4-6-2 'Light Pacific' - Variant 1 (Apple Green)
+STR_NAME_LIGHT_PACIFIC_1_LR:4-6-2 'Light Pacific' - Variant 1 (LMS Red)
+STR_NAME_LIGHT_PACIFIC_1_GG:4-6-2 'Light Pacific' - Variant 1 (GWR/BR Green)
+STR_NAME_LIGHT_PACIFIC_2:4-6-2 'Light Pacific' - Variant 2
+STR_NAME_LIGHT_PACIFIC_2_CC:4-6-2 'Light Pacific' - Variant 2 (CC)
+STR_NAME_LIGHT_PACIFIC_2_RCC:4-6-2 'Light Pacific' - Variant 2 (Reversed CC)
+STR_NAME_LIGHT_PACIFIC_2_BLK:4-6-2 'Light Pacific' - Variant 2 (Black)
+STR_NAME_LIGHT_PACIFIC_2_AG:4-6-2 'Light Pacific' - Variant 2 (Apple Green)
+STR_NAME_LIGHT_PACIFIC_2_LR:4-6-2 'Light Pacific' - Variant 2 (LMS Red)
+STR_NAME_LIGHT_PACIFIC_2_GG:4-6-2 'Light Pacific' - Variant 2 (GWR/BR Green)
+STR_NAME_LIGHT_PACIFIC_3:4-6-2 'Light Pacific' - Variant 3
+STR_NAME_LIGHT_PACIFIC_3_CC:4-6-2 'Light Pacific' - Variant 3 (CC)
+STR_NAME_LIGHT_PACIFIC_3_RCC:4-6-2 'Light Pacific' - Variant 3 (Reversed CC)
+STR_NAME_LIGHT_PACIFIC_3_BLK:4-6-2 'Light Pacific' - Variant 3 (Black)
+STR_NAME_LIGHT_PACIFIC_3_AG:4-6-2 'Light Pacific' - Variant 3 (Apple Green)
+STR_NAME_LIGHT_PACIFIC_3_LR:4-6-2 'Light Pacific' - Variant 3 (LMS Red)
+STR_NAME_LIGHT_PACIFIC_3_GG:4-6-2 'Light Pacific' - Variant 3 (GWR/BR Green)
+STR_NAME_BRITANNIA:4-6-2 'Britannia'
+STR_NAME_BRITANNIA_1:4-6-2 'Britannia' - Variant 1
+STR_NAME_BRITANNIA_1_CC:4-6-2 'Britannia' - Variant 1 (CC)
+STR_NAME_BRITANNIA_1_RCC:4-6-2 'Britannia' - Variant 1 (Reversed CC)
+STR_NAME_BRITANNIA_1_BLK:4-6-2 'Britannia' - Variant 1 (Black)
+STR_NAME_BRITANNIA_1_AG:4-6-2 'Britannia' - Variant 1 (Apple Green)
+STR_NAME_BRITANNIA_1_LR:4-6-2 'Britannia' - Variant 1 (LMS Red)
+STR_NAME_BRITANNIA_1_GG:4-6-2 'Britannia' - Variant 1 (GWR/BR Green)
+STR_NAME_5AT:4-6-0 '5AT'
+STR_NAME_5AT_1:4-6-0 '5AT' - Variant 1
+STR_NAME_5AT_1_CC:4-6-0 '5AT' - Variant 1 (CC)
+STR_NAME_5AT_1_RCC:4-6-0 '5AT' - Variant 1 (Reversed CC)
+STR_NAME_5AT_1_BLK:4-6-0 '5AT' - Variant 1 (Black)
+STR_NAME_5AT_1_AG:4-6-0 '5AT' - Variant 1 (Apple Green)
+STR_NAME_5AT_1_LR:4-6-0 '5AT' - Variant 1 (LMS Red)
+STR_NAME_5AT_1_GG:4-6-0 '5AT' - Variant 1 (GWR/BR Green)
+STR_NAME_5AT_2:4-6-0 '5AT' - Variant 2
+STR_NAME_5AT_2_CC:4-6-0 '5AT' - Variant 2 (CC)
+STR_NAME_5AT_2_RCC:4-6-0 '5AT' - Variant 2 (Reversed CC)
+STR_NAME_5AT_2_BLK:4-6-0 '5AT' - Variant 2 (Black)
+STR_NAME_5AT_2_AG:4-6-0 '5AT' - Variant 2 (Apple Green)
+STR_NAME_5AT_2_LR:4-6-0 '5AT' - Variant 2 (LMS Red)
+STR_NAME_5AT_2_GG:4-6-0 '5AT' - Variant 2 (GWR/BR Green)
+STR_NAME_604:4-6-2 '604'
+STR_NAME_604_1:4-6-2 '604' - Variant 1
+STR_NAME_604_1_CC:4-6-2 '604' - Variant 1 (CC)
+STR_NAME_604_1_RCC:4-6-2 '604' - Variant 1 (Reversed CC)
+STR_NAME_604_1_BLK:4-6-2 '604' - Variant 1 (Black)
+STR_NAME_604_1_AG:4-6-2 '604' - Variant 1 (Apple Green)
+STR_NAME_604_1_LR:4-6-2 '604' - Variant 1 (LMS Red)
+STR_NAME_604_1_GG:4-6-2 '604' - Variant 1 (GWR/BR Green)
+STR_NAME_604_2:4-6-2 '604' - Variant 2
+STR_NAME_604_2_CC:4-6-2 '604' - Variant 2 (CC)
+STR_NAME_604_2_RCC:4-6-2 '604' - Variant 2 (Reversed CC)
+STR_NAME_604_2_BLK:4-6-2 '604' - Variant 2 (Black)
+STR_NAME_604_2_AG:4-6-2 '604' - Variant 2 (Apple Green)
+STR_NAME_604_2_LR:4-6-2 '604' - Variant 2 (LMS Red)
+STR_NAME_604_2_GG:4-6-2 '604' - Variant 2 (GWR/BR Green)
+STR_NAME_LONG_BOILER:0-6-0 'Long Boiler'
+STR_NAME_LONG_BOILER_1:0-6-0 'Long Boiler' - Variant 1
+STR_NAME_LONG_BOILER_1_CC:0-6-0 'Long Boiler' - Variant 1 (CC)
+STR_NAME_LONG_BOILER_1_RCC:0-6-0 'Long Boiler' - Variant 1 (Reversed CC)
+STR_NAME_LONG_BOILER_1_BLK:0-6-0 'Long Boiler' - Variant 1 (Black)
+STR_NAME_LONG_BOILER_1_AG:0-6-0 'Long Boiler' - Variant 1 (Apple Green)
+STR_NAME_LONG_BOILER_1_LR:0-6-0 'Long Boiler' - Variant 1 (LMS Red)
+STR_NAME_LONG_BOILER_1_GG:0-6-0 'Long Boiler' - Variant 1 (GWR/BR Green)
+STR_NAME_GOODS:0-6-0 'Goods'
+STR_NAME_GOODS_1:0-6-0 'Goods' - Variant 1
+STR_NAME_GOODS_1_CC:0-6-0 'Goods' - Variant 1 (CC)
+STR_NAME_GOODS_1_RCC:0-6-0 'Goods' - Variant 1 (Reversed CC)
+STR_NAME_GOODS_1_BLK:0-6-0 'Goods' - Variant 1 (Black)
+STR_NAME_GOODS_1_AG:0-6-0 'Goods' - Variant 1 (Apple Green)
+STR_NAME_GOODS_1_LR:0-6-0 'Goods' - Variant 1 (LMS Red)
+STR_NAME_GOODS_1_GG:0-6-0 'Goods' - Variant 1 (GWR/BR Green)
+STR_NAME_GOODS_II:0-6-0 'Goods II'
+STR_NAME_GOODS_II_1:0-6-0 'Goods II' - Variant 1
+STR_NAME_GOODS_II_1_CC:0-6-0 'Goods II' - Variant 1 (CC)
+STR_NAME_GOODS_II_1_RCC:0-6-0 'Goods II' - Variant 1 (Reversed CC)
+STR_NAME_GOODS_II_1_BLK:0-6-0 'Goods II' - Variant 1 (Black)
+STR_NAME_GOODS_II_1_AG:0-6-0 'Goods II' - Variant 1 (Apple Green)
+STR_NAME_GOODS_II_1_LR:0-6-0 'Goods II' - Variant 1 (LMS Red)
+STR_NAME_GOODS_II_1_GG:0-6-0 'Goods II' - Variant 1 (GWR/BR Green)
+STR_NAME_GOODS_III:0-6-0 'Goods III'
+STR_NAME_GOODS_III_1:0-6-0 'Goods III' - Variant 1
+STR_NAME_GOODS_III_1_CC:0-6-0 'Goods III' - Variant 1 (CC)
+STR_NAME_GOODS_III_1_RCC:0-6-0 'Goods III' - Variant 1 (Reversed CC)
+STR_NAME_GOODS_III_1_BLK:0-6-0 'Goods III' - Variant 1 (Black)
+STR_NAME_GOODS_III_1_AG:0-6-0 'Goods III' - Variant 1 (Apple Green)
+STR_NAME_GOODS_III_1_LR:0-6-0 'Goods III' - Variant 1 (LMS Red)
+STR_NAME_GOODS_III_1_GG:0-6-0 'Goods III' - Variant 1 (GWR/BR Green)
+STR_NAME_FREIGHT:0-6-0 'Freight'
+STR_NAME_FREIGHT_1:0-6-0 'Freight' - Variant 1
+STR_NAME_FREIGHT_1_CC:0-6-0 'Freight' - Variant 1 (CC)
+STR_NAME_FREIGHT_1_RCC:0-6-0 'Freight' - Variant 1 (Reversed CC)
+STR_NAME_FREIGHT_1_BLK:0-6-0 'Freight' - Variant 1 (Black)
+STR_NAME_FREIGHT_1_AG:0-6-0 'Freight' - Variant 1 (Apple Green)
+STR_NAME_FREIGHT_1_LR:0-6-0 'Freight' - Variant 1 (LMS Red)
+STR_NAME_FREIGHT_1_GG:0-6-0 'Freight' - Variant 1 (GWR/BR Green)
+STR_NAME_MINERAL:0-8-0 'Mineral'
+STR_NAME_MINERAL_1:0-8-0 'Mineral' - Variant 1
+STR_NAME_MINERAL_1_CC:0-8-0 'Mineral' - Variant 1 (CC)
+STR_NAME_MINERAL_1_RCC:0-8-0 'Mineral' - Variant 1 (Reversed CC)
+STR_NAME_MINERAL_1_BLK:0-8-0 'Mineral' - Variant 1 (Black)
+STR_NAME_MINERAL_1_AG:0-8-0 'Mineral' - Variant 1 (Apple Green)
+STR_NAME_MINERAL_1_LR:0-8-0 'Mineral' - Variant 1 (LMS Red)
+STR_NAME_MINERAL_1_GG:0-8-0 'Mineral' - Variant 1 (GWR/BR Green)
+STR_NAME_MINERAL_2:0-8-0 'Mineral' - Variant 2
+STR_NAME_MINERAL_2_CC:0-8-0 'Mineral' - Variant 2 (CC)
+STR_NAME_MINERAL_2_RCC:0-8-0 'Mineral' - Variant 2 (Reversed CC)
+STR_NAME_MINERAL_2_BLK:0-8-0 'Mineral' - Variant 2 (Black)
+STR_NAME_MINERAL_2_AG:0-8-0 'Mineral' - Variant 2 (Apple Green)
+STR_NAME_MINERAL_2_LR:0-8-0 'Mineral' - Variant 2 (LMS Red)
+STR_NAME_MINERAL_2_GG:0-8-0 'Mineral' - Variant 2 (GWR/BR Green)
+STR_NAME_BANKER:0-10-0 'Banker'
+STR_NAME_BANKER_1:0-10-0 'Banker' - Variant 1
+STR_NAME_BANKER_1_CC:0-10-0 'Banker' - Variant 1 (CC)
+STR_NAME_BANKER_1_RCC:0-10-0 'Banker' - Variant 1 (Reversed CC)
+STR_NAME_BANKER_1_BLK:0-10-0 'Banker' - Variant 1 (Black)
+STR_NAME_BANKER_1_AG:0-10-0 'Banker' - Variant 1 (Apple Green)
+STR_NAME_BANKER_1_LR:0-10-0 'Banker' - Variant 1 (LMS Red)
+STR_NAME_BANKER_1_GG:0-10-0 'Banker' - Variant 1 (GWR/BR Green)
+STR_NAME_P1:2-8-2 'Mikado'
+STR_NAME_P1_1:2-8-2 'Mikado' - Variant 1
+STR_NAME_P1_1_CC:2-8-2 'Mikado' - Variant 1 (CC)
+STR_NAME_P1_1_RCC:2-8-2 'Mikado' - Variant 1 (Reversed CC)
+STR_NAME_P1_1_BLK:2-8-2 'Mikado' - Variant 1 (Black)
+STR_NAME_P1_1_AG:2-8-2 'Mikado' - Variant 1 (Apple Green)
+STR_NAME_P1_1_LR:2-8-2 'Mikado' - Variant 1 (LMS Red)
+STR_NAME_P1_1_GG:2-8-2 'Mikado' - Variant 1 (GWR/BR Green)
+STR_NAME_8F:2-8-0 '8F'
+STR_NAME_8F_1:2-8-0 '8F' - Variant 1
+STR_NAME_8F_1_CC:2-8-0 '8F' - Variant 1 (CC)
+STR_NAME_8F_1_RCC:2-8-0 '8F' - Variant 1 (Reversed CC)
+STR_NAME_8F_1_BLK:2-8-0 '8F' - Variant 1 (Black)
+STR_NAME_8F_1_AG:2-8-0 '8F' - Variant 1 (Apple Green)
+STR_NAME_8F_1_LR:2-8-0 '8F' - Variant 1 (LMS Red)
+STR_NAME_8F_1_GG:2-8-0 '8F' - Variant 1 (GWR/BR Green)
+STR_NAME_AUSTERITY:0-6-0 'Austerity'
+STR_NAME_AUSTERITY_1:0-6-0 'Austerity' - Variant 1
+STR_NAME_AUSTERITY_1_CC:0-6-0 'Austerity' - Variant 1 (CC)
+STR_NAME_AUSTERITY_1_RCC:0-6-0 'Austerity' - Variant 1 (Reversed CC)
+STR_NAME_AUSTERITY_1_BLK:0-6-0 'Austerity' - Variant 1 (Black)
+STR_NAME_AUSTERITY_1_AG:0-6-0 'Austerity' - Variant 1 (Apple Green)
+STR_NAME_AUSTERITY_1_LR:0-6-0 'Austerity' - Variant 1 (LMS Red)
+STR_NAME_AUSTERITY_1_GG:0-6-0 'Austerity' - Variant 1 (GWR/BR Green)
+STR_NAME_WD:2-8-0 'WD'
+STR_NAME_WD_1:2-8-0 'WD' - Variant 1
+STR_NAME_WD_1_CC:2-8-0 'WD' - Variant 1 (CC)
+STR_NAME_WD_1_RCC:2-8-0 'WD' - Variant 1 (Reversed CC)
+STR_NAME_WD_1_BLK:2-8-0 'WD' - Variant 1 (Black)
+STR_NAME_WD_1_AG:2-8-0 'WD' - Variant 1 (Apple Green)
+STR_NAME_WD_1_LR:2-8-0 'WD' - Variant 1 (LMS Red)
+STR_NAME_WD_1_GG:2-8-0 'WD' - Variant 1 (GWR/BR Green)
+STR_NAME_LEADER:0-6-6-0 'Leader'
+STR_NAME_LEADER_1:0-6-6-0 'Leader' - Variant 1
+STR_NAME_LEADER_1_CC:0-6-6-0 'Leader' - Variant 1 (CC)
+STR_NAME_LEADER_1_RCC:0-6-6-0 'Leader' - Variant 1 (Reversed CC)
+STR_NAME_LEADER_1_BLK:0-6-6-0 'Leader' - Variant 1 (Black)
+STR_NAME_LEADER_1_AG:0-6-6-0 'Leader' - Variant 1 (Apple Green)
+STR_NAME_LEADER_1_LR:0-6-6-0 'Leader' - Variant 1 (LMS Red)
+STR_NAME_LEADER_1_GG:0-6-6-0 'Leader' - Variant 1 (GWR/BR Green)
+STR_NAME_STAR:2-10-0 'Star'
+STR_NAME_STAR_1:2-10-0 'Star' - Variant 1
+STR_NAME_STAR_1_CC:2-10-0 'Star' - Variant 1 (CC)
+STR_NAME_STAR_1_RCC:2-10-0 'Star' - Variant 1 (Reversed CC)
+STR_NAME_STAR_1_BLK:2-10-0 'Star' - Variant 1 (Black)
+STR_NAME_STAR_1_AG:2-10-0 'Star' - Variant 1 (Apple Green)
+STR_NAME_STAR_1_LR:2-10-0 'Star' - Variant 1 (LMS Red)
+STR_NAME_STAR_1_GG:2-10-0 'Star' - Variant 1 (GWR/BR Green)
+STR_NAME_GT3:EE 'GT3'
+STR_NAME_GT3_1:EE 'GT3' - Variant 1
+STR_NAME_GT3_1_CC:EE 'GT3' - Variant 1 (CC)
+STR_NAME_GT3_1_RCC:EE 'GT3' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_24:Class 24 'Rat'
+STR_NAME_CLASS_24_1:Class 24 'Rat' - Variant 1
+STR_NAME_CLASS_24_1_CC:Class 24 'Rat' - Variant 1 (CC)
+STR_NAME_CLASS_24_1_RCC:Class 24 'Rat' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_24_2:Class 24 'Rat' - Variant 2
+STR_NAME_CLASS_24_2_CC:Class 24 'Rat' - Variant 2 (CC)
+STR_NAME_CLASS_24_2_RCC:Class 24 'Rat' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_24_3:Class 24 'Rat' - Variant 3
+STR_NAME_CLASS_24_3_CC:Class 24 'Rat' - Variant 3 (CC)
+STR_NAME_CLASS_24_3_RCC:Class 24 'Rat' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_37:Class 37 'Tractor'
+STR_NAME_CLASS_37_1:Class 37 'Tractor' - Variant 1
+STR_NAME_CLASS_37_1_CC:Class 37 'Tractor' - Variant 1 (CC)
+STR_NAME_CLASS_37_1_RCC:Class 37 'Tractor' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_37_2:Class 37 'Tractor' - Variant 2
+STR_NAME_CLASS_37_2_CC:Class 37 'Tractor' - Variant 2 (CC)
+STR_NAME_CLASS_37_2_RCC:Class 37 'Tractor' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_37_3:Class 37 'Tractor' - Variant 3
+STR_NAME_CLASS_37_3_CC:Class 37 'Tractor' - Variant 3 (CC)
+STR_NAME_CLASS_37_3_RCC:Class 37 'Tractor' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_37_4:Class 37 'Tractor' - Variant 4
+STR_NAME_CLASS_37_4_CC:Class 37 'Tractor' - Variant 4 (CC)
+STR_NAME_CLASS_37_4_RCC:Class 37 'Tractor' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_37_5:Class 37 'Tractor' - Variant 5
+STR_NAME_CLASS_37_5_CC:Class 37 'Tractor' - Variant 5 (CC)
+STR_NAME_CLASS_37_5_RCC:Class 37 'Tractor' - Variant 5 (Reversed CC)
+STR_NAME_CLASS_37_6:Class 37 'Tractor' - Variant 6
+STR_NAME_CLASS_37_6_CC:Class 37 'Tractor' - Variant 6 (CC)
+STR_NAME_CLASS_37_6_RCC:Class 37 'Tractor' - Variant 6 (Reversed CC)
+STR_NAME_CLASS_37_7:Class 37 'Tractor' - Variant 7
+STR_NAME_CLASS_37_7_CC:Class 37 'Tractor' - Variant 7 (CC)
+STR_NAME_CLASS_37_7_RCC:Class 37 'Tractor' - Variant 7 (Reversed CC)
+STR_NAME_CLASS_25:Class 25 'Rat'
+STR_NAME_CLASS_25_1:Class 25 'Rat' - Variant 1
+STR_NAME_CLASS_25_1_CC:Class 25 'Rat' - Variant 1 (CC)
+STR_NAME_CLASS_25_1_RCC:Class 25 'Rat' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_25_2:Class 25 'Rat' - Variant 2
+STR_NAME_CLASS_25_2_CC:Class 25 'Rat' - Variant 2 (CC)
+STR_NAME_CLASS_25_2_RCC:Class 25 'Rat' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_25_3:Class 25 'Rat' - Variant 3
+STR_NAME_CLASS_25_3_CC:Class 25 'Rat' - Variant 3 (CC)
+STR_NAME_CLASS_25_3_RCC:Class 25 'Rat' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_25_4:Class 25 'Rat' - Variant 4
+STR_NAME_CLASS_25_4_CC:Class 25 'Rat' - Variant 4 (CC)
+STR_NAME_CLASS_25_4_RCC:Class 25 'Rat' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_27:Class 27 'Rat'
+STR_NAME_CLASS_27_1:Class 27 'Rat' - Variant 1
+STR_NAME_CLASS_27_1_CC:Class 27 'Rat' - Variant 1 (CC)
+STR_NAME_CLASS_27_1_RCC:Class 27 'Rat' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_27_2:Class 27 'Rat' - Variant 2
+STR_NAME_CLASS_27_2_CC:Class 27 'Rat' - Variant 2 (CC)
+STR_NAME_CLASS_27_2_RCC:Class 27 'Rat' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_27_3:Class 27 'Rat' - Variant 3
+STR_NAME_CLASS_27_3_CC:Class 27 'Rat' - Variant 3 (CC)
+STR_NAME_CLASS_27_3_RCC:Class 27 'Rat' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_41:Class 41 'Warship'
+STR_NAME_CLASS_41_1:Class 41 'Warship' - Variant 1
+STR_NAME_CLASS_41_1_CC:Class 41 'Warship' - Variant 1 (CC)
+STR_NAME_CLASS_41_1_RCC:Class 41 'Warship' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_41_2:Class 41 'Warship' - Variant 2
+STR_NAME_CLASS_41_2_CC:Class 41 'Warship' - Variant 2 (CC)
+STR_NAME_CLASS_41_2_RCC:Class 41 'Warship' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_41_3:Class 41 'Warship' - Variant 3
+STR_NAME_CLASS_41_3_CC:Class 41 'Warship' - Variant 3 (CC)
+STR_NAME_CLASS_41_3_RCC:Class 41 'Warship' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_41_4:Class 41 'Warship' - Variant 4
+STR_NAME_CLASS_41_4_CC:Class 41 'Warship' - Variant 4 (CC)
+STR_NAME_CLASS_41_4_RCC:Class 41 'Warship' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_23:Class 23 'Baby Deltic'
+STR_NAME_CLASS_23_1:Class 23 'Baby Deltic' - Variant 1
+STR_NAME_CLASS_23_1_CC:Class 23 'Baby Deltic' - Variant 1 (CC)
+STR_NAME_CLASS_23_1_RCC:Class 23 'Baby Deltic' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_23_2:Class 23 'Baby Deltic' - Variant 2
+STR_NAME_CLASS_23_2_CC:Class 23 'Baby Deltic' - Variant 2 (CC)
+STR_NAME_CLASS_23_2_RCC:Class 23 'Baby Deltic' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_23_3:Class 23 'Baby Deltic' - Variant 3
+STR_NAME_CLASS_23_3_CC:Class 23 'Baby Deltic' - Variant 3 (CC)
+STR_NAME_CLASS_23_3_RCC:Class 23 'Baby Deltic' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_D16:Class D16 'LMS 10000'
+STR_NAME_CLASS_D16_1:Class D16 'LMS 10000' - Variant 1
+STR_NAME_CLASS_D16_1_CC:Class D16 'LMS 10000' - Variant 1 (CC)
+STR_NAME_CLASS_D16_1_RCC:Class D16 'LMS 10000' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_D162:Class D16/2
+STR_NAME_CLASS_D162_1:Class D16/2 - Variant 1
+STR_NAME_CLASS_D162_1_CC:Class D16/2 - Variant 1 (CC)
+STR_NAME_CLASS_D162_1_RCC:Class D16/2 - Variant 1 (Reversed CC)
+STR_NAME_CLASS_DP1:EE 'DP1'
+STR_NAME_CLASS_DP1_1:EE 'DP1' - Variant 1
+STR_NAME_CLASS_DP1_1_CC:EE 'DP1' - Variant 1 (CC)
+STR_NAME_CLASS_DP1_1_RCC:EE 'DP1' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_44:Class 44 'Peak'
+STR_NAME_CLASS_44_1:Class 44 'Peak' - Variant 1
+STR_NAME_CLASS_44_1_CC:Class 44 'Peak' - Variant 1 (CC)
+STR_NAME_CLASS_44_1_RCC:Class 44 'Peak' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_44_2:Class 44 'Peak' - Variant 2
+STR_NAME_CLASS_44_2_CC:Class 44 'Peak' - Variant 2 (CC)
+STR_NAME_CLASS_44_2_RCC:Class 44 'Peak' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_44_3:Class 44 'Peak' - Variant 3
+STR_NAME_CLASS_44_3_CC:Class 44 'Peak' - Variant 3 (CC)
+STR_NAME_CLASS_44_3_RCC:Class 44 'Peak' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_44_4:Class 44 'Peak' - Variant 4
+STR_NAME_CLASS_44_4_CC:Class 44 'Peak' - Variant 4 (CC)
+STR_NAME_CLASS_44_4_RCC:Class 44 'Peak' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_55:Class 55 'Deltic'
+STR_NAME_CLASS_55_1:Class 55 'Deltic' - Variant 1
+STR_NAME_CLASS_55_1_CC:Class 55 'Deltic' - Variant 1 (CC)
+STR_NAME_CLASS_55_1_RCC:Class 55 'Deltic' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_55_2:Class 55 'Deltic' - Variant 2
+STR_NAME_CLASS_55_2_CC:Class 55 'Deltic' - Variant 2 (CC)
+STR_NAME_CLASS_55_2_RCC:Class 55 'Deltic' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_55_3:Class 55 'Deltic' - Variant 3
+STR_NAME_CLASS_55_3_CC:Class 55 'Deltic' - Variant 3 (CC)
+STR_NAME_CLASS_55_3_RCC:Class 55 'Deltic' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_52:Class 52 'Western'
+STR_NAME_CLASS_52_1:Class 52 'Western' - Variant 1
+STR_NAME_CLASS_52_1_CC:Class 52 'Western' - Variant 1 (CC)
+STR_NAME_CLASS_52_1_RCC:Class 52 'Western' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_52_2:Class 52 'Western' - Variant 2
+STR_NAME_CLASS_52_2_CC:Class 52 'Western' - Variant 2 (CC)
+STR_NAME_CLASS_52_2_RCC:Class 52 'Western' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_52_3:Class 52 'Western' - Variant 3
+STR_NAME_CLASS_52_3_CC:Class 52 'Western' - Variant 3 (CC)
+STR_NAME_CLASS_52_3_RCC:Class 52 'Western' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_47:Class 47 'Spoon'
+STR_NAME_CLASS_47_1:Class 47 'Spoon' - Variant 1
+STR_NAME_CLASS_47_1_CC:Class 47 'Spoon' - Variant 1 (CC)
+STR_NAME_CLASS_47_1_RCC:Class 47 'Spoon' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_47_2:Class 47 'Spoon' - Variant 2
+STR_NAME_CLASS_47_2_CC:Class 47 'Spoon' - Variant 2 (CC)
+STR_NAME_CLASS_47_2_RCC:Class 47 'Spoon' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_47_3:Class 47 'Spoon' - Variant 3
+STR_NAME_CLASS_47_3_CC:Class 47 'Spoon' - Variant 3 (CC)
+STR_NAME_CLASS_47_3_RCC:Class 47 'Spoon' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_47_4:Class 47 'Spoon' - Variant 4
+STR_NAME_CLASS_47_4_CC:Class 47 'Spoon' - Variant 4 (CC)
+STR_NAME_CLASS_47_4_RCC:Class 47 'Spoon' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_47_5:Class 47 'Spoon' - Variant 5
+STR_NAME_CLASS_47_5_CC:Class 47 'Spoon' - Variant 5 (CC)
+STR_NAME_CLASS_47_5_RCC:Class 47 'Spoon' - Variant 5 (Reversed CC)
+STR_NAME_CLASS_47_6:Class 47 'Spoon' - Variant 6
+STR_NAME_CLASS_47_6_CC:Class 47 'Spoon' - Variant 6 (CC)
+STR_NAME_CLASS_47_6_RCC:Class 47 'Spoon' - Variant 6 (Reversed CC)
+STR_NAME_CLASS_47_7:Class 47 'Spoon' - Variant 7
+STR_NAME_CLASS_47_7_CC:Class 47 'Spoon' - Variant 7 (CC)
+STR_NAME_CLASS_47_7_RCC:Class 47 'Spoon' - Variant 7 (Reversed CC)
+STR_NAME_CLASS_DP2:EE 'DP2'
+STR_NAME_CLASS_DP2_1:EE 'DP2' - Variant 1
+STR_NAME_CLASS_DP2_1_CC:EE 'DP2' - Variant 1 (CC)
+STR_NAME_CLASS_DP2_1_RCC:EE 'DP2' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_08:Class 8 'Gronk'
+STR_NAME_CLASS_08_1:Class 8 'Gronk' - Variant 1
+STR_NAME_CLASS_08_1_CC:Class 8 'Gronk' - Variant 1 (CC)
+STR_NAME_CLASS_08_1_RCC:Class 8 'Gronk' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_08_2:Class 8 'Gronk' - Variant 2
+STR_NAME_CLASS_08_2_CC:Class 8 'Gronk' - Variant 2 (CC)
+STR_NAME_CLASS_08_2_RCC:Class 8 'Gronk' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_08_3:Class 8 'Gronk' - Variant 3
+STR_NAME_CLASS_08_3_CC:Class 8 'Gronk' - Variant 3 (CC)
+STR_NAME_CLASS_08_3_RCC:Class 8 'Gronk' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_08_4:Class 8 'Gronk' - Variant 4
+STR_NAME_CLASS_08_4_CC:Class 8 'Gronk' - Variant 4 (CC)
+STR_NAME_CLASS_08_4_RCC:Class 8 'Gronk' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_15:Class 15
+STR_NAME_CLASS_15_1:Class 15 - Variant 1
+STR_NAME_CLASS_15_1_CC:Class 15 - Variant 1 (CC)
+STR_NAME_CLASS_15_1_RCC:Class 15 - Variant 1 (Reversed CC)
+STR_NAME_CLASS_15_2:Class 15 - Variant 2
+STR_NAME_CLASS_15_2_CC:Class 15 - Variant 2 (CC)
+STR_NAME_CLASS_15_2_RCC:Class 15 - Variant 2 (Reversed CC)
+STR_NAME_CLASS_15_3:Class 15 - Variant 3
+STR_NAME_CLASS_15_3_CC:Class 15 - Variant 3 (CC)
+STR_NAME_CLASS_15_3_RCC:Class 15 - Variant 3 (Reversed CC)
+STR_NAME_CLASS_17:Class 17 'Clayton'
+STR_NAME_CLASS_17_1:Class 17 'Clayton' - Variant 1
+STR_NAME_CLASS_17_1_CC:Class 17 'Clayton' - Variant 1 (CC)
+STR_NAME_CLASS_17_1_RCC:Class 17 'Clayton' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_17_2:Class 17 'Clayton' - Variant 2
+STR_NAME_CLASS_17_2_CC:Class 17 'Clayton' - Variant 2 (CC)
+STR_NAME_CLASS_17_2_RCC:Class 17 'Clayton' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_14:Class 14 'Teddy Bear'
+STR_NAME_CLASS_14_1:Class 14 'Teddy Bear' - Variant 1
+STR_NAME_CLASS_14_1_CC:Class 14 'Teddy Bear' - Variant 1 (CC)
+STR_NAME_CLASS_14_1_RCC:Class 14 'Teddy Bear' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_20:Class 20 'Chopper'
+STR_NAME_CLASS_20_1:Class 20 'Chopper' - Variant 1
+STR_NAME_CLASS_20_1_CC:Class 20 'Chopper' - Variant 1 (CC)
+STR_NAME_CLASS_20_1_RCC:Class 20 'Chopper' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_20_2:Class 20 'Chopper' - Variant 2
+STR_NAME_CLASS_20_2_CC:Class 20 'Chopper' - Variant 2 (CC)
+STR_NAME_CLASS_20_2_RCC:Class 20 'Chopper' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_20_3:Class 20 'Chopper' - Variant 3
+STR_NAME_CLASS_20_3_CC:Class 20 'Chopper' - Variant 3 (CC)
+STR_NAME_CLASS_20_3_RCC:Class 20 'Chopper' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_20_4:Class 20 'Chopper' - Variant 4
+STR_NAME_CLASS_20_4_CC:Class 20 'Chopper' - Variant 4 (CC)
+STR_NAME_CLASS_20_4_RCC:Class 20 'Chopper' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_58:Class 58 'Bone'
+STR_NAME_CLASS_58_1:Class 58 'Bone' - Variant 1
+STR_NAME_CLASS_58_1_CC:Class 58 'Bone' - Variant 1 (CC)
+STR_NAME_CLASS_58_1_RCC:Class 58 'Bone' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_58_2:Class 58 'Bone' - Variant 2
+STR_NAME_CLASS_58_2_CC:Class 58 'Bone' - Variant 2 (CC)
+STR_NAME_CLASS_58_2_RCC:Class 58 'Bone' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_58_3:Class 58 'Bone' - Variant 3
+STR_NAME_CLASS_58_3_CC:Class 58 'Bone' - Variant 3 (CC)
+STR_NAME_CLASS_58_3_RCC:Class 58 'Bone' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_60:Class 60 'Tug'
+STR_NAME_CLASS_60_1:Class 60 'Tug' - Variant 1
+STR_NAME_CLASS_60_1_CC:Class 60 'Tug' - Variant 1 (CC)
+STR_NAME_CLASS_60_1_RCC:Class 60 'Tug' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_60_2:Class 60 'Tug' - Variant 2
+STR_NAME_CLASS_60_2_CC:Class 60 'Tug' - Variant 2 (CC)
+STR_NAME_CLASS_60_2_RCC:Class 60 'Tug' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_66:Class 66 'Shed'
+STR_NAME_CLASS_66_1:Class 66 'Shed' - Variant 1
+STR_NAME_CLASS_66_1_CC:Class 66 'Shed' - Variant 1 (CC)
+STR_NAME_CLASS_66_1_RCC:Class 66 'Shed' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_66_2:Class 66 'Shed' - Variant 2
+STR_NAME_CLASS_66_2_CC:Class 66 'Shed' - Variant 2 (CC)
+STR_NAME_CLASS_66_2_RCC:Class 66 'Shed' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_66_3:Class 66 'Shed' - Variant 3
+STR_NAME_CLASS_66_3_CC:Class 66 'Shed' - Variant 3 (CC)
+STR_NAME_CLASS_66_3_RCC:Class 66 'Shed' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_67:Class 67 'Skip'
+STR_NAME_CLASS_67_1:Class 67 'Skip' - Variant 1
+STR_NAME_CLASS_67_1_CC:Class 67 'Skip' - Variant 1 (CC)
+STR_NAME_CLASS_67_1_RCC:Class 67 'Skip' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_67_2:Class 67 'Skip' - Variant 2
+STR_NAME_CLASS_67_2_CC:Class 67 'Skip' - Variant 2 (CC)
+STR_NAME_CLASS_67_2_RCC:Class 67 'Skip' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_70_II:Class 70 (II)
+STR_NAME_CLASS_70_II_1:Class 70 (II) - Variant 1
+STR_NAME_CLASS_70_II_1_CC:Class 70 (II) - Variant 1 (CC)
+STR_NAME_CLASS_70_II_1_RCC:Class 70 (II) - Variant 1 (Reversed CC)
+STR_NAME_CLASS_77:Class 77 'EM2'
+STR_NAME_CLASS_77_1:Class 77 'EM2' - Variant 1
+STR_NAME_CLASS_77_1_CC:Class 77 'EM2' - Variant 1 (CC)
+STR_NAME_CLASS_77_1_RCC:Class 77 'EM2' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_77_2:Class 77 'EM2' - Variant 2
+STR_NAME_CLASS_77_2_CC:Class 77 'EM2' - Variant 2 (CC)
+STR_NAME_CLASS_77_2_RCC:Class 77 'EM2' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_77_3:Class 77 'EM2' - Variant 3
+STR_NAME_CLASS_77_3_CC:Class 77 'EM2' - Variant 3 (CC)
+STR_NAME_CLASS_77_3_RCC:Class 77 'EM2' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_92:Class 92 'Caravan'
+STR_NAME_CLASS_92_1:Class 92 'Caravan' - Variant 1
+STR_NAME_CLASS_92_1_CC:Class 92 'Caravan' - Variant 1 (CC)
+STR_NAME_CLASS_92_1_RCC:Class 92 'Caravan' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_92_2:Class 92 'Caravan' - Variant 2
+STR_NAME_CLASS_92_2_CC:Class 92 'Caravan' - Variant 2 (CC)
+STR_NAME_CLASS_92_2_RCC:Class 92 'Caravan' - Variant 2 (Reversed CC)
+STR_NAME_EE1:EE1
+STR_NAME_EE1_1:EE1 - Variant 1
+STR_NAME_EE1_1_CC:EE1 - Variant 1 (CC)
+STR_NAME_EE1_1_RCC:EE1 - Variant 1 (Reversed CC)
+STR_NAME_CLASS_81:Class 81 'AL1'
+STR_NAME_CLASS_81_1:Class 81 'AL1' - Variant 1
+STR_NAME_CLASS_81_1_CC:Class 81 'AL1' - Variant 1 (CC)
+STR_NAME_CLASS_81_1_RCC:Class 81 'AL1' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_81_2:Class 81 'AL1' - Variant 2
+STR_NAME_CLASS_81_2_CC:Class 81 'AL1' - Variant 2 (CC)
+STR_NAME_CLASS_81_2_RCC:Class 81 'AL1' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_86:Class 86 'AL6'
+STR_NAME_CLASS_86_1:Class 86 'AL6' - Variant 1
+STR_NAME_CLASS_86_1_CC:Class 86 'AL6' - Variant 1 (CC)
+STR_NAME_CLASS_86_1_RCC:Class 86 'AL6' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_86_2:Class 86 'AL6' - Variant 2
+STR_NAME_CLASS_86_2_CC:Class 86 'AL6' - Variant 2 (CC)
+STR_NAME_CLASS_86_2_RCC:Class 86 'AL6' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_86_3:Class 86 'AL6' - Variant 3
+STR_NAME_CLASS_86_3_CC:Class 86 'AL6' - Variant 3 (CC)
+STR_NAME_CLASS_86_3_RCC:Class 86 'AL6' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_86_4:Class 86 'AL6' - Variant 4
+STR_NAME_CLASS_86_4_CC:Class 86 'AL6' - Variant 4 (CC)
+STR_NAME_CLASS_86_4_RCC:Class 86 'AL6' - Variant 4 (Reversed CC)
+STR_NAME_CLASS_86_5:Class 86 'AL6' - Variant 5
+STR_NAME_CLASS_86_5_CC:Class 86 'AL6' - Variant 5 (CC)
+STR_NAME_CLASS_86_5_RCC:Class 86 'AL6' - Variant 5 (Reversed CC)
+STR_NAME_CLASS_86_6:Class 86 'AL6' - Variant 6
+STR_NAME_CLASS_86_6_CC:Class 86 'AL6' - Variant 6 (CC)
+STR_NAME_CLASS_86_6_RCC:Class 86 'AL6' - Variant 6 (Reversed CC)
+STR_NAME_CLASS_89:Class 89 'Badger'
+STR_NAME_CLASS_89_1:Class 89 'Badger' - Variant 1
+STR_NAME_CLASS_89_1_CC:Class 89 'Badger' - Variant 1 (CC)
+STR_NAME_CLASS_89_1_RCC:Class 89 'Badger' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_90:Class 90
+STR_NAME_CLASS_90_1:Class 90 - Variant 1
+STR_NAME_CLASS_90_1_CC:Class 90 - Variant 1 (CC)
+STR_NAME_CLASS_90_1_RCC:Class 90 - Variant 1 (Reversed CC)
+STR_NAME_CLASS_90_2:Class 90 - Variant 2
+STR_NAME_CLASS_90_2_CC:Class 90 - Variant 2 (CC)
+STR_NAME_CLASS_90_2_RCC:Class 90 - Variant 2 (Reversed CC)
+STR_NAME_CLASS_90_3:Class 90 - Variant 3
+STR_NAME_CLASS_90_3_CC:Class 90 - Variant 3 (CC)
+STR_NAME_CLASS_90_3_RCC:Class 90 - Variant 3 (Reversed CC)
+STR_NAME_CLASS_90_4:Class 90 - Variant 4
+STR_NAME_CLASS_90_4_CC:Class 90 - Variant 4 (CC)
+STR_NAME_CLASS_90_4_RCC:Class 90 - Variant 4 (Reversed CC)
+STR_NAME_CLASS_90_5:Class 90 - Variant 5
+STR_NAME_CLASS_90_5_CC:Class 90 - Variant 5 (CC)
+STR_NAME_CLASS_90_5_RCC:Class 90 - Variant 5 (Reversed CC)
+STR_NAME_EF1:EF1
+STR_NAME_EF1_1:EF1 - Variant 1
+STR_NAME_EF1_1_CC:EF1 - Variant 1 (CC)
+STR_NAME_EF1_1_RCC:EF1 - Variant 1 (Reversed CC)
+STR_NAME_CLASS_76:Class 76 'EM1'
+STR_NAME_CLASS_76_1:Class 76 'EM1' - Variant 1
+STR_NAME_CLASS_76_1_CC:Class 76 'EM1' - Variant 1 (CC)
+STR_NAME_CLASS_76_1_RCC:Class 76 'EM1' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_76_2:Class 76 'EM1' - Variant 2
+STR_NAME_CLASS_76_2_CC:Class 76 'EM1' - Variant 2 (CC)
+STR_NAME_CLASS_76_2_RCC:Class 76 'EM1' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_76_3:Class 76 'EM1' - Variant 3
+STR_NAME_CLASS_76_3_CC:Class 76 'EM1' - Variant 3 (CC)
+STR_NAME_CLASS_76_3_RCC:Class 76 'EM1' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_70_I:Class 70 (I) 'SR CC'
+STR_NAME_CLASS_70_I_1:Class 70 (I) 'SR CC' - Variant 1
+STR_NAME_CLASS_70_I_1_CC:Class 70 (I) 'SR CC' - Variant 1 (CC)
+STR_NAME_CLASS_70_I_1_RCC:Class 70 (I) 'SR CC' - Variant 1 (Reversed CC)
+STR_NAME_CLASS_70_I_2:Class 70 (I) 'SR CC' - Variant 2
+STR_NAME_CLASS_70_I_2_CC:Class 70 (I) 'SR CC' - Variant 2 (CC)
+STR_NAME_CLASS_70_I_2_RCC:Class 70 (I) 'SR CC' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_71:Class 71 (HA)
+STR_NAME_CLASS_71_1:Class 71 (HA) - Variant 1
+STR_NAME_CLASS_71_1_CC:Class 71 (HA) - Variant 1 (CC)
+STR_NAME_CLASS_71_1_RCC:Class 71 (HA) - Variant 1 (Reversed CC)
+STR_NAME_CLASS_71_2:Class 71 (HA) - Variant 2
+STR_NAME_CLASS_71_2_CC:Class 71 (HA) - Variant 2 (CC)
+STR_NAME_CLASS_71_2_RCC:Class 71 (HA) - Variant 2 (Reversed CC)
+STR_NAME_CLASS_71_3:Class 71 (HA) - Variant 3
+STR_NAME_CLASS_71_3_CC:Class 71 (HA) - Variant 3 (CC)
+STR_NAME_CLASS_71_3_RCC:Class 71 (HA) - Variant 3 (Reversed CC)
+STR_NAME_CLASS_73:Class 73 (JB)
+STR_NAME_CLASS_73_1:Class 73 (JB) - Variant 1
+STR_NAME_CLASS_73_1_CC:Class 73 (JB) - Variant 1 (CC)
+STR_NAME_CLASS_73_1_RCC:Class 73 (JB) - Variant 1 (Reversed CC)
+STR_NAME_CLASS_73_2:Class 73 (JB) - Variant 2
+STR_NAME_CLASS_73_2_CC:Class 73 (JB) - Variant 2 (CC)
+STR_NAME_CLASS_73_2_RCC:Class 73 (JB) - Variant 2 (Reversed CC)
+STR_NAME_CLASS_73_3:Class 73 (JB) - Variant 3
+STR_NAME_CLASS_73_3_CC:Class 73 (JB) - Variant 3 (CC)
+STR_NAME_CLASS_73_3_RCC:Class 73 (JB) - Variant 3 (Reversed CC)
+STR_NAME_CLASS_73_4:Class 73 (JB) - Variant 4
+STR_NAME_CLASS_73_4_CC:Class 73 (JB) - Variant 4 (CC)
+STR_NAME_CLASS_73_4_RCC:Class 73 (JB) - Variant 4 (Reversed CC)
+STR_NAME_CLASS_73_5:Class 73 (JB) - Variant 5
+STR_NAME_CLASS_73_5_CC:Class 73 (JB) - Variant 5 (CC)
+STR_NAME_CLASS_73_5_RCC:Class 73 (JB) - Variant 5 (Reversed CC)
+STR_NAME_TRIPWORKER:Bidwell 'Tripworker'
+STR_NAME_TRIPWORKER_1:Bidwell 'Tripworker' - Variant 1
+STR_NAME_TRIPWORKER_1_CC:Bidwell 'Tripworker' - Variant 1 (CC)
+STR_NAME_TRIPWORKER_1_RCC:Bidwell 'Tripworker' - Variant 1 (Reversed CC)
+STR_NAME_RAILMOTOR:GWR Railmotor
+STR_NAME_RAILMOTOR_1:GWR Railmotor - Variant 1
+STR_NAME_RAILMOTOR_1_CC:GWR Railmotor - Variant 1 (CC)
+STR_NAME_RAILMOTOR_1_RCC:GWR Railmotor - Variant 1 (Reversed CC)
+STR_NAME_RAILCAR:GWR Railcar
+STR_NAME_RAILCAR_1:GWR Railcar - Variant 1
+STR_NAME_RAILCAR_1_CC:GWR Railcar - Variant 1 (CC)
+STR_NAME_RAILCAR_1_RCC:GWR Railcar - Variant 1 (Reversed CC)
+STR_NAME_RAILCAR_DOUBLE:GWR Railcar (Double)
+STR_NAME_RAILCAR_DOUBLE_1:GWR Railcar (Double) - Variant 1
+STR_NAME_RAILCAR_DOUBLE_1_CC:GWR Railcar (Double) - Variant 1 (CC)
+STR_NAME_RAILCAR_DOUBLE_1_RCC:GWR Railcar (Double) - Variant 1 (Reversed CC)
+STR_NAME_RAILBUS:Railbus
+STR_NAME_RAILBUS_1:Railbus - Variant 1
+STR_NAME_RAILBUS_1_CC:Railbus - Variant 1 (CC)
+STR_NAME_RAILBUS_1_RCC:Railbus - Variant 1 (Reversed CC)
+STR_NAME_RAILBUS_2:Railbus - Variant 2
+STR_NAME_RAILBUS_2_CC:Railbus - Variant 2 (CC)
+STR_NAME_RAILBUS_2_RCC:Railbus - Variant 2 (Reversed CC)
+STR_NAME_METRO_CAMMELL_DMU:Class 101
+STR_NAME_METRO_CAMMELL_DMU_1:Class 101 - Variant 1
+STR_NAME_METRO_CAMMELL_DMU_1_CC:Class 101 - Variant 1 (CC)
+STR_NAME_METRO_CAMMELL_DMU_1_RCC:Class 101 - Variant 1 (Reversed CC)
+STR_NAME_METRO_CAMMELL_DMU_2:Class 101 - Variant 2
+STR_NAME_METRO_CAMMELL_DMU_2_CC:Class 101 - Variant 2 (CC)
+STR_NAME_METRO_CAMMELL_DMU_2_RCC:Class 101 - Variant 2 (Reversed CC)
+STR_NAME_METRO_CAMMELL_DMU_3:Class 101 - Variant 3
+STR_NAME_METRO_CAMMELL_DMU_3_CC:Class 101 - Variant 3 (CC)
+STR_NAME_METRO_CAMMELL_DMU_3_RCC:Class 101 - Variant 3 (Reversed CC)
+STR_NAME_METRO_CAMMELL_DMU_4:Class 101 - Variant 4
+STR_NAME_METRO_CAMMELL_DMU_4_CC:Class 101 - Variant 4 (CC)
+STR_NAME_METRO_CAMMELL_DMU_4_RCC:Class 101 - Variant 4 (Reversed CC)
+STR_NAME_METRO_CAMMELL_DMU_5:Class 101 - Variant 5
+STR_NAME_METRO_CAMMELL_DMU_5_CC:Class 101 - Variant 5 (CC)
+STR_NAME_METRO_CAMMELL_DMU_5_RCC:Class 101 - Variant 5 (Reversed CC)
+STR_NAME_SPRINTER:Class 150 'Sprinter'
+STR_NAME_SPRINTER_1:Class 150 'Sprinter' - Variant 1
+STR_NAME_SPRINTER_1_CC:Class 150 'Sprinter' - Variant 1 (CC)
+STR_NAME_SPRINTER_1_RCC:Class 150 'Sprinter' - Variant 1 (Reversed CC)
+STR_NAME_SPRINTER_2:Class 150 'Sprinter' - Variant 2
+STR_NAME_SPRINTER_2_CC:Class 150 'Sprinter' - Variant 2 (CC)
+STR_NAME_SPRINTER_2_RCC:Class 150 'Sprinter' - Variant 2 (Reversed CC)
+STR_NAME_SPRINTER_3:Class 150 'Sprinter' - Variant 3
+STR_NAME_SPRINTER_3_CC:Class 150 'Sprinter' - Variant 3 (CC)
+STR_NAME_SPRINTER_3_RCC:Class 150 'Sprinter' - Variant 3 (Reversed CC)
+STR_NAME_SPRINTER_4:Class 150 'Sprinter' - Variant 4
+STR_NAME_SPRINTER_4_CC:Class 150 'Sprinter' - Variant 4 (CC)
+STR_NAME_SPRINTER_4_RCC:Class 150 'Sprinter' - Variant 4 (Reversed CC)
+STR_NAME_EXPRESS_SPRINTER:Class 158 'Express Sprinter'
+STR_NAME_EXPRESS_SPRINTER_1:Class 158 'Express Sprinter' - Variant 1
+STR_NAME_EXPRESS_SPRINTER_1_CC:Class 158 'Express Sprinter' - Variant 1 (CC)
+STR_NAME_EXPRESS_SPRINTER_1_RCC:Class 158 'Express Sprinter' - Variant 1 (Reversed CC)
+STR_NAME_EXPRESS_SPRINTER_2:Class 158 'Express Sprinter' - Variant 2
+STR_NAME_EXPRESS_SPRINTER_2_CC:Class 158 'Express Sprinter' - Variant 2 (CC)
+STR_NAME_EXPRESS_SPRINTER_2_RCC:Class 158 'Express Sprinter' - Variant 2 (Reversed CC)
+STR_NAME_EXPRESS_SPRINTER_3:Class 158 'Express Sprinter' - Variant 3
+STR_NAME_EXPRESS_SPRINTER_3_CC:Class 158 'Express Sprinter' - Variant 3 (CC)
+STR_NAME_EXPRESS_SPRINTER_3_RCC:Class 158 'Express Sprinter' - Variant 3 (Reversed CC)
+STR_NAME_EXPRESS_SPRINTER_4:Class 158 'Express Sprinter' - Variant 4
+STR_NAME_EXPRESS_SPRINTER_4_CC:Class 158 'Express Sprinter' - Variant 4 (CC)
+STR_NAME_EXPRESS_SPRINTER_4_RCC:Class 158 'Express Sprinter' - Variant 4 (Reversed CC)
+STR_NAME_TURBOSTAR:Class 170 'Turbostar'
+STR_NAME_TURBOSTAR_1:Class 170 'Turbostar' - Variant 1
+STR_NAME_TURBOSTAR_1_CC:Class 170 'Turbostar' - Variant 1 (CC)
+STR_NAME_TURBOSTAR_1_RCC:Class 170 'Turbostar' - Variant 1 (Reversed CC)
+STR_NAME_TURBOSTAR_2:Class 170 'Turbostar' - Variant 2
+STR_NAME_TURBOSTAR_2_CC:Class 170 'Turbostar' - Variant 2 (CC)
+STR_NAME_TURBOSTAR_2_RCC:Class 170 'Turbostar' - Variant 2 (Reversed CC)
+STR_NAME_RAILCAR_MAIL:GWR Railcar (Parcels)
+STR_NAME_RAILCAR_MAIL_1:GWR Railcar (Parcels) - Variant 1
+STR_NAME_RAILCAR_MAIL_1_CC:GWR Railcar (Parcels) - Variant 1 (CC)
+STR_NAME_RAILCAR_MAIL_1_RCC:GWR Railcar (Parcels) - Variant 1 (Reversed CC)
+STR_NAME_HST_PROTOTYPE:Class 41 'HST'
+STR_NAME_HST_PROTOTYPE_1:Class 41 'HST' - Variant 1
+STR_NAME_HST_PROTOTYPE_1_CC:Class 41 'HST' - Variant 1 (CC)
+STR_NAME_HST_PROTOTYPE_1_RCC:Class 41 'HST' - Variant 1 (Reversed CC)
+STR_NAME_BR_HST:Class 43 'HST'
+STR_NAME_BR_HST_1:Class 43 'HST' - Variant 1
+STR_NAME_BR_HST_1_CC:Class 43 'HST' - Variant 1 (CC)
+STR_NAME_BR_HST_1_RCC:Class 43 'HST' - Variant 1 (Reversed CC)
+STR_NAME_BR_HST_2:Class 43 'HST' - Variant 2
+STR_NAME_BR_HST_2_CC:Class 43 'HST' - Variant 2 (CC)
+STR_NAME_BR_HST_2_RCC:Class 43 'HST' - Variant 2 (Reversed CC)
+STR_NAME_BR_HST_3:Class 43 'HST' - Variant 3
+STR_NAME_BR_HST_3_CC:Class 43 'HST' - Variant 3 (CC)
+STR_NAME_BR_HST_3_RCC:Class 43 'HST' - Variant 3 (Reversed CC)
+STR_NAME_BR_HST_4:Class 43 'HST' - Variant 4
+STR_NAME_BR_HST_4_CC:Class 43 'HST' - Variant 4 (CC)
+STR_NAME_BR_HST_4_RCC:Class 43 'HST' - Variant 4 (Reversed CC)
+STR_NAME_BR_HST_5:Class 43 'HST' - Variant 5
+STR_NAME_BR_HST_5_CC:Class 43 'HST' - Variant 5 (CC)
+STR_NAME_BR_HST_5_RCC:Class 43 'HST' - Variant 5 (Reversed CC)
+STR_NAME_VOYAGER:Class 220 'Voyager'
+STR_NAME_VOYAGER_1:Class 220 'Voyager' - Variant 1
+STR_NAME_VOYAGER_1_CC:Class 220 'Voyager' - Variant 1 (CC)
+STR_NAME_VOYAGER_1_RCC:Class 220 'Voyager' - Variant 1 (Reversed CC)
+STR_NAME_METRO_CAMMELL_EMU:LNWR EMU
+STR_NAME_METRO_CAMMELL_EMU_1:LNWR EMU - Variant 1
+STR_NAME_METRO_CAMMELL_EMU_1_CC:LNWR EMU - Variant 1 (CC)
+STR_NAME_METRO_CAMMELL_EMU_1_RCC:LNWR EMU - Variant 1 (Reversed CC)
+STR_NAME_SOUTHERN_EMU:Class 404
+STR_NAME_SOUTHERN_EMU_1:Class 404 - Variant 1
+STR_NAME_SOUTHERN_EMU_1_CC:Class 404 - Variant 1 (CC)
+STR_NAME_SOUTHERN_EMU_1_RCC:Class 404 - Variant 1 (Reversed CC)
+STR_NAME_SOUTHERN_EMU_2:Class 404 - Variant 2
+STR_NAME_SOUTHERN_EMU_2_CC:Class 404 - Variant 2 (CC)
+STR_NAME_SOUTHERN_EMU_2_RCC:Class 404 - Variant 2 (Reversed CC)
+STR_NAME_SOUTHERN_EMU_3:Class 404 - Variant 3
+STR_NAME_SOUTHERN_EMU_3_CC:Class 404 - Variant 3 (CC)
+STR_NAME_SOUTHERN_EMU_3_RCC:Class 404 - Variant 3 (Reversed CC)
+STR_NAME_SR_4DD:SR '4DD'
+STR_NAME_SR_4DD_1:SR '4DD' - Variant 1
+STR_NAME_SR_4DD_1_CC:SR '4DD' - Variant 1 (CC)
+STR_NAME_SR_4DD_1_RCC:SR '4DD' - Variant 1 (Reversed CC)
+STR_NAME_SR_4DD_2:SR '4DD' - Variant 2
+STR_NAME_SR_4DD_2_CC:SR '4DD' - Variant 2 (CC)
+STR_NAME_SR_4DD_2_RCC:SR '4DD' - Variant 2 (Reversed CC)
+STR_NAME_RENEWAL_EMU:Class 421
+STR_NAME_RENEWAL_EMU_1:Class 421 - Variant 1
+STR_NAME_RENEWAL_EMU_1_CC:Class 421 - Variant 1 (CC)
+STR_NAME_RENEWAL_EMU_1_RCC:Class 421 - Variant 1 (Reversed CC)
+STR_NAME_RENEWAL_EMU_2:Class 421 - Variant 2
+STR_NAME_RENEWAL_EMU_2_CC:Class 421 - Variant 2 (CC)
+STR_NAME_RENEWAL_EMU_2_RCC:Class 421 - Variant 2 (Reversed CC)
+STR_NAME_RENEWAL_EMU_3:Class 421 - Variant 3
+STR_NAME_RENEWAL_EMU_3_CC:Class 421 - Variant 3 (CC)
+STR_NAME_RENEWAL_EMU_3_RCC:Class 421 - Variant 3 (Reversed CC)
+STR_NAME_RENEWAL_EMU_4:Class 421 - Variant 4
+STR_NAME_RENEWAL_EMU_4_CC:Class 421 - Variant 4 (CC)
+STR_NAME_RENEWAL_EMU_4_RCC:Class 421 - Variant 4 (Reversed CC)
+STR_NAME_RENEWAL_EMU_5:Class 421 - Variant 5
+STR_NAME_RENEWAL_EMU_5_CC:Class 421 - Variant 5 (CC)
+STR_NAME_RENEWAL_EMU_5_RCC:Class 421 - Variant 5 (Reversed CC)
+STR_NAME_RENEWAL_EMU_6:Class 421 - Variant 6
+STR_NAME_RENEWAL_EMU_6_CC:Class 421 - Variant 6 (CC)
+STR_NAME_RENEWAL_EMU_6_RCC:Class 421 - Variant 6 (Reversed CC)
+STR_NAME_RENEWAL_EMU_7:Class 421 - Variant 7
+STR_NAME_RENEWAL_EMU_7_CC:Class 421 - Variant 7 (CC)
+STR_NAME_RENEWAL_EMU_7_RCC:Class 421 - Variant 7 (Reversed CC)
+STR_NAME_AM10:Class 310 'AM10'
+STR_NAME_AM10_1:Class 310 'AM10' - Variant 1
+STR_NAME_AM10_1_CC:Class 310 'AM10' - Variant 1 (CC)
+STR_NAME_AM10_1_RCC:Class 310 'AM10' - Variant 1 (Reversed CC)
+STR_NAME_AM10_2:Class 310 'AM10' - Variant 2
+STR_NAME_AM10_2_CC:Class 310 'AM10' - Variant 2 (CC)
+STR_NAME_AM10_2_RCC:Class 310 'AM10' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_313:Class 313
+STR_NAME_CLASS_313_1:Class 313 - Variant 1
+STR_NAME_CLASS_313_1_CC:Class 313 - Variant 1 (CC)
+STR_NAME_CLASS_313_1_RCC:Class 313 - Variant 1 (Reversed CC)
+STR_NAME_CLASS_313_2:Class 313 - Variant 2
+STR_NAME_CLASS_313_2_CC:Class 313 - Variant 2 (CC)
+STR_NAME_CLASS_313_2_RCC:Class 313 - Variant 2 (Reversed CC)
+STR_NAME_CLASS_313_3:Class 313 - Variant 3
+STR_NAME_CLASS_313_3_CC:Class 313 - Variant 3 (CC)
+STR_NAME_CLASS_313_3_RCC:Class 313 - Variant 3 (Reversed CC)
+STR_NAME_WESSEX_EMU:Class 442 'Wessex Express'
+STR_NAME_WESSEX_EMU_1:Class 442 'Wessex Express' - Variant 1
+STR_NAME_WESSEX_EMU_1_CC:Class 442 'Wessex Express' - Variant 1 (CC)
+STR_NAME_WESSEX_EMU_1_RCC:Class 442 'Wessex Express' - Variant 1 (Reversed CC)
+STR_NAME_WESSEX_EMU_2:Class 442 'Wessex Express' - Variant 2
+STR_NAME_WESSEX_EMU_2_CC:Class 442 'Wessex Express' - Variant 2 (CC)
+STR_NAME_WESSEX_EMU_2_RCC:Class 442 'Wessex Express' - Variant 2 (Reversed CC)
+STR_NAME_WESSEX_EMU_3:Class 442 'Wessex Express' - Variant 3
+STR_NAME_WESSEX_EMU_3_CC:Class 442 'Wessex Express' - Variant 3 (CC)
+STR_NAME_WESSEX_EMU_3_RCC:Class 442 'Wessex Express' - Variant 3 (Reversed CC)
+STR_NAME_CLASS_321:Class 321
+STR_NAME_CLASS_321_1:Class 321 - Variant 1
+STR_NAME_CLASS_321_1_CC:Class 321 - Variant 1 (CC)
+STR_NAME_CLASS_321_1_RCC:Class 321 - Variant 1 (Reversed CC)
+STR_NAME_CLASS_321_2:Class 321 - Variant 2
+STR_NAME_CLASS_321_2_CC:Class 321 - Variant 2 (CC)
+STR_NAME_CLASS_321_2_RCC:Class 321 - Variant 2 (Reversed CC)
+STR_NAME_ELECTROSTAR:Class 357 'Electrostar'
+STR_NAME_ELECTROSTAR_1:Class 357 'Electrostar' - Variant 1
+STR_NAME_ELECTROSTAR_1_CC:Class 357 'Electrostar' - Variant 1 (CC)
+STR_NAME_ELECTROSTAR_1_RCC:Class 357 'Electrostar' - Variant 1 (Reversed CC)
+STR_NAME_ELECTROSTAR_2:Class 357 'Electrostar' - Variant 2
+STR_NAME_ELECTROSTAR_2_CC:Class 357 'Electrostar' - Variant 2 (CC)
+STR_NAME_ELECTROSTAR_2_RCC:Class 357 'Electrostar' - Variant 2 (Reversed CC)
+STR_NAME_CLASS_325:Class 325
+STR_NAME_CLASS_325_1:Class 325 - Variant 1
+STR_NAME_CLASS_325_1_CC:Class 325 - Variant 1 (CC)
+STR_NAME_CLASS_325_1_RCC:Class 325 - Variant 1 (Reversed CC)
+STR_NAME_BRIGHTON_BELLE:Class 403 'Brighton Belle'
+STR_NAME_BRIGHTON_BELLE_1:Class 403 'Brighton Belle' - Variant 1
+STR_NAME_BRIGHTON_BELLE_1_CC:Class 403 'Brighton Belle' - Variant 1 (CC)
+STR_NAME_BRIGHTON_BELLE_1_RCC:Class 403 'Brighton Belle' - Variant 1 (Reversed CC)
+STR_NAME_BRIGHTON_BELLE_2:Class 403 'Brighton Belle' - Variant 2
+STR_NAME_BRIGHTON_BELLE_2_CC:Class 403 'Brighton Belle' - Variant 2 (CC)
+STR_NAME_BRIGHTON_BELLE_2_RCC:Class 403 'Brighton Belle' - Variant 2 (Reversed CC)
+STR_NAME_BRIGHTON_BELLE_3:Class 403 'Brighton Belle' - Variant 3
+STR_NAME_BRIGHTON_BELLE_3_CC:Class 403 'Brighton Belle' - Variant 3 (CC)
+STR_NAME_BRIGHTON_BELLE_3_RCC:Class 403 'Brighton Belle' - Variant 3 (Reversed CC)
+STR_NAME_BREL_APT:Class 370 'APT'
+STR_NAME_BREL_APT_1:Class 370 'APT' - Variant 1
+STR_NAME_BREL_APT_1_CC:Class 370 'APT' - Variant 1 (CC)
+STR_NAME_BREL_APT_1_RCC:Class 370 'APT' - Variant 1 (Reversed CC)
+STR_NAME_GEC_CLASS_91:Class 91 'Electra'
+STR_NAME_GEC_CLASS_91_1:Class 91 'Electra' - Variant 1
+STR_NAME_GEC_CLASS_91_1_CC:Class 91 'Electra' - Variant 1 (CC)
+STR_NAME_GEC_CLASS_91_1_RCC:Class 91 'Electra' - Variant 1 (Reversed CC)
+STR_NAME_GEC_CLASS_91_2:Class 91 'Electra' - Variant 2
+STR_NAME_GEC_CLASS_91_2_CC:Class 91 'Electra' - Variant 2 (CC)
+STR_NAME_GEC_CLASS_91_2_RCC:Class 91 'Electra' - Variant 2 (Reversed CC)
+STR_NAME_EUROSTAR:Class 373 'Eurostar'
+STR_NAME_EUROSTAR_1:Class 373 'Eurostar' - Variant 1
+STR_NAME_EUROSTAR_1_CC:Class 373 'Eurostar' - Variant 1 (CC)
+STR_NAME_EUROSTAR_1_RCC:Class 373 'Eurostar' - Variant 1 (Reversed CC)
+STR_NAME_EUROSTAR_2:Class 373 'Eurostar' - Variant 2
+STR_NAME_EUROSTAR_2_CC:Class 373 'Eurostar' - Variant 2 (CC)
+STR_NAME_EUROSTAR_2_RCC:Class 373 'Eurostar' - Variant 2 (Reversed CC)
+STR_NAME_PENDOLINO:Class 390 'Pendolino'
+STR_NAME_PENDOLINO_1:Class 390 'Pendolino' - Variant 1
+STR_NAME_PENDOLINO_1_CC:Class 390 'Pendolino' - Variant 1 (CC)
+STR_NAME_PENDOLINO_1_RCC:Class 390 'Pendolino' - Variant 1 (Reversed CC)
+STR_NAME_1903_STOCK:1903 Stock
+STR_NAME_1903_STOCK_1:1903 Stock - Variant 1
+STR_NAME_1903_STOCK_1_CC:1903 Stock - Variant 1 (CC)
+STR_NAME_1903_STOCK_1_RCC:1903 Stock - Variant 1 (Reversed CC)
+STR_NAME_1938_STOCK:1938 Stock
+STR_NAME_1938_STOCK_1:1938 Stock - Variant 1
+STR_NAME_1938_STOCK_1_CC:1938 Stock - Variant 1 (CC)
+STR_NAME_1938_STOCK_1_RCC:1938 Stock - Variant 1 (Reversed CC)
+STR_NAME_1967_STOCK:1967 Stock
+STR_NAME_1967_STOCK_1:1967 Stock - Variant 1
+STR_NAME_1967_STOCK_1_CC:1967 Stock - Variant 1 (CC)
+STR_NAME_1967_STOCK_1_RCC:1967 Stock - Variant 1 (Reversed CC)
+STR_NAME_1967_STOCK_2:1967 Stock - Variant 2
+STR_NAME_1967_STOCK_2_CC:1967 Stock - Variant 2 (CC)
+STR_NAME_1967_STOCK_2_RCC:1967 Stock - Variant 2 (Reversed CC)
+STR_NAME_1992_STOCK:1992 Stock
+STR_NAME_1992_STOCK_1:1992 Stock - Variant 1
+STR_NAME_1992_STOCK_1_CC:1992 Stock - Variant 1 (CC)
+STR_NAME_1992_STOCK_1_RCC:1992 Stock - Variant 1 (Reversed CC)
 
-STR_NAME_LOCO_ALT_KING_ARTHUR:Maunsell N15 'King Arthur' [4-6-0] (Steam)
-STR_NAME_LOCO_ALT_PANNIER:Collett 5700 'Pannier' [0-6-0PT] (Steam)
-STR_NAME_LOCO_ALT_PANNIER_II:Collett 9400 'Pannier II' [0-6-0PT] (Steam)
-STR_NAME_LOCO_ALT_IVATT:Ivatt 2MT 'Ivatt' [2-6-2T] (Steam)
-STR_NAME_LOCO_ALT_SUBURBAN_II:Fowler 4MT 'Suburban' [2-6-4T] (Steam)
-STR_NAME_LOCO_ALT_AUSTERITY:Bulleid Q1 'Austerity' [0-6-0] (Steam)
-STR_NAME_LOCO_ALT_SHIRE:Gresley D49 'Shire' [4-4-0] (Steam)
-STR_NAME_LOCO_ALT_ROYAL_SCOT:Fowler 7P 'Royal Scot' [4-6-0] (Steam)
-STR_NAME_LOCO_ALT_GARRATT:Beyer-Garratt [2-6-0+0-6-2] (Steam)
-STR_NAME_LOCO_ALT_8F:Stanier 8F [2-8-0](Steam)
-STR_NAME_LOCO_ALT_JUBILEE:Stanier 6P 'Jubilee' [4-6-0] (Steam)
-STR_NAME_LOCO_ALT_ARROW:Gresley V2 'Arrow' [2-6-2] (Steam)
-STR_NAME_LOCO_ALT_PACIFIC:Gresley A1 'Pacific' [4-6-2] (Steam)
-STR_NAME_LOCO_ALT_STREAK:Gresley A4 'Streak' [4-6-2] (Steam)
-STR_NAME_LOCO_ALT_CORONATION:Stanier 8P 'Coronation' [4-6-2] (Steam)
-STR_NAME_LOCO_ALT_MERCHANT_NAVY:Bulleid 'Merchant Navy' [4-6-2] (Steam)
-STR_NAME_LOCO_ALT_LIGHT_PACIFIC:Bulleid 'Light Pacific' [4-6-2] (Steam)
-STR_NAME_LOCO_ALT_LEADER:Bulleid 'Leader' [0-6-6-0] (Steam)
-STR_NAME_LOCO_ALT_BRITANNIA:BR Class 7 'Britannia' [4-6-2] (Steam)
-STR_NAME_LOCO_ALT_STAR:BR 9F 'Star' [2-10-0] (Steam)
 
-STR_NAME_LOCO_ALT_GT3:EE 'GT3' (Turbine)
-
-STR_NAME_LOCO_CLASS_08:Class 08 'Gronk' (Diesel)
-STR_NAME_LOCO_CLASS_14:Class 14 'Teddy Bear' (Diesel)
-STR_NAME_LOCO_CLASS_20:Class 20 'Chopper' (Diesel)
-STR_NAME_LOCO_CLASS_17:Class 17 'Clayton' (Diesel)
-STR_NAME_LOCO_CLASS_15:Class 15 (Diesel)
-STR_NAME_LOCO_CLASS_24:Class 24 'Rat' (Diesel)
-STR_NAME_LOCO_CLASS_25:Class 25 'Rat' (Diesel)
-STR_NAME_LOCO_CLASS_27:Class 27 'Rat' (Diesel)
-STR_NAME_LOCO_CLASS_23:Class 23 'Baby Deltic' (Diesel)
-STR_NAME_LOCO_CLASS_D16:Class D16 'LMS 10000' (Diesel)
-STR_NAME_LOCO_CLASS_D162:Class D16/2 (Diesel)
-STR_NAME_LOCO_CLASS_37:Class 37 'Tractor' (Diesel)
-STR_NAME_LOCO_CLASS_41:Class 41 'Warship' (Diesel)
-STR_NAME_LOCO_CLASS_52:Class 52 'Western' (Diesel)
-STR_NAME_LOCO_CLASS_44:Class 44 'Peak' (Diesel)
-STR_NAME_LOCO_CLASS_47:Class 47 'Spoon' (Diesel)
-STR_NAME_LOCO_CLASS_DP1:Class DP1 'Deltic' (Diesel)
-STR_NAME_LOCO_CLASS_55:Class 55 'Deltic' (Diesel)
-STR_NAME_LOCO_CLASS_58:Class 58 'Bone' (Diesel)
-STR_NAME_LOCO_CLASS_60:Class 60 'Tug' (Diesel)
-STR_NAME_LOCO_CLASS_66:Class 66 (Diesel)
-STR_NAME_LOCO_CLASS_67:Class 67 'Skip' (Diesel)
-STR_NAME_LOCO_CLASS_70_II:Class 70 (II) (Diesel)
-
-STR_NAME_LOCO_CLASS_73:Class 73 (JB) (Electro-Diesel)
-STR_NAME_LOCO_CLASS_70_I:Class 70 (I) (Electric)
-STR_NAME_LOCO_CLASS_71:Class 71 (HA) (Electric)
-
-STR_NAME_LOCO_EF1:NER EF1 (Electric)
-STR_NAME_LOCO_EE1:NER EE1 (Electric)
-STR_NAME_LOCO_CLASS_76:Class 76 'EM1' (Electric)
-STR_NAME_LOCO_CLASS_77:Class 77 'EM2' (Electric)
-STR_NAME_LOCO_CLASS_81:Class 81 'AL1' (Electric)
-STR_NAME_LOCO_CLASS_86:Class 86 'AL6' (Electric)
-STR_NAME_LOCO_CLASS_89:Class 89 'Badger' (Electric)
-STR_NAME_LOCO_CLASS_90:Class 90 (Electric)
-STR_NAME_LOCO_CLASS_92:Class 92 'Caravan' (Electric)
-
-STR_NAME_LOCO_ALT_TRIPWORKER:Bidwell Tripworker (Electric)
-
-STR_NAME_MU_CLASS_370:Class 370 'APT' (Electric)
-STR_NAME_MU_CLASS_91:Class 91 (Electric)
-STR_NAME_MU_CLASS_373:Class 373 'Eurostar' (Electric)
-
-STR_NAME_MU_RAILMOTOR:GWR Railmotor (Diesel)
-STR_NAME_MU_RAILBUS:AEC Railbus (Diesel)
-STR_NAME_MU_RAILCAR:GWR Railcar (Diesel)
-STR_NAME_MU_CLASS_101:Class 101 (Diesel)
-STR_NAME_MU_CLASS_150:Class 150 'Sprinter' (Diesel)
-STR_NAME_MU_CLASS_158:Class 158 'Express Sprinter' (Diesel)
-STR_NAME_MU_CLASS_170:Class 170 'Turbostar' (Diesel)
-STR_NAME_MU_CLASS_220:Class 220 'Voyager' (Diesel)
-STR_NAME_MU_CLASS_253:Class 43 'HST' (Diesel)
-
-STR_NAME_MU_LNWR:LNWR EMU (Electric)
-STR_NAME_MU_CLASS_404:Class 404 (Electric)
-STR_NAME_MU_CLASS_421:Class 421 (Electric)
-STR_NAME_MU_CLASS_442:Class 442 'Wessex Express' (Electric)
-STR_NAME_MU_CLASS_310:Class 310 'AM10' (Electric)
-STR_NAME_MU_CLASS_313:Class 313 (Electric)
-STR_NAME_MU_CLASS_321:Class 321 (Electric)
-STR_NAME_MU_CLASS_325:Class 325 (Electric)
-STR_NAME_MU_CLASS_357:Class 357 'Electrostar' (Electric)
-STR_NAME_MU_CLASS_390:Class 390 'Pendolino' (Electric)
-STR_NAME_MU_CLASS_395:Class 395 'A-Train' (Electric)
-
-STR_NAME_LOCO_MU_RAILMOTOR:GWR Railmotor (Steam)
-STR_NAME_LOCO_MU_AEC_RAILBUS:AEC Railbus (Diesel)
-STR_NAME_LOCO_MU_AEC_RAILCAR:GWR Railcar (Diesel)
-STR_NAME_LOCO_MU_METRO_CAMMELL_DMU:Class 101 (Diesel)
-STR_NAME_LOCO_MU_SPRINTER:Class 150 'Sprinter' (Diesel)
-STR_NAME_LOCO_MU_EXPRESS_SPRINTER:Class 158 'Express Sprinter' (Diesel)
-STR_NAME_LOCO_MU_HST_PROTOTYPE:Class 41 'HST Prototype' (Diesel)
-STR_NAME_LOCO_MU_BR_HST:Class 43 'HST' (Diesel)
-STR_NAME_LOCO_MU_TURBOSTAR:Class 170 'Turbostar' (Diesel)
-STR_NAME_LOCO_MU_VOYAGER:Class 220 'Voyager' (Diesel)
-
-STR_NAME_LOCO_MU_METRO_CAMMELL_EMU:LNWR EMU (Electric)
-STR_NAME_LOCO_MU_SOUTHERN_EMU:Class 404 (Electric)
-STR_NAME_LOCO_MU_RENEWAL_EMU:Class 421 (Electric)
-STR_NAME_LOCO_MU_WESSEX_EMU:Class 442 'Wessex Express' (Electric)
-STR_NAME_LOCO_MU_AM10:Class 310 'AM10' (Electric)
-STR_NAME_LOCO_MU_CLASS_313:Class 313 (Electric)
-STR_NAME_LOCO_MU_CLASS_321:Class 321 (Electric)
-STR_NAME_LOCO_MU_CLASS_325:Class 325 (Electric)
-STR_NAME_LOCO_MU_ELECTROSTAR:Class 357 'Electrostar' (Electric)
-STR_NAME_LOCO_MU_PENDOLINO:Class 390 'Pendolino' (Electric)
-
-STR_NAME_LOCO_MU_BREL_APT:Class 370 'APT' (Electric)
-STR_NAME_LOCO_MU_GEC_CLASS_91:Class 91 (Electric)
-STR_NAME_LOCO_MU_EUROSTAR:Class 373 'Eurostar' (Electric)
-STR_NAME_LOCO_MU_HITACHI_A_TRAIN:Class 395 'A-Train' (Electric)
-
-STR_NAME_LOCO_MU_1903_STOCK:1903 Stock (Electric)
-STR_NAME_LOCO_MU_1938_STOCK:1938 Stock (Electric)
-STR_NAME_LOCO_MU_1967_STOCK:1967 Stock (Electric)
-STR_NAME_LOCO_MU_1992_STOCK:1992 Stock (Electric)
-
-STR_NAME_LOCO_PLANET:2-2-0 'Planet' (Steam)
-STR_NAME_LOCO_COPPERNOB:0-4-0 'Coppernob' (Steam)
-STR_NAME_LOCO_CRAMPTON:4-2-0 'Crampton' (Steam)
-STR_NAME_LOCO_LONG_BOILER:0-6-0 'Long Boiler' (Steam)
-STR_NAME_LOCO_INDUSTRIAL:0-4-0ST 'Industrial'(Steam)
-STR_NAME_LOCO_TRAM:0-6-0T 'Tram Engine' (Steam)
-STR_NAME_LOCO_HUNSLET:0-6-0ST 'Austerity' (Steam)
-STR_NAME_LOCO_TANK_E:0-4-2T 'Armstrong' (Steam)
-STR_NAME_LOCO_TANK:0-4-2T 'Tank' (Steam)
-STR_NAME_LOCO_METROPOLITAN:0-4-4T 'Metropolitan' (Steam)
-STR_NAME_LOCO_JINTY_E:0-6-0T 'Half-cab' (Steam)
-STR_NAME_LOCO_JINTY:0-6-0T 'Jinty' (Steam)
-STR_NAME_LOCO_SUBURBAN:4-4-2T 'Suburban' (Steam)
-STR_NAME_LOCO_PRAIRIE:2-6-2T 'Prairie' (Steam)
-STR_NAME_LOCO_LADY:2-2-2 'Lady' (Steam)
-STR_NAME_LOCO_SPINNER:4-2-2 'Spinner' (Steam)
-STR_NAME_LOCO_GOODS:0-6-0 'Goods' (Steam)
-STR_NAME_LOCO_KLONDYKE:4-4-2 'Klondike' (Steam)
-STR_NAME_LOCO_EDWARDIAN:4-4-0 'Edwardian' (Steam)
-STR_NAME_LOCO_FREIGHT:0-6-0 'Freight' (Steam)
-STR_NAME_LOCO_MOGUL:2-6-0 'Mogul' (Steam)
-STR_NAME_LOCO_MINERAL:0-8-0 'Mineral' (Steam)
-STR_NAME_LOCO_BANKER:0-10-0 'Banker' (Steam)
-
-STR_NAME_LOCO_KING_ARTHUR:4-6-0 'King Arthur' (Steam)
-STR_NAME_LOCO_PANNIER:0-6-0PT 'Pannier' (Steam)
-STR_NAME_LOCO_PANNIER_II:0-6-0PT 'Pannier II' (Steam)
-STR_NAME_LOCO_IVATT:2-6-2T 'Ivatt' (Steam)
-STR_NAME_LOCO_SUBURBAN_II:2-6-4T 'Suburban' (Steam)
-STR_NAME_LOCO_AUSTERITY:0-6-0 'Austerity' (Steam)
-STR_NAME_LOCO_SHIRE:4-4-0 'Shire' (Steam)
-STR_NAME_LOCO_ROYAL_SCOT:4-6-0 'Royal Scot' (Steam)
-STR_NAME_LOCO_GARRATT:2-6-0+0-6-2 'Garratt' (Steam)
-STR_NAME_LOCO_8F:2-8-0 '8F' (Steam)
-STR_NAME_LOCO_WD:2-8-0 'WD' (Steam)
-STR_NAME_LOCO_JUBILEE:4-6-0 'Jubilee' (Steam)
-STR_NAME_LOCO_ARROW:2-6-2 'Arrow' (Steam)
-STR_NAME_LOCO_P1:2-8-2 'Mikado' (Steam)
-STR_NAME_LOCO_P2:2-8-2 'Highlander' (Steam)
-STR_NAME_LOCO_PACIFIC:4-6-2 'Pacific' (Steam)
-STR_NAME_LOCO_PACIFIC_2:4-6-2 'Pacific II' (Steam)
-STR_NAME_LOCO_STREAK:4-6-2 'Streak' (Steam)
-STR_NAME_LOCO_CORONATION:4-6-2 'Coronation' (Steam)
-STR_NAME_LOCO_MERCHANT_NAVY:4-6-2 'Merchant Navy' (Steam)
-STR_NAME_LOCO_LIGHT_PACIFIC:4-6-2 'Light Pacific' (Steam)
-STR_NAME_LOCO_LEADER:0-6-6-0 'Leader' (Steam)
-STR_NAME_LOCO_BRITANNIA:4-6-2 'Britannia' (Steam)
-STR_NAME_LOCO_STAR:2-10-0 'Star' (Steam)
-
-STR_NAME_LOCO_GT3:EE 'GT3' (Turbine)
-
-STR_NAME_LOCO_5AT:4-6-0 '5AT' (Advanced Steam)
-STR_NAME_LOCO_604:4-6-2 '604' (Advanced Steam)
-
-STR_NAME_LOCO_ALT_CLASS_08:EE Shunter (Diesel)
-STR_NAME_LOCO_ALT_CLASS_14:BR Class 14 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_20:EE Type 1 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_17:Clayton Type 1 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_24:BR Type 2 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_25:Sulzer Type 2 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_27:BRCW Type 2 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_23:EE Baby Deltic (Diesel)
-STR_NAME_LOCO_ALT_CLASS_D16:EE 10000 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_37:EE Type 3 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_41:WR Warship (Diesel)
-STR_NAME_LOCO_ALT_CLASS_52:WR Western (Diesel)
-STR_NAME_LOCO_ALT_CLASS_44:Sulzer Type 4 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_47:Brush Type 4 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_DP1:EE DP1 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_55:EE Deltic (Diesel)
-STR_NAME_LOCO_ALT_CLASS_58:BREL Class 58 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_60:Brush Type 5 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_66:EMD Class 66 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_67:EMD Class 67 (Diesel)
-STR_NAME_LOCO_ALT_CLASS_70_II:GE PowerHaul (Diesel)
-
-STR_NAME_LOCO_ALT_CLASS_73:BR Type JB (Electro-Diesel)
-STR_NAME_LOCO_ALT_CLASS_70_I:SR CC (Electric)
-STR_NAME_LOCO_ALT_CLASS_71:BR Type HA (Electric)
-
-STR_NAME_LOCO_ALT_EF1:NER EF1 (Electric)
-STR_NAME_LOCO_ALT_EE1:NER EE1 (Electric)
-STR_NAME_LOCO_ALT_CLASS_76:Metrovick EM1 (Electric)
-STR_NAME_LOCO_ALT_CLASS_77:Metrovick EM2 (Electric)
-STR_NAME_LOCO_ALT_CLASS_81:AEI AL1 (Electric)
-STR_NAME_LOCO_ALT_CLASS_86:EE AL6 (Electric)
-STR_NAME_LOCO_ALT_CLASS_89:Brush Avocet (Electric)
-STR_NAME_LOCO_ALT_CLASS_90:BREL Class 90 (Electric)
-STR_NAME_LOCO_ALT_CLASS_92:Brush Class 92 (Electric)
-
-STR_NAME_LOCO_TRIPWORKER:Bidwell Tripworker (Electric)
-
-STR_NAME_LOCO_ALT_MU_RAILMOTOR:Steam Railmotor (Steam)
-STR_NAME_LOCO_ALT_MU_AEC_RAILBUS:AEC Railbus (Diesel)
-STR_NAME_LOCO_ALT_MU_AEC_RAILCAR:AEC Railcar (Diesel)
-STR_NAME_LOCO_ALT_MU_METRO_CAMMELL_DMU:Metro Cammell DMU (Diesel)
-STR_NAME_LOCO_ALT_MU_SPRINTER:Sprinter (Diesel)
-STR_NAME_LOCO_ALT_MU_EXPRESS_SPRINTER:Express Sprinter (Diesel)
-STR_NAME_LOCO_ALT_MU_HST_PROTOTYPE:HST Prototype (Diesel)
-STR_NAME_LOCO_ALT_MU_BR_HST:BR HST (Diesel)
-STR_NAME_LOCO_ALT_MU_TURBOSTAR:Turbostar (Diesel)
-STR_NAME_LOCO_ALT_MU_VOYAGER:Bombadier Voyager (Diesel)
-STR_NAME_LOCO_ALT_MU_METRO_CAMMELL_EMU:Metro Cammell EMU (Electric)
-STR_NAME_LOCO_ALT_MU_SOUTHERN_EMU:Southern EMU (Electric)
-STR_NAME_LOCO_ALT_MU_RENEWAL_EMU:BREL Renewal EMU (Electric)
-STR_NAME_LOCO_ALT_MU_WESSEX_EMU:BREL Wessex EMU (Electric)
-STR_NAME_LOCO_ALT_MU_AM10:BR AM10 (Electric)
-STR_NAME_LOCO_ALT_MU_CLASS_313:BREL Class 313 (Electric)
-STR_NAME_LOCO_ALT_MU_CLASS_321:BREL Class 321 (Electric)
-STR_NAME_LOCO_ALT_MU_CLASS_325:ABB Class 325 (Electric)
-STR_NAME_LOCO_ALT_MU_ELECTROSTAR:Electrostar (Electric)
-STR_NAME_LOCO_ALT_MU_PENDOLINO:Alstom Pendolino (Electric)
-STR_NAME_LOCO_ALT_MU_BREL_APT:BREL APT (Electric)
-STR_NAME_LOCO_ALT_MU_GEC_CLASS_91:GEC Class 91 (Electric)
-STR_NAME_LOCO_ALT_MU_EUROSTAR:GEC-Alstom Eurostar (Electric)
-STR_NAME_LOCO_ALT_MU_HITACHI_A_TRAIN:Hitachi A-Train (Electric)
-STR_NAME_LOCO_ALT_MU_1903_STOCK:1903 Stock (Electric)
-STR_NAME_LOCO_ALT_MU_1938_STOCK:1938 Stock (Electric)
-STR_NAME_LOCO_ALT_MU_1967_STOCK:1967 Stock (Electric)
-STR_NAME_LOCO_ALT_MU_1992_STOCK:1992 Stock (Electric)
-
-STR_NAME_LOCO_MU_BRIGHTON_BELLE:Brighton Belle (Electric)
-STR_NAME_LOCO_MU_SR_4DD:SR 4DD (Electric)
-
-
-STR_NAME_LOCO_MU_BRIGHTON_BELLE_A:Pullman EMU (Electric)
-STR_NAME_LOCO_MU_SR_4DD_A:Doubledecker EMU (Electric)
 
 STR_LIVERY_NAME_YEAR:(Default/Year-Dependent)
-
-STR_LIVERY_NAME_CC1:(CC1)
-STR_LIVERY_NAME_CC2:(CC2)
-STR_LIVERY_NAME_CC1_H:(Half CC1)
-STR_LIVERY_NAME_CC2_H:(Half CC2)
-STR_LIVERY_NAME_CC1_CC2:(CC1 with CC2)
-STR_LIVERY_NAME_CC2_CC1:(CC2 with CC1)
-STR_LIVERY_NAME_CC1_BR_GREEN:(CC1 - BR Green)
-STR_LIVERY_NAME_CC2_BR_GREEN:(CC2 - BR Green)
-STR_LIVERY_NAME_CC1_BR_GREEN_ALT:(CC1 - BR Green (Alternative))
-STR_LIVERY_NAME_CC2_BR_GREEN_ALT:(CC2 - BR Green (Alternative))
-STR_LIVERY_NAME_CC1_BR_GREEN_YLW:(CC1 - BR Green (Yellow Head))
-STR_LIVERY_NAME_CC2_BR_GREEN_YLW:(CC2 - BR Green (Yellow Head))
-STR_LIVERY_NAME_CC1_BR_BLUE:(CC1 - BR Blue)
-STR_LIVERY_NAME_CC2_BR_BLUE:(CC2 - BR Blue)
-STR_LIVERY_NAME_CC1_BR_BLUE_ALT:(CC1 - BR Blue (Alternative))
-STR_LIVERY_NAME_CC2_BR_BLUE_ALT:(CC2 - BR Blue (Alternative))
-STR_LIVERY_NAME_CC1_BR_IC:(CC1 - BR Intercity)
-STR_LIVERY_NAME_CC2_BR_IC:(CC2 - BR Intercity)
-STR_LIVERY_NAME_CC1_PROTO:(CC1 - Prototype)
-STR_LIVERY_NAME_CC2_PROTO:(CC2 - Prototype)
-STR_LIVERY_NAME_CC1_RAILFREIGHT:(CC1 - Railfreight)
-STR_LIVERY_NAME_CC2_RAILFREIGHT:(CC2 - Railfreight)
-STR_LIVERY_NAME_CC1_EWS:(CC1 - EWS)
-STR_LIVERY_NAME_CC2_EWS:(CC2 - EWS)
-
-STR_LIVERY_NAME_ORANGE:(Full Orange)
-STR_LIVERY_NAME_ORANGE_HALF:(Half Orange)
-STR_LIVERY_NAME_BROWN_HALF:(Half Brown)
-STR_LIVERY_NAME_BROWN:(Full Brown)
-STR_LIVERY_NAME_RED:(Red)
-STR_LIVERY_NAME_GREEN:(Green)
-STR_LIVERY_NAME_SILVER:(Silver)
-STR_LIVERY_NAME_GOLD:(Gold)
-STR_LIVERY_NAME_MAROON:(Maroon)
-STR_LIVERY_NAME_BLACK:(Black)
-STR_LIVERY_NAME_YELLOW:(Yellow)
-
-STR_LIVERY_NAME_LNER:(LNER Apple Green)
-STR_LIVERY_NAME_LNER_T:(LNER Teak)
-STR_LIVERY_NAME_LNER_B:(LNER Blue)
-STR_LIVERY_NAME_LMS:(LMS Maroon)
-STR_LIVERY_NAME_SR:(SR)
-STR_LIVERY_NAME_GWR:(GWR)
-STR_LIVERY_NAME_WAR:(Wartime)
-STR_LIVERY_NAME_GWR_BR:(GWR/BR Green)
-STR_LIVERY_NAME_LNER_A:(LNER Apple Green (Alternative))
-STR_LIVERY_NAME_LMS_A:(LMS Maroon (Alternative))
-STR_LIVERY_NAME_BR_GREEN:(BR Green)
-STR_LIVERY_NAME_BR_GREEN_ALT:(BR Green (Alternative))
-STR_LIVERY_NAME_BR_GREEN_YLW:(BR Green (Yellow Head))
-STR_LIVERY_NAME_BR_BLUE:(BR Blue)
-STR_LIVERY_NAME_BR_BLUE_ALT:(BR Blue (Alternative))
-STR_LIVERY_NAME_BR_IC:(BR Intercity)
-STR_LIVERY_NAME_BC:(Blood & Custard)
-STR_LIVERY_NAME_EWS:(EWS)
-STR_LIVERY_NAME_RAILFREIGHT:(Railfreight)
-STR_LIVERY_NAME_PROTO:(Prototype)
-STR_LIVERY_NAME_RANDOM:(Random)
-
-STR_LIVERY_NAME_DELTIC_DP1_CC1:(CC1 - DP1)
-STR_LIVERY_NAME_DELTIC_DP1_CC2:(CC2 - DP1)
-STR_LIVERY_NAME_DELTIC_DP1:(DP1)
-
-STR_LIVERY_NAME_STREAK_SILVER:(Silver Jubilee)

@@ -1,0 +1,57 @@
+//Sprite References & Switches
+spriteset(spriteset_RENEWAL_EMU_7_RCC_purchase, "gfx/MU/RENEWAL_EMU_7_RCC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_RENEWAL_EMU_7_RCC, "gfx/MU/RENEWAL_EMU_7_RCC.png") { template_fai_33(0, 16)}
+
+spriteset(spriteset_RENEWAL_EMU_7_RCC_wagon, "gfx/MU/RENEWAL_EMU_7_RCC.png") { template_fai_33(0, 41)}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_RENEWAL_EMU_7_RCC) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0E nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					1;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_RENEWAL_EMU_7_RCC); 
+		introduction_date:				date(1964,1,1);
+		vehicle_life: 					25;
+		model_life:						46;
+		length:							8;
+		
+		weight: 						72 ton;
+		speed:							90 mph;
+		power:							1000 hp;
+		tractive_effort_coefficient: 	0x3C nfo;
+		cost_factor: 					0x15 nfo;
+		running_cost_factor: 			0x1B nfo;
+		
+		variant_group: 			        ITEM_FAI_RENEWAL_EMU_7;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					32;
+		
+	}
+	graphics {
+		default:						spriteset_RENEWAL_EMU_7_RCC;
+		sound_effect:					sw_sfx_electric;
+		purchase:						spriteset_RENEWAL_EMU_7_RCC_purchase;
+		create_effect:					vfx_ohle_only;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						spriteset_RENEWAL_EMU_7_RCC_wagon;
+		length:							8;
+		weight:							72;
+		cargo_capacity:					35;
+		speed:							90 ;
+	}
+}

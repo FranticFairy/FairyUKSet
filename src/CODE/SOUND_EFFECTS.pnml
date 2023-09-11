@@ -90,7 +90,17 @@ random_switch(FEAT_TRAINS, SELF, sw_sfx_electric_idle){
 	2: sound("sfx/elen_stop.wav") ;
 }
 
+switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai, current_speed){
+	0..6 : sw_sfx_steam_slow ;
+	7..10 : sw_sfx_steam_med ;
+	sw_sfx_steam_fast ;
+}
+
 //STEAM LOCOS
+
+switch(FEAT_TRAINS, SELF, sw_sfx_steam, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai ;
+}
 
 //Below 35 - Jinty Whistle
 switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_v_slow, getbits(extra_callback_info1, 0, 8)){
@@ -184,7 +194,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_hs, getbits(extra_callback_info1, 0, 
 
 //DIESEL LOCOS - No Variable Running Sounds
 
-switch(FEAT_TRAINS, SELF, sw_sfx_diesel_default, getbits(extra_callback_info1, 0, 8)){
+switch(FEAT_TRAINS, SELF, sw_sfx_diesel, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/47_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;

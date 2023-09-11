@@ -1,0 +1,74 @@
+//Sprite References & Switches
+spriteset(spriteset_LEADER_purchase, "gfx/STEAM/LEADER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_LEADER, "gfx/STEAM/LEADER.png") { template_fai_33(0, 16)}
+spriteset(spriteset_LEADER_flip, "gfx/STEAM/LEADER.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_LEADER_flipcheck, vehicle_is_reversed){
+	1: spriteset_LEADER;
+	spriteset_LEADER_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_LEADER_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_LEADER_flip;
+	spriteset_LEADER ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_LEADER_randomflip) {
+	1: sw_LEADER_flipcheck;
+	1: sw_LEADER_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_LEADER_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_LEADER_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_LEADER_randomflip_steam) {
+	dependent:	sw_LEADER_randomflip;
+	1: sw_LEADER_flipcheck_steam_inv;
+	1: sw_LEADER_flipcheck_steam;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_LEADER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x12 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_LEADER); 
+		introduction_date:				date(1946,1,1);
+		vehicle_life: 					26;
+		model_life:						20;
+		length:							8;
+		
+		weight: 						130 ton;
+		speed:							70 mph;
+		power:							2000 hp;
+		tractive_effort_coefficient: 	0x28 nfo;
+		cost_factor: 					0x27 nfo;
+		running_cost_factor: 			0x45 nfo;
+		
+	}
+	graphics {
+		default:						sw_LEADER_randomflip;
+		visual_effect_and_powered:		sw_LEADER_randomflip_steam;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_LEADER_purchase;
+		create_effect:					vfx_steam;
+	}
+}

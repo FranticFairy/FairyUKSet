@@ -1,0 +1,57 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_89_purchase, "gfx/ELECTRIC/CLASS_89.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_89, "gfx/ELECTRIC/CLASS_89.png") { template_fai_33(0, 16)}
+spriteset(spriteset_CLASS_89_flip, "gfx/ELECTRIC/CLASS_89.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_89_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_89;
+	spriteset_CLASS_89_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_89_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_89_flip;
+	spriteset_CLASS_89 ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_89_randomflip) {
+	1: sw_CLASS_89_flipcheck;
+	1: sw_CLASS_89_flipcheck_inv;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CLASS_89) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0A nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_CLASS_89); 
+		introduction_date:				date(1986,1,1);
+		vehicle_life: 					35;
+		model_life:						20;
+		length:							8;
+		
+		weight: 						105 ton;
+		speed:							125 mph;
+		power:							5850 hp;
+		tractive_effort_coefficient: 	0x32 nfo;
+		cost_factor: 					0x5C nfo;
+		running_cost_factor: 			0x8C nfo;
+		
+	}
+	graphics {
+		default:						sw_CLASS_89_randomflip;
+		sound_effect:					sw_sfx_electric;
+		purchase:						spriteset_CLASS_89_purchase;
+		create_effect:					vfx_ohle;
+	}
+}

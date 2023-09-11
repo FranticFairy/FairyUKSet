@@ -1,0 +1,77 @@
+//Sprite References & Switches
+spriteset(spriteset_JINTY_1_CC_purchase, "gfx/STEAM/JINTY_1_CC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_JINTY_1_CC, "gfx/STEAM/JINTY_1_CC.png") { template_fai_21(0, 16)}
+spriteset(spriteset_JINTY_1_CC_flip, "gfx/STEAM/JINTY_1_CC.png") { template_fai_21_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_JINTY_1_CC_flipcheck, vehicle_is_reversed){
+	1: spriteset_JINTY_1_CC;
+	spriteset_JINTY_1_CC_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_JINTY_1_CC_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_JINTY_1_CC_flip;
+	spriteset_JINTY_1_CC ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_JINTY_1_CC_randomflip) {
+	1: sw_JINTY_1_CC_flipcheck;
+	1: sw_JINTY_1_CC_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_JINTY_1_CC_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_JINTY_1_CC_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_JINTY_1_CC_randomflip_steam) {
+	dependent:	sw_JINTY_1_CC_randomflip;
+	1: sw_JINTY_1_CC_flipcheck_steam_inv;
+	1: sw_JINTY_1_CC_flipcheck_steam;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_JINTY_1_CC) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x1C nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_JINTY_1_CC); 
+		introduction_date:				date(1924,1,1);
+		vehicle_life: 					40;
+		model_life:						43;
+		length:							5;
+		
+		weight: 						50 ton;
+		speed:							45 mph;
+		power:							500 hp;
+		tractive_effort_coefficient: 	0x1B nfo;
+		cost_factor: 					0x0F nfo;
+		running_cost_factor: 			0x10 nfo;
+		
+		variant_group: 			        ITEM_FAI_JINTY_1;
+		
+	}
+	graphics {
+		default:						sw_JINTY_1_CC_randomflip;
+		visual_effect_and_powered:		sw_JINTY_1_CC_randomflip_steam;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_JINTY_1_CC_purchase;
+		create_effect:					vfx_steam;
+	}
+}

@@ -1,0 +1,59 @@
+//Sprite References & Switches
+spriteset(spriteset_604_2_BRG_purchase, "gfx/STEAM/GARRATT.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_604_2_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/604_2_BRG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_604_2_BRG, "gfx/STEAM/GARRATT.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_604_2_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/604_2_BRG.png") { template_fai_29(0, 16)}
+spriteset(spriteset_604_2_BRG_tender, "gfx/STEAM/GARRATT.png") { template_fai_16(0, 41)}
+alternative_sprites(spriteset_604_2_BRG_tender, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/604_2_BRG.png") { template_fai_16(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_604_2_BRG_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_604_2_BRG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x08 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_604_2_BRG); 
+		introduction_date:				date(2032,1,1);
+		vehicle_life: 					35;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							7;
+		
+		weight: 						155 ton;
+		speed:							150 mph;
+		power:							4000 hp;
+		tractive_effort_coefficient: 	0x1D nfo;
+		cost_factor: 					0x24 nfo;
+		running_cost_factor: 			0x3D nfo;
+		
+		variant_group: 			        ITEM_FAI_604_2;
+		
+	}
+	graphics {
+		default:						spriteset_604_2_BRG;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_604_2_BRG_purchase;
+		create_effect:					vfx_steam;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+		articulated_part:				sw_604_2_BRG_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER) {
+		default: 						spriteset_604_2_BRG_tender;
+		length: 						4;
+	}
+}

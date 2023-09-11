@@ -1,0 +1,59 @@
+//Sprite References & Switches
+spriteset(spriteset_MICKEY_1_LR_purchase, "gfx/STEAM/GARRATT.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_MICKEY_1_LR_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/MICKEY_1_LR.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_MICKEY_1_LR, "gfx/STEAM/GARRATT.png") { template_fai_21(0, 16)}
+alternative_sprites(spriteset_MICKEY_1_LR, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/MICKEY_1_LR.png") { template_fai_21(0, 16)}
+spriteset(spriteset_MICKEY_1_LR_tender, "gfx/STEAM/GARRATT.png") { template_fai_14(0, 41)}
+alternative_sprites(spriteset_MICKEY_1_LR_tender, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/MICKEY_1_LR.png") { template_fai_14(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_MICKEY_1_LR_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_MICKEY_1_LR) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0F nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_MICKEY_1_LR); 
+		introduction_date:				date(1946,1,1);
+		vehicle_life: 					30;
+		model_life:						21;
+		length:							5;
+		
+		weight: 						84 ton;
+		speed:							80 mph;
+		power:							1000 hp;
+		tractive_effort_coefficient: 	0x27 nfo;
+		cost_factor: 					0x1C nfo;
+		running_cost_factor: 			0x32 nfo;
+		
+		variant_group: 			        ITEM_FAI_MICKEY_1;
+		
+	}
+	graphics {
+		default:						spriteset_MICKEY_1_LR;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_MICKEY_1_LR_purchase;
+		create_effect:					vfx_steam;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+		articulated_part:				sw_MICKEY_1_LR_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER) {
+		default: 						spriteset_MICKEY_1_LR_tender;
+		length: 						3;
+	}
+}

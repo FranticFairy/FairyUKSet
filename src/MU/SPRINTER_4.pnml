@@ -1,0 +1,57 @@
+//Sprite References & Switches
+spriteset(spriteset_SPRINTER_4_purchase, "gfx/MU/SPRINTER_4.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SPRINTER_4, "gfx/MU/SPRINTER_4.png") { template_fai_33(0, 16)}
+
+spriteset(spriteset_SPRINTER_4_wagon, "gfx/MU/SPRINTER_4.png") { template_fai_33(0, 41)}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SPRINTER_4) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x10 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					1;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_SPRINTER_4); 
+		introduction_date:				date(1984,1,1);
+		vehicle_life: 					20;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		weight: 						72 ton;
+		speed:							75 mph;
+		power:							775 hp;
+		tractive_effort_coefficient: 	0x25 nfo;
+		cost_factor: 					0x15 nfo;
+		running_cost_factor: 			0x15 nfo;
+		
+		variant_group: 			        ITEM_FAI_SPRINTER;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				PASS;
+		cargo_capacity:					35;
+		
+	}
+	graphics {
+		default:						spriteset_SPRINTER_4;
+		sound_effect:					sw_sfx_diesel;
+		purchase:						spriteset_SPRINTER_4_purchase;
+		create_effect:					vfx_diesel;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						spriteset_SPRINTER_4_wagon;
+		length:							8;
+		weight:							72;
+		cargo_capacity:					35;
+		speed:							75 ;
+	}
+}

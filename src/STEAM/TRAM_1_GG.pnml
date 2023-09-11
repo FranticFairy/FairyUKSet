@@ -1,0 +1,80 @@
+//Sprite References & Switches
+spriteset(spriteset_TRAM_1_GG_purchase, "gfx/STEAM/GARRATT.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_TRAM_1_GG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/TRAM_1_GG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_TRAM_1_GG, "gfx/STEAM/GARRATT.png") { template_fai_17(0, 16)}
+alternative_sprites(spriteset_TRAM_1_GG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/TRAM_1_GG.png") { template_fai_17(0, 16)}
+spriteset(spriteset_TRAM_1_GG_flip, "gfx/STEAM/GARRATT.png") { template_fai_17_r(0, 16)}
+alternative_sprites(spriteset_TRAM_1_GG_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/TRAM_1_GG.png") { template_fai_17_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_TRAM_1_GG_flipcheck, vehicle_is_reversed){
+	1: spriteset_TRAM_1_GG;
+	spriteset_TRAM_1_GG_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_TRAM_1_GG_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_TRAM_1_GG_flip;
+	spriteset_TRAM_1_GG ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_TRAM_1_GG_randomflip) {
+	1: sw_TRAM_1_GG_flipcheck;
+	1: sw_TRAM_1_GG_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_TRAM_1_GG_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_TRAM_1_GG_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_TRAM_1_GG_randomflip_steam) {
+	dependent:	sw_TRAM_1_GG_randomflip;
+	1: sw_TRAM_1_GG_flipcheck_steam_inv;
+	1: sw_TRAM_1_GG_flipcheck_steam;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_TRAM_1_GG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x2A nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_TRAM_1_GG); 
+		introduction_date:				date(1903,1,1);
+		vehicle_life: 					33;
+		model_life:						52;
+		length:							4;
+		
+		weight: 						28 ton;
+		speed:							30 mph;
+		power:							200 hp;
+		tractive_effort_coefficient: 	0x20 nfo;
+		cost_factor: 					0x08 nfo;
+		running_cost_factor: 			0x06 nfo;
+		
+		variant_group: 			        ITEM_FAI_TRAM_1;
+		
+	}
+	graphics {
+		default:						sw_TRAM_1_GG_randomflip;
+		visual_effect_and_powered:		sw_TRAM_1_GG_randomflip_steam;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_TRAM_1_GG_purchase;
+		create_effect:					vfx_steam;
+	}
+}

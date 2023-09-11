@@ -1,0 +1,60 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_60_1_purchase, "gfx/DIESEL/CLASS_60_1.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_60_1, "gfx/DIESEL/CLASS_60_1.png") { template_fai_33(0, 16)}
+spriteset(spriteset_CLASS_60_1_flip, "gfx/DIESEL/CLASS_60_1.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_60_1_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_60_1;
+	spriteset_CLASS_60_1_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_60_1_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_60_1_flip;
+	spriteset_CLASS_60_1 ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_60_1_randomflip) {
+	1: sw_CLASS_60_1_flipcheck;
+	1: sw_CLASS_60_1_flipcheck_inv;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CLASS_60_1) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x15 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_CLASS_60_1); 
+		introduction_date:				date(1989,1,1);
+		vehicle_life: 					30;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							8;
+		
+		weight: 						129 ton;
+		speed:							60 mph;
+		power:							3100 hp;
+		tractive_effort_coefficient: 	0x5E nfo;
+		cost_factor: 					0x28 nfo;
+		running_cost_factor: 			0x38 nfo;
+		
+		variant_group: 			        ITEM_FAI_CLASS_60;
+		
+	}
+	graphics {
+		default:						sw_CLASS_60_1_randomflip;
+		sound_effect:					sw_sfx_diesel;
+		purchase:						spriteset_CLASS_60_1_purchase;
+		create_effect:					vfx_diesel;
+	}
+}

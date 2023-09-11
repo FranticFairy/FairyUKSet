@@ -1,0 +1,60 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_90_3_RCC_purchase, "gfx/ELECTRIC/CLASS_90_3_RCC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_90_3_RCC, "gfx/ELECTRIC/CLASS_90_3_RCC.png") { template_fai_29(0, 16)}
+spriteset(spriteset_CLASS_90_3_RCC_flip, "gfx/ELECTRIC/CLASS_90_3_RCC.png") { template_fai_29_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_90_3_RCC_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_90_3_RCC;
+	spriteset_CLASS_90_3_RCC_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_90_3_RCC_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_90_3_RCC_flip;
+	spriteset_CLASS_90_3_RCC ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_90_3_RCC_randomflip) {
+	1: sw_CLASS_90_3_RCC_flipcheck;
+	1: sw_CLASS_90_3_RCC_flipcheck_inv;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CLASS_90_3_RCC) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0B nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_CLASS_90_3_RCC); 
+		introduction_date:				date(1987,1,1);
+		vehicle_life: 					35;
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							7;
+		
+		weight: 						84 ton;
+		speed:							110 mph;
+		power:							5000 hp;
+		tractive_effort_coefficient: 	0x4E nfo;
+		cost_factor: 					0x3F nfo;
+		running_cost_factor: 			0x6B nfo;
+		
+		variant_group: 			        ITEM_FAI_CLASS_90_3;
+		
+	}
+	graphics {
+		default:						sw_CLASS_90_3_RCC_randomflip;
+		sound_effect:					sw_sfx_electric;
+		purchase:						spriteset_CLASS_90_3_RCC_purchase;
+		create_effect:					vfx_ohle;
+	}
+}

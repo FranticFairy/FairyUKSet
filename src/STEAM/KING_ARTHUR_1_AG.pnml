@@ -1,0 +1,59 @@
+//Sprite References & Switches
+spriteset(spriteset_KING_ARTHUR_1_AG_purchase, "gfx/STEAM/GARRATT.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_KING_ARTHUR_1_AG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/KING_ARTHUR_1_AG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_KING_ARTHUR_1_AG, "gfx/STEAM/GARRATT.png") { template_fai_24(0, 16)}
+alternative_sprites(spriteset_KING_ARTHUR_1_AG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/KING_ARTHUR_1_AG.png") { template_fai_24(0, 16)}
+spriteset(spriteset_KING_ARTHUR_1_AG_tender, "gfx/STEAM/GARRATT.png") { template_fai_13(0, 41)}
+alternative_sprites(spriteset_KING_ARTHUR_1_AG_tender, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/KING_ARTHUR_1_AG.png") { template_fai_13(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_KING_ARTHUR_1_AG_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_KING_ARTHUR_1_AG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0E nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_KING_ARTHUR_1_AG); 
+		introduction_date:				date(1918,1,1);
+		vehicle_life: 					31;
+		model_life:						44;
+		length:							6;
+		
+		weight: 						138 ton;
+		speed:							90 mph;
+		power:							1150 hp;
+		tractive_effort_coefficient: 	0x1C nfo;
+		cost_factor: 					0x23 nfo;
+		running_cost_factor: 			0x34 nfo;
+		
+		variant_group: 			        ITEM_FAI_KING_ARTHUR_1;
+		
+	}
+	graphics {
+		default:						spriteset_KING_ARTHUR_1_AG;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_KING_ARTHUR_1_AG_purchase;
+		create_effect:					vfx_steam;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+		articulated_part:				sw_KING_ARTHUR_1_AG_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER) {
+		default: 						spriteset_KING_ARTHUR_1_AG_tender;
+		length: 						3;
+	}
+}

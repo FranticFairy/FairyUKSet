@@ -1,0 +1,74 @@
+//Sprite References & Switches
+spriteset(spriteset_SUBURBAN_II_purchase, "gfx/STEAM/SUBURBAN_II.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SUBURBAN_II, "gfx/STEAM/SUBURBAN_II.png") { template_fai_29(0, 16)}
+spriteset(spriteset_SUBURBAN_II_flip, "gfx/STEAM/SUBURBAN_II.png") { template_fai_29_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_II_flipcheck, vehicle_is_reversed){
+	1: spriteset_SUBURBAN_II;
+	spriteset_SUBURBAN_II_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_II_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_SUBURBAN_II_flip;
+	spriteset_SUBURBAN_II ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_SUBURBAN_II_randomflip) {
+	1: sw_SUBURBAN_II_flipcheck;
+	1: sw_SUBURBAN_II_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_II_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_SUBURBAN_II_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_SUBURBAN_II_randomflip_steam) {
+	dependent:	sw_SUBURBAN_II_randomflip;
+	1: sw_SUBURBAN_II_flipcheck_steam_inv;
+	1: sw_SUBURBAN_II_flipcheck_steam;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SUBURBAN_II) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x12 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_SUBURBAN_II); 
+		introduction_date:				date(1927,1,1);
+		vehicle_life: 					35;
+		model_life:						39;
+		length:							7;
+		
+		weight: 						88 ton;
+		speed:							70 mph;
+		power:							1200 hp;
+		tractive_effort_coefficient: 	0x18 nfo;
+		cost_factor: 					0x1A nfo;
+		running_cost_factor: 			0x2C nfo;
+		
+	}
+	graphics {
+		default:						sw_SUBURBAN_II_randomflip;
+		visual_effect_and_powered:		sw_SUBURBAN_II_randomflip_steam;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_SUBURBAN_II_purchase;
+		create_effect:					vfx_steam;
+	}
+}

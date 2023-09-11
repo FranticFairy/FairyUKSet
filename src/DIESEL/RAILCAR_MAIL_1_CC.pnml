@@ -1,0 +1,64 @@
+//Sprite References & Switches
+spriteset(spriteset_RAILCAR_MAIL_1_CC_purchase, "gfx/DIESEL/RAILCAR_MAIL_1_CC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_RAILCAR_MAIL_1_CC, "gfx/DIESEL/RAILCAR_MAIL_1_CC.png") { template_fai_33(0, 16)}
+spriteset(spriteset_RAILCAR_MAIL_1_CC_flip, "gfx/DIESEL/RAILCAR_MAIL_1_CC.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILCAR_MAIL_1_CC_flipcheck, vehicle_is_reversed){
+	1: spriteset_RAILCAR_MAIL_1_CC;
+	spriteset_RAILCAR_MAIL_1_CC_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILCAR_MAIL_1_CC_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_RAILCAR_MAIL_1_CC_flip;
+	spriteset_RAILCAR_MAIL_1_CC ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_RAILCAR_MAIL_1_CC_randomflip) {
+	1: sw_RAILCAR_MAIL_1_CC_flipcheck;
+	1: sw_RAILCAR_MAIL_1_CC_flipcheck_inv;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_RAILCAR_MAIL_1_CC) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x15 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_RAILCAR_MAIL_1_CC); 
+		introduction_date:				date(1936,1,1);
+		vehicle_life: 					20;
+		model_life:						24;
+		length:							8;
+		
+		weight: 						29 ton;
+		speed:							60 mph;
+		power:							260 hp;
+		tractive_effort_coefficient: 	0x1E nfo;
+		cost_factor: 					0x06 nfo;
+		running_cost_factor: 			0x08 nfo;
+		
+		variant_group: 			        ITEM_FAI_RAILCAR_MAIL_1;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL);
+		default_cargo_type:				MAIL;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_RAILCAR_MAIL_1_CC_randomflip;
+		sound_effect:					sw_sfx_diesel;
+		purchase:						spriteset_RAILCAR_MAIL_1_CC_purchase;
+		create_effect:					vfx_diesel;
+	}
+}

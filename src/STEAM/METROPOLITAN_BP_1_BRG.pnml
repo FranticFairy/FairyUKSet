@@ -1,0 +1,80 @@
+//Sprite References & Switches
+spriteset(spriteset_METROPOLITAN_BP_1_BRG_purchase, "gfx/STEAM/GARRATT.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_METROPOLITAN_BP_1_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/METROPOLITAN_BP_1_BRG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_METROPOLITAN_BP_1_BRG, "gfx/STEAM/GARRATT.png") { template_fai_21(0, 16)}
+alternative_sprites(spriteset_METROPOLITAN_BP_1_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/METROPOLITAN_BP_1_BRG.png") { template_fai_21(0, 16)}
+spriteset(spriteset_METROPOLITAN_BP_1_BRG_flip, "gfx/STEAM/GARRATT.png") { template_fai_21_r(0, 16)}
+alternative_sprites(spriteset_METROPOLITAN_BP_1_BRG_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/STEAM/METROPOLITAN_BP_1_BRG.png") { template_fai_21_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_METROPOLITAN_BP_1_BRG_flipcheck, vehicle_is_reversed){
+	1: spriteset_METROPOLITAN_BP_1_BRG;
+	spriteset_METROPOLITAN_BP_1_BRG_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_METROPOLITAN_BP_1_BRG_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_METROPOLITAN_BP_1_BRG_flip;
+	spriteset_METROPOLITAN_BP_1_BRG ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_METROPOLITAN_BP_1_BRG_randomflip) {
+	1: sw_METROPOLITAN_BP_1_BRG_flipcheck;
+	1: sw_METROPOLITAN_BP_1_BRG_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_METROPOLITAN_BP_1_BRG_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_METROPOLITAN_BP_1_BRG_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_METROPOLITAN_BP_1_BRG_randomflip_steam) {
+	dependent:	sw_METROPOLITAN_BP_1_BRG_randomflip;
+	1: sw_METROPOLITAN_BP_1_BRG_flipcheck_steam_inv;
+	1: sw_METROPOLITAN_BP_1_BRG_flipcheck_steam;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_METROPOLITAN_BP_1_BRG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x19 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_METROPOLITAN_BP_1_BRG); 
+		introduction_date:				date(1879,1,1);
+		vehicle_life: 					35;
+		model_life:						35;
+		length:							5;
+		
+		weight: 						50 ton;
+		speed:							50 mph;
+		power:							450 hp;
+		tractive_effort_coefficient: 	0x2F nfo;
+		cost_factor: 					0x0F nfo;
+		running_cost_factor: 			0x0F nfo;
+		
+		variant_group: 			        ITEM_FAI_METROPOLITAN_BP_1;
+		
+	}
+	graphics {
+		default:						sw_METROPOLITAN_BP_1_BRG_randomflip;
+		visual_effect_and_powered:		sw_METROPOLITAN_BP_1_BRG_randomflip_steam;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_METROPOLITAN_BP_1_BRG_purchase;
+		create_effect:					vfx_steam;
+	}
+}

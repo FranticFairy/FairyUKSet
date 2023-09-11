@@ -1,4 +1,4 @@
-spriteset(spriteset_tender_placeholder, "gfx/STEAM/JINTY.png") { template_fai_21(187, 39)}
+spriteset(spriteset_tender_placeholder, "gfx/STEAM/GARRATT.png") { template_fai_21(0, 16)}
 
 item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER) {
 	property {
@@ -58,7 +58,7 @@ item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER_2) {
 		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -3, ENABLE_WAGON_POWER);
 	}
 	graphics {
-		default: 							spriteset_GARRATT_middle;
+		default: 							spriteset_tender_placeholder;
 		sound_effect:						sw_sfx_steam_fai_slow_lms ;
 		create_effect:                      vfx_steam ;
 	}

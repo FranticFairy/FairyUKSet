@@ -24,7 +24,6 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_BR_BRAKE_VAN) {
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		
 		default_cargo_type:				PASS;
-		cargo_capacity:					1 ;
 		
 		weight:                         20 ton;
 		speed:							70 mph;

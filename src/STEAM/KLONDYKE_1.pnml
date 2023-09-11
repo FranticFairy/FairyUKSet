@@ -1,0 +1,56 @@
+//Sprite References & Switches
+spriteset(spriteset_KLONDYKE_1_purchase, "gfx/STEAM/KLONDYKE_1.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_KLONDYKE_1, "gfx/STEAM/KLONDYKE_1.png") { template_fai_25(0, 16)}
+spriteset(spriteset_KLONDYKE_1_tender, "gfx/STEAM/KLONDYKE_1.png") { template_fai_12(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_KLONDYKE_1_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_KLONDYKE_1) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0E nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					0;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_KLONDYKE_1); 
+		introduction_date:				date(1898,1,1);
+		vehicle_life: 					35;
+		model_life:						48;
+		length:							6;
+		
+		weight: 						108 ton;
+		speed:							90 mph;
+		power:							1000 hp;
+		tractive_effort_coefficient: 	0x1E nfo;
+		cost_factor: 					0x1B nfo;
+		running_cost_factor: 			0x2D nfo;
+		
+		variant_group: 			        ITEM_FAI_KLONDYKE;
+		
+	}
+	graphics {
+		default:						spriteset_KLONDYKE_1;
+		sound_effect:					sw_sfx_steam;
+		purchase:						spriteset_KLONDYKE_1_purchase;
+		create_effect:					vfx_steam;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+		articulated_part:				sw_KLONDYKE_1_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER) {
+		default: 						spriteset_KLONDYKE_1_tender;
+		length: 						3;
+	}
+}
