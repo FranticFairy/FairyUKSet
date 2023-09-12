@@ -1,0 +1,40 @@
+//Sprite References & Switches
+spriteset(spriteset_AUTOCOACH_1_purchase, "gfx/PASS/AUTOCOACH_1.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_AUTOCOACH_1, "gfx/PASS/AUTOCOACH_1.png") { template_fai_29(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PASS_AUTOCOACH_1) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_PASS_AUTOCOACH_1); 
+		introduction_date:				date(1904,1,1);
+		model_life:						50;
+		length:							7;
+		
+		weight: 						30 ton;
+		speed:							75 mph;
+		cost_factor: 					0x68 nfo;
+		running_cost_factor: 			0x44 nfo;
+		
+		variant_group: 			        ITEM_FAI_PASS_AUTOCOACH;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		non_refittable_cargo_classes:	bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					30;
+		
+	}
+	graphics {
+		default:						spriteset_AUTOCOACH_1;
+		purchase:						spriteset_AUTOCOACH_1_purchase;
+	}
+}

@@ -32,7 +32,7 @@ item (FEAT_TRAINS, ITEM_FAI_STANDARD_1_GG) {
 		introduction_date:				date(1952,1,1);
 		vehicle_life: 					35;
 		model_life:						20;
-		length:							6;
+		length:							5;
 		
 		weight: 						110 ton;
 		speed:							90 mph;

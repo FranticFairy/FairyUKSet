@@ -32,7 +32,7 @@ item (FEAT_TRAINS, ITEM_FAI_MICKEY_1_BLK) {
 		introduction_date:				date(1946,1,1);
 		vehicle_life: 					30;
 		model_life:						21;
-		length:							5;
+		length:							4;
 		
 		weight: 						84 ton;
 		speed:							80 mph;

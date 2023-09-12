@@ -1,0 +1,40 @@
+//Sprite References & Switches
+spriteset(spriteset_PULLMAN_BRAKE_1_RCC_purchase, "gfx/PASS/PULLMAN_BRAKE_1_RCC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_PULLMAN_BRAKE_1_RCC, "gfx/PASS/PULLMAN_BRAKE_1_RCC.png") { template_fai_33(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PASS_PULLMAN_BRAKE_1_RCC) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_PASS_PULLMAN_BRAKE_1_RCC); 
+		introduction_date:				date(1928,1,1);
+		model_life:						42;
+		length:							8;
+		
+		weight: 						33 ton;
+		speed:							100 mph;
+		cost_factor: 					0x7B nfo;
+		running_cost_factor: 			0x28 nfo;
+		
+		variant_group: 			        ITEM_FAI_PASS_PULLMAN_BRAKE_1;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL, CC_ARMOURED, CC_EXPRESS);
+		non_refittable_cargo_classes:	bitmask();
+		default_cargo_type:				MAIL;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						spriteset_PULLMAN_BRAKE_1_RCC;
+		purchase:						spriteset_PULLMAN_BRAKE_1_RCC_purchase;
+	}
+}
