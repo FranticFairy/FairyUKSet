@@ -1,7 +1,12 @@
 railtypetable {
-    STANDARD_GAUGE_RAILTYPE_ALL, NARROW_GAUGE_RAILTYPE_ALL,
-	SAA3: [SAA3, "3RDR", ELRL],
-	SAAZ: [SAAZ, "3RDC", ELRL],
+    STANDARD_GAUGE_RAILTYPE_ALL, NARROW_GAUGE_RAILTYPE_ALL, SAAA, SAAd,
+	RAIL: [SAAN, RAIL],
+	ELRL: [SAAA, SAAE, ELRL], //legacy treated as 25kv ac
+	SAAA: [SAAA, SAAE, ELRL], //25kv ac
+	SAAd: [SAAd, SAAD, SAAE, ELRL], //1.5kv dc
+	SAAE: [SAAE, ELRL], //multivoltage ac/dc (eurostar?)
+	SAA3: [SAA3, "3RDR", ELRL], //3rd rail dc
+	SAAZ: [SAAZ, "3RDC", ELRL], //3rd rail dc and multivoltage (can't be specifically 25kv due to scheme but SMITS allows this behavior)
 	SAA4: [SAA4, "4RDR", "3RDR", SAA3, ELRL]
 }
 

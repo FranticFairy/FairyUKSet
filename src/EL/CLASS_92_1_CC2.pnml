@@ -56,5 +56,6 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_92_1_CC2) {
 		sound_effect:					sw_sfx_ELECTRIC;
 		purchase:						spriteset_CLASS_92_1_CC2_purchase;
 		create_effect:					vfx_dual_voltage;
+		power:							power_dual_voltage_25kv(5300, 6700);
 	}
 }

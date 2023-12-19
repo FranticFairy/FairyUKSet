@@ -41,14 +41,20 @@ traininfo_y_offset = 2 ;
 
 
 
-
-
 	
 	
 
 
 
+switch(FEAT_TRAINS, SELF, power_dual_voltage_25kv, power_3rd, power_ohle, railtype_available("SAAA") ? tile_powers_railtype("SAAA") : (tile_powers_railtype("SAAE") || tile_powers_railtype("ELRL"))) {
+	1: power_ohle;
+	power_3rd;
+}
 
+switch(FEAT_TRAINS, SELF, power_dual_voltage_1500v, power_3rd, power_ohle, railtype_available("SAAd") ? tile_powers_railtype("SAAd") : (tile_powers_railtype("SAAE") || tile_powers_railtype("ELRL"))) {
+	1: power_ohle;
+	power_3rd;
+}
 # 1 "ukfs.pnml" 2
 # 1 "src/CODE/CARGO_TABLE.PNML" 1
 cargotable {
@@ -197,9 +203,14 @@ ZINC,
 # 1 "ukfs.pnml" 2
 # 1 "src/CODE/RAILTYPE_TABLE.PNML" 1
 railtypetable {
-    "RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ",  "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN", "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE",
-	SAA3: [SAA3, "3RDR", ELRL],
-	SAAZ: [SAAZ, "3RDC", ELRL],
+    "RAIL", "RLOW", "RMED", "RHIG", "SAAN", "SABN", "SACN", "SBAN", "SBBN", "SBCN", "SCAN", "SCBN", "SCCN", "SDAN", "SDBN", "DBNN", "DBHN", "_040", "_080", "SEAN", "SFAN", "SGAN", "ELRL", "ELOW", "EMED", "EHIG", "HSTR", "SAAE", "SABE", "SACE", "SBAE", "SBBE", "SBCE", "SCAE", "SCBE", "SCCE", "SDAE", "SDBE", "SEAE", "SEBE", "DBNE", "DBHE", "DBHS", "E040", "E080", "SFAE", "SGAE", "SHAE", "3RDR", "3LOW", "3MED", "SAA3", "SAB3", "SAC3", "SBA3", "SBB3", "SBC3", "SCA3", "SCB3", "SCC3", "SDA3", "SEA3", "SFA3" , "4RDR", "4LOW", "4MED", "SAA4", "SAB4", "SAC4", "SBA4", "SBB4", "SBC4", "SCA4", "SCB4", "SCC4", "MTRO", "MTRC", "MTRS", "MTRU", "MTRT", "SDA4", "3RDC", "CLOW", "CMED", "SAAZ", "SABZ", "SACZ", "SBAZ", "SBBZ", "SBCZ", "SCAZ", "SCBZ", "SCCZ", "SDAZ",  "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN", "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE", SAAA, SAAd,
+	RAIL: [SAAN, RAIL],
+	ELRL: [SAAA, SAAE, ELRL], //legacy treated as 25kv ac
+	SAAA: [SAAA, SAAE, ELRL], //25kv ac
+	SAAd: [SAAd, SAAD, SAAE, ELRL], //1.5kv dc
+	SAAE: [SAAE, ELRL], //multivoltage ac/dc (eurostar?)
+	SAA3: [SAA3, "3RDR", ELRL], //3rd rail dc
+	SAAZ: [SAAZ, "3RDC", ELRL], //3rd rail dc and multivoltage (can't be specifically 25kv due to scheme but SMITS allows this behavior)
 	SAA4: [SAA4, "4RDR", "3RDR", SAA3, ELRL]
 }
 
@@ -865,20 +876,28 @@ switch (FEAT_TRAINS, SELF, vfx_DIESEL, [STORE_TEMP(create_effect(EFFECT_SPRITE_D
     return 1;
 }
 
-switch(FEAT_TRAINS, SELF, vfx_dual_voltage, current_railtype){
-	SAA3: vfx_3rd;
+switch(FEAT_TRAINS, SELF, vfx_dual_voltage, tile_powers_railtype("SAAE") || tile_powers_railtype("ELRL")){
+	1: vfx_3rd;
 	vfx_ohle;
 }
 
-switch(FEAT_TRAINS, SELF, vfx_3rd_only, current_railtype){
-	SAA3: vfx_3rd;
-	SAAZ: vfx_3rd;
+switch(FEAT_TRAINS, SELF, vfx_3rd_only, tile_powers_railtype("SAA3") || tile_powers_railtype("3RDR")){
+	1: vfx_3rd;
 	return 0;
 }
 
-switch(FEAT_TRAINS, SELF, vfx_ohle_only, current_railtype){
-	ELRL: vfx_ohle;
-	SAAZ: vfx_ohle;
+switch(FEAT_TRAINS, SELF, vfx_25kv_only, railtype_available("SAAA") ? tile_powers_railtype("SAAA") : (tile_powers_railtype("SAAE") || tile_powers_railtype("ELRL"))){
+	1: vfx_ohle;
+	return 0;
+}
+
+switch(FEAT_TRAINS, SELF, vfx_1500v_only, railtype_available("SAAd") ? tile_powers_railtype("SAAd") : (tile_powers_railtype("SAAE") || tile_powers_railtype("ELRL"))){
+	1: vfx_ohle;
+	return 0;
+}
+
+switch(FEAT_TRAINS, SELF, vfx_multivoltage_only, tile_powers_railtype("SAAE") || tile_powers_railtype("ELRL")){
+	1: vfx_ohle;
 	return 0;
 }
 
@@ -13220,7 +13239,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_77) {
 		air_drag_coefficient:			0x0E nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -13280,7 +13299,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_77_0) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -13342,7 +13361,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_77_1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -13404,7 +13423,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_77_2) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -13489,6 +13508,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_92) {
 		sound_effect:					sw_sfx_ELECTRIC;
 		purchase:						spriteset_CLASS_92_purchase;
 		create_effect:					vfx_dual_voltage;
+		power:							power_dual_voltage_25kv(5300, 6700);
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -13551,6 +13571,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_92_0) {
 		sound_effect:					sw_sfx_ELECTRIC;
 		purchase:						spriteset_CLASS_92_0_purchase;
 		create_effect:					vfx_dual_voltage;
+		power:							power_dual_voltage_25kv(5300, 6700);
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -13613,6 +13634,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_92_1) {
 		sound_effect:					sw_sfx_ELECTRIC;
 		purchase:						spriteset_CLASS_92_1_purchase;
 		create_effect:					vfx_dual_voltage;
+		power:							power_dual_voltage_25kv(5300, 6700);
 	}
 }
 # 1 "ukfs.pnml" 2
@@ -13648,7 +13670,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_EE1) {
 		air_drag_coefficient:			0x10 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -14749,7 +14771,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_EF1) {
 		air_drag_coefficient:			0x1C nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -14808,7 +14830,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_76) {
 		air_drag_coefficient:			0x14 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -14868,7 +14890,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_76_0) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -14930,7 +14952,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_76_1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -14992,7 +15014,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_76_2) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
