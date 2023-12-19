@@ -1,0 +1,53 @@
+//Sprite References & Switches
+spriteset(spriteset_SHIRE_purchase, "gfx/SL/SHIRE.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SHIRE, "gfx/SL/SHIRE.png") { template_fai_25(0, 16)}
+spriteset(spriteset_SHIRE_tender_0, "gfx/SL/SHIRE.png") { template_fai_12(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_SHIRE_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER_0;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_SHIRE) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0E nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_SHIRE); 
+		introduction_date:				date(1927,1,1);
+		vehicle_life: 					32;
+		model_life:						34;
+		length:							6;
+		
+		weight: 						119 ton;
+		speed:							90 mph;
+		power:							1250 hp;
+		tractive_effort_coefficient: 	0x14 nfo;
+		cost_factor: 					0x1E nfo;
+		running_cost_factor: 			0x36 nfo;
+		
+	}
+	graphics {
+		default:						spriteset_SHIRE;
+		sound_effect:					sw_sfx_STEAM;
+		purchase:						spriteset_SHIRE_purchase;
+		create_effect:					vfx_STEAM;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+		articulated_part:				sw_SHIRE_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER_0) {
+		default: 						spriteset_SHIRE_tender_0;
+		length: 						3;
+	}
+}

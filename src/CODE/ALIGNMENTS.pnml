@@ -251,6 +251,17 @@ template template_fai_14_r(x,y){
     [ x+155, y, 22, 20, -15, -16, ANIM]
 }
 
+template template_fai_14mm(x,y){
+    [ x+89 , y, 8 , 24,  -3, -20, ANIM] 
+    [ x+98 , y, 22, 20,  -5, -16, ANIM]
+    [ x+121, y, 33, 16,  -1, -12, ANIM]
+    [ x+155, y, 22, 20,  -8, -12, ANIM]
+    [ x    , y, 8 , 24,  -3, -14, ANIM]
+    [ x+9  , y, 22, 20, -12, -12, ANIM]
+    [ x+32 , y, 33, 16, -14, -12, ANIM]
+    [ x+66 , y, 22, 20, -15, -16, ANIM]
+}
+
 template template_fai_16(x,y){
     [ x+89 , y, 8 , 24,  -3, -20, ANIM] 
     [ x+98 , y, 22, 20,  -5, -16, ANIM]

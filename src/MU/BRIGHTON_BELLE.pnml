@@ -4,15 +4,16 @@ spriteset(spriteset_BRIGHTON_BELLE_purchase, "gfx/MU/BRIGHTON_BELLE.png") { temp
 spriteset(spriteset_BRIGHTON_BELLE, "gfx/MU/BRIGHTON_BELLE.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_BRIGHTON_BELLE_wagon, "gfx/MU/BRIGHTON_BELLE.png") { template_fai_33(0, 41)}
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_BRIGHTON_BELLE) {
+item (FEAT_TRAINS, ITEM_FAI_MU_BRIGHTON_BELLE) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				NO_CLIMATE;
 		bitmask_vehicle_info:			0;
-		air_drag_coefficient:			0x10 nfo;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		air_drag_coefficient:			0x11 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
 		track_type:						SAA3;
@@ -33,21 +34,20 @@ item (FEAT_TRAINS, ITEM_FAI_BRIGHTON_BELLE) {
 		cost_factor: 					0x1E nfo;
 		running_cost_factor: 			0x23 nfo;
 		
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
 		cargo_capacity:					25;
 		
 	}
 	graphics {
 		default:						spriteset_BRIGHTON_BELLE;
-		sound_effect:					sw_sfx_electric;
+		sound_effect:					sw_sfx_ELECTRIC;
 		purchase:						spriteset_BRIGHTON_BELLE_purchase;
 		create_effect:					vfx_3rd;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_BRIGHTON_BELLE_wagon;
 		length:							8;
-		weight:							80;
 		cargo_capacity:					25;
 		speed:							75 ;
 	}

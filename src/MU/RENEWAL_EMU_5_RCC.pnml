@@ -4,19 +4,20 @@ spriteset(spriteset_RENEWAL_EMU_5_RCC_purchase, "gfx/MU/RENEWAL_EMU_5_RCC.png") 
 spriteset(spriteset_RENEWAL_EMU_5_RCC, "gfx/MU/RENEWAL_EMU_5_RCC.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_RENEWAL_EMU_5_RCC_wagon, "gfx/MU/RENEWAL_EMU_5_RCC.png") { template_fai_33(0, 41)}
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_RENEWAL_EMU_5_RCC) {
+item (FEAT_TRAINS, ITEM_FAI_MU_RENEWAL_EMU_5_RCC) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		air_drag_coefficient:			0x0E nfo;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
-		extra_flags:						bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						SAA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -34,23 +35,22 @@ item (FEAT_TRAINS, ITEM_FAI_RENEWAL_EMU_5_RCC) {
 		cost_factor: 					0x15 nfo;
 		running_cost_factor: 			0x1B nfo;
 		
-		variant_group: 			        ITEM_FAI_RENEWAL_EMU_5;
+		variant_group: 			        ITEM_FAI_MU_RENEWAL_EMU_5;
 		
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
 		cargo_capacity:					32;
 		
 	}
 	graphics {
 		default:						spriteset_RENEWAL_EMU_5_RCC;
-		sound_effect:					sw_sfx_electric;
+		sound_effect:					sw_sfx_ELECTRIC;
 		purchase:						spriteset_RENEWAL_EMU_5_RCC_purchase;
-		create_effect:					vfx_ohle_only;
+		create_effect:					vfx_3rd;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_RENEWAL_EMU_5_RCC_wagon;
 		length:							8;
-		weight:							72;
 		cargo_capacity:					35;
 		speed:							90 ;
 	}

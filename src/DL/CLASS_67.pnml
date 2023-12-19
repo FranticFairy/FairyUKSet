@@ -1,0 +1,57 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_67_purchase, "gfx/DL/CLASS_67.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_67, "gfx/DL/CLASS_67.png") { template_fai_33(0, 16)}
+spriteset(spriteset_CLASS_67_flip, "gfx/DL/CLASS_67.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_67_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_67;
+	spriteset_CLASS_67_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_67_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_67_flip;
+	spriteset_CLASS_67 ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_67_randomflip) {
+	1: sw_CLASS_67_flipcheck;
+	1: sw_CLASS_67_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_DL_CLASS_67) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0A nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_CLASS_67); 
+		introduction_date:				date(1999,1,1);
+		vehicle_life: 					35;
+		model_life:						0;
+		length:							8;
+		
+		weight: 						88 ton;
+		speed:							125 mph;
+		power:							3200 hp;
+		tractive_effort_coefficient: 	0x29 nfo;
+		cost_factor: 					0x25 nfo;
+		running_cost_factor: 			0x54 nfo;
+		
+	}
+	graphics {
+		default:						sw_CLASS_67_randomflip;
+		sound_effect:					sw_sfx_DIESEL;
+		purchase:						spriteset_CLASS_67_purchase;
+		create_effect:					vfx_DIESEL;
+	}
+}

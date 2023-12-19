@@ -4,15 +4,16 @@ spriteset(spriteset_VOYAGER_purchase, "gfx/MU/VOYAGER.png") { template_fai_purch
 spriteset(spriteset_VOYAGER, "gfx/MU/VOYAGER.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_VOYAGER_wagon, "gfx/MU/VOYAGER.png") { template_fai_33(0, 41)}
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_VOYAGER) {
+item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
-		climates_available:				NO_CLIMATE;
+		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
 		air_drag_coefficient:			0x0A nfo;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
 		track_type:						RAIL;
@@ -23,7 +24,7 @@ item (FEAT_TRAINS, ITEM_FAI_VOYAGER) {
 		name:							string(STR_NAME_VOYAGER); 
 		introduction_date:				date(2000,1,1);
 		vehicle_life: 					25;
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						0;
 		length:							8;
 		
 		weight: 						86 ton;
@@ -33,21 +34,20 @@ item (FEAT_TRAINS, ITEM_FAI_VOYAGER) {
 		cost_factor: 					0x34 nfo;
 		running_cost_factor: 			0x75 nfo;
 		
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
 		cargo_capacity:					30;
 		
 	}
 	graphics {
 		default:						spriteset_VOYAGER;
-		sound_effect:					sw_sfx_diesel;
+		sound_effect:					sw_sfx_DIESEL;
 		purchase:						spriteset_VOYAGER_purchase;
-		create_effect:					vfx_diesel;
+		create_effect:					vfx_DIESEL;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_VOYAGER_wagon;
 		length:							8;
-		weight:							86;
 		cargo_capacity:					35;
 		speed:							125 ;
 	}

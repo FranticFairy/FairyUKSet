@@ -98,7 +98,7 @@ switch(FEAT_TRAINS, PARENT, sw_sfx_steam_fai, current_speed){
 
 //STEAM LOCOS
 
-switch(FEAT_TRAINS, SELF, sw_sfx_steam, getbits(extra_callback_info1, 0, 8)){
+switch(FEAT_TRAINS, SELF, sw_sfx_STEAM, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sw_sfx_steam_fai ;
 }
 
@@ -194,7 +194,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_steam_fai_hs, getbits(extra_callback_info1, 0, 
 
 //DIESEL LOCOS - No Variable Running Sounds
 
-switch(FEAT_TRAINS, SELF, sw_sfx_diesel, getbits(extra_callback_info1, 0, 8)){
+switch(FEAT_TRAINS, SELF, sw_sfx_DIESEL, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/47_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn1.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
@@ -307,7 +307,7 @@ switch(FEAT_TRAINS, SELF, sw_sfx_electric_old, getbits(extra_callback_info1, 0, 
 	SOUND_EVENT_TUNNEL        : sound("sfx/steam_whistle_small.wav") ;
 	SOUND_EVENT_STOPPED       : sw_sfx_electric_idle ;
 }
-switch(FEAT_TRAINS, SELF, sw_sfx_electric, getbits(extra_callback_info1, 0, 8)){
+switch(FEAT_TRAINS, SELF, sw_sfx_ELECTRIC, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/elen_run.wav") ;
 	SOUND_EVENT_START         : sound("sfx/br_horn47.wav") ;
 	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;

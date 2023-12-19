@@ -4,15 +4,16 @@ spriteset(spriteset_TURBOSTAR_purchase, "gfx/MU/TURBOSTAR.png") { template_fai_p
 spriteset(spriteset_TURBOSTAR, "gfx/MU/TURBOSTAR.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_TURBOSTAR_wagon, "gfx/MU/TURBOSTAR.png") { template_fai_33(0, 41)}
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_TURBOSTAR) {
+item (FEAT_TRAINS, ITEM_FAI_MU_TURBOSTAR) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				NO_CLIMATE;
 		bitmask_vehicle_info:			0;
-		air_drag_coefficient:			0x0C nfo;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_SPRITE_STACK);
+		air_drag_coefficient:			0x0D nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
 		track_type:						RAIL;
@@ -23,7 +24,7 @@ item (FEAT_TRAINS, ITEM_FAI_TURBOSTAR) {
 		name:							string(STR_NAME_TURBOSTAR); 
 		introduction_date:				date(1998,1,1);
 		vehicle_life: 					20;
-		model_life:						VEHICLE_NEVER_EXPIRES;
+		model_life:						0;
 		length:							8;
 		
 		weight: 						90 ton;
@@ -33,21 +34,20 @@ item (FEAT_TRAINS, ITEM_FAI_TURBOSTAR) {
 		cost_factor: 					0x22 nfo;
 		running_cost_factor: 			0x23 nfo;
 		
-		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
 		cargo_capacity:					35;
 		
 	}
 	graphics {
 		default:						spriteset_TURBOSTAR;
-		sound_effect:					sw_sfx_diesel;
+		sound_effect:					sw_sfx_DIESEL;
 		purchase:						spriteset_TURBOSTAR_purchase;
-		create_effect:					vfx_diesel;
+		create_effect:					vfx_DIESEL;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_TURBOSTAR_wagon;
 		length:							8;
-		weight:							90;
 		cargo_capacity:					35;
 		speed:							100 ;
 	}
