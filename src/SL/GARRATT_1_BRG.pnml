@@ -1,0 +1,66 @@
+//Sprite References & Switches
+spriteset(spriteset_GARRATT_1_BRG_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_GARRATT_1_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/GARRATT_1_BRG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_GARRATT_1_BRG, "gfx/32bpp.png") { template_fai_21(0, 16)}
+alternative_sprites(spriteset_GARRATT_1_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/GARRATT_1_BRG.png") { template_fai_21(0, 16)}
+spriteset(spriteset_GARRATT_1_BRG_tender_0, "gfx/32bpp.png") { template_fai_27(0, 41)}
+alternative_sprites(spriteset_GARRATT_1_BRG_tender_0, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/GARRATT_1_BRG.png") { template_fai_27(0, 41)}
+spriteset(spriteset_GARRATT_1_BRG_tender_1, "gfx/32bpp.png") { template_fai_22(0, 66)}
+alternative_sprites(spriteset_GARRATT_1_BRG_tender_1, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/GARRATT_1_BRG.png") { template_fai_22(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_GARRATT_1_BRG_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER_0;
+    2: return ITEM_WAGON_FAI_TENDER_1;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_GARRATT_1_BRG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x1C nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_GARRATT_1_BRG); 
+		introduction_date:				date(1927,1,1);
+		vehicle_life: 					28;
+		model_life:						31;
+		length:							4;
+		
+		weight: 						151 ton;
+		speed:							45 mph;
+		power:							1250 hp;
+		tractive_effort_coefficient: 	0x21 nfo;
+		cost_factor: 					0x26 nfo;
+		running_cost_factor: 			0x28 nfo;
+		
+		variant_group: 			        ITEM_FAI_SL_GARRATT_1;
+		
+	}
+	graphics {
+		default:						spriteset_GARRATT_1_BRG;
+		sound_effect:					sw_sfx_LMS;
+		purchase:						spriteset_GARRATT_1_BRG_purchase;
+		create_effect:					vfx_STEAM;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+		articulated_part:				sw_GARRATT_1_BRG_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER_0) {
+		default: 						spriteset_GARRATT_1_BRG_tender_0;
+		length: 						5;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER_1) {
+		default: 						spriteset_GARRATT_1_BRG_tender_1;
+		length: 						4;
+	}
+}

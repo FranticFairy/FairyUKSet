@@ -1,0 +1,40 @@
+//Sprite References & Switches
+spriteset(spriteset_BUFFET_MK2_CC2_purchase, "gfx/PW/BUFFET_MK2_CC2.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_BUFFET_MK2_CC2, "gfx/PW/BUFFET_MK2_CC2.png") { template_fai_33(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_BUFFET_MK2_CC2) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_BUFFET_MK2_CC2); 
+		introduction_date:				date(1969,1,1);
+		model_life:						50;
+		length:							8;
+		
+		weight: 						35 ton;
+		speed:							100 mph;
+		cost_factor: 					0x93 nfo;
+		running_cost_factor: 			0x50 nfo;
+		
+		variant_group: 			        ITEM_FAI_PW_BUFFET_MK2;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		non_refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						spriteset_BUFFET_MK2_CC2;
+		purchase:						spriteset_BUFFET_MK2_CC2_purchase;
+	}
+}

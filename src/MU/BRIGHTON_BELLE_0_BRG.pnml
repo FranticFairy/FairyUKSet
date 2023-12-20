@@ -1,0 +1,60 @@
+//Sprite References & Switches
+spriteset(spriteset_BRIGHTON_BELLE_0_BRG_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_BRIGHTON_BELLE_0_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/BRIGHTON_BELLE_BRG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_BRIGHTON_BELLE_0_BRG, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_BRIGHTON_BELLE_0_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/BRIGHTON_BELLE_BRG.png") { template_fai_33(0, 16)}
+
+spriteset(spriteset_BRIGHTON_BELLE_0_BRG_wagon, "gfx/32bpp.png") { template_fai_33(0, 41)}
+alternative_sprites(spriteset_BRIGHTON_BELLE_0_BRG_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/BRIGHTON_BELLE_BRG.png") { template_fai_33(0, 41)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_MU_BRIGHTON_BELLE_0_BRG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x11 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					1;
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_BRIGHTON_BELLE_0_BRG); 
+		introduction_date:				date(1932,1,1);
+		vehicle_life: 					30;
+		model_life:						40;
+		length:							8;
+		
+		weight: 						80 ton;
+		speed:							75 mph;
+		power:							1800 hp;
+		tractive_effort_coefficient: 	0x22 nfo;
+		cost_factor: 					0x1E nfo;
+		running_cost_factor: 			0x23 nfo;
+		
+		variant_group: 			        ITEM_FAI_MU_BRIGHTON_BELLE_0;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					25;
+		
+	}
+	graphics {
+		default:						spriteset_BRIGHTON_BELLE_0_BRG;
+		sound_effect:					sw_sfx_ELECTRIC;
+		purchase:						spriteset_BRIGHTON_BELLE_0_BRG_purchase;
+		create_effect:					vfx_3rd;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						spriteset_BRIGHTON_BELLE_0_BRG_wagon;
+		length:							8;
+		cargo_capacity:					25;
+		speed:							75 ;
+	}
+}

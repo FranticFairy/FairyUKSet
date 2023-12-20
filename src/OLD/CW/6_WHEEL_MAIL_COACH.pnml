@@ -1,0 +1,37 @@
+//Sprite References & Switches
+spriteset(spriteset_6_WHEEL_MAIL_COACH_purchase, "gfx/CW/6_WHEEL_MAIL_COACH.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_6_WHEEL_MAIL_COACH, "gfx/CW/6_WHEEL_MAIL_COACH.png") { template_fai_21(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_6_WHEEL_MAIL_COACH) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_6_WHEEL_MAIL_COACH); 
+		introduction_date:				date(1850,1,1);
+		model_life:						70;
+		length:							5;
+		
+		weight: 						19 ton;
+		speed:							70 mph;
+		cost_factor: 					0x4C nfo;
+		running_cost_factor: 			0x18 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						spriteset_6_WHEEL_MAIL_COACH;
+		purchase:						spriteset_6_WHEEL_MAIL_COACH_purchase;
+	}
+}

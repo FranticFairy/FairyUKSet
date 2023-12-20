@@ -1,0 +1,84 @@
+//Sprite References & Switches
+spriteset(spriteset_RAILMOTOR_TEAK_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_RAILMOTOR_TEAK_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/RAILMOTOR_TEAK.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_RAILMOTOR_TEAK, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_RAILMOTOR_TEAK, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/RAILMOTOR_TEAK.png") { template_fai_29(0, 16)}
+spriteset(spriteset_RAILMOTOR_TEAK_flip, "gfx/32bpp.png") { template_fai_29_r(0, 16)}
+alternative_sprites(spriteset_RAILMOTOR_TEAK_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/RAILMOTOR_TEAK.png") { template_fai_29_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILMOTOR_TEAK_flipcheck, vehicle_is_reversed){
+	1: spriteset_RAILMOTOR_TEAK;
+	spriteset_RAILMOTOR_TEAK_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILMOTOR_TEAK_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_RAILMOTOR_TEAK_flip;
+	spriteset_RAILMOTOR_TEAK ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_RAILMOTOR_TEAK_randomflip) {
+	1: sw_RAILMOTOR_TEAK_flipcheck;
+	1: sw_RAILMOTOR_TEAK_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILMOTOR_TEAK_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILMOTOR_TEAK_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_RAILMOTOR_TEAK_randomflip_steam) {
+	dependent:	sw_RAILMOTOR_TEAK_randomflip;
+	1: sw_RAILMOTOR_TEAK_flipcheck_steam_inv;
+	1: sw_RAILMOTOR_TEAK_flipcheck_steam;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_RAILMOTOR_TEAK) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x1C nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_RAILMOTOR_TEAK); 
+		introduction_date:				date(1903,1,1);
+		vehicle_life: 					22;
+		model_life:						32;
+		length:							7;
+		
+		weight: 						36 ton;
+		speed:							45 mph;
+		power:							150 hp;
+		tractive_effort_coefficient: 	0x4A nfo;
+		cost_factor: 					0x0B nfo;
+		running_cost_factor: 			0x06 nfo;
+		
+		variant_group: 			        ITEM_FAI_SL_RAILMOTOR;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_RAILMOTOR_TEAK_randomflip;
+		visual_effect_and_powered:		sw_RAILMOTOR_TEAK_randomflip_steam;
+		sound_effect:					sw_sfx_JIN;
+		purchase:						spriteset_RAILMOTOR_TEAK_purchase;
+		create_effect:					vfx_STEAM;
+	}
+}

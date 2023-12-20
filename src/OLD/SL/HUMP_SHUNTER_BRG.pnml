@@ -1,0 +1,80 @@
+//Sprite References & Switches
+spriteset(spriteset_HUMP_SHUNTER_BRG_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_HUMP_SHUNTER_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/HUMP_SHUNTER_BRG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_HUMP_SHUNTER_BRG, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_HUMP_SHUNTER_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/HUMP_SHUNTER_BRG.png") { template_fai_29(0, 16)}
+spriteset(spriteset_HUMP_SHUNTER_BRG_flip, "gfx/32bpp.png") { template_fai_29_r(0, 16)}
+alternative_sprites(spriteset_HUMP_SHUNTER_BRG_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/HUMP_SHUNTER_BRG.png") { template_fai_29_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_HUMP_SHUNTER_BRG_flipcheck, vehicle_is_reversed){
+	1: spriteset_HUMP_SHUNTER_BRG;
+	spriteset_HUMP_SHUNTER_BRG_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_HUMP_SHUNTER_BRG_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_HUMP_SHUNTER_BRG_flip;
+	spriteset_HUMP_SHUNTER_BRG ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_HUMP_SHUNTER_BRG_randomflip) {
+	1: sw_HUMP_SHUNTER_BRG_flipcheck;
+	1: sw_HUMP_SHUNTER_BRG_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_HUMP_SHUNTER_BRG_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_HUMP_SHUNTER_BRG_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_HUMP_SHUNTER_BRG_randomflip_steam) {
+	dependent:	sw_HUMP_SHUNTER_BRG_randomflip;
+	1: sw_HUMP_SHUNTER_BRG_flipcheck_steam_inv;
+	1: sw_HUMP_SHUNTER_BRG_flipcheck_steam;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_HUMP_SHUNTER_BRG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x1C nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_HUMP_SHUNTER_BRG); 
+		introduction_date:				date(1907,1,1);
+		vehicle_life: 					40;
+		model_life:						48;
+		length:							7;
+		
+		weight: 						100 ton;
+		speed:							45 mph;
+		power:							500 hp;
+		tractive_effort_coefficient: 	0x26 nfo;
+		cost_factor: 					0x0C nfo;
+		running_cost_factor: 			0x0E nfo;
+		
+		variant_group: 			        ITEM_FAI_SL_HUMP_SHUNTER;
+		
+	}
+	graphics {
+		default:						sw_HUMP_SHUNTER_BRG_randomflip;
+		visual_effect_and_powered:		sw_HUMP_SHUNTER_BRG_randomflip_steam;
+		sound_effect:					sw_sfx_JIN;
+		purchase:						spriteset_HUMP_SHUNTER_BRG_purchase;
+		create_effect:					vfx_STEAM;
+	}
+}

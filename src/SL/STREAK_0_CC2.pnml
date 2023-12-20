@@ -33,7 +33,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_STREAK_0_CC2) {
 		
 		weight: 						166 ton;
 		speed:							115 mph;
-		power:							200 hp;
+		power:							2000 hp;
 		tractive_effort_coefficient: 	0x17 nfo;
 		cost_factor: 					0x2A nfo;
 		running_cost_factor: 			0x70 nfo;
@@ -46,7 +46,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_STREAK_0_CC2) {
 		sound_effect:					sw_sfx_STEAM;
 		purchase:						spriteset_STREAK_0_CC2_purchase;
 		create_effect:					vfx_STEAM;
-		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
 		articulated_part:				sw_STREAK_0_CC2_articulation;
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER_0) {

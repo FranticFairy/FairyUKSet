@@ -1,0 +1,63 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_73_2_BRB_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_CLASS_73_2_BRB_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/EL/CLASS_73_2_BRB.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_73_2_BRB, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_CLASS_73_2_BRB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/EL/CLASS_73_2_BRB.png") { template_fai_29(0, 16)}
+spriteset(spriteset_CLASS_73_2_BRB_flip, "gfx/32bpp.png") { template_fai_29_r(0, 16)}
+alternative_sprites(spriteset_CLASS_73_2_BRB_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/EL/CLASS_73_2_BRB.png") { template_fai_29_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_73_2_BRB_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_73_2_BRB;
+	spriteset_CLASS_73_2_BRB_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_73_2_BRB_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_73_2_BRB_flip;
+	spriteset_CLASS_73_2_BRB ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_73_2_BRB_randomflip) {
+	1: sw_CLASS_73_2_BRB_flipcheck;
+	1: sw_CLASS_73_2_BRB_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_73_2_BRB) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0E nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_CLASS_73_2_BRB); 
+		introduction_date:				date(1962,1,1);
+		vehicle_life: 					37;
+		model_life:						0;
+		length:							7;
+		
+		weight: 						77 ton;
+		speed:							90 mph;
+		power:							1420 hp;
+		tractive_effort_coefficient: 	0x38 nfo;
+		cost_factor: 					0x16 nfo;
+		running_cost_factor: 			0x1D nfo;
+		
+		variant_group: 			        ITEM_FAI_EL_CLASS_73_2;
+		
+	}
+	graphics {
+		default:						sw_CLASS_73_2_BRB_randomflip;
+		sound_effect:					sw_sfx_EL1;
+		purchase:						spriteset_CLASS_73_2_BRB_purchase;
+		create_effect:					vfx_3rd;
+	}
+}

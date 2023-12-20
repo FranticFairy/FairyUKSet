@@ -1,0 +1,61 @@
+//Sprite References & Switches
+spriteset(spriteset_1967_STOCK_purchase, "gfx/MU/1967_STOCK.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_1967_STOCK, "gfx/MU/1967_STOCK.png") { template_fai_29(0, 16)}
+
+spriteset(spriteset_1967_STOCKB, "gfx/MU/1967_STOCK.png") { template_fai_29_mu(0, 16)}
+
+spriteset(spriteset_1967_STOCK_wagon, "gfx/MU/1967_STOCK.png") { template_fai_29(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_1967_STOCK_gfx_last, position_in_consist_from_end){
+    0:	spriteset_1967_STOCKB;
+	spriteset_1967_STOCK;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x19 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		dual_headed:					1;
+		
+		track_type:						MTRO;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_1967_STOCK); 
+		introduction_date:				date(1967,1,1);
+		vehicle_life: 					30;
+		model_life:						44;
+		length:							7;
+		
+		weight: 						44 ton;
+		speed:							50 mph;
+		power:							500 hp;
+		tractive_effort_coefficient: 	0x2A nfo;
+		cost_factor: 					0x09 nfo;
+		running_cost_factor: 			0x0D nfo;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					40;
+		
+	}
+	graphics {
+		default:						sw_1967_STOCK_gfx_last;
+		sound_effect:					sw_sfx_ELE;
+		purchase:						spriteset_1967_STOCK_purchase;
+		create_effect:					vfx_3rd;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						spriteset_1967_STOCK_wagon;
+		length:							7;
+		cargo_capacity:					40;
+		speed:							50 ;
+	}
+}

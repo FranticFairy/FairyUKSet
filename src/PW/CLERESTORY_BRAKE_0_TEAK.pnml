@@ -1,0 +1,43 @@
+//Sprite References & Switches
+spriteset(spriteset_CLERESTORY_BRAKE_0_TEAK_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_CLERESTORY_BRAKE_0_TEAK_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/CLERESTORY_BRAKE_TEAK.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLERESTORY_BRAKE_0_TEAK, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_CLERESTORY_BRAKE_0_TEAK, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/CLERESTORY_BRAKE_TEAK.png") { template_fai_29(0, 16)}
+
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BRAKE_0_TEAK) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_CLERESTORY_BRAKE_0_TEAK); 
+		introduction_date:				date(1880,1,1);
+		model_life:						60;
+		length:							7;
+		
+		weight: 						24 ton;
+		speed:							80 mph;
+		cost_factor: 					0x68 nfo;
+		running_cost_factor: 			0x43 nfo;
+		
+		variant_group: 			        ITEM_FAI_PW_CLERESTORY_BRAKE_0;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_MAIL);
+		non_refittable_cargo_classes:		bitmask();
+		default_cargo_type:				MAIL;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						spriteset_CLERESTORY_BRAKE_0_TEAK;
+		purchase:						spriteset_CLERESTORY_BRAKE_0_TEAK_purchase;
+	}
+}

@@ -1,0 +1,80 @@
+//Sprite References & Switches
+spriteset(spriteset_MIDLANDER_YLW_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_MIDLANDER_YLW_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/JINTY_YLW.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_MIDLANDER_YLW, "gfx/32bpp.png") { template_fai_21(0, 16)}
+alternative_sprites(spriteset_MIDLANDER_YLW, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/JINTY_YLW.png") { template_fai_21(0, 16)}
+spriteset(spriteset_MIDLANDER_YLW_flip, "gfx/32bpp.png") { template_fai_21_r(0, 16)}
+alternative_sprites(spriteset_MIDLANDER_YLW_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/JINTY_YLW.png") { template_fai_21_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_MIDLANDER_YLW_flipcheck, vehicle_is_reversed){
+	1: spriteset_MIDLANDER_YLW;
+	spriteset_MIDLANDER_YLW_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_MIDLANDER_YLW_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_MIDLANDER_YLW_flip;
+	spriteset_MIDLANDER_YLW ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_MIDLANDER_YLW_randomflip) {
+	1: sw_MIDLANDER_YLW_flipcheck;
+	1: sw_MIDLANDER_YLW_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_MIDLANDER_YLW_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_MIDLANDER_YLW_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_MIDLANDER_YLW_randomflip_steam) {
+	dependent:	sw_MIDLANDER_YLW_randomflip;
+	1: sw_MIDLANDER_YLW_flipcheck_steam_inv;
+	1: sw_MIDLANDER_YLW_flipcheck_steam;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_MIDLANDER_YLW) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x1C nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_MIDLANDER_YLW); 
+		introduction_date:				date(1899,1,1);
+		vehicle_life: 					40;
+		model_life:						67;
+		length:							5;
+		
+		weight: 						50 ton;
+		speed:							45 mph;
+		power:							500 hp;
+		tractive_effort_coefficient: 	0x1D nfo;
+		cost_factor: 					0x0F nfo;
+		running_cost_factor: 			0x10 nfo;
+		
+		variant_group: 			        ITEM_FAI_SL_MIDLANDER;
+		
+	}
+	graphics {
+		default:						sw_MIDLANDER_YLW_randomflip;
+		visual_effect_and_powered:		sw_MIDLANDER_YLW_randomflip_steam;
+		sound_effect:					sw_sfx_JIN;
+		purchase:						spriteset_MIDLANDER_YLW_purchase;
+		create_effect:					vfx_STEAM;
+	}
+}

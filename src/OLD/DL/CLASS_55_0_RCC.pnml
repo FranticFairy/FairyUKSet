@@ -1,0 +1,60 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_55_0_RCC_purchase, "gfx/DL/CLASS_55_RCC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_55_0_RCC, "gfx/DL/CLASS_55_RCC.png") { template_fai_33(0, 16)}
+spriteset(spriteset_CLASS_55_0_RCC_flip, "gfx/DL/CLASS_55_RCC.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_55_0_RCC_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_55_0_RCC;
+	spriteset_CLASS_55_0_RCC_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_55_0_RCC_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_55_0_RCC_flip;
+	spriteset_CLASS_55_0_RCC ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_55_0_RCC_randomflip) {
+	1: sw_CLASS_55_0_RCC_flipcheck;
+	1: sw_CLASS_55_0_RCC_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_DL_CLASS_55_0_RCC) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0D nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_CLASS_55_0_RCC); 
+		introduction_date:				date(1961,1,1);
+		vehicle_life: 					32;
+		model_life:						21;
+		length:							8;
+		
+		weight: 						101 ton;
+		speed:							100 mph;
+		power:							3300 hp;
+		tractive_effort_coefficient: 	0x38 nfo;
+		cost_factor: 					0x43 nfo;
+		running_cost_factor: 			0x6A nfo;
+		
+		variant_group: 			        ITEM_FAI_DL_CLASS_55_0;
+		
+	}
+	graphics {
+		default:						sw_CLASS_55_0_RCC_randomflip;
+		sound_effect:					sw_sfx_DIESEL;
+		purchase:						spriteset_CLASS_55_0_RCC_purchase;
+		create_effect:					vfx_DIESEL;
+	}
+}

@@ -1,0 +1,63 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_70_I_1_LNER_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_CLASS_70_I_1_LNER_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/EL/CLASS_70_I_1_LNER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_70_I_1_LNER, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_CLASS_70_I_1_LNER, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/EL/CLASS_70_I_1_LNER.png") { template_fai_29(0, 16)}
+spriteset(spriteset_CLASS_70_I_1_LNER_flip, "gfx/32bpp.png") { template_fai_29_r(0, 16)}
+alternative_sprites(spriteset_CLASS_70_I_1_LNER_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/EL/CLASS_70_I_1_LNER.png") { template_fai_29_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_70_I_1_LNER_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_70_I_1_LNER;
+	spriteset_CLASS_70_I_1_LNER_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_70_I_1_LNER_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_70_I_1_LNER_flip;
+	spriteset_CLASS_70_I_1_LNER ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_70_I_1_LNER_randomflip) {
+	1: sw_CLASS_70_I_1_LNER_flipcheck;
+	1: sw_CLASS_70_I_1_LNER_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_70_I_1_LNER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x11 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						SAA3;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_CLASS_70_I_1_LNER); 
+		introduction_date:				date(1941,1,1);
+		vehicle_life: 					35;
+		model_life:						28;
+		length:							7;
+		
+		weight: 						101 ton;
+		speed:							75 mph;
+		power:							1470 hp;
+		tractive_effort_coefficient: 	0x32 nfo;
+		cost_factor: 					0x25 nfo;
+		running_cost_factor: 			0x21 nfo;
+		
+		variant_group: 			        ITEM_FAI_EL_CLASS_70_I_1;
+		
+	}
+	graphics {
+		default:						sw_CLASS_70_I_1_LNER_randomflip;
+		sound_effect:					sw_sfx_EL1;
+		purchase:						spriteset_CLASS_70_I_1_LNER_purchase;
+		create_effect:					vfx_3rd;
+	}
+}

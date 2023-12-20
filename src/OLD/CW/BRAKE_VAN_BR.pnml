@@ -1,0 +1,32 @@
+//Sprite References & Switches
+spriteset(spriteset_BRAKE_VAN_BR_purchase, "gfx/CW/BRAKE_VAN_BR.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_BRAKE_VAN_BR, "gfx/CW/BRAKE_VAN_BR.png") { template_fai_21(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_BRAKE_VAN_BR) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_BRAKE_VAN_BR); 
+		introduction_date:				date(1948,1,1);
+		model_life:						40;
+		length:							5;
+		
+		weight: 						20 ton;
+		speed:							70 mph;
+		cost_factor: 					0x1E nfo;
+		running_cost_factor: 			0x12 nfo;
+		
+	}
+	graphics {
+		default:						spriteset_BRAKE_VAN_BR;
+		purchase:						spriteset_BRAKE_VAN_BR_purchase;
+	}
+}
