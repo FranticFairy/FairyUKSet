@@ -29,7 +29,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_EE1) {
 		air_drag_coefficient:			0x10 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						ELRL;
+		track_type:						SAAd;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
