@@ -1,0 +1,59 @@
+//Sprite References & Switches
+spriteset(spriteset_PLANET_UMBER_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_PLANET_UMBER_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/PLANET_UMBER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_PLANET_UMBER, "gfx/32bpp.png") { template_fai_13(0, 16)}
+alternative_sprites(spriteset_PLANET_UMBER, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/PLANET_UMBER.png") { template_fai_13(0, 16)}
+spriteset(spriteset_PLANET_UMBER_tender_0, "gfx/32bpp.png") { template_fai_8(0, 41)}
+alternative_sprites(spriteset_PLANET_UMBER_tender_0, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/PLANET_UMBER.png") { template_fai_8(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_PLANET_UMBER_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER_0;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_PLANET_UMBER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x2A nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_PLANET_UMBER); 
+		introduction_date:				date(1830,1,1);
+		vehicle_life: 					25;
+		model_life:						20;
+		length:							3;
+		
+		weight: 						14 ton;
+		speed:							30 mph;
+		power:							20 hp;
+		tractive_effort_coefficient: 	0x24 nfo;
+		cost_factor: 					0x06 nfo;
+		running_cost_factor: 			0x04 nfo;
+		
+		variant_group: 			        ITEM_FAI_SL_PLANET;
+		
+	}
+	graphics {
+		default:						spriteset_PLANET_UMBER;
+		sound_effect:					sw_sfx_JIN;
+		purchase:						spriteset_PLANET_UMBER_purchase;
+		create_effect:					vfx_STEAM;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+		articulated_part:				sw_PLANET_UMBER_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER_0) {
+		default: 						spriteset_PLANET_UMBER_tender_0;
+		length: 						2;
+	}
+}

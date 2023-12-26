@@ -1,0 +1,80 @@
+//Sprite References & Switches
+spriteset(spriteset_DTANK_UMBER_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_DTANK_UMBER_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/TANK_UMBER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_DTANK_UMBER, "gfx/32bpp.png") { template_fai_21(0, 16)}
+alternative_sprites(spriteset_DTANK_UMBER, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/TANK_UMBER.png") { template_fai_21(0, 16)}
+spriteset(spriteset_DTANK_UMBER_flip, "gfx/32bpp.png") { template_fai_21_r(0, 16)}
+alternative_sprites(spriteset_DTANK_UMBER_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/TANK_UMBER.png") { template_fai_21_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_DTANK_UMBER_flipcheck, vehicle_is_reversed){
+	1: spriteset_DTANK_UMBER;
+	spriteset_DTANK_UMBER_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_DTANK_UMBER_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_DTANK_UMBER_flip;
+	spriteset_DTANK_UMBER ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_DTANK_UMBER_randomflip) {
+	1: sw_DTANK_UMBER_flipcheck;
+	1: sw_DTANK_UMBER_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_DTANK_UMBER_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_DTANK_UMBER_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_DTANK_UMBER_randomflip_steam) {
+	dependent:	sw_DTANK_UMBER_randomflip;
+	1: sw_DTANK_UMBER_flipcheck_steam_inv;
+	1: sw_DTANK_UMBER_flipcheck_steam;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_DTANK_UMBER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x20 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_DTANK_UMBER); 
+		introduction_date:				date(1873,1,1);
+		vehicle_life: 					38;
+		model_life:						75;
+		length:							5;
+		
+		weight: 						36 ton;
+		speed:							40 mph;
+		power:							300 hp;
+		tractive_effort_coefficient: 	0x16 nfo;
+		cost_factor: 					0x0B nfo;
+		running_cost_factor: 			0x09 nfo;
+		
+		variant_group: 			        ITEM_FAI_SL_DTANK;
+		
+	}
+	graphics {
+		default:						sw_DTANK_UMBER_randomflip;
+		visual_effect_and_powered:		sw_DTANK_UMBER_randomflip_steam;
+		sound_effect:					sw_sfx_JIN;
+		purchase:						spriteset_DTANK_UMBER_purchase;
+		create_effect:					vfx_STEAM;
+	}
+}

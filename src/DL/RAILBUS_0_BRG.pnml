@@ -1,0 +1,67 @@
+//Sprite References & Switches
+spriteset(spriteset_RAILBUS_0_BRG_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_RAILBUS_0_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/DL/RAILBUS_BRG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_RAILBUS_0_BRG, "gfx/32bpp.png") { template_fai_25(0, 16)}
+alternative_sprites(spriteset_RAILBUS_0_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/DL/RAILBUS_BRG.png") { template_fai_25(0, 16)}
+spriteset(spriteset_RAILBUS_0_BRG_flip, "gfx/32bpp.png") { template_fai_25_r(0, 16)}
+alternative_sprites(spriteset_RAILBUS_0_BRG_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/DL/RAILBUS_BRG.png") { template_fai_25_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILBUS_0_BRG_flipcheck, vehicle_is_reversed){
+	1: spriteset_RAILBUS_0_BRG;
+	spriteset_RAILBUS_0_BRG_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILBUS_0_BRG_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_RAILBUS_0_BRG_flip;
+	spriteset_RAILBUS_0_BRG ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_RAILBUS_0_BRG_randomflip) {
+	1: sw_RAILBUS_0_BRG_flipcheck;
+	1: sw_RAILBUS_0_BRG_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_DL_RAILBUS_0_BRG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x19 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_RAILBUS_0_BRG); 
+		introduction_date:				date(1950,1,1);
+		vehicle_life: 					20;
+		model_life:						20;
+		length:							6;
+		
+		weight: 						20 ton;
+		speed:							50 mph;
+		power:							150 hp;
+		tractive_effort_coefficient: 	0x2F nfo;
+		cost_factor: 					0x03 nfo;
+		running_cost_factor: 			0x05 nfo;
+		
+		variant_group: 			        ITEM_FAI_DL_RAILBUS_0;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_RAILBUS_0_BRG_randomflip;
+		sound_effect:					sw_sfx_DIESEL;
+		purchase:						spriteset_RAILBUS_0_BRG_purchase;
+		create_effect:					vfx_DIESEL;
+	}
+}

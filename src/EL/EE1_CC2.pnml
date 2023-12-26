@@ -53,7 +53,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_EE1_CC2) {
 	}
 	graphics {
 		default:						sw_EE1_CC2_randomflip;
-		sound_effect:					sw_sfx_ELECTRIC;
+		sound_effect:					sw_sfx_ELE;
 		purchase:						spriteset_EE1_CC2_purchase;
 		create_effect:					vfx_ohle;
 	}

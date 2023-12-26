@@ -1,0 +1,60 @@
+//Sprite References & Switches
+spriteset(spriteset_CLASS_47_0_CC2_purchase, "gfx/DL/CLASS_47_CC2.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CLASS_47_0_CC2, "gfx/DL/CLASS_47_CC2.png") { template_fai_33(0, 16)}
+spriteset(spriteset_CLASS_47_0_CC2_flip, "gfx/DL/CLASS_47_CC2.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_47_0_CC2_flipcheck, vehicle_is_reversed){
+	1: spriteset_CLASS_47_0_CC2;
+	spriteset_CLASS_47_0_CC2_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_CLASS_47_0_CC2_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_CLASS_47_0_CC2_flip;
+	spriteset_CLASS_47_0_CC2 ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_CLASS_47_0_CC2_randomflip) {
+	1: sw_CLASS_47_0_CC2_flipcheck;
+	1: sw_CLASS_47_0_CC2_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_DL_CLASS_47_0_CC2) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0D nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_CLASS_47_0_CC2); 
+		introduction_date:				date(1962,1,1);
+		vehicle_life: 					32;
+		model_life:						0;
+		length:							8;
+		
+		weight: 						120 ton;
+		speed:							95 mph;
+		power:							2580 hp;
+		tractive_effort_coefficient: 	0x37 nfo;
+		cost_factor: 					0x27 nfo;
+		running_cost_factor: 			0x47 nfo;
+		
+		variant_group: 			        ITEM_FAI_DL_CLASS_47_0;
+		
+	}
+	graphics {
+		default:						sw_CLASS_47_0_CC2_randomflip;
+		sound_effect:					sw_sfx_DIESEL;
+		purchase:						spriteset_CLASS_47_0_CC2_purchase;
+		create_effect:					vfx_DIESEL;
+	}
+}

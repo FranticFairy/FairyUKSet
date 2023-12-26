@@ -1,0 +1,59 @@
+//Sprite References & Switches
+spriteset(spriteset_FOOTBALLER_1_BRG_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_FOOTBALLER_1_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/FOOTBALLER_1_BRG.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_FOOTBALLER_1_BRG, "gfx/32bpp.png") { template_fai_27(0, 16)}
+alternative_sprites(spriteset_FOOTBALLER_1_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/FOOTBALLER_1_BRG.png") { template_fai_27(0, 16)}
+spriteset(spriteset_FOOTBALLER_1_BRG_tender_0, "gfx/32bpp.png") { template_fai_14(0, 41)}
+alternative_sprites(spriteset_FOOTBALLER_1_BRG_tender_0, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/FOOTBALLER_1_BRG.png") { template_fai_14(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_FOOTBALLER_1_BRG_articulation, extra_callback_info1) {
+    1: return ITEM_WAGON_FAI_TENDER_0;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_FOOTBALLER_1_BRG) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0E nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_FOOTBALLER_1_BRG); 
+		introduction_date:				date(1928,1,1);
+		vehicle_life: 					35;
+		model_life:						27;
+		length:							6;
+		
+		weight: 						105 ton;
+		speed:							90 mph;
+		power:							1350 hp;
+		tractive_effort_coefficient: 	0x1B nfo;
+		cost_factor: 					0x20 nfo;
+		running_cost_factor: 			0x3A nfo;
+		
+		variant_group: 			        ITEM_FAI_SL_FOOTBALLER_1;
+		
+	}
+	graphics {
+		default:						spriteset_FOOTBALLER_1_BRG;
+		sound_effect:					sw_sfx_A4S;
+		purchase:						spriteset_FOOTBALLER_1_BRG_purchase;
+		create_effect:					vfx_STEAM;
+		visual_effect_and_powered:      visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+		articulated_part:				sw_FOOTBALLER_1_BRG_articulation;
+	}
+	livery_override (ITEM_WAGON_FAI_TENDER_0) {
+		default: 						spriteset_FOOTBALLER_1_BRG_tender_0;
+		length: 						4;
+	}
+}

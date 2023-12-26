@@ -1,0 +1,68 @@
+//Sprite References & Switches
+spriteset(spriteset_HST_PROTOTYPE_BRB_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_HST_PROTOTYPE_BRB_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/HST_PROTOTYPE_BRB.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_HST_PROTOTYPE_BRB, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_HST_PROTOTYPE_BRB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/HST_PROTOTYPE_BRB.png") { template_fai_29(0, 16)}
+
+spriteset(spriteset_HST_PROTOTYPE_BRBB, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_HST_PROTOTYPE_BRBB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/HST_PROTOTYPE_BRB.png") { template_fai_29_mu(0, 16)}
+
+spriteset(spriteset_HST_PROTOTYPE_BRB_wagon, "gfx/32bpp.png") { template_fai_33(0, 41)}
+alternative_sprites(spriteset_HST_PROTOTYPE_BRB_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/HST_PROTOTYPE_BRB.png") { template_fai_33(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_HST_PROTOTYPE_BRB_gfx_last, position_in_consist_from_end){
+    0:	spriteset_HST_PROTOTYPE_BRBB;
+	spriteset_HST_PROTOTYPE_BRB;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE_BRB) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x0A nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					1;
+		
+		track_type:						RAIL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_HST_PROTOTYPE_BRB); 
+		introduction_date:				date(1972,1,1);
+		vehicle_life: 					30;
+		model_life:						20;
+		length:							6;
+		
+		weight: 						70 ton;
+		speed:							125 mph;
+		power:							4500 hp;
+		tractive_effort_coefficient: 	0x2F nfo;
+		cost_factor: 					0x3F nfo;
+		running_cost_factor: 			0x7E nfo;
+		
+		variant_group: 			        ITEM_FAI_MU_HST_PROTOTYPE;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				MAIL;
+		cargo_capacity:					10;
+		
+	}
+	graphics {
+		default:						sw_HST_PROTOTYPE_BRB_gfx_last;
+		sound_effect:					sw_sfx_HST;
+		purchase:						spriteset_HST_PROTOTYPE_BRB_purchase;
+		create_effect:					vfx_DIESEL;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						spriteset_HST_PROTOTYPE_BRB_wagon;
+		length:							8;
+		cargo_capacity:					35;
+		speed:							125 ;
+	}
+}

@@ -1,0 +1,56 @@
+//Sprite References & Switches
+spriteset(spriteset_BREL_APT_BRB_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_BREL_APT_BRB_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/BREL_APT_BRB.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_BREL_APT_BRB, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_BREL_APT_BRB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/BREL_APT_BRB.png") { template_fai_33(0, 16)}
+
+spriteset(spriteset_BREL_APT_BRB_wagon, "gfx/32bpp.png") { template_fai_33(0, 41)}
+alternative_sprites(spriteset_BREL_APT_BRB_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/BREL_APT_BRB.png") { template_fai_33(0, 41)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_MU_BREL_APT_BRB) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x09 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					1;
+		
+		track_type:						ELRL;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_BREL_APT_BRB); 
+		introduction_date:				date(1977,1,1);
+		vehicle_life: 					26;
+		model_life:						20;
+		length:							8;
+		
+		weight: 						70 ton;
+		speed:							140 mph;
+		power:							8000 hp;
+		tractive_effort_coefficient: 	0x21 nfo;
+		cost_factor: 					0x70 nfo;
+		running_cost_factor: 			0x55 nfo;
+		
+		variant_group: 			        ITEM_FAI_MU_BREL_APT;
+		
+	}
+	graphics {
+		default:						spriteset_BREL_APT_BRB;
+		sound_effect:					sw_sfx_ELECTRIC;
+		purchase:						spriteset_BREL_APT_BRB_purchase;
+		create_effect:					vfx_ohle;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						spriteset_BREL_APT_BRB_wagon;
+		length:							8;
+		cargo_capacity:					35;
+		speed:							140 ;
+	}
+}

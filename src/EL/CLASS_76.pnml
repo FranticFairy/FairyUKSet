@@ -50,7 +50,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_76) {
 	}
 	graphics {
 		default:						sw_CLASS_76_randomflip;
-		sound_effect:					sw_sfx_ELECTRIC;
+		sound_effect:					sw_sfx_EL1;
 		purchase:						spriteset_CLASS_76_purchase;
 		create_effect:					vfx_ohle;
 	}

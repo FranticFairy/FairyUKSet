@@ -1,0 +1,56 @@
+//Sprite References & Switches
+spriteset(spriteset_QUAD_ARTICULATED_purchase, "gfx/PW/QUAD_ARTICULATED.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_QUAD_ARTICULATED, "gfx/PW/QUAD_ARTICULATED.png") { template_fai_29(0, 16)}
+spriteset(spriteset_QUAD_ARTICULATED_S1, "gfx/PW/QUAD_ARTICULATED.png") { template_fai_29(0, 41)}
+spriteset(spriteset_QUAD_ARTICULATED_S2, "gfx/PW/QUAD_ARTICULATED.png") { template_fai_29(0, 66)}
+spriteset(spriteset_QUAD_ARTICULATED_S3, "gfx/PW/QUAD_ARTICULATED.png") { template_fai_29(0, 91)}
+
+switch(FEAT_TRAINS, SELF, sw_articulated_PW_QUAD_ARTICULATED, position_in_articulated_veh) {
+	0: spriteset_QUAD_ARTICULATED;
+	1: spriteset_QUAD_ARTICULATED_S1;
+	2: spriteset_QUAD_ARTICULATED_S2;
+	3: spriteset_QUAD_ARTICULATED_S3;
+	spriteset_QUAD_ARTICULATED;
+}
+
+switch(FEAT_TRAINS, SELF, sw_articulation_PW_QUAD_ARTICULATED, extra_callback_info1) {
+	1: return ITEM_FAI_PW_QUAD_ARTICULATED;
+	2: return ITEM_FAI_PW_QUAD_ARTICULATED;
+	3: return ITEM_FAI_PW_QUAD_ARTICULATED;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_QUAD_ARTICULATED) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_QUAD_ARTICULATED); 
+		introduction_date:				date(1924,1,1);
+		model_life:						25;
+		length:							7;
+		
+		weight: 						30 ton;
+		speed:							80 mph;
+		cost_factor: 					0xFA nfo;
+		running_cost_factor: 			0x84 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		non_refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					25;
+		
+	}
+	graphics {
+		default:						sw_articulated_PW_QUAD_ARTICULATED;
+        articulated_part:               sw_articulation_PW_QUAD_ARTICULATED;
+		purchase:						spriteset_QUAD_ARTICULATED_purchase;
+	}
+}

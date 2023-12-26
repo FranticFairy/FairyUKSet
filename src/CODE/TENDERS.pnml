@@ -46,3 +46,25 @@ item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER_1) {
 	}
 }
  
+item (FEAT_TRAINS, ITEM_WAGON_FAI_TENDER_2) {
+	property {
+		name: 							string(STR_NAME_TENDER);
+		climates_available: 			NO_CLIMATE;
+		introduction_date:				date(1830, 1, 1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		cost_factor:					0;
+		running_cost_factor:			0;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		speed:							80 mph;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC,TRAIN_FLAG_SPRITE_STACK,TRAIN_FLAG_AUTOREFIT);
+		track_type:						RAIL;
+		power:							0 hp;
+		weight:							0;
+		tractive_effort_coefficient:	0.0;
+		air_drag_coefficient:			0.08;
+		length:							5;
+	}
+	graphics {
+		default: 						spriteset_tender;
+	}
+}
