@@ -1,0 +1,131 @@
+//Sprite References & Switches
+spriteset(spriteset_FLATBED_LARGE_purchase, "gfx/CW/FLATBED_LARGE.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_FLATBED_LARGE, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 16)}
+
+spriteset(spriteset_FLATBED_LARGE_GOOD1, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 266)}
+spriteset(spriteset_FLATBED_LARGE_GOOD2, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 291)}
+spriteset(spriteset_FLATBED_LARGE_GOOD3, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 316)}
+
+spriteset(spriteset_FLATBED_LARGE_METL1, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 41)}
+spriteset(spriteset_FLATBED_LARGE_METL2, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 66)}
+spriteset(spriteset_FLATBED_LARGE_METL3, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 91)}
+spriteset(spriteset_FLATBED_LARGE_METL4, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 116)}
+
+spriteset(spriteset_FLATBED_LARGE_COPR1, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 141)}
+spriteset(spriteset_FLATBED_LARGE_COPR2, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 166)}
+spriteset(spriteset_FLATBED_LARGE_COPR3, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 191)}
+
+spriteset(spriteset_FLATBED_LARGE_WDPR1, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 216)}
+spriteset(spriteset_FLATBED_LARGE_WDPR2, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 241)}
+
+spriteset(spriteset_FLATBED_LARGE_WOOD, "gfx/CW/BOGIE_STAKE_WAGON.png") { template_fai_33(0, 16)}
+spriteset(spriteset_FLATBED_LARGE_WOOD_H, "gfx/CW/BOGIE_STAKE_WAGON_LOAD.png") { template_fai_33(0, 16)}
+spriteset(spriteset_FLATBED_LARGE_WOOD_F, "gfx/CW/BOGIE_STAKE_WAGON_LOAD.png") { template_fai_33(0, 41)}
+spriteset(spriteset_FLATBED_LARGE_WOOD_FR, "gfx/CW/BOGIE_STAKE_WAGON_LOAD.png") { template_fai_33(0, 66)}
+
+
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_GOOD_rand) {
+	1: spriteset_FLATBED_LARGE_GOOD1;
+	1: spriteset_FLATBED_LARGE_GOOD2;
+	1: spriteset_FLATBED_LARGE_GOOD3;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_METL_rand) {
+	1: spriteset_FLATBED_LARGE_METL1;
+	1: spriteset_FLATBED_LARGE_METL2;
+	1: spriteset_FLATBED_LARGE_METL3;
+	1: spriteset_FLATBED_LARGE_METL4;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_COPR_rand) {
+	1: spriteset_FLATBED_LARGE_COPR1;
+	1: spriteset_FLATBED_LARGE_COPR2;
+	1: spriteset_FLATBED_LARGE_COPR3;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_WDPR_rand) {
+	1: spriteset_FLATBED_LARGE_WDPR1;
+	1: spriteset_FLATBED_LARGE_WDPR2;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_WOOD_rand) {
+	1: spriteset_FLATBED_LARGE_WOOD_F;
+	1: spriteset_FLATBED_LARGE_WOOD_FR;
+}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_GOOD, PERCENT_FULL){
+	0..50	: spriteset_FLATBED_LARGE ;
+	51..100	: sw_FLATBED_LARGE_loadcheck_GOOD_rand ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_WOOD, PERCENT_FULL){
+	0..25	: spriteset_FLATBED_LARGE_WOOD ;
+	26..70	: spriteset_FLATBED_LARGE_WOOD_H ;
+	71..100	: sw_FLATBED_LARGE_loadcheck_WOOD_rand ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_METL, PERCENT_FULL){
+	0..50	: spriteset_FLATBED_LARGE ;
+	51..100	: sw_FLATBED_LARGE_loadcheck_METL_rand ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_COPR, PERCENT_FULL){
+	0..50	: spriteset_FLATBED_LARGE ;
+	51..100	: sw_FLATBED_LARGE_loadcheck_COPR_rand ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_LARGE_loadcheck_WDPR, PERCENT_FULL){
+	0..50	: spriteset_FLATBED_LARGE ;
+	51..100	: sw_FLATBED_LARGE_loadcheck_WDPR_rand ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_LARGE_cargocheck, cargo_type_in_veh){
+	GOOD : sw_FLATBED_LARGE_loadcheck_GOOD ;
+	WDPR : sw_FLATBED_LARGE_loadcheck_WDPR ;
+	STEL : sw_FLATBED_LARGE_loadcheck_METL ;
+	IRON : sw_FLATBED_LARGE_loadcheck_METL ;
+	METL : sw_FLATBED_LARGE_loadcheck_METL ;
+	COPR : sw_FLATBED_LARGE_loadcheck_COPR ;
+	STAL : sw_FLATBED_LARGE_loadcheck_METL ;
+	STCB : sw_FLATBED_LARGE_loadcheck_METL ;
+	STSE : sw_FLATBED_LARGE_loadcheck_METL ;
+	STSH : sw_FLATBED_LARGE_loadcheck_METL ;
+	STST : sw_FLATBED_LARGE_loadcheck_METL ;
+	STWR : sw_FLATBED_LARGE_loadcheck_METL ;
+	PIPE : sw_FLATBED_LARGE_loadcheck_COPR ;
+	WOOD : sw_FLATBED_LARGE_loadcheck_WOOD ;
+	sw_FLATBED_LARGE_loadcheck_GOOD ;
+}
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_LARGE) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_FLATBED_LARGE); 
+		introduction_date:				date(1910,1,1);
+		model_life:						60;
+		length:							8;
+		
+		weight: 						17 ton;
+		speed:							55 mph;
+		cost_factor: 					0x38 nfo;
+		running_cost_factor: 			0x0E nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				GOOD;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_FLATBED_LARGE_cargocheck;
+		purchase:						spriteset_FLATBED_LARGE_purchase;
+	}
+}

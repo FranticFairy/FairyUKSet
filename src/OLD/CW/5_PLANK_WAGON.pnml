@@ -1,0 +1,64 @@
+//Sprite References & Switches
+spriteset(spriteset_5_PLANK_WAGON_purchase, "gfx/CW/5_PLANK_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_5_PLANK_WAGON, "gfx/CW/5_PLANK_WAGON.png") { template_fai_17(0, 16)}
+spriteset(spriteset_5_PLANK_WAGON_RCC, "gfx/CW/5_PLANK_WAGON.png") { template_fai_17(0, 41)}
+spriteset(spriteset_5_PLANK_WAGON_GRAY, "gfx/CW/5_PLANK_WAGON.png") { template_fai_17(0, 66)}
+spriteset(spriteset_5_PLANK_WAGON_BLK, "gfx/CW/5_PLANK_WAGON.png") { template_fai_17(0, 91)}
+spriteset(spriteset_5_PLANK_WAGON_TTD, "gfx/CW/5_PLANK_WAGON.png") { template_fai_17(0, 116)}
+spriteset(spriteset_5_PLANK_WAGON_BRN, "gfx/CW/5_PLANK_WAGON.png") { template_fai_17(0, 141)}
+
+spriteset(spriteset_5_PLANK_WAGON_COAL_H, "gfx/CW/5_PLANK_WAGON_COAL.png") { template_fai_17(0, 41)}
+spriteset(spriteset_5_PLANK_WAGON_COAL_F, "gfx/CW/5_PLANK_WAGON_COAL.png") { template_fai_17(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_loadcheck_COAL, PERCENT_FULL){
+	1..50	: spriteset_5_PLANK_WAGON_COAL_H ;
+	51..100	: spriteset_5_PLANK_WAGON_COAL_F ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_randomtexture) {
+	1: spriteset_5_PLANK_WAGON;
+	1: spriteset_5_PLANK_WAGON_RCC;
+	1: spriteset_5_PLANK_WAGON_TTD;
+	1: spriteset_5_PLANK_WAGON_BLK;
+	1: spriteset_5_PLANK_WAGON_GRAY;
+	1: spriteset_5_PLANK_WAGON_BRN;
+}
+
+switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_spritestack, SPR_STACK){
+	0 : sw_5_PLANK_WAGON_randomtexture ;
+	1 : sw_5_PLANK_WAGON_loadcheck_COAL ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_5_PLANK_WAGON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_5_PLANK_WAGON); 
+		introduction_date:				date(1865,1,1);
+		model_life:						110;
+		length:							4;
+		
+		weight: 						8 ton;
+		speed:							40 mph;
+		cost_factor: 					0x15 nfo;
+		running_cost_factor: 			0x07 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				COAL;
+		cargo_capacity:					10;
+		
+	}
+	graphics {
+		default:						sw_5_PLANK_WAGON_spritestack;
+		purchase:						spriteset_5_PLANK_WAGON_purchase;
+	}
+}

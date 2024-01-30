@@ -1,0 +1,47 @@
+//Sprite References & Switches
+spriteset(spriteset_COVERED_HOPPER_purchase, "gfx/CW/COVERED_HOPPER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_COVERED_HOPPER, "gfx/CW/COVERED_HOPPER.png") { template_fai_21(0, 16)}
+spriteset(spriteset_COVERED_HOPPER_RCC, "gfx/CW/COVERED_HOPPER.png") { template_fai_21(0, 41)}
+spriteset(spriteset_COVERED_HOPPER_2, "gfx/CW/COVERED_HOPPER.png") { template_fai_21(0, 66)}
+spriteset(spriteset_COVERED_HOPPER_2RCC, "gfx/CW/COVERED_HOPPER.png") { template_fai_21(0, 91)}
+
+random_switch (FEAT_TRAINS, SELF, sw_COVERED_HOPPER_randomtexture) {
+	1: spriteset_COVERED_HOPPER;
+	1: spriteset_COVERED_HOPPER_RCC;
+	1: spriteset_COVERED_HOPPER_2;
+	1: spriteset_COVERED_HOPPER_2RCC;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_COVERED_HOPPER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_COVERED_HOPPER); 
+		introduction_date:				date(1960,1,1);
+		model_life:						60;
+		length:							5;
+		
+		weight: 						16 ton;
+		speed:							60 mph;
+		cost_factor: 					0x2A nfo;
+		running_cost_factor: 			0x0B nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GRAI;
+		cargo_capacity:					15;
+		
+	}
+	graphics {
+		default:						sw_COVERED_HOPPER_randomtexture;
+		purchase:						spriteset_COVERED_HOPPER_purchase;
+	}
+}

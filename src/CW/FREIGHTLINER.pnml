@@ -1,0 +1,53 @@
+//Sprite References & Switches
+spriteset(spriteset_FREIGHTLINER_purchase, "gfx/CW/FREIGHTLINER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_FREIGHTLINER, "gfx/CW/FREIGHTLINER.png") { template_fai_33(0, 16)}
+spriteset(spriteset_FREIGHTLINER_S1, "gfx/CW/FREIGHTLINER.png") { template_fai_33(0, 41)}
+spriteset(spriteset_FREIGHTLINER_S2, "gfx/CW/FREIGHTLINER.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, SELF, sw_articulated_CW_FREIGHTLINER, position_in_articulated_veh) {
+	0: spriteset_FREIGHTLINER;
+	1: spriteset_FREIGHTLINER_S1;
+	2: spriteset_FREIGHTLINER_S2;
+	spriteset_FREIGHTLINER;
+}
+
+switch(FEAT_TRAINS, SELF, sw_articulation_CW_FREIGHTLINER, extra_callback_info1) {
+	1: return ITEM_FAI_CW_FREIGHTLINER;
+	2: return ITEM_FAI_CW_FREIGHTLINER;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_FREIGHTLINER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_FREIGHTLINER); 
+		introduction_date:				date(1972,1,1);
+		model_life:						0;
+		length:							8;
+		
+		weight: 						42 ton;
+		speed:							90 mph;
+		cost_factor: 					0xA6 nfo;
+		running_cost_factor: 			0x33 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED,CC_BULK,CC_PIECE_GOODS,CC_LIQUID);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
+		cargo_capacity:					27;
+		
+	}
+	graphics {
+		default:						sw_articulated_CW_FREIGHTLINER;
+        articulated_part:               sw_articulation_CW_FREIGHTLINER;
+		purchase:						spriteset_FREIGHTLINER_purchase;
+	}
+}

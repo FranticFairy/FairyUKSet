@@ -1,0 +1,37 @@
+//Sprite References & Switches
+spriteset(spriteset_LIVESTOCK_VAN_LARGE_purchase, "gfx/CW/LIVESTOCK_VAN_LARGE.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_LIVESTOCK_VAN_LARGE, "gfx/CW/LIVESTOCK_VAN_LARGE.png") { template_fai_29(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_LIVESTOCK_VAN_LARGE) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_LIVESTOCK_VAN_LARGE); 
+		introduction_date:				date(1950,1,1);
+		model_life:						0;
+		length:							7;
+		
+		weight: 						30 ton;
+		speed:							80 mph;
+		cost_factor: 					0x1E nfo;
+		running_cost_factor: 			0x0A nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				LVST;
+		cargo_capacity:					24;
+		
+	}
+	graphics {
+		default:						spriteset_LIVESTOCK_VAN_LARGE;
+		purchase:						spriteset_LIVESTOCK_VAN_LARGE_purchase;
+	}
+}

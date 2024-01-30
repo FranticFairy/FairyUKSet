@@ -1,0 +1,43 @@
+//Sprite References & Switches
+spriteset(spriteset_GRAIN_HOPPER_purchase, "gfx/CW/GRAIN_HOPPER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_GRAIN_HOPPER, "gfx/CW/GRAIN_HOPPER.png") { template_fai_21(0, 16)}
+spriteset(spriteset_GRAIN_HOPPER_R, "gfx/CW/GRAIN_HOPPER.png") { template_fai_21(0, 41)}
+
+random_switch (FEAT_TRAINS, SELF, sw_GRAIN_HOPPER_randomtexture) {
+	1: spriteset_GRAIN_HOPPER;
+	1: spriteset_GRAIN_HOPPER_R;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_GRAIN_HOPPER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_GRAIN_HOPPER); 
+		introduction_date:				date(1930,1,1);
+		model_life:						60;
+		length:							5;
+		
+		weight: 						12 ton;
+		speed:							55 mph;
+		cost_factor: 					0x28 nfo;
+		running_cost_factor: 			0x0A nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GRAI;
+		cargo_capacity:					14;
+		
+	}
+	graphics {
+		default:						sw_GRAIN_HOPPER_randomtexture;
+		purchase:						spriteset_GRAIN_HOPPER_purchase;
+	}
+}

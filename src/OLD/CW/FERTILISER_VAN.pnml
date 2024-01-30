@@ -1,0 +1,47 @@
+//Sprite References & Switches
+spriteset(spriteset_FERTILISER_VAN_purchase, "gfx/CW/FERTILISER_VAN.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_FERTILISER_VAN, "gfx/CW/FERTILISER_VAN.png") { template_fai_29(0, 16)}
+spriteset(spriteset_FERTILISER_VAN_RCC, "gfx/CW/FERTILISER_VAN.png") { template_fai_29(0, 41)}
+spriteset(spriteset_FERTILISER_VAN_2, "gfx/CW/FERTILISER_VAN.png") { template_fai_29(0, 66)}
+spriteset(spriteset_FERTILISER_VAN_2RCC, "gfx/CW/FERTILISER_VAN.png") { template_fai_29(0, 91)}
+
+random_switch (FEAT_TRAINS, SELF, sw_FERTILISER_VAN_randomtexture) {
+	1: spriteset_FERTILISER_VAN;
+	1: spriteset_FERTILISER_VAN_RCC;
+	1: spriteset_FERTILISER_VAN_2;
+	1: spriteset_FERTILISER_VAN_2RCC;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_FERTILISER_VAN) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_FERTILISER_VAN); 
+		introduction_date:				date(1968,1,1);
+		model_life:						0;
+		length:							7;
+		
+		weight: 						18 ton;
+		speed:							60 mph;
+		cost_factor: 					0x2F nfo;
+		running_cost_factor: 			0x15 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				FERT;
+		cargo_capacity:					22;
+		
+	}
+	graphics {
+		default:						sw_FERTILISER_VAN_randomtexture;
+		purchase:						spriteset_FERTILISER_VAN_purchase;
+	}
+}

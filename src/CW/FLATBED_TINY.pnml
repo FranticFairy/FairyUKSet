@@ -1,0 +1,64 @@
+//Sprite References & Switches
+spriteset(spriteset_FLATBED_TINY_purchase, "gfx/CW/FLATBED_TINY.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_FLATBED_TINY, "gfx/CW/FLATBED_TINY.png") { template_fai_13(0, 16)}
+
+spriteset(spriteset_FLATBED_TINY_W, "gfx/CW/FLATBED_TINY.png") { template_fai_13(0, 41)}
+spriteset(spriteset_FLATBED_TINY_M, "gfx/CW/FLATBED_TINY.png") { template_fai_13(0, 66)}
+spriteset(spriteset_FLATBED_TINY_G, "gfx/CW/FLATBED_TINY.png") { template_fai_13(0, 91)}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_TINY_cargocheck, cargo_type_in_veh){
+	GOOD : spriteset_FLATBED_TINY_G ;
+	WDPR : spriteset_FLATBED_TINY_W ;
+	STEL : spriteset_FLATBED_TINY_M ;
+	IRON : spriteset_FLATBED_TINY_M ;
+	METL : spriteset_FLATBED_TINY_M ;
+	COPR : spriteset_FLATBED_TINY_M ;
+	STAL : spriteset_FLATBED_TINY_M ;
+	STCB : spriteset_FLATBED_TINY_M ;
+	STSE : spriteset_FLATBED_TINY_M ;
+	STSH : spriteset_FLATBED_TINY_M ;
+	STST : spriteset_FLATBED_TINY_M ;
+	STWR : spriteset_FLATBED_TINY_M ;
+	PIPE : spriteset_FLATBED_TINY_M ;
+	WOOD : spriteset_FLATBED_TINY_W ;
+	spriteset_FLATBED_TINY_G ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_FLATBED_TINY_loadcheck, PERCENT_FULL){
+	0..40	: spriteset_FLATBED_TINY ;
+	41..100	: sw_FLATBED_TINY_cargocheck ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_TINY) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_FLATBED_TINY); 
+		introduction_date:				date(1800,1,1);
+		model_life:						100;
+		length:							3;
+		
+		weight: 						5 ton;
+		speed:							35 mph;
+		cost_factor: 					0x0B nfo;
+		running_cost_factor: 			0x03 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
+		cargo_capacity:					5;
+		
+	}
+	graphics {
+		default:						sw_FLATBED_TINY_loadcheck;
+		purchase:						spriteset_FLATBED_TINY_purchase;
+	}
+}

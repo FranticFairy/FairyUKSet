@@ -1,0 +1,60 @@
+//Sprite References & Switches
+spriteset(spriteset_TIMBER_WAGON_purchase, "gfx/CW/TIMBER_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_TIMBER_WAGON, "gfx/CW/TIMBER_WAGON.png") { template_fai_25(0, 16)}
+spriteset(spriteset_TIMBER_WAGON_H, "gfx/CW/TIMBER_WAGON.png") { template_fai_25(0, 41)}
+spriteset(spriteset_TIMBER_WAGON_F, "gfx/CW/TIMBER_WAGON.png") { template_fai_25(0, 66)}
+
+spriteset(spriteset_TIMBER_WAGON_R, "gfx/CW/TIMBER_WAGON_RCC.png") { template_fai_25(0, 16)}
+spriteset(spriteset_TIMBER_WAGON_RH, "gfx/CW/TIMBER_WAGON_RCC.png") { template_fai_25(0, 41)}
+spriteset(spriteset_TIMBER_WAGON_RF, "gfx/CW/TIMBER_WAGON_RCC.png") { template_fai_25(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_TIMBER_WAGON_loadcheck, PERCENT_FULL){
+	0..25	: spriteset_TIMBER_WAGON ;
+	26..70	: spriteset_TIMBER_WAGON_H ;
+	71..100	: spriteset_TIMBER_WAGON_F ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_TIMBER_WAGON_loadcheck_RCC, PERCENT_FULL){
+	0..25	: spriteset_TIMBER_WAGON_R ;
+	26..70	: spriteset_TIMBER_WAGON_RH ;
+	71..100	: spriteset_TIMBER_WAGON_RF ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_TIMBER_WAGON_rand) {
+	1: sw_TIMBER_WAGON_loadcheck;
+	1: sw_TIMBER_WAGON_loadcheck_RCC;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_TIMBER_WAGON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_TIMBER_WAGON); 
+		introduction_date:				date(1985,1,1);
+		model_life:						0;
+		length:							6;
+		
+		weight: 						14 ton;
+		speed:							70 mph;
+		cost_factor: 					0x26 nfo;
+		running_cost_factor: 			0x0D nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				WOOD;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_TIMBER_WAGON_rand;
+		purchase:						spriteset_TIMBER_WAGON_purchase;
+	}
+}

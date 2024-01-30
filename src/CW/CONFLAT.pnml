@@ -1,0 +1,72 @@
+//Sprite References & Switches
+spriteset(spriteset_CONFLAT_purchase, "gfx/CW/CONFLAT.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CONFLAT, "gfx/CW/CONFLAT.png") { template_fai_17(0, 16)}
+
+spriteset(spriteset_CONFLAT_L_B_CC, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 16)}
+spriteset(spriteset_CONFLAT_L_B_RCC, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 41)}
+spriteset(spriteset_CONFLAT_L_B_W, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 66)}
+spriteset(spriteset_CONFLAT_L_B_G, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 91)}
+
+spriteset(spriteset_CONFLAT_L_D_CC, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 116)}
+spriteset(spriteset_CONFLAT_L_D_RCC, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 141)}
+spriteset(spriteset_CONFLAT_L_D_W, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 166)}
+spriteset(spriteset_CONFLAT_L_D_G, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 191)}
+
+spriteset(spriteset_CONFLAT_L_S_CC, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 216)}
+spriteset(spriteset_CONFLAT_L_S_RCC, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 241)}
+spriteset(spriteset_CONFLAT_L_S_W, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 266)}
+spriteset(spriteset_CONFLAT_L_S_G, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 291)}
+
+random_switch (FEAT_TRAINS, SELF, sw_CONFLAT_randomtexture) {
+	1: spriteset_CONFLAT_L_B_CC;
+	1: spriteset_CONFLAT_L_B_RCC;
+	1: spriteset_CONFLAT_L_B_W;
+	1: spriteset_CONFLAT_L_B_G;
+	1: spriteset_CONFLAT_L_D_CC;
+	1: spriteset_CONFLAT_L_D_RCC;
+	1: spriteset_CONFLAT_L_D_W;
+	1: spriteset_CONFLAT_L_D_G;
+	1: spriteset_CONFLAT_L_S_CC;
+	1: spriteset_CONFLAT_L_S_RCC;
+	1: spriteset_CONFLAT_L_S_W;
+	1: spriteset_CONFLAT_L_S_G;
+}
+
+switch(FEAT_TRAINS, SELF, sw_CONFLAT_loadcheck, PERCENT_FULL){
+	0..50	: spriteset_CONFLAT ;
+	51..100	: sw_CONFLAT_randomtexture ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_CONFLAT) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_CONFLAT); 
+		introduction_date:				date(1930,1,1);
+		model_life:						45;
+		length:							4;
+		
+		weight: 						9 ton;
+		speed:							45 mph;
+		cost_factor: 					0x1A nfo;
+		running_cost_factor: 			0x08 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				GOOD;
+		cargo_capacity:					12;
+		
+	}
+	graphics {
+		default:						sw_CONFLAT_loadcheck;
+		purchase:						spriteset_CONFLAT_purchase;
+	}
+}

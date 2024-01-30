@@ -1,0 +1,43 @@
+//Sprite References & Switches
+spriteset(spriteset_COMPARTMENT_COACH_COACH_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_COMPARTMENT_COACH_COACH_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/COMPARTMENT_COACH_COACH.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_COMPARTMENT_COACH_COACH, "gfx/32bpp.png") { template_fai_17(0, 16)}
+alternative_sprites(spriteset_COMPARTMENT_COACH_COACH, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/COMPARTMENT_COACH_COACH.png") { template_fai_17(0, 16)}
+
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_COMPARTMENT_COACH_COACH) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_COMPARTMENT_COACH_COACH); 
+		introduction_date:				date(1840,1,1);
+		model_life:						55;
+		length:							4;
+		
+		weight: 						15 ton;
+		speed:							60 mph;
+		cost_factor: 					0x3B nfo;
+		running_cost_factor: 			0x1F nfo;
+		
+		variant_group: 			        ITEM_FAI_PW_COMPARTMENT_COACH;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_MAIL,CC_EXPRESS,CC_ARMOURED);
+		non_refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					14;
+		
+	}
+	graphics {
+		default:						spriteset_COMPARTMENT_COACH_COACH;
+		purchase:						spriteset_COMPARTMENT_COACH_COACH_purchase;
+	}
+}

@@ -1,0 +1,45 @@
+//Sprite References & Switches
+spriteset(spriteset_GRAIN_TRUCK_purchase, "gfx/CW/GRAIN_TRUCK.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_GRAIN_TRUCK, "gfx/CW/GRAIN_TRUCK.png") { template_fai_17(0, 16)}
+spriteset(spriteset_GRAIN_TRUCK_R, "gfx/CW/GRAIN_TRUCK.png") { template_fai_17(0, 41)}
+spriteset(spriteset_GRAIN_TRUCK_W, "gfx/CW/GRAIN_TRUCK.png") { template_fai_17(0, 66)}
+
+random_switch (FEAT_TRAINS, SELF, sw_GRAIN_TRUCK_randomtexture) {
+	1: spriteset_GRAIN_TRUCK;
+	1: spriteset_GRAIN_TRUCK_R;
+	1: spriteset_GRAIN_TRUCK_W;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_GRAIN_TRUCK) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_GRAIN_TRUCK); 
+		introduction_date:				date(1885,1,1);
+		model_life:						65;
+		length:							4;
+		
+		weight: 						9 ton;
+		speed:							50 mph;
+		cost_factor: 					0x1B nfo;
+		running_cost_factor: 			0x07 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GRAI;
+		cargo_capacity:					10;
+		
+	}
+	graphics {
+		default:						sw_GRAIN_TRUCK_randomtexture;
+		purchase:						spriteset_GRAIN_TRUCK_purchase;
+	}
+}

@@ -1,0 +1,40 @@
+//Sprite References & Switches
+spriteset(spriteset_SLAM_DOOR_CARRIAGE_1_CC2_purchase, "gfx/PW/SLAM_DOOR_CARRIAGE_1_CC2.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SLAM_DOOR_CARRIAGE_1_CC2, "gfx/PW/SLAM_DOOR_CARRIAGE_1_CC2.png") { template_fai_33(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_SLAM_DOOR_CARRIAGE_1_CC2) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_SLAM_DOOR_CARRIAGE_1_CC2); 
+		introduction_date:				date(1974,1,1);
+		model_life:						20;
+		length:							8;
+		
+		weight: 						30 ton;
+		speed:							90 mph;
+		cost_factor: 					0x91 nfo;
+		running_cost_factor: 			0x4E nfo;
+		
+		variant_group: 			        ITEM_FAI_PW_SLAM_DOOR_CARRIAGE_1;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		non_refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					45;
+		
+	}
+	graphics {
+		default:						spriteset_SLAM_DOOR_CARRIAGE_1_CC2;
+		purchase:						spriteset_SLAM_DOOR_CARRIAGE_1_CC2_purchase;
+	}
+}

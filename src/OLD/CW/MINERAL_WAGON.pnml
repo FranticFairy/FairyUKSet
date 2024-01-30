@@ -1,0 +1,56 @@
+//Sprite References & Switches
+spriteset(spriteset_MINERAL_WAGON_purchase, "gfx/CW/MINERAL_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_MINERAL_WAGON, "gfx/CW/MINERAL_WAGON.png") { template_fai_17(0, 16)}
+spriteset(spriteset_MINERAL_WAGON_R, "gfx/CW/MINERAL_WAGON.png") { template_fai_17(0, 41)}
+
+spriteset(spriteset_MINERAL_WAGON_COAL_H, "gfx/CW/MINERAL_WAGON_COAL.png") { template_fai_17(0, 41)}
+spriteset(spriteset_MINERAL_WAGON_COAL_F, "gfx/CW/MINERAL_WAGON_COAL.png") { template_fai_17(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_MINERAL_WAGON_loadcheck_COAL, PERCENT_FULL){
+	1..50	: spriteset_MINERAL_WAGON_COAL_H ;
+	51..100	: spriteset_MINERAL_WAGON_COAL_F ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_MINERAL_WAGON_randomtexture) {
+	1: spriteset_MINERAL_WAGON;
+	1: spriteset_MINERAL_WAGON_R;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MINERAL_WAGON_spritestack, SPR_STACK){
+	0 : sw_MINERAL_WAGON_randomtexture ;
+	1 : sw_MINERAL_WAGON_loadcheck_COAL ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_MINERAL_WAGON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_MINERAL_WAGON); 
+		introduction_date:				date(1910,1,1);
+		model_life:						60;
+		length:							4;
+		
+		weight: 						8 ton;
+		speed:							40 mph;
+		cost_factor: 					0x15 nfo;
+		running_cost_factor: 			0x07 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				COAL;
+		cargo_capacity:					10;
+		
+	}
+	graphics {
+		default:						sw_MINERAL_WAGON_spritestack;
+		purchase:						spriteset_MINERAL_WAGON_purchase;
+	}
+}

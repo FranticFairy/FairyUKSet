@@ -1,0 +1,100 @@
+//Sprite References & Switches
+spriteset(spriteset_SPEEDLINK_WAGON_purchase, "gfx/CW/SPEEDLINK_OPEN.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SPEEDLINK_OPEN, "gfx/CW/SPEEDLINK_OPEN.png") { template_fai_25(0, 16)}
+spriteset(spriteset_SPEEDLINK_OPEN_R, "gfx/CW/SPEEDLINK_OPEN.png") { template_fai_25(0, 41)}
+spriteset(spriteset_SPEEDLINK_OPEN_2, "gfx/CW/SPEEDLINK_OPEN.png") { template_fai_25(0, 66)}
+spriteset(spriteset_SPEEDLINK_OPEN_2R, "gfx/CW/SPEEDLINK_OPEN.png") { template_fai_25(0, 91)}
+
+spriteset(spriteset_SPEEDLINK_OPEN_GOOD1, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 41)}
+spriteset(spriteset_SPEEDLINK_OPEN_GOOD2, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 66)}
+
+spriteset(spriteset_SPEEDLINK_OPEN_WDPR, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 91)}
+spriteset(spriteset_SPEEDLINK_OPEN_METL, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 116)}
+
+spriteset(spriteset_SPEEDLINK_OPEN_WOODH, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 141)}
+spriteset(spriteset_SPEEDLINK_OPEN_WOODF, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 166)}
+
+random_switch (FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_randomtexture) {
+	1: spriteset_SPEEDLINK_OPEN;
+	1: spriteset_SPEEDLINK_OPEN_R;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_randomtexture_GOOD) {
+	1: spriteset_SPEEDLINK_OPEN_GOOD1;
+	1: spriteset_SPEEDLINK_OPEN_GOOD2;
+}
+
+switch(FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_loadcheck_WOOD, PERCENT_FULL){
+	26..70	: spriteset_SPEEDLINK_OPEN_WOODH ;
+	71..100	: spriteset_SPEEDLINK_OPEN_WOODF ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_loadcheck_METL, PERCENT_FULL){
+	51..100	: spriteset_SPEEDLINK_OPEN_METL ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_loadcheck_WDPR, PERCENT_FULL){
+	51..100	: spriteset_SPEEDLINK_OPEN_WDPR ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_loadcheck_GOOD, PERCENT_FULL){
+	51..100	: sw_SPEEDLINK_OPEN_randomtexture_GOOD ;
+}
+
+
+switch(FEAT_TRAINS, SELF, sw_SPEEDLINK_WAGON_cargocheck, cargo_type_in_veh){
+	GOOD : sw_SPEEDLINK_OPEN_loadcheck_GOOD ;
+	WDPR : sw_SPEEDLINK_OPEN_loadcheck_WDPR ;
+	STEL : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	IRON : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	METL : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	COPR : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	STAL : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	STCB : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	STSE : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	STSH : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	STST : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	STWR : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	PIPE : sw_SPEEDLINK_OPEN_loadcheck_METL ;
+	WOOD : sw_SPEEDLINK_OPEN_loadcheck_WOOD ;
+	sw_SPEEDLINK_OPEN_loadcheck_GOOD ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_SPEEDLINK_WAGON_spritestack, SPR_STACK){
+	0 : sw_SPEEDLINK_OPEN_randomtexture ;
+	1 : sw_SPEEDLINK_WAGON_cargocheck ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_SPEEDLINK_WAGON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_SPEEDLINK_WAGON); 
+		introduction_date:				date(1968,1,1);
+		model_life:						0;
+		length:							6;
+		
+		weight: 						15 ton;
+		speed:							70 mph;
+		cost_factor: 					0x2C nfo;
+		running_cost_factor: 			0x11 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_BULK,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				GOOD;
+		cargo_capacity:					18;
+		
+	}
+	graphics {
+		default:						sw_SPEEDLINK_WAGON_spritestack;
+		purchase:						spriteset_SPEEDLINK_WAGON_purchase;
+	}
+}

@@ -1,0 +1,45 @@
+//Sprite References & Switches
+spriteset(spriteset_TANKER_WAGON_purchase, "gfx/CW/TANKER_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_TANKER_WAGON, "gfx/CW/TANKER_WAGON.png") { template_fai_17(0, 16)}
+spriteset(spriteset_TANKER_WAGON_R, "gfx/CW/TANKER_WAGON.png") { template_fai_17(0, 41)}
+spriteset(spriteset_TANKER_WAGON_B, "gfx/CW/TANKER_WAGON.png") { template_fai_17(0, 66)}
+
+random_switch (FEAT_TRAINS, SELF, sw_TANKER_WAGON_randomtexture) {
+	1: spriteset_TANKER_WAGON;
+	1: spriteset_TANKER_WAGON_R;
+	1: spriteset_TANKER_WAGON_B;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_TANKER_WAGON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_TANKER_WAGON); 
+		introduction_date:				date(1865,1,1);
+		model_life:						55;
+		length:							4;
+		
+		weight: 						12 ton;
+		speed:							35 mph;
+		cost_factor: 					0x13 nfo;
+		running_cost_factor: 			0x0C nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_LIQUID);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				OIL_;
+		cargo_capacity:					9;
+		
+	}
+	graphics {
+		default:						sw_TANKER_WAGON_randomtexture;
+		purchase:						spriteset_TANKER_WAGON_purchase;
+	}
+}

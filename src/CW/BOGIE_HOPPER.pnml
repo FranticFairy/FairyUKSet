@@ -1,0 +1,58 @@
+//Sprite References & Switches
+spriteset(spriteset_BOGIE_HOPPER_purchase, "gfx/CW/BOGIE_HOPPER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_BOGIE_HOPPER, "gfx/CW/BOGIE_HOPPER.png") { template_fai_29(0, 16)}
+spriteset(spriteset_BOGIE_HOPPER_RCC, "gfx/CW/BOGIE_HOPPER.png") { template_fai_29(0, 41)}
+spriteset(spriteset_BOGIE_HOPPER_GRAY, "gfx/CW/BOGIE_HOPPER.png") { template_fai_29(0, 66)}
+
+spriteset(spriteset_BOGIE_HOPPER_COAL_H, "gfx/CW/BOGIE_HOPPER_COAL.png") { template_fai_29(0, 41)}
+spriteset(spriteset_BOGIE_HOPPER_COAL_F, "gfx/CW/BOGIE_HOPPER_COAL.png") { template_fai_29(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_BOGIE_HOPPER_loadcheck_COAL, PERCENT_FULL){
+	1..50	: spriteset_BOGIE_HOPPER_COAL_H ;
+	51..100	: spriteset_BOGIE_HOPPER_COAL_F ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_BOGIE_HOPPER_randomtexture) {
+	1: spriteset_BOGIE_HOPPER;
+	1: spriteset_BOGIE_HOPPER_RCC;
+	1: spriteset_BOGIE_HOPPER_GRAY;
+}
+
+switch(FEAT_TRAINS, SELF, sw_BOGIE_HOPPER_spritestack, SPR_STACK){
+	0 : sw_BOGIE_HOPPER_randomtexture ;
+	1 : sw_BOGIE_HOPPER_loadcheck_COAL ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_BOGIE_HOPPER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_BOGIE_HOPPER); 
+		introduction_date:				date(1935,1,1);
+		model_life:						55;
+		length:							7;
+		
+		weight: 						16 ton;
+		speed:							50 mph;
+		cost_factor: 					0x32 nfo;
+		running_cost_factor: 			0x0E nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				COAL;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_BOGIE_HOPPER_spritestack;
+		purchase:						spriteset_BOGIE_HOPPER_purchase;
+	}
+}

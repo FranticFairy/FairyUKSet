@@ -442,6 +442,20 @@ STR_NAME_FOOTBALLER_1_BLK:4-6-0 'Footballer' - Streamlined (Black)
 STR_NAME_FOOTBALLER_1_UMBER:4-6-0 'Footballer' - Streamlined (Burnt Umber)
 STR_NAME_FOOTBALLER_1_SILVER:4-6-0 'Footballer' - Streamlined (Silver)
 STR_NAME_FOOTBALLER_1_CLD:4-6-0 'Footballer' - Streamlined (Sky Blue)
+STR_NAME_FOOTBALLER_2:4-6-0 'Footballer' - Streamlined
+STR_NAME_FOOTBALLER_2_CC1:4-6-0 'Footballer' - Streamlined (CC1)
+STR_NAME_FOOTBALLER_2_CC2:4-6-0 'Footballer' - Streamlined (CC2)
+STR_NAME_FOOTBALLER_2_RCC:4-6-0 'Footballer' - Streamlined (Reverse Colours)
+STR_NAME_FOOTBALLER_2_LNER:4-6-0 'Footballer' - Streamlined (Apple Green)
+STR_NAME_FOOTBALLER_2_LMS:4-6-0 'Footballer' - Streamlined (Maroon)
+STR_NAME_FOOTBALLER_2_GWR:4-6-0 'Footballer' - Streamlined (Brunswick Green)
+STR_NAME_FOOTBALLER_2_SR:4-6-0 'Footballer' - Streamlined (Olive Green)
+STR_NAME_FOOTBALLER_2_BRG:4-6-0 'Footballer' - Streamlined (Bronze Green)
+STR_NAME_FOOTBALLER_2_CRIMSON:4-6-0 'Footballer' - Streamlined (Crimson)
+STR_NAME_FOOTBALLER_2_BLK:4-6-0 'Footballer' - Streamlined (Black)
+STR_NAME_FOOTBALLER_2_UMBER:4-6-0 'Footballer' - Streamlined (Burnt Umber)
+STR_NAME_FOOTBALLER_2_SILVER:4-6-0 'Footballer' - Streamlined (Silver)
+STR_NAME_FOOTBALLER_2_CLD:4-6-0 'Footballer' - Streamlined (Sky Blue)
 STR_NAME_JUBILEE:4-6-0 'Jubilee'
 STR_NAME_JUBILEE_CC2:4-6-0 'Jubilee' (CC2)
 STR_NAME_JUBILEE_LNER:4-6-0 'Jubilee' (Apple Green)
@@ -760,6 +774,17 @@ STR_NAME_BRITANNIA_CRIMSON:4-6-2 'Britannia' (Crimson)
 STR_NAME_BRITANNIA_BLK:4-6-2 'Britannia' (Black)
 STR_NAME_BRITANNIA_UMBER:4-6-2 'Britannia' (Burnt Umber)
 STR_NAME_BRITANNIA_CLD:4-6-2 'Britannia' (Sky Blue)
+STR_NAME_DUKE:4-6-2 'Duke'
+STR_NAME_DUKE_CC2:4-6-2 'Duke' (CC2)
+STR_NAME_DUKE_LNER:4-6-2 'Duke' (Apple Green)
+STR_NAME_DUKE_LMS:4-6-2 'Duke' (Maroon)
+STR_NAME_DUKE_GWR:4-6-2 'Duke' (Brunswick Green)
+STR_NAME_DUKE_SR:4-6-2 'Duke' (Olive Green)
+STR_NAME_DUKE_BRG:4-6-2 'Duke' (Bronze Green)
+STR_NAME_DUKE_CRIMSON:4-6-2 'Duke' (Crimson)
+STR_NAME_DUKE_BLK:4-6-2 'Duke' (Black)
+STR_NAME_DUKE_UMBER:4-6-2 'Duke' (Burnt Umber)
+STR_NAME_DUKE_CLD:4-6-2 'Duke' (Sky Blue)
 STR_NAME_5AT:4-6-0 '5AT'
 STR_NAME_5AT_0:4-6-0 '5AT'
 STR_NAME_5AT_0_CC2:4-6-0 '5AT' (CC2)
@@ -2390,5 +2415,42 @@ STR_NAME_BRAKE_PULLMAN_CLD:Pullman Brake (Sky Blue)
 STR_NAME_BRAKE_PULLMAN_BROWN:Pullman Brake (Wood Brown)
 STR_NAME_BRAKE_PULLMAN_COACH:Pullman Brake (Red)
 STR_NAME_BRAKE_PULLMAN_TEAK:Pullman Brake (Teak)
+STR_NAME_OPEN_WAGON:Open Wagon
+STR_NAME_5_PLANK_WAGON:5 Plank Open Wagon
+STR_NAME_MINERAL_WAGON:Mineral Wagon
+STR_NAME_STEEL_OPEN_WAGON:Steel Open Wagon
+STR_NAME_BOGIE_HOPPER:Bogie Hopper
+STR_NAME_HOPPER:Open Hopper
+STR_NAME_MGR_HOPPER:MGR Hopper
+STR_NAME_PGA_HOPPER:PGA Hopper
+STR_NAME_SCRAP_WAGON:Scrap Wagon
+STR_NAME_MONSTER_BOX:Monster Box
+STR_NAME_GRAIN_TRUCK:Grain Van
+STR_NAME_GRAIN_HOPPER:Grain Hopper
+STR_NAME_COVERED_HOPPER:Covered Hopper
+STR_NAME_PRESFLO_HOPPER:Presflo Hopper
+STR_NAME_GRAIN_BULK_HOPPER:Polybulk Hopper
+STR_NAME_FLATBED_TINY:Single Bolster
+STR_NAME_FLATBED:Flat Wagon
+STR_NAME_CONFLAT:Conflat
+STR_NAME_FLATBED_LARGE:Bogie Bolster
+STR_NAME_FLATBED_EXPRESS:Bogie Bolster B
+STR_NAME_SINGLE_CARTIC:Car Carrier
+STR_NAME_CARTIC:Cartic
+STR_NAME_INTERMODAL:Intermodal
+STR_NAME_FREIGHTLINER:Freightliner
+STR_NAME_TIMBER_WAGON:Timber Wagon
+STR_NAME_STEEL_COIL_WAGON:Coil Carrier
+STR_NAME_TANKER_WAGON:Tank Wagon
+STR_NAME_6_WHEEL_TANKER:6 Wheel Tank Wagon
+STR_NAME_WELDED_TANKER:Welded Tank Wagon
+STR_NAME_BULK_TANKER:Bogie Tanker
+STR_NAME_VAN:Covered Van
+STR_NAME_EXPRESS_VAN:XP Van
+STR_NAME_SPEEDLINK_WAGON:Speedlink Open
+STR_NAME_SPEEDLINK_VAN:Speedlink Van
+STR_NAME_FERTILISER_VAN:Fertiliser Van
+STR_NAME_HABFIS_VAN:Habfis Van
+STR_NAME_LIVESTOCK_VAN:Livestock Van
+STR_NAME_LIVESTOCK_VAN_LARGE:Large Livestock Van
 STR_NAME_TENDER:Tender
-

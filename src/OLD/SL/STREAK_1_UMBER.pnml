@@ -36,7 +36,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_STREAK_1_UMBER) {
 		
 		weight: 						166 ton;
 		speed:							115 mph;
-		power:							200 hp;
+		power:							2000 hp;
 		tractive_effort_coefficient: 	0x17 nfo;
 		cost_factor: 					0x2A nfo;
 		running_cost_factor: 			0x70 nfo;

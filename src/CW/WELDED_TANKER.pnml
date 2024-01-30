@@ -1,0 +1,56 @@
+//Sprite References & Switches
+spriteset(spriteset_WELDED_TANKER_purchase, "gfx/CW/WELDED_TANKER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_WELDED_TANKER, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 16)}
+spriteset(spriteset_WELDED_TANKER_R, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 41)}
+spriteset(spriteset_WELDED_TANKER_B, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 66)}
+spriteset(spriteset_WELDED_TANKER_BR, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 91)}
+spriteset(spriteset_WELDED_TANKER_G, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 116)}
+spriteset(spriteset_WELDED_TANKER_GR, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 141)}
+spriteset(spriteset_WELDED_TANKER_M, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 166)}
+spriteset(spriteset_WELDED_TANKER_MR, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 191)}
+
+random_switch (FEAT_TRAINS, SELF, sw_WELDED_TANKER_randomtexture) {
+	1: spriteset_WELDED_TANKER;
+	1: spriteset_WELDED_TANKER_R;
+	1: spriteset_WELDED_TANKER_B;
+	1: spriteset_WELDED_TANKER_BR;
+	1: spriteset_WELDED_TANKER_G;
+	1: spriteset_WELDED_TANKER_GR;
+	1: spriteset_WELDED_TANKER_M;
+	1: spriteset_WELDED_TANKER_MR;
+}
+
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_WELDED_TANKER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_WELDED_TANKER); 
+		introduction_date:				date(1957,1,1);
+		model_life:						53;
+		length:							5;
+		
+		weight: 						18 ton;
+		speed:							75 mph;
+		cost_factor: 					0x31 nfo;
+		running_cost_factor: 			0x14 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_LIQUID);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				OIL_;
+		cargo_capacity:					16;
+		
+	}
+	graphics {
+		default:						sw_WELDED_TANKER_randomtexture;
+		purchase:						spriteset_WELDED_TANKER_purchase;
+	}
+}

@@ -1,0 +1,37 @@
+//Sprite References & Switches
+spriteset(spriteset_SINGLE_CARTIC_purchase, "gfx/CW/CARTIC_SINGLE.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SINGLE_CARTIC, "gfx/CW/CARTIC_SINGLE.png") { template_fai_29(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_SINGLE_CARTIC) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_SINGLE_CARTIC); 
+		introduction_date:				date(1967,1,1);
+		model_life:						0;
+		length:							7;
+		
+		weight: 						64 ton;
+		speed:							90 mph;
+		cost_factor: 					0x3B nfo;
+		running_cost_factor: 			0x2A nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				VEHI;
+		cargo_capacity:					12;
+		
+	}
+	graphics {
+		default:						spriteset_SINGLE_CARTIC;
+		purchase:						spriteset_SINGLE_CARTIC_purchase;
+	}
+}

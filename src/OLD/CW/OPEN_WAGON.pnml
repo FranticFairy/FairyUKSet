@@ -1,0 +1,58 @@
+//Sprite References & Switches
+spriteset(spriteset_OPEN_WAGON_purchase, "gfx/CW/OPEN_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_OPEN_WAGON, "gfx/CW/OPEN_WAGON.png") { template_fai_13(0, 16)}
+spriteset(spriteset_OPEN_WAGON_R, "gfx/CW/OPEN_WAGON.png") { template_fai_13(0, 41)}
+spriteset(spriteset_OPEN_WAGON_W, "gfx/CW/OPEN_WAGON.png") { template_fai_13(0, 66)}
+spriteset(spriteset_OPEN_WAGON_G, "gfx/CW/OPEN_WAGON.png") { template_fai_13(0, 91)}
+
+spriteset(spriteset_OPEN_WAGON_COAL_F, "gfx/CW/OPEN_WAGON_COAL.png") { template_fai_13(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_OPEN_WAGON_loadcheck_COAL, PERCENT_FULL){
+	51..100	: spriteset_OPEN_WAGON_COAL_F ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_OPEN_WAGON_randomtexture) {
+	1: spriteset_OPEN_WAGON;
+	1: spriteset_OPEN_WAGON_R;
+	1: spriteset_OPEN_WAGON_W;
+	1: spriteset_OPEN_WAGON_G;
+}
+
+switch(FEAT_TRAINS, SELF, sw_OPEN_WAGON_spritestack, SPR_STACK){
+	0 : sw_OPEN_WAGON_randomtexture ;
+	1 : sw_OPEN_WAGON_loadcheck_COAL ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_OPEN_WAGON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_OPEN_WAGON); 
+		introduction_date:				date(1800,1,1);
+		model_life:						100;
+		length:							3;
+		
+		weight: 						5 ton;
+		speed:							35 mph;
+		cost_factor: 					0x0B nfo;
+		running_cost_factor: 			0x04 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				COAL;
+		cargo_capacity:					6;
+		
+	}
+	graphics {
+		default:						sw_OPEN_WAGON_spritestack;
+		purchase:						spriteset_OPEN_WAGON_purchase;
+	}
+}

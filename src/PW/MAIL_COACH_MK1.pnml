@@ -1,0 +1,37 @@
+//Sprite References & Switches
+spriteset(spriteset_MAIL_COACH_MK1_purchase, "gfx/PW/MAIL_COACH_MK1.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_MAIL_COACH_MK1, "gfx/PW/MAIL_COACH_MK1.png") { template_fai_33(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_MAIL_COACH_MK1) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_MAIL_COACH_MK1); 
+		introduction_date:				date(1948,1,1);
+		model_life:						60;
+		length:							8;
+		
+		weight: 						31 ton;
+		speed:							100 mph;
+		cost_factor: 					0x76 nfo;
+		running_cost_factor: 			0x25 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
+		cargo_capacity:					30;
+		
+	}
+	graphics {
+		default:						spriteset_MAIL_COACH_MK1;
+		purchase:						spriteset_MAIL_COACH_MK1_purchase;
+	}
+}

@@ -1,0 +1,65 @@
+//Sprite References & Switches
+spriteset(spriteset_QUAD_ARTICULATED_1_CRIMSON_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_QUAD_ARTICULATED_1_CRIMSON_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/QUAD_ARTICULATED_1_CRIMSON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_QUAD_ARTICULATED_1_CRIMSON, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_QUAD_ARTICULATED_1_CRIMSON, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/QUAD_ARTICULATED_1_CRIMSON.png") { template_fai_29(0, 16)}
+
+spriteset(spriteset_QUAD_ARTICULATED_1_CRIMSON_S1, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_QUAD_ARTICULATED_1_CRIMSON_S1, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/QUAD_ARTICULATED_1_CRIMSON.png") { template_fai_29(0, 41)}
+spriteset(spriteset_QUAD_ARTICULATED_1_CRIMSON_S2, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_QUAD_ARTICULATED_1_CRIMSON_S2, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/QUAD_ARTICULATED_1_CRIMSON.png") { template_fai_29(0, 66)}
+spriteset(spriteset_QUAD_ARTICULATED_1_CRIMSON_S3, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_QUAD_ARTICULATED_1_CRIMSON_S3, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/QUAD_ARTICULATED_1_CRIMSON.png") { template_fai_29(0, 91)}
+
+switch(FEAT_TRAINS, SELF, sw_articulated_PW_QUAD_ARTICULATED_1_CRIMSON, position_in_articulated_veh) {
+	0: spriteset_QUAD_ARTICULATED_1_CRIMSON;
+	1: spriteset_QUAD_ARTICULATED_1_CRIMSON_S1;
+	2: spriteset_QUAD_ARTICULATED_1_CRIMSON_S2;
+	3: spriteset_QUAD_ARTICULATED_1_CRIMSON_S3;
+	spriteset_QUAD_ARTICULATED_1_CRIMSON;
+}
+
+switch(FEAT_TRAINS, SELF, sw_articulation_PW_QUAD_ARTICULATED_1_CRIMSON, extra_callback_info1) {
+	1: return ITEM_FAI_PW_QUAD_ARTICULATED_1_CRIMSON;
+	2: return ITEM_FAI_PW_QUAD_ARTICULATED_1_CRIMSON;
+	3: return ITEM_FAI_PW_QUAD_ARTICULATED_1_CRIMSON;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_QUAD_ARTICULATED_1_CRIMSON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_QUAD_ARTICULATED_1_CRIMSON); 
+		introduction_date:				date(1924,1,1);
+		model_life:						25;
+		length:							7;
+		
+		weight: 						30 ton;
+		speed:							80 mph;
+		cost_factor: 					0xFA nfo;
+		running_cost_factor: 			0x84 nfo;
+		
+		variant_group: 			        ITEM_FAI_PW_QUAD_ARTICULATED_1;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		non_refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					25;
+		
+	}
+	graphics {
+		default:						sw_articulated_PW_QUAD_ARTICULATED_1_CRIMSON;
+        articulated_part:               sw_articulation_PW_QUAD_ARTICULATED_1_CRIMSON;
+		purchase:						spriteset_QUAD_ARTICULATED_1_CRIMSON_purchase;
+	}
+}

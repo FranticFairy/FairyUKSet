@@ -1,0 +1,37 @@
+//Sprite References & Switches
+spriteset(spriteset_FLATBED_EXPRESS_purchase, "gfx/CW/FLATBED_LARGE.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_FLATBED_EXPRESS, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 16)}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_EXPRESS) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_FLATBED_EXPRESS); 
+		introduction_date:				date(1950,1,1);
+		model_life:						60;
+		length:							8;
+		
+		weight: 						17 ton;
+		speed:							65 mph;
+		cost_factor: 					0x36 nfo;
+		running_cost_factor: 			0x0E nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				GOOD;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_FLATBED_LARGE_cargocheck;
+		purchase:						spriteset_FLATBED_EXPRESS_purchase;
+	}
+}

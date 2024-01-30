@@ -1,0 +1,56 @@
+//Sprite References & Switches
+spriteset(spriteset_PGA_HOPPER_purchase, "gfx/CW/PGA_HOPPER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_PGA_HOPPER, "gfx/CW/PGA_HOPPER.png") { template_fai_21(0, 16)}
+spriteset(spriteset_PGA_HOPPER_R, "gfx/CW/PGA_HOPPER.png") { template_fai_21(0, 41)}
+
+spriteset(spriteset_PGA_HOPPER_COAL_H, "gfx/CW/PGA_HOPPER_COAL.png") { template_fai_21(0, 41)}
+spriteset(spriteset_PGA_HOPPER_COAL_F, "gfx/CW/PGA_HOPPER_COAL.png") { template_fai_21(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_PGA_HOPPER_loadcheck_COAL, PERCENT_FULL){
+	1..50	: spriteset_PGA_HOPPER_COAL_H ;
+	51..100	: spriteset_PGA_HOPPER_COAL_F ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_PGA_HOPPER_randomtexture) {
+	1: spriteset_PGA_HOPPER;
+	1: spriteset_PGA_HOPPER_R;
+}
+
+switch(FEAT_TRAINS, SELF, sw_PGA_HOPPER_spritestack, SPR_STACK){
+	0 : sw_PGA_HOPPER_randomtexture ;
+	1 : sw_PGA_HOPPER_loadcheck_COAL ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_PGA_HOPPER) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_PGA_HOPPER); 
+		introduction_date:				date(1972,1,1);
+		model_life:						0;
+		length:							5;
+		
+		weight: 						15 ton;
+		speed:							65 mph;
+		cost_factor: 					0x28 nfo;
+		running_cost_factor: 			0x0B nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				COAL;
+		cargo_capacity:					16;
+		
+	}
+	graphics {
+		default:						sw_PGA_HOPPER_spritestack;
+		purchase:						spriteset_PGA_HOPPER_purchase;
+	}
+}

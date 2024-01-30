@@ -1,0 +1,56 @@
+//Sprite References & Switches
+spriteset(spriteset_SCRAP_WAGON_purchase, "gfx/CW/SCRAP_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SCRAP_WAGON, "gfx/CW/SCRAP_WAGON.png") { template_fai_21(0, 16)}
+spriteset(spriteset_SCRAP_WAGON_R, "gfx/CW/SCRAP_WAGON.png") { template_fai_21(0, 41)}
+
+spriteset(spriteset_SCRAP_WAGON_SCMT_H, "gfx/CW/SCRAP_WAGON_SCMT.png") { template_fai_21(0, 41)}
+spriteset(spriteset_SCRAP_WAGON_SCMT_F, "gfx/CW/SCRAP_WAGON_SCMT.png") { template_fai_21(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_SCRAP_WAGON_loadcheck_SCMT, PERCENT_FULL){
+	1..50	: spriteset_SCRAP_WAGON_SCMT_H ;
+	51..100	: spriteset_SCRAP_WAGON_SCMT_F ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_SCRAP_WAGON_randomtexture) {
+	1: spriteset_SCRAP_WAGON;
+	1: spriteset_SCRAP_WAGON_R;
+}
+
+switch(FEAT_TRAINS, SELF, sw_SCRAP_WAGON_spritestack, SPR_STACK){
+	0 : sw_SCRAP_WAGON_randomtexture ;
+	1 : sw_SCRAP_WAGON_loadcheck_SCMT ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_SCRAP_WAGON) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						RAIL;
+		
+		name:							string(STR_NAME_SCRAP_WAGON); 
+		introduction_date:				date(1978,1,1);
+		model_life:						0;
+		length:							5;
+		
+		weight: 						15 ton;
+		speed:							60 mph;
+		cost_factor: 					0x28 nfo;
+		running_cost_factor: 			0x0D nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				SCMT;
+		cargo_capacity:					20;
+		
+	}
+	graphics {
+		default:						sw_SCRAP_WAGON_spritestack;
+		purchase:						spriteset_SCRAP_WAGON_purchase;
+	}
+}

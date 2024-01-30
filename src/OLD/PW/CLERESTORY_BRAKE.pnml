@@ -27,7 +27,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BRAKE) {
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_MAIL);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				MAIL;
-		cargo_capacity:					30;
+		cargo_capacity:					20;
 		
 	}
 	graphics {
