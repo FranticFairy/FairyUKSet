@@ -2,9 +2,25 @@
 spriteset(spriteset_TPO_VAN_purchase, "gfx/PW/TPO_VAN.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_TPO_VAN, "gfx/PW/TPO_VAN.png") { template_fai_29(0, 16)}
+spriteset(spriteset_TPO_VAN_F, "gfx/PW/TPO_VAN.png") { template_fai_29(0, 41)}
+spriteset(spriteset_TPO_VAN_E, "gfx/PW/TPO_VAN.png") { template_fai_29_r(0, 41)}
+spriteset(spriteset_TPO_VAN_S, "gfx/PW/TPO_VAN.png") { template_fai_29(0, 16)}
+switch(FEAT_TRAINS, SELF, sw_TPO_VAN_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_TPO_VAN; //All Gangways
+	return spriteset_TPO_VAN_F;
+}
+switch(FEAT_TRAINS, SELF, sw_TPO_VAN_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_TPO_VAN_E; //All Gangways
+	return spriteset_TPO_VAN_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_TPO_VAN_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_TPO_VAN_leftcheck; //All Gangways
+	return sw_TPO_VAN_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_TPO_VAN) {
+item (FEAT_TRAINS, ITEM_FAI_PW_TPO_VAN, 8699) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +28,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_TPO_VAN) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_TPO_VAN); 
 		introduction_date:				date(1985,1,1);
@@ -24,14 +40,17 @@ item (FEAT_TRAINS, ITEM_FAI_PW_TPO_VAN) {
 		cost_factor: 					0x6C nfo;
 		running_cost_factor: 			0x25 nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				MAIL;
 		cargo_capacity:					30;
+		loading_speed:					5;
 		
 	}
 	graphics {
-		default:						spriteset_TPO_VAN;
+		default:						sw_TPO_VAN_rightcheck;
 		purchase:						spriteset_TPO_VAN_purchase;
 	}
 }

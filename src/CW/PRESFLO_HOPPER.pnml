@@ -1,16 +1,20 @@
 //Sprite References & Switches
 spriteset(spriteset_PRESFLO_HOPPER_purchase, "gfx/CW/PRESFLO_HOPPER.png") { template_fai_purchase(0, 0)}
 
-spriteset(spriteset_PRESFLO_HOPPER, "gfx/CW/PRESFLO_HOPPER.png") { template_fai_21(0, 16)}
-spriteset(spriteset_PRESFLO_HOPPER_R, "gfx/CW/PRESFLO_HOPPER.png") { template_fai_21(0, 41)}
+spriteset(spriteset_PRESFLO_HOPPER, "gfx/CW/PRESFLO_HOPPER.png") { template_fai_17(0, 16)}
+spriteset(spriteset_PRESFLO_HOPPER_R, "gfx/CW/PRESFLO_HOPPER.png") { template_fai_17(0, 41)}
+spriteset(spriteset_PRESFLO_HOPPER_A, "gfx/CW/PRESFLO_HOPPER.png") { template_fai_17(0, 66)}
+spriteset(spriteset_PRESFLO_HOPPER_R1, "gfx/CW/PRESFLO_HOPPER.png") { template_fai_17(0, 91)}
 
-random_switch (FEAT_TRAINS, SELF, sw_PRESFLO_HOPPER_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_PRESFLO_HOPPER_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_PRESFLO_HOPPER;
 	1: spriteset_PRESFLO_HOPPER_R;
+	1: spriteset_PRESFLO_HOPPER_A;
+	1: spriteset_PRESFLO_HOPPER_R1;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_PRESFLO_HOPPER) {
+item (FEAT_TRAINS, ITEM_FAI_CW_PRESFLO_HOPPER, 23722) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -18,14 +22,14 @@ item (FEAT_TRAINS, ITEM_FAI_CW_PRESFLO_HOPPER) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_PRESFLO_HOPPER); 
-		introduction_date:				date(1966,1,1);
-		model_life:						0;
-		length:							5;
+		introduction_date:				date(1954,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							4;
 		
-		weight: 						18 ton;
+		weight: 						13 ton;
 		speed:							75 mph;
 		cost_factor: 					0x31 nfo;
 		running_cost_factor: 			0x14 nfo;
@@ -33,7 +37,8 @@ item (FEAT_TRAINS, ITEM_FAI_CW_PRESFLO_HOPPER) {
 		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				GRAI;
-		cargo_capacity:					16;
+        loading_speed:                  3;
+		cargo_capacity:					38;
 		
 	}
 	graphics {

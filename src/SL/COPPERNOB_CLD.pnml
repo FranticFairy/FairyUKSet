@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_COPPERNOB_CLD_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_COPPERNOB_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_SL_COPPERNOB_CLD, 1026) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_COPPERNOB_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -31,18 +31,21 @@ item (FEAT_TRAINS, ITEM_FAI_SL_COPPERNOB_CLD) {
 		name:							string(STR_NAME_COPPERNOB_CLD); 
 		introduction_date:				date(1846,1,1);
 		vehicle_life: 					28;
-		model_life:						54;
+		model_life:						19;
 		length:							3;
 		
 		weight: 						37 ton;
 		speed:							40 mph;
 		power:							250 hp;
-		tractive_effort_coefficient: 	0x2E nfo;
+		tractive_effort_coefficient: 	0.1213458;
 		cost_factor: 					0x0B nfo;
 		running_cost_factor: 			0x09 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/mixed"];
+		
 		variant_group: 			        ITEM_FAI_SL_COPPERNOB;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_COPPERNOB_CLD;

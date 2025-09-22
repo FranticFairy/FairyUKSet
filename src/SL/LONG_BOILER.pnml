@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_LONG_BOILER_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_LONG_BOILER) {
+item (FEAT_TRAINS, ITEM_FAI_SL_LONG_BOILER, 2408) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_LONG_BOILER) {
 		air_drag_coefficient:			0x24 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -27,16 +27,19 @@ item (FEAT_TRAINS, ITEM_FAI_SL_LONG_BOILER) {
 		name:							string(STR_NAME_LONG_BOILER); 
 		introduction_date:				date(1852,1,1);
 		vehicle_life: 					33;
-		model_life:						71;
+		model_life:						18;
 		length:							4;
 		
 		weight: 						42 ton;
 		speed:							35 mph;
 		power:							375 hp;
-		tractive_effort_coefficient: 	0x15 nfo;
+		tractive_effort_coefficient: 	0.1530612;
 		cost_factor: 					0x0D nfo;
 		running_cost_factor: 			0x0C nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/freight"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_LONG_BOILER;

@@ -12,7 +12,7 @@ switch(FEAT_TRAINS, SELF, sw_GARRATT_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_GARRATT) {
+item (FEAT_TRAINS, ITEM_FAI_SL_GARRATT, 2648) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -21,7 +21,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_GARRATT) {
 		air_drag_coefficient:			0x1C nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -35,10 +35,13 @@ item (FEAT_TRAINS, ITEM_FAI_SL_GARRATT) {
 		weight: 						151 ton;
 		speed:							45 mph;
 		power:							1250 hp;
-		tractive_effort_coefficient: 	0x21 nfo;
+		tractive_effort_coefficient: 	0.1365049;
 		cost_factor: 					0x26 nfo;
 		running_cost_factor: 			0x28 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/heavy_freight"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_GARRATT;
@@ -54,6 +57,6 @@ item (FEAT_TRAINS, ITEM_FAI_SL_GARRATT) {
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER_1) {
 		default: 						spriteset_GARRATT_tender_1;
-		length: 						4;
+		length: 						5;
 	}
 }

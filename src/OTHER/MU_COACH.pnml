@@ -2,11 +2,19 @@ spriteset(spriteset_WAGON_MU_COACH_purchase, "gfx/MU_COACH.png") { template_fai_
 
 spriteset(spriteset_WAGON_MU_COACH_m, "gfx/MU_COACH.png") { template_fai_29(7, 39)}
 
+spriteset(spriteset_MU_COACH, "gfx/PW/AUTOCOACH.png") { template_fai_29_r(0, 16)}
+spriteset(spriteset_MU_COACH_wagon, "gfx/PW/AUTOCOACH.png") { template_fai_29(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_MU_COACH_poscheck, position_in_vehid_chain_from_end){
+	0: spriteset_MU_COACH;
+	spriteset_MU_COACH_wagon ;
+}
+
 //Sprite stack
 
 //Item
 
-item (FEAT_TRAINS, ITEM_FAI_WAGON_MU_COACH) {
+item (FEAT_TRAINS, ITEM_FAI_WAGON_MU_COACH, 9000) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
@@ -14,7 +22,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MU_COACH) {
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_WAGON_MU_COACH);  
 		introduction_date:				date(1900,1,1);
@@ -33,7 +41,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_MU_COACH) {
 		running_cost_factor:            0x2D nfo ;
 	}
 	graphics {
-		default: 							spriteset_WAGON_MU_COACH_m;
+		default: 							sw_MU_COACH_poscheck;
 		purchase:                           spriteset_WAGON_MU_COACH_purchase;
 	}
 }

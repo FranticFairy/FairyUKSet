@@ -6,7 +6,7 @@ spriteset(spriteset_COVERED_HOPPER_RCC, "gfx/CW/COVERED_HOPPER.png") { template_
 spriteset(spriteset_COVERED_HOPPER_2, "gfx/CW/COVERED_HOPPER.png") { template_fai_21(0, 66)}
 spriteset(spriteset_COVERED_HOPPER_2RCC, "gfx/CW/COVERED_HOPPER.png") { template_fai_21(0, 91)}
 
-random_switch (FEAT_TRAINS, SELF, sw_COVERED_HOPPER_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_COVERED_HOPPER_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_COVERED_HOPPER;
 	1: spriteset_COVERED_HOPPER_RCC;
 	1: spriteset_COVERED_HOPPER_2;
@@ -14,7 +14,7 @@ random_switch (FEAT_TRAINS, SELF, sw_COVERED_HOPPER_randomtexture) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_COVERED_HOPPER) {
+item (FEAT_TRAINS, ITEM_FAI_CW_COVERED_HOPPER, 23661) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -22,7 +22,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_COVERED_HOPPER) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_COVERED_HOPPER); 
 		introduction_date:				date(1960,1,1);
@@ -37,6 +37,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_COVERED_HOPPER) {
 		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				GRAI;
+        loading_speed:                  3;
 		cargo_capacity:					15;
 		
 	}

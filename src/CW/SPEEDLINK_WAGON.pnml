@@ -15,12 +15,12 @@ spriteset(spriteset_SPEEDLINK_OPEN_METL, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { te
 spriteset(spriteset_SPEEDLINK_OPEN_WOODH, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 141)}
 spriteset(spriteset_SPEEDLINK_OPEN_WOODF, "gfx/CW/SPEEDLINK_OPEN_LOADS.png") { template_fai_25(0, 166)}
 
-random_switch (FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_SPEEDLINK_OPEN;
 	1: spriteset_SPEEDLINK_OPEN_R;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_randomtexture_GOOD) {
+random_switch (FEAT_TRAINS, SELF, sw_SPEEDLINK_OPEN_randomtexture_GOOD, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_SPEEDLINK_OPEN_GOOD1;
 	1: spriteset_SPEEDLINK_OPEN_GOOD2;
 }
@@ -67,19 +67,19 @@ switch(FEAT_TRAINS, SELF, sw_SPEEDLINK_WAGON_spritestack, SPR_STACK){
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_SPEEDLINK_WAGON) {
+item (FEAT_TRAINS, ITEM_FAI_CW_SPEEDLINK_WAGON, 24741) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_SPEEDLINK_WAGON); 
 		introduction_date:				date(1968,1,1);
-		model_life:						0;
+		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							6;
 		
 		weight: 						15 ton;
@@ -90,6 +90,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_SPEEDLINK_WAGON) {
 		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_BULK,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
 		default_cargo_type:				GOOD;
+        loading_speed:                  4;
 		cargo_capacity:					18;
 		
 	}

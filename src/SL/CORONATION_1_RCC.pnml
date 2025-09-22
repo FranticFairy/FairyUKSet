@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_CORONATION_1_RCC_articulation, extra_callback_info1
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_CORONATION_1_RCC) {
+item (FEAT_TRAINS, ITEM_FAI_SL_CORONATION_1_RCC, 2002) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_CORONATION_1_RCC) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -34,12 +34,15 @@ item (FEAT_TRAINS, ITEM_FAI_SL_CORONATION_1_RCC) {
 		weight: 						164 ton;
 		speed:							110 mph;
 		power:							2750 hp;
-		tractive_effort_coefficient: 	0x2F nfo;
+		tractive_effort_coefficient: 	0.1132404;
 		cost_factor: 					0x29 nfo;
 		running_cost_factor: 			0x91 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_CORONATION_1;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_CORONATION_1_RCC;

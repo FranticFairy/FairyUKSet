@@ -1,12 +1,12 @@
 //Sprite References & Switches
-spriteset(spriteset_RAILCAR_DOUBLE_purchase, "gfx/MU/RAILCAR_DOUBLE.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_RAILCAR_DOUBLE_purchase, "gfx/MU/RAILCAR_DOUBLE.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_RAILCAR_DOUBLE, "gfx/MU/RAILCAR_DOUBLE.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_RAILCAR_DOUBLE_wagon, "gfx/MU/RAILCAR_DOUBLE.png") { template_fai_33(0, 41)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE) {
+item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE, 5458) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +16,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE) {
 		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -27,16 +27,19 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE) {
 		model_life:						21;
 		length:							8;
 		
-		weight: 						29 ton;
+		weight: 						14.5 ton;
 		speed:							60 mph;
 		power:							260 hp;
-		tractive_effort_coefficient: 	0x23 nfo;
+		tractive_effort_coefficient: 	0.1196341;
 		cost_factor: 					0x06 nfo;
 		running_cost_factor: 			0x08 nfo;
 		
+		badges: ["flag/GB", "power/diesel", "role/passenger"];
+		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					32;
+		loading_speed:					5;
 		
 	}
 	graphics {
@@ -48,7 +51,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_RAILCAR_DOUBLE_wagon;
 		length:							8;
-		cargo_capacity:					30;
+		cargo_capacity:					32;
+		loading_speed:					5;
 		speed:							60 ;
 	}
 }

@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_BANKER_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_BANKER) {
+item (FEAT_TRAINS, ITEM_FAI_SL_BANKER, 2600) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_BANKER) {
 		air_drag_coefficient:			0x2A nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -33,10 +33,13 @@ item (FEAT_TRAINS, ITEM_FAI_SL_BANKER) {
 		weight: 						106 ton;
 		speed:							30 mph;
 		power:							1200 hp;
-		tractive_effort_coefficient: 	0x15 nfo;
+		tractive_effort_coefficient: 	0.183866;
 		cost_factor: 					0x1B nfo;
 		running_cost_factor: 			0x23 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/heavy_freight"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_BANKER;

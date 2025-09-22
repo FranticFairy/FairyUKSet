@@ -23,7 +23,7 @@ random_switch (FEAT_TRAINS, SELF, sw_RAILBUS_1_BRG_randomflip) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_DL_RAILBUS_1_BRG) {
+item (FEAT_TRAINS, ITEM_FAI_DL_RAILBUS_1_BRG, 5511) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -33,7 +33,7 @@ item (FEAT_TRAINS, ITEM_FAI_DL_RAILBUS_1_BRG) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -47,15 +47,18 @@ item (FEAT_TRAINS, ITEM_FAI_DL_RAILBUS_1_BRG) {
 		weight: 						20 ton;
 		speed:							50 mph;
 		power:							150 hp;
-		tractive_effort_coefficient: 	0x2F nfo;
+		tractive_effort_coefficient: 	0.1020408;
 		cost_factor: 					0x03 nfo;
 		running_cost_factor: 			0x05 nfo;
+		
+		badges: ["flag/GB", "power/diesel", "role/passenger"];
 		
 		variant_group: 			        ITEM_FAI_DL_RAILBUS_1;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					20;
+		cargo_capacity:					34;
+		loading_speed:					5;
 		
 	}
 	graphics {

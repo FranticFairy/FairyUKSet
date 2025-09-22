@@ -1,0 +1,70 @@
+//Sprite References & Switches
+spriteset(spriteset_RAILCAR_MAIL_LMSC_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_RAILCAR_MAIL_LMSC_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/DL/RAILCAR_MAIL_LMSC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_RAILCAR_MAIL_LMSC, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_RAILCAR_MAIL_LMSC, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/DL/RAILCAR_MAIL_LMSC.png") { template_fai_33(0, 16)}
+spriteset(spriteset_RAILCAR_MAIL_LMSC_flip, "gfx/32bpp.png") { template_fai_33_r(0, 16)}
+alternative_sprites(spriteset_RAILCAR_MAIL_LMSC_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/DL/RAILCAR_MAIL_LMSC.png") { template_fai_33_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILCAR_MAIL_LMSC_flipcheck, vehicle_is_reversed){
+	1: spriteset_RAILCAR_MAIL_LMSC;
+	spriteset_RAILCAR_MAIL_LMSC_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_RAILCAR_MAIL_LMSC_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_RAILCAR_MAIL_LMSC_flip;
+	spriteset_RAILCAR_MAIL_LMSC ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_RAILCAR_MAIL_LMSC_randomflip) {
+	1: sw_RAILCAR_MAIL_LMSC_flipcheck;
+	1: sw_RAILCAR_MAIL_LMSC_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR_MAIL_LMSC, 5894) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x15 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						NGRL;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		engine_class: 					ENGINE_CLASS_DIESEL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_RAILCAR_MAIL_LMSC); 
+		introduction_date:				date(1936,1,1);
+		vehicle_life: 					20;
+		model_life:						24;
+		length:							8;
+		
+		weight: 						29 ton;
+		speed:							60 mph;
+		power:							260 hp;
+		tractive_effort_coefficient: 	0.1196341;
+		cost_factor: 					0x06 nfo;
+		running_cost_factor: 			0x08 nfo;
+		
+		badges: ["flag/GB", "power/diesel", "role/mail"];
+		
+		variant_group: 			        ITEM_FAI_DL_RAILCAR_MAIL;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				MAIL;
+		cargo_capacity:					20;
+		loading_speed:					5;
+		
+	}
+	graphics {
+		default:						sw_RAILCAR_MAIL_LMSC_randomflip;
+		sound_effect:					sw_sfx_GRONK;
+		purchase:						spriteset_RAILCAR_MAIL_LMSC_purchase;
+		create_effect:					vfx_DIESEL;
+	}
+}

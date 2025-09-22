@@ -1,0 +1,96 @@
+//Sprite References & Switches
+spriteset(spriteset_6_WHEEL_WAGON_purchase, "gfx/CW/6_WHEEL_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_6_WHEEL_WAGON, "gfx/CW/6_WHEEL_WAGON.png") { template_fai_17(0, 16)}
+spriteset(spriteset_6_WHEEL_WAGON_RCC, "gfx/CW/6_WHEEL_WAGON.png") { template_fai_17(0, 41)}
+spriteset(spriteset_6_WHEEL_WAGON_GRAY, "gfx/CW/6_WHEEL_WAGON.png") { template_fai_17(0, 66)}
+spriteset(spriteset_6_WHEEL_WAGON_BLK, "gfx/CW/6_WHEEL_WAGON.png") { template_fai_17(0, 91)}
+spriteset(spriteset_6_WHEEL_WAGON_TTD, "gfx/CW/6_WHEEL_WAGON.png") { template_fai_17(0, 116)}
+spriteset(spriteset_6_WHEEL_WAGON_BRN, "gfx/CW/6_WHEEL_WAGON.png") { template_fai_17(0, 141)}
+
+spriteset(spriteset_6_WHEEL_WAGON_COAL_H, "gfx/CW/6_WHEEL_WAGON_COAL.png") { template_fai_17(0, 41)}
+spriteset(spriteset_6_WHEEL_WAGON_COAL_F, "gfx/CW/6_WHEEL_WAGON_COAL.png") { template_fai_17(0, 66)}
+
+spriteset(spriteset_6_WHEEL_WAGON_TARP, "gfx/CW/6_WHEEL_WAGON_COVERED.png") { template_fai_17(0, 16)}
+
+switch(FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_loadcheck_COAL, PERCENT_FULL){
+	20..60	: spriteset_6_WHEEL_WAGON_COAL_H ;
+	61..100	: spriteset_6_WHEEL_WAGON_COAL_F ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_loadcheck_TARP, PERCENT_FULL){
+	61..100	: spriteset_6_WHEEL_WAGON_TARP ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
+	1: spriteset_6_WHEEL_WAGON;
+	1: spriteset_6_WHEEL_WAGON_RCC;
+	1: spriteset_6_WHEEL_WAGON_TTD;
+	1: spriteset_6_WHEEL_WAGON_BLK;
+	1: spriteset_6_WHEEL_WAGON_GRAY;
+	1: spriteset_6_WHEEL_WAGON_BRN;
+}
+
+switch(FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_cargocheck, cargo_type_in_veh){
+	GRAI : sw_6_WHEEL_WAGON_loadcheck_TARP ;
+	sw_6_WHEEL_WAGON_loadcheck_COAL ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_bulkcheck, cargo_classes & bitmask(CC_BULK)) {
+	bitmask(CC_BULK): return sw_6_WHEEL_WAGON_cargocheck;
+	sw_6_WHEEL_WAGON_loadcheck_TARP ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_coveredcheck, cargo_classes & bitmask(CC_COVERED)) {
+	bitmask(CC_COVERED): return sw_6_WHEEL_WAGON_loadcheck_TARP;
+	sw_6_WHEEL_WAGON_bulkcheck ;
+}
+
+switch (FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_getwagon, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
+    return sw_6_WHEEL_WAGON_randomtexture;
+}
+
+switch (FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_recolour_load, STORE_TEMP(switch_generic_recolour(), 0x100)) {
+    return sw_6_WHEEL_WAGON_coveredcheck;
+}
+
+switch (FEAT_TRAINS, SELF, sw_6_WHEEL_WAGON_compose, getbits(extra_callback_info1, 8, 8)) {
+    0: return sw_6_WHEEL_WAGON_getwagon;
+    return sw_6_WHEEL_WAGON_recolour_load;
+}
+
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_6_WHEEL_WAGON, 23002) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_6_WHEEL_WAGON); 
+		introduction_date:				date(1890,1,1);
+		model_life:						110;
+		length:							5;
+		
+		weight: 						8 ton;
+		speed:							40 mph;
+		cost_factor: 					0x15 nfo;
+		running_cost_factor: 			0x07 nfo;
+		refit_cost:						0;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				COAL;
+        loading_speed:                  4;
+		cargo_capacity:					14;
+		
+	}
+	graphics {
+		default:						sw_6_WHEEL_WAGON_compose;
+		purchase:						spriteset_6_WHEEL_WAGON_purchase;
+	}
+}

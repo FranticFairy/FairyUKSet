@@ -4,19 +4,19 @@ spriteset(spriteset_INTERMODAL_purchase, "gfx/CW/FREIGHTLINER_SINGLE.png") { tem
 spriteset(spriteset_INTERMODAL, "gfx/CW/FREIGHTLINER_SINGLE.png") { template_fai_33(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_INTERMODAL) {
+item (FEAT_TRAINS, ITEM_FAI_CW_INTERMODAL, 24201) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_INTERMODAL); 
 		introduction_date:				date(1972,1,1);
-		model_life:						0;
+		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							8;
 		
 		weight: 						17 ton;
@@ -27,6 +27,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_INTERMODAL) {
 		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED,CC_BULK,CC_PIECE_GOODS,CC_LIQUID);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				GOOD;
+        loading_speed:                  3;
 		cargo_capacity:					20;
 		
 	}

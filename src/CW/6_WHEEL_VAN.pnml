@@ -1,0 +1,48 @@
+//Sprite References & Switches
+spriteset(spriteset_6_WHEEL_VAN_purchase, "gfx/CW/6_WHEEL_VAN.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_6_WHEEL_VAN, "gfx/CW/6_WHEEL_VAN.png") { template_fai_21(0, 16)}
+spriteset(spriteset_6_WHEEL_VAN_2, "gfx/CW/6_WHEEL_VAN.png") { template_fai_21(0, 41)}
+spriteset(spriteset_6_WHEEL_VAN_B, "gfx/CW/6_WHEEL_VAN.png") { template_fai_21(0, 66)}
+spriteset(spriteset_6_WHEEL_VAN_G, "gfx/CW/6_WHEEL_VAN.png") { template_fai_21(0, 91)}
+
+random_switch (FEAT_TRAINS, SELF, sw_6_WHEEL_VAN_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
+	1: spriteset_6_WHEEL_VAN;
+	1: spriteset_6_WHEEL_VAN_2;
+	1: spriteset_6_WHEEL_VAN_B;
+	1: spriteset_6_WHEEL_VAN_G;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_6_WHEEL_VAN, 24682) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_6_WHEEL_VAN); 
+		introduction_date:				date(1890,1,1);
+		model_life:						90;
+		length:							5;
+		
+		weight: 						10 ton;
+		speed:							45 mph;
+		cost_factor: 					0x20 nfo;
+		running_cost_factor: 			0x0A nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_ARMOURED,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
+        loading_speed:                  4;
+		cargo_capacity:					15;
+		
+	}
+	graphics {
+		default:						sw_6_WHEEL_VAN_randomtexture;
+		purchase:						spriteset_6_WHEEL_VAN_purchase;
+	}
+}

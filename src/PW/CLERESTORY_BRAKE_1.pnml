@@ -4,7 +4,7 @@ spriteset(spriteset_CLERESTORY_BRAKE_1_purchase, "gfx/PW/CLERESTORY_BRAKE_1.png"
 spriteset(spriteset_CLERESTORY_BRAKE_1, "gfx/PW/CLERESTORY_BRAKE_1.png") { template_fai_29(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BRAKE_1) {
+item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BRAKE_1, 7594) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -13,7 +13,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BRAKE_1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_CLERESTORY_BRAKE_1); 
 		introduction_date:				date(1880,1,1);
@@ -25,12 +25,15 @@ item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BRAKE_1) {
 		cost_factor: 					0x68 nfo;
 		running_cost_factor: 			0x43 nfo;
 		
+		badges: ["flag/GB"];
+		
 		variant_group: 			        ITEM_FAI_PW_CLERESTORY_BRAKE;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_MAIL);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				MAIL;
 		cargo_capacity:					20;
+		loading_speed:					5;
 		
 	}
 	graphics {

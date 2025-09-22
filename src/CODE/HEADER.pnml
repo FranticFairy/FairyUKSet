@@ -1,11 +1,10 @@
 grf{
-	grfid: "FUKS" ;
+	grfid: "UKNS" ;
 	name: string(STR_GRF_NAME) ;
 	desc: string(STR_GRF_DESC) ;
 	version: 50 ;
 	min_compatible_version: 36 ;
 }
-
 
 train_width_32_px  = 1 ;
 traininfo_y_offset = 2 ;

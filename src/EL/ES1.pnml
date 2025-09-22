@@ -1,0 +1,60 @@
+//Sprite References & Switches
+spriteset(spriteset_ES1_purchase, "gfx/EL/ES1.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_ES1, "gfx/EL/ES1.png") { template_fai_21(0, 16)}
+spriteset(spriteset_ES1_flip, "gfx/EL/ES1.png") { template_fai_21_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_ES1_flipcheck, vehicle_is_reversed){
+	1: spriteset_ES1;
+	spriteset_ES1_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_ES1_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_ES1_flip;
+	spriteset_ES1 ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_ES1_randomflip) {
+	1: sw_ES1_flipcheck;
+	1: sw_ES1_flipcheck_inv;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_EL_ES1, 5024) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x24 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						ELNG;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_ES1); 
+		introduction_date:				date(1903,1,1);
+		vehicle_life: 					25;
+		model_life:						17;
+		length:							5;
+		
+		weight: 						57 ton;
+		speed:							35 mph;
+		power:							640 hp;
+		tractive_effort_coefficient: 	0.1879699;
+		cost_factor: 					0x19 nfo;
+		running_cost_factor: 			0x0A nfo;
+		
+		badges: ["flag/GB", "power/electric", "role/heavy_freight"];
+		
+		cargo_capacity: 				0;
+	}
+	graphics {
+		default:						sw_ES1_randomflip;
+		sound_effect:					sw_sfx_ELE;
+		purchase:						spriteset_ES1_purchase;
+		create_effect:					vfx_ohle;
+	}
+}

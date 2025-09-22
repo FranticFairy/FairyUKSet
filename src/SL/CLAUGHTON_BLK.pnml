@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_CLAUGHTON_BLK_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_CLAUGHTON_BLK) {
+item (FEAT_TRAINS, ITEM_FAI_SL_CLAUGHTON_BLK, 1675) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_CLAUGHTON_BLK) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -37,12 +37,15 @@ item (FEAT_TRAINS, ITEM_FAI_SL_CLAUGHTON_BLK) {
 		weight: 						129 ton;
 		speed:							90 mph;
 		power:							1150 hp;
-		tractive_effort_coefficient: 	0x22 nfo;
+		tractive_effort_coefficient: 	0.1328904;
 		cost_factor: 					0x23 nfo;
 		running_cost_factor: 			0x34 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_CLAUGHTON;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_CLAUGHTON_BLK;

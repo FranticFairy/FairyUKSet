@@ -10,7 +10,7 @@ spriteset(spriteset_WELDED_TANKER_GR, "gfx/CW/WELDED_TANKER.png") { template_fai
 spriteset(spriteset_WELDED_TANKER_M, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 166)}
 spriteset(spriteset_WELDED_TANKER_MR, "gfx/CW/WELDED_TANKER.png") { template_fai_21(0, 191)}
 
-random_switch (FEAT_TRAINS, SELF, sw_WELDED_TANKER_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_WELDED_TANKER_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_WELDED_TANKER;
 	1: spriteset_WELDED_TANKER_R;
 	1: spriteset_WELDED_TANKER_B;
@@ -21,9 +21,8 @@ random_switch (FEAT_TRAINS, SELF, sw_WELDED_TANKER_randomtexture) {
 	1: spriteset_WELDED_TANKER_MR;
 }
 
-
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_WELDED_TANKER) {
+item (FEAT_TRAINS, ITEM_FAI_CW_WELDED_TANKER, 24501) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -31,7 +30,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_WELDED_TANKER) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_WELDED_TANKER); 
 		introduction_date:				date(1957,1,1);
@@ -46,6 +45,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_WELDED_TANKER) {
 		refittable_cargo_classes:		bitmask(CC_LIQUID);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				OIL_;
+        loading_speed:                  4;
 		cargo_capacity:					16;
 		
 	}

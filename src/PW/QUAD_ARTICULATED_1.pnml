@@ -22,7 +22,7 @@ switch(FEAT_TRAINS, SELF, sw_articulation_PW_QUAD_ARTICULATED_1, extra_callback_
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_QUAD_ARTICULATED_1) {
+item (FEAT_TRAINS, ITEM_FAI_PW_QUAD_ARTICULATED_1, 7669) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -31,7 +31,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_QUAD_ARTICULATED_1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_QUAD_ARTICULATED_1); 
 		introduction_date:				date(1924,1,1);
@@ -43,12 +43,15 @@ item (FEAT_TRAINS, ITEM_FAI_PW_QUAD_ARTICULATED_1) {
 		cost_factor: 					0xFA nfo;
 		running_cost_factor: 			0x84 nfo;
 		
+		badges: ["flag/GB"];
+		
 		variant_group: 			        ITEM_FAI_PW_QUAD_ARTICULATED;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					25;
+		cargo_capacity:					24;
+		loading_speed:					5;
 		
 	}
 	graphics {

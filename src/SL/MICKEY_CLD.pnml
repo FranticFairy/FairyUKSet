@@ -4,8 +4,8 @@ alternative_sprites(spriteset_MICKEY_CLD_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_
 
 spriteset(spriteset_MICKEY_CLD, "gfx/32bpp.png") { template_fai_21(0, 16)}
 alternative_sprites(spriteset_MICKEY_CLD, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/MICKEY_CLD.png") { template_fai_21(0, 16)}
-spriteset(spriteset_MICKEY_CLD_tender_0, "gfx/32bpp.png") { template_fai_12m(0, 41)}
-alternative_sprites(spriteset_MICKEY_CLD_tender_0, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/MICKEY_CLD.png") { template_fai_12m(0, 41)}
+spriteset(spriteset_MICKEY_CLD_tender_0, "gfx/32bpp.png") { template_fai_12(0, 41)}
+alternative_sprites(spriteset_MICKEY_CLD_tender_0, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/MICKEY_CLD.png") { template_fai_12(0, 41)}
 
 switch(FEAT_TRAINS, SELF, sw_MICKEY_CLD_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER_0;
@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_MICKEY_CLD_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY_CLD, 1483) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -31,18 +31,21 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY_CLD) {
 		name:							string(STR_NAME_MICKEY_CLD); 
 		introduction_date:				date(1946,1,1);
 		vehicle_life: 					30;
-		model_life:						21;
+		model_life:						14;
 		length:							5;
 		
 		weight: 						84 ton;
 		speed:							80 mph;
 		power:							1000 hp;
-		tractive_effort_coefficient: 	0x27 nfo;
+		tractive_effort_coefficient: 	0.09353741;
 		cost_factor: 					0x1C nfo;
 		running_cost_factor: 			0x32 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_MICKEY;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_MICKEY_CLD;
@@ -54,6 +57,6 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY_CLD) {
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER_0) {
 		default: 						spriteset_MICKEY_CLD_tender_0;
-		length: 						4;
+		length: 						3;
 	}
 }

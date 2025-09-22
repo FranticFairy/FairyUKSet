@@ -1,6 +1,6 @@
 //Sprite References & Switches
-spriteset(spriteset_WESSEX_EMU_0_BRB_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
-alternative_sprites(spriteset_WESSEX_EMU_0_BRB_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/WESSEX_EMU_BRB.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_WESSEX_EMU_0_BRB_purchase, "gfx/32bpp.png") { template_fai_purchase_mu(0, 0)}
+alternative_sprites(spriteset_WESSEX_EMU_0_BRB_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/WESSEX_EMU_BRB.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_WESSEX_EMU_0_BRB, "gfx/32bpp.png") { template_fai_33(0, 16)}
 alternative_sprites(spriteset_WESSEX_EMU_0_BRB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/WESSEX_EMU_BRB.png") { template_fai_33(0, 16)}
@@ -9,7 +9,7 @@ spriteset(spriteset_WESSEX_EMU_0_BRB_wagon, "gfx/32bpp.png") { template_fai_33(0
 alternative_sprites(spriteset_WESSEX_EMU_0_BRB_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/WESSEX_EMU_BRB.png") { template_fai_33(0, 41)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU_0_BRB) {
+item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU_0_BRB, 6521) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU_0_BRB) {
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						SAA3;
+		track_type:						NBA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -34,15 +34,18 @@ item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU_0_BRB) {
 		weight: 						39 ton;
 		speed:							100 mph;
 		power:							1210 hp;
-		tractive_effort_coefficient: 	0x1F nfo;
+		tractive_effort_coefficient: 	0.1831502;
 		cost_factor: 					0x1B nfo;
 		running_cost_factor: 			0x22 nfo;
+		
+		badges: ["flag/GB", "power/third_rail", "role/passenger"];
 		
 		variant_group: 			        ITEM_FAI_MU_WESSEX_EMU_0;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					56;
+		loading_speed:					5;
 		
 	}
 	graphics {
@@ -54,7 +57,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_WESSEX_EMU_0_BRB) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_WESSEX_EMU_0_BRB_wagon;
 		length:							8;
-		cargo_capacity:					20;
+		cargo_capacity:					60;
+		loading_speed:					5;
 		speed:							100 ;
 	}
 }

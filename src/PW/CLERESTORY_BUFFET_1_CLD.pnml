@@ -7,7 +7,7 @@ alternative_sprites(spriteset_CLERESTORY_BUFFET_1_CLD, ZOOM_LEVEL_NORMAL, BIT_DE
 
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BUFFET_1_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BUFFET_1_CLD, 7501) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +16,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BUFFET_1_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_CLERESTORY_BUFFET_1_CLD); 
 		introduction_date:				date(1880,1,1);
@@ -28,12 +28,15 @@ item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_BUFFET_1_CLD) {
 		cost_factor: 					0x6A nfo;
 		running_cost_factor: 			0x45 nfo;
 		
+		badges: ["flag/GB"];
+		
 		variant_group: 			        ITEM_FAI_PW_CLERESTORY_BUFFET_1;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
 		cargo_capacity:					15;
+		loading_speed:					5;
 		
 	}
 	graphics {

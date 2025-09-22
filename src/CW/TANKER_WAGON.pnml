@@ -5,14 +5,14 @@ spriteset(spriteset_TANKER_WAGON, "gfx/CW/TANKER_WAGON.png") { template_fai_17(0
 spriteset(spriteset_TANKER_WAGON_R, "gfx/CW/TANKER_WAGON.png") { template_fai_17(0, 41)}
 spriteset(spriteset_TANKER_WAGON_B, "gfx/CW/TANKER_WAGON.png") { template_fai_17(0, 66)}
 
-random_switch (FEAT_TRAINS, SELF, sw_TANKER_WAGON_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_TANKER_WAGON_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_TANKER_WAGON;
 	1: spriteset_TANKER_WAGON_R;
 	1: spriteset_TANKER_WAGON_B;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_TANKER_WAGON) {
+item (FEAT_TRAINS, ITEM_FAI_CW_TANKER_WAGON, 24381) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_TANKER_WAGON) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_TANKER_WAGON); 
 		introduction_date:				date(1865,1,1);
@@ -35,6 +35,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_TANKER_WAGON) {
 		refittable_cargo_classes:		bitmask(CC_LIQUID);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				OIL_;
+        loading_speed:                  3;
 		cargo_capacity:					9;
 		
 	}

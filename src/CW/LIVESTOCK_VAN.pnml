@@ -4,7 +4,7 @@ spriteset(spriteset_LIVESTOCK_VAN_purchase, "gfx/CW/LIVESTOCK_VAN.png") { templa
 spriteset(spriteset_LIVESTOCK_VAN, "gfx/CW/LIVESTOCK_VAN.png") { template_fai_17(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_LIVESTOCK_VAN) {
+item (FEAT_TRAINS, ITEM_FAI_CW_LIVESTOCK_VAN, 24981) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +12,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_LIVESTOCK_VAN) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_LIVESTOCK_VAN); 
 		introduction_date:				date(1865,1,1);
@@ -24,10 +24,10 @@ item (FEAT_TRAINS, ITEM_FAI_CW_LIVESTOCK_VAN) {
 		cost_factor: 					0x1A nfo;
 		running_cost_factor: 			0x08 nfo;
 		
-		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
-		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		cargo_allow_refit:				[FOOD];
 		default_cargo_type:				LVST;
-		cargo_capacity:					8;
+		cargo_capacity:					12;
+        loading_speed:                  4;
 		
 	}
 	graphics {

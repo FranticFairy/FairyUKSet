@@ -1,0 +1,196 @@
+badgetable {
+    "flag/GB",
+	"feature/gangway",
+	"power/steam",
+	"power/diesel",
+	"power/electric",
+	"power/third_rail",
+	"power/dual_voltage",
+	"power/turbine",
+	"power/fourth_rail",
+	"role/light_mixed",
+	"role/mixed",
+	"role/light_passenger",
+	"role/passenger",
+	"role/express_passenger",
+	"role/shunting",
+	"role/light_freight",
+	"role/freight",
+	"role/express_freight",
+	"role/heavy_freight",
+	"role/mail",
+}
+
+template template_fai_badge(x, y) {
+    //[left_x, upper_y, width, height, offset_x, offset_y]
+    [x , y, 52, 12, -28, -8, ANIM]
+}
+spriteset(sprite_badge_steam, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/badges.png") { template_fai_badge(0,0) }
+spriteset(sprite_badge_diesel, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/badges.png") { template_fai_badge(0,13) }
+spriteset(sprite_badge_elrl, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/badges.png") { template_fai_badge(0,26) }
+spriteset(sprite_badge_thir, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/badges.png") { template_fai_badge(0,39) }
+spriteset(sprite_badge_duvo, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/badges.png") { template_fai_badge(0,52) }
+spriteset(sprite_badge_trbn, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/badges.png") { template_fai_badge(0,65) }
+spriteset(sprite_badge_mtro, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/badges.png") { template_fai_badge(0,78) }
+
+item (FEAT_BADGES, feature) {
+    property {
+        label: "feature";
+    }
+}
+
+item (FEAT_BADGES, gangway) {
+    property {
+        label: "feature/gangway";
+    }
+}
+
+item (FEAT_BADGES, power) {
+    property {
+        label: "power";
+        name: string(STR_POWER);
+    }
+}
+
+item (FEAT_BADGES, steam) {
+    property {
+        label: "power/steam";
+        name: string(STR_POWER_STEAM);
+    }
+    graphics {
+        default: sprite_badge_steam;
+    }
+}
+
+item (FEAT_BADGES, diesel) {
+    property {
+        label: "power/diesel";
+        name: string(STR_POWER_DIESEL);
+    }
+    graphics {
+        default: sprite_badge_diesel;
+    }
+}
+
+item (FEAT_BADGES, electric) {
+    property {
+        label: "power/electric";
+        name: string(STR_POWER_ELECTRIC);
+    }
+    graphics {
+        default: sprite_badge_elrl;
+    }
+}
+
+item (FEAT_BADGES, third_rail) {
+    property {
+        label: "power/third_rail";
+        name: string(STR_POWER_THIR);
+    }
+    graphics {
+        default: sprite_badge_thir;
+    }
+}
+
+item (FEAT_BADGES, dual_voltage) {
+    property {
+        label: "power/dual_voltage";
+        name: string(STR_POWER_DUVO);
+    }
+    graphics {
+        default: sprite_badge_duvo;
+    }
+}
+
+item (FEAT_BADGES, turbine) {
+    property {
+        label: "power/turbine";
+        name: string(STR_POWER_TURBINE);
+    }
+    graphics {
+        default: sprite_badge_trbn;
+    }
+}
+
+item (FEAT_BADGES, fourth_rail) {
+    property {
+        label: "power/fourth_rail";
+        name: string(STR_POWER_MTRO);
+    }
+    graphics {
+        default: sprite_badge_mtro;
+    }
+}
+
+item (FEAT_BADGES, role) {
+    property {
+        label: "role";
+        name: string(STR_ROLE);
+    }
+}
+item (FEAT_BADGES, light_mixed) {
+    property {
+        label: "role/light_mixed";
+        name: string(STR_ROLE_LGP);
+    }
+}
+item (FEAT_BADGES, mixed) {
+    property {
+        label: "role/mixed";
+        name: string(STR_ROLE_GP);
+    }
+}
+item (FEAT_BADGES, light_passenger) {
+    property {
+        label: "role/light_passenger";
+        name: string(STR_ROLE_LP);
+    }
+}
+item (FEAT_BADGES, passenger) {
+    property {
+        label: "role/passenger";
+        name: string(STR_ROLE_P);
+    }
+}
+item (FEAT_BADGES, express_passenger) {
+    property {
+        label: "role/express_passenger";
+        name: string(STR_ROLE_EP);
+    }
+}
+item (FEAT_BADGES, shunting) {
+    property {
+        label: "role/shunting";
+        name: string(STR_ROLE_S);
+    }
+}
+item (FEAT_BADGES, light_freight) {
+    property {
+        label: "role/light_freight";
+        name: string(STR_ROLE_LC);
+    }
+}
+item (FEAT_BADGES, freight) {
+    property {
+        label: "role/freight";
+        name: string(STR_ROLE_C);
+    }
+}
+item (FEAT_BADGES, express_freight) {
+    property {
+        label: "role/express_freight";
+        name: string(STR_ROLE_EC);
+    }
+}
+item (FEAT_BADGES, heavy_freight) {
+    property {
+        label: "role/heavy_freight";
+        name: string(STR_ROLE_HC);
+    }
+}
+item (FEAT_BADGES, mail) {
+    property {
+        label: "role/mail";
+        name: string(STR_ROLE_MAIL);
+    }
+}

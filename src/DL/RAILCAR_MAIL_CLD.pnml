@@ -23,7 +23,7 @@ random_switch (FEAT_TRAINS, SELF, sw_RAILCAR_MAIL_CLD_randomflip) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR_MAIL_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR_MAIL_CLD, 5899) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -33,7 +33,7 @@ item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR_MAIL_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -47,15 +47,18 @@ item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR_MAIL_CLD) {
 		weight: 						29 ton;
 		speed:							60 mph;
 		power:							260 hp;
-		tractive_effort_coefficient: 	0x1E nfo;
+		tractive_effort_coefficient: 	0.1196341;
 		cost_factor: 					0x06 nfo;
 		running_cost_factor: 			0x08 nfo;
+		
+		badges: ["flag/GB", "power/diesel", "role/mail"];
 		
 		variant_group: 			        ITEM_FAI_DL_RAILCAR_MAIL;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				MAIL;
 		cargo_capacity:					20;
+		loading_speed:					5;
 		
 	}
 	graphics {

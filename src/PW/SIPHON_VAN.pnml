@@ -4,7 +4,7 @@ spriteset(spriteset_SIPHON_VAN_purchase, "gfx/PW/SIPHON_VAN.png") { template_fai
 spriteset(spriteset_SIPHON_VAN, "gfx/PW/SIPHON_VAN.png") { template_fai_29(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_SIPHON_VAN) {
+item (FEAT_TRAINS, ITEM_FAI_PW_SIPHON_VAN, 8723) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +12,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_SIPHON_VAN) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_SIPHON_VAN); 
 		introduction_date:				date(1890,1,1);
@@ -24,10 +24,13 @@ item (FEAT_TRAINS, ITEM_FAI_PW_SIPHON_VAN) {
 		cost_factor: 					0x51 nfo;
 		running_cost_factor: 			0x23 nfo;
 		
+		badges: ["flag/GB"];
+		
 		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				MAIL;
 		cargo_capacity:					30;
+		loading_speed:					6;
 		
 	}
 	graphics {

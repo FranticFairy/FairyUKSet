@@ -20,7 +20,7 @@ random_switch (FEAT_TRAINS, SELF, sw_TRIPWORKER_randomflip) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_EL_TRIPWORKER) {
+item (FEAT_TRAINS, ITEM_FAI_EL_TRIPWORKER, 5384) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -29,7 +29,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_TRIPWORKER) {
 		air_drag_coefficient:			0x15 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						SAAZ;
+		track_type:						NBAZ;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -43,10 +43,13 @@ item (FEAT_TRAINS, ITEM_FAI_EL_TRIPWORKER) {
 		weight: 						67 ton;
 		speed:							60 mph;
 		power:							1200 hp;
-		tractive_effort_coefficient: 	0x50 nfo;
+		tractive_effort_coefficient: 	0.3320134;
 		cost_factor: 					0x0C nfo;
 		running_cost_factor: 			0x0A nfo;
 		
+		badges: ["flag/GB", "power/dual_voltage", "role/shunting"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_TRIPWORKER_randomflip;

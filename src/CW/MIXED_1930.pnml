@@ -1,0 +1,101 @@
+//Sprite References & Switches
+
+spriteset(spriteset_EMPTY_1930_purchase, "gfx/CW/EMPTY.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_EMPTY_1930, "gfx/CW/EMPTY.png") { template_fai_17(0, 16)}
+spriteset(spriteset_DEPOT_1930, "gfx/CW/EMPTY_DEPOT.png") { template_fai_17(0, 16)}
+
+switch (FEAT_TRAINS, SELF, sw_MIXED_1930_read_cargo_count, 
+                                            [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xBC]]) {
+    return;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_MIXED_1930_randomvtt, TRIGGER_VEHICLE_ANY_LOAD) {
+	1: sw_VAN_randomtexture;
+	1: sw_MINERAL_WAGON_compose;
+	1: sw_FLATBED_SHORT_cargocheck;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_MIXED_1930_randomcovtarp, TRIGGER_VEHICLE_ANY_LOAD) {
+	1: sw_MINERAL_WAGON_compose;
+	1: sw_GRAIN_TRUCK_randomtexture;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_REFRIGECHECK, cargo_classes & bitmask(CC_REFRIGERATED)) {
+	bitmask(CC_REFRIGERATED): sw_VAN_randomtexture;
+	return sw_MIXED_1930_randomvtt;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_LIVECHECK, cargo_type_in_veh){
+	LVST : spriteset_LIVESTOCK_VAN ;
+	sw_MIXED_1930_REFRIGECHECK ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_COVEREDBULKCHECK, cargo_classes & bitmask(CC_COVERED)) {
+	bitmask(CC_COVERED): return sw_MIXED_1930_randomcovtarp ;
+	sw_MINERAL_WAGON_compose;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_BULKCHECK, cargo_classes & bitmask(CC_BULK)) {
+	bitmask(CC_BULK): sw_MIXED_1930_COVEREDBULKCHECK;
+	return sw_MIXED_1930_LIVECHECK;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_LIQUIDCHECK, cargo_classes & bitmask(CC_LIQUID)) {
+	bitmask(CC_LIQUID): return sw_6_WHEEL_TANKER_randomtexture;
+	sw_MIXED_1930_BULKCHECK ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_checknextcargo, sw_MIXED_1930_read_cargo_count() ) {
+	0: sw_spriteset_BRAKE_VAN_15T_randomtexture;
+	sw_MIXED_1930_LIQUIDCHECK; 
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_lastcheck, position_in_vehid_chain_from_end ) {
+	0: sw_spriteset_BRAKE_VAN_15T_randomtexture;
+	sw_MIXED_1930_LIQUIDCHECK; 
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_LOADCHECK, PERCENT_FULL){
+	0..9	: spriteset_EMPTY_1930 ;
+	10..100	: sw_MIXED_1930_lastcheck ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MIXED_1930_DEPOT, vehicle_is_in_depot){
+	0	: sw_MIXED_1930_lastcheck ;
+	1	: spriteset_DEPOT_1930 ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_MIXED_1930, 25347) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_MIXED_1930); 
+		introduction_date:				date(1930,1,1);
+		model_life:						40;
+		length:							4;
+		
+		weight: 						12 ton;
+		speed:							45 mph;
+		cost_factor: 					0x1B nfo;
+		running_cost_factor: 			0x0A nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_ARMOURED,CC_PIECE_GOODS,CC_LIQUID,CC_BULK,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
+        loading_speed:                  4;
+		cargo_capacity:					15;
+		
+	}
+	graphics {
+		default:						sw_MIXED_1930_lastcheck;
+		purchase:						spriteset_EMPTY_1930_purchase;
+	}
+}

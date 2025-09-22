@@ -1,6 +1,6 @@
 //Sprite References & Switches
-spriteset(spriteset_RAILCAR_DOUBLE_LNER_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
-alternative_sprites(spriteset_RAILCAR_DOUBLE_LNER_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/RAILCAR_DOUBLE_LNER.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_RAILCAR_DOUBLE_LNER_purchase, "gfx/32bpp.png") { template_fai_purchase_mu(0, 0)}
+alternative_sprites(spriteset_RAILCAR_DOUBLE_LNER_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/RAILCAR_DOUBLE_LNER.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_RAILCAR_DOUBLE_LNER, "gfx/32bpp.png") { template_fai_33(0, 16)}
 alternative_sprites(spriteset_RAILCAR_DOUBLE_LNER, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/RAILCAR_DOUBLE_LNER.png") { template_fai_33(0, 16)}
@@ -9,7 +9,7 @@ spriteset(spriteset_RAILCAR_DOUBLE_LNER_wagon, "gfx/32bpp.png") { template_fai_3
 alternative_sprites(spriteset_RAILCAR_DOUBLE_LNER_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/RAILCAR_DOUBLE_LNER.png") { template_fai_33(0, 41)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE_LNER) {
+item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE_LNER, 5460) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE_LNER) {
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -31,18 +31,21 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE_LNER) {
 		model_life:						21;
 		length:							8;
 		
-		weight: 						29 ton;
+		weight: 						14.5 ton;
 		speed:							60 mph;
 		power:							260 hp;
-		tractive_effort_coefficient: 	0x23 nfo;
+		tractive_effort_coefficient: 	0.1196341;
 		cost_factor: 					0x06 nfo;
 		running_cost_factor: 			0x08 nfo;
+		
+		badges: ["flag/GB", "power/diesel", "role/passenger"];
 		
 		variant_group: 			        ITEM_FAI_MU_RAILCAR_DOUBLE;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					32;
+		loading_speed:					5;
 		
 	}
 	graphics {
@@ -54,7 +57,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_RAILCAR_DOUBLE_LNER) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_RAILCAR_DOUBLE_LNER_wagon;
 		length:							8;
-		cargo_capacity:					30;
+		cargo_capacity:					32;
+		loading_speed:					5;
 		speed:							60 ;
 	}
 }

@@ -36,7 +36,7 @@ random_switch (FEAT_TRAINS, SELF, sw_BUFFALO_RCC_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_BUFFALO_RCC) {
+item (FEAT_TRAINS, ITEM_FAI_SL_BUFFALO_RCC, 153) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -46,7 +46,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_BUFFALO_RCC) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -54,18 +54,21 @@ item (FEAT_TRAINS, ITEM_FAI_SL_BUFFALO_RCC) {
 		name:							string(STR_NAME_BUFFALO_RCC); 
 		introduction_date:				date(1870,1,1);
 		vehicle_life: 					40;
-		model_life:						76;
+		model_life:						25;
 		length:							5;
 		
 		weight: 						50 ton;
 		speed:							45 mph;
 		power:							500 hp;
-		tractive_effort_coefficient: 	0x1D nfo;
+		tractive_effort_coefficient: 	0.122449;
 		cost_factor: 					0x0B nfo;
 		running_cost_factor: 			0x09 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/light_mixed"];
+		
 		variant_group: 			        ITEM_FAI_SL_BUFFALO;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_BUFFALO_RCC_randomflip;

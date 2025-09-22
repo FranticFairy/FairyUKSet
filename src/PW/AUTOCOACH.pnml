@@ -4,7 +4,7 @@ spriteset(spriteset_AUTOCOACH_purchase, "gfx/PW/AUTOCOACH.png") { template_fai_p
 spriteset(spriteset_AUTOCOACH, "gfx/PW/AUTOCOACH.png") { template_fai_29(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_AUTOCOACH) {
+item (FEAT_TRAINS, ITEM_FAI_PW_AUTOCOACH, 7618) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +12,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_AUTOCOACH) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_AUTOCOACH); 
 		introduction_date:				date(1904,1,1);
@@ -24,10 +24,13 @@ item (FEAT_TRAINS, ITEM_FAI_PW_AUTOCOACH) {
 		cost_factor: 					0x68 nfo;
 		running_cost_factor: 			0x44 nfo;
 		
+		badges: ["flag/GB"];
+		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					24;
+		loading_speed:					5;
 		
 	}
 	graphics {

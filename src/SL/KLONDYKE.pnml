@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_KLONDYKE_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_KLONDYKE) {
+item (FEAT_TRAINS, ITEM_FAI_SL_KLONDYKE, 1592) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_KLONDYKE) {
 		air_drag_coefficient:			0x0E nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -27,16 +27,19 @@ item (FEAT_TRAINS, ITEM_FAI_SL_KLONDYKE) {
 		name:							string(STR_NAME_KLONDYKE); 
 		introduction_date:				date(1898,1,1);
 		vehicle_life: 					35;
-		model_life:						48;
+		model_life:						26;
 		length:							6;
 		
 		weight: 						108 ton;
 		speed:							90 mph;
 		power:							1000 hp;
-		tractive_effort_coefficient: 	0x1E nfo;
+		tractive_effort_coefficient: 	0.06613757;
 		cost_factor: 					0x1B nfo;
 		running_cost_factor: 			0x2D nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_KLONDYKE;

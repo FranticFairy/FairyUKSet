@@ -39,7 +39,7 @@ random_switch (FEAT_TRAINS, SELF, sw_SUBURBAN_II_CLD_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_SUBURBAN_II_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_SL_SUBURBAN_II_CLD, 547) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -49,7 +49,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_SUBURBAN_II_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -63,12 +63,15 @@ item (FEAT_TRAINS, ITEM_FAI_SL_SUBURBAN_II_CLD) {
 		weight: 						88 ton;
 		speed:							70 mph;
 		power:							1200 hp;
-		tractive_effort_coefficient: 	0x18 nfo;
+		tractive_effort_coefficient: 	0.1252319;
 		cost_factor: 					0x1A nfo;
 		running_cost_factor: 			0x2C nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/light_passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_SUBURBAN_II;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_SUBURBAN_II_CLD_randomflip;

@@ -4,8 +4,8 @@ alternative_sprites(spriteset_P1_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BP
 
 spriteset(spriteset_P1_BRG, "gfx/32bpp.png") { template_fai_29(0, 16)}
 alternative_sprites(spriteset_P1_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/P1_BRG.png") { template_fai_29(0, 16)}
-spriteset(spriteset_P1_BRG_tender_0, "gfx/32bpp.png") { template_fai_21(0, 41)}
-alternative_sprites(spriteset_P1_BRG_tender_0, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/P1_BRG.png") { template_fai_21(0, 41)}
+spriteset(spriteset_P1_BRG_tender_0, "gfx/32bpp.png") { template_fai_16(0, 41)}
+alternative_sprites(spriteset_P1_BRG_tender_0, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/P1_BRG.png") { template_fai_16(0, 41)}
 
 switch(FEAT_TRAINS, SELF, sw_P1_BRG_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER_0;
@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_P1_BRG_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_P1_BRG) {
+item (FEAT_TRAINS, ITEM_FAI_SL_P1_BRG, 2627) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_P1_BRG) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -37,12 +37,15 @@ item (FEAT_TRAINS, ITEM_FAI_SL_P1_BRG) {
 		weight: 						151 ton;
 		speed:							65 mph;
 		power:							1750 hp;
-		tractive_effort_coefficient: 	0x20 nfo;
+		tractive_effort_coefficient: 	0.1250169;
 		cost_factor: 					0x23 nfo;
 		running_cost_factor: 			0x32 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_freight"];
+		
 		variant_group: 			        ITEM_FAI_SL_P1;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_P1_BRG;
@@ -54,6 +57,6 @@ item (FEAT_TRAINS, ITEM_FAI_SL_P1_BRG) {
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER_0) {
 		default: 						spriteset_P1_BRG_tender_0;
-		length: 						5;
+		length: 						4;
 	}
 }

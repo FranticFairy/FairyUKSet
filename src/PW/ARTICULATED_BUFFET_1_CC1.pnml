@@ -2,11 +2,27 @@
 spriteset(spriteset_ARTICULATED_BUFFET_1_CC1_purchase, "gfx/PW/ARTICULATED_BUFFET_1_CC1.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_ARTICULATED_BUFFET_1_CC1, "gfx/PW/ARTICULATED_BUFFET_1_CC1.png") { template_fai_29(0, 16)}
+spriteset(spriteset_ARTICULATED_BUFFET_1_CC1_F, "gfx/PW/ARTICULATED_BUFFET_1_CC1.png") { template_fai_29(0, 41)}
+spriteset(spriteset_ARTICULATED_BUFFET_1_CC1_E, "gfx/PW/ARTICULATED_BUFFET_1_CC1.png") { template_fai_29_r(0, 41)}
+spriteset(spriteset_ARTICULATED_BUFFET_1_CC1_S, "gfx/PW/ARTICULATED_BUFFET_1_CC1.png") { template_fai_29(0, 16)}
 spriteset(spriteset_ARTICULATED_BUFFET_1_CC1_S1, "gfx/PW/ARTICULATED_BUFFET_1_CC1.png") { template_fai_29(0, 41)}
+switch(FEAT_TRAINS, SELF, sw_ARTICULATED_BUFFET_1_CC1_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_ARTICULATED_BUFFET_1_CC1; //All Gangways
+	return spriteset_ARTICULATED_BUFFET_1_CC1_F;
+}
+switch(FEAT_TRAINS, SELF, sw_ARTICULATED_BUFFET_1_CC1_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_ARTICULATED_BUFFET_1_CC1_E; //All Gangways
+	return spriteset_ARTICULATED_BUFFET_1_CC1_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_ARTICULATED_BUFFET_1_CC1_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_ARTICULATED_BUFFET_1_CC1_leftcheck; //All Gangways
+	return sw_ARTICULATED_BUFFET_1_CC1_leftcheck_noright;
+}
 
 switch(FEAT_TRAINS, SELF, sw_articulated_PW_ARTICULATED_BUFFET_1_CC1, position_in_articulated_veh) {
-	0: spriteset_ARTICULATED_BUFFET_1_CC1;
-	1: spriteset_ARTICULATED_BUFFET_1_CC1_S1;
+	0: sw_ARTICULATED_BUFFET_1_CC1_leftcheck;
+	1: sw_ARTICULATED_BUFFET_1_CC1_rightcheck;
 	spriteset_ARTICULATED_BUFFET_1_CC1;
 }
 
@@ -16,7 +32,7 @@ switch(FEAT_TRAINS, SELF, sw_articulation_PW_ARTICULATED_BUFFET_1_CC1, extra_cal
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_ARTICULATED_BUFFET_1_CC1) {
+item (FEAT_TRAINS, ITEM_FAI_PW_ARTICULATED_BUFFET_1_CC1, 7846) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -25,7 +41,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_ARTICULATED_BUFFET_1_CC1) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_ARTICULATED_BUFFET_1_CC1); 
 		introduction_date:				date(1925,1,1);
@@ -37,12 +53,15 @@ item (FEAT_TRAINS, ITEM_FAI_PW_ARTICULATED_BUFFET_1_CC1) {
 		cost_factor: 					0xFF nfo;
 		running_cost_factor: 			0x87 nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		variant_group: 			        ITEM_FAI_PW_ARTICULATED_BUFFET_1;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
 		cargo_capacity:					15;
+		loading_speed:					5;
 		
 	}
 	graphics {

@@ -35,9 +35,9 @@
 	
 #define NARROW_GAUGE_RAILTYPE_ALL  NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED, NARROW_GAUGE_RAILTYPE_CATENARY
 
-#define NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "NBAN"
+#define NARROW_GAUGE_RAILTYPE_NOT_ELECTRIFIED "NGRL", "NLOW", "NHIG", "NAAN", "NRAN", "RAIL"
 
-#define NARROW_GAUGE_RAILTYPE_CATENARY "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "NBAE"
+#define NARROW_GAUGE_RAILTYPE_CATENARY "ELNG", "ENLW", "ENHI", "NAAE", "NRAE", "ELRL"
 
 
 
@@ -63,8 +63,8 @@
 	
 #define NARROW_GAUGE_CHECK_ALL  NARROW_GAUGE_CHECK_NOT_ELECTRIFIED || NARROW_GAUGE_CHECK_CATENARY
 
-#define NARROW_GAUGE_CHECK_NOT_ELECTRIFIED (current_railtype == railtype("NGRL")) || (current_railtype == railtype("NLOW")) || (current_railtype == railtype("NHIG")) || (current_railtype == railtype("NAAN")) || (current_railtype == railtype("NRAN")) || (current_railtype == railtype("NBAN"))
+#define NARROW_GAUGE_CHECK_NOT_ELECTRIFIED (current_railtype == railtype("NGRL")) || (current_railtype == railtype("NLOW")) || (current_railtype == railtype("NHIG")) || (current_railtype == railtype("NAAN")) || (current_railtype == railtype("NRAN")) || (current_railtype == railtype("RAIL"))
 
-#define NARROW_GAUGE_CHECK_CATENARY (current_railtype == railtype("ELNG")) || (current_railtype == railtype("ENLW")) || (current_railtype == railtype("ENHI")) || (current_railtype == railtype("NAAE")) || (current_railtype == railtype("NRAE")) || (current_railtype == railtype("NBAE"))
+#define NARROW_GAUGE_CHECK_CATENARY (current_railtype == railtype("ELNG")) || (current_railtype == railtype("ENLW")) || (current_railtype == railtype("ENHI")) || (current_railtype == railtype("NAAE")) || (current_railtype == railtype("NRAE")) || (current_railtype == railtype("ELRL"))
 
 

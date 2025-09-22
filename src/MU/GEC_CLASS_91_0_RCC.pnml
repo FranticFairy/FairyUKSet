@@ -1,12 +1,28 @@
 //Sprite References & Switches
-spriteset(spriteset_GEC_CLASS_91_0_RCC_purchase, "gfx/MU/GEC_CLASS_91_RCC.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_GEC_CLASS_91_0_RCC_purchase, "gfx/MU/GEC_CLASS_91_RCC.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_GEC_CLASS_91_0_RCC, "gfx/MU/GEC_CLASS_91_RCC.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_GEC_CLASS_91_0_RCC_wagon, "gfx/MU/GEC_CLASS_91_RCC.png") { template_fai_33(0, 41)}
 
+spriteset(spriteset_GEC_CLASS_91_0_RCC_power, "gfx/MU/GEC_CLASS_91_RCC.png") { template_fai_33(0, 41)}
+switch(FEAT_TRAINS, SELF, sw_GEC_CLASS_91_0_RCC_powerposition, position_in_vehid_chain - position_in_vehid_chain_from_end) {
+ 0..1: spriteset_GEC_CLASS_91_0_RCC_power;
+  spriteset_GEC_CLASS_91_0_RCC_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_GEC_CLASS_91_0_RCC_rearcheck, position_in_vehid_chain_from_end) {
+  0: spriteset_GEC_CLASS_91_0_RCC_power;
+  spriteset_GEC_CLASS_91_0_RCC_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_GEC_CLASS_91_0_RCC_lencheck, num_vehs_in_vehid_chain){
+    1..2 : sw_GEC_CLASS_91_0_RCC_rearcheck;
+    return sw_GEC_CLASS_91_0_RCC_powerposition;
+}
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_GEC_CLASS_91_0_RCC) {
+item (FEAT_TRAINS, ITEM_FAI_MU_GEC_CLASS_91_0_RCC, 6809) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -17,7 +33,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_GEC_CLASS_91_0_RCC) {
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						ELRL;
+		track_type:						ELNG;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -31,15 +47,18 @@ item (FEAT_TRAINS, ITEM_FAI_MU_GEC_CLASS_91_0_RCC) {
 		weight: 						57 ton;
 		speed:							140 mph;
 		power:							6300 hp;
-		tractive_effort_coefficient: 	0x22 nfo;
+		tractive_effort_coefficient: 	0.1996062;
 		cost_factor: 					0x4F nfo;
 		running_cost_factor: 			0xAC nfo;
+		
+		badges: ["flag/GB", "power/electric", "role/express_passenger"];
 		
 		variant_group: 			        ITEM_FAI_MU_GEC_CLASS_91_0;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				MAIL;
 		cargo_capacity:					10;
+		loading_speed:					5;
 		
 	}
 	graphics {
@@ -49,9 +68,10 @@ item (FEAT_TRAINS, ITEM_FAI_MU_GEC_CLASS_91_0_RCC) {
 		create_effect:					vfx_ohle;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
-		default:						spriteset_GEC_CLASS_91_0_RCC_wagon;
+		default:						sw_GEC_CLASS_91_0_RCC_lencheck;
 		length:							8;
-		cargo_capacity:					35;
+		cargo_capacity:					60;
+		loading_speed:					5;
 		speed:							140 ;
 	}
 }

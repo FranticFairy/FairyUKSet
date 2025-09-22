@@ -1,8 +1,8 @@
 //Sprite References & Switches
-spriteset(spriteset_METROPOLITAN_purchase, "gfx/SL/METROPOLITAN_A.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_METROPOLITAN_purchase, "gfx/SL/METROPOLITAN.png") { template_fai_purchase(0, 0)}
 
-spriteset(spriteset_METROPOLITAN, "gfx/SL/METROPOLITAN_A.png") { template_fai_21(0, 16)}
-spriteset(spriteset_METROPOLITAN_flip, "gfx/SL/METROPOLITAN_A.png") { template_fai_21_r(0, 16)}
+spriteset(spriteset_METROPOLITAN, "gfx/SL/METROPOLITAN.png") { template_fai_21(0, 16)}
+spriteset(spriteset_METROPOLITAN_flip, "gfx/SL/METROPOLITAN.png") { template_fai_21_r(0, 16)}
 
 switch(FEAT_TRAINS, PARENT, sw_METROPOLITAN_flipcheck, vehicle_is_reversed){
 	1: spriteset_METROPOLITAN;
@@ -36,7 +36,7 @@ random_switch (FEAT_TRAINS, SELF, sw_METROPOLITAN_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN) {
+item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN, 320) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -45,7 +45,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN) {
 		air_drag_coefficient:			0x19 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -53,16 +53,19 @@ item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN) {
 		name:							string(STR_NAME_METROPOLITAN); 
 		introduction_date:				date(1864,1,1);
 		vehicle_life: 					35;
-		model_life:						50;
+		model_life:						18;
 		length:							5;
 		
-		weight: 						50 ton;
+		weight: 						42 ton;
 		speed:							50 mph;
 		power:							450 hp;
-		tractive_effort_coefficient: 	0x26 nfo;
+		tractive_effort_coefficient: 	0.09961127;
 		cost_factor: 					0x0F nfo;
 		running_cost_factor: 			0x0F nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/light_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_METROPOLITAN_randomflip;

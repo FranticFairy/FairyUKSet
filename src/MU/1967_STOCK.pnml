@@ -1,5 +1,5 @@
 //Sprite References & Switches
-spriteset(spriteset_1967_STOCK_purchase, "gfx/MU/1967_STOCK.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_1967_STOCK_purchase, "gfx/MU/1967_STOCK.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_1967_STOCK, "gfx/MU/1967_STOCK.png") { template_fai_29(0, 16)}
 
@@ -7,13 +7,13 @@ spriteset(spriteset_1967_STOCKB, "gfx/MU/1967_STOCK.png") { template_fai_29_mu(0
 
 spriteset(spriteset_1967_STOCK_wagon, "gfx/MU/1967_STOCK.png") { template_fai_29(0, 41)}
 
-switch(FEAT_TRAINS, SELF, sw_1967_STOCK_gfx_last, position_in_consist_from_end){
-    0:	spriteset_1967_STOCKB;
+switch(FEAT_TRAINS, SELF, sw_1967_STOCK_gfx_last, vehicle_is_flipped){
+    1:	spriteset_1967_STOCKB;
 	spriteset_1967_STOCK;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
+item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK, 6999) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
 		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
-		track_type:						MTRO;
+		track_type:						NBA4;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -34,16 +34,19 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
 		model_life:						44;
 		length:							7;
 		
-		weight: 						44 ton;
+		weight: 						22 ton;
 		speed:							50 mph;
 		power:							500 hp;
-		tractive_effort_coefficient: 	0x2A nfo;
+		tractive_effort_coefficient: 	0.1832096;
 		cost_factor: 					0x09 nfo;
 		running_cost_factor: 			0x0D nfo;
 		
+		badges: ["flag/GB", "power/fourth_rail", "role/passenger"];
+		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					40;
+		cargo_capacity:					52;
+		loading_speed:					3;
 		
 	}
 	graphics {
@@ -55,7 +58,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_1967_STOCK_wagon;
 		length:							7;
-		cargo_capacity:					40;
+		cargo_capacity:					56;
+		loading_speed:					3;
 		speed:							50 ;
 	}
 }

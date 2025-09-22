@@ -1,12 +1,12 @@
 //Sprite References & Switches
-spriteset(spriteset_VOYAGER_RCC_purchase, "gfx/MU/VOYAGER_RCC.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_VOYAGER_RCC_purchase, "gfx/MU/VOYAGER_RCC.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_VOYAGER_RCC, "gfx/MU/VOYAGER_RCC.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_VOYAGER_RCC_wagon, "gfx/MU/VOYAGER_RCC.png") { template_fai_33(0, 41)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER_RCC) {
+item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER_RCC, 6061) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -17,7 +17,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER_RCC) {
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -31,15 +31,18 @@ item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER_RCC) {
 		weight: 						43 ton;
 		speed:							125 mph;
 		power:							3000 hp;
-		tractive_effort_coefficient: 	0x22 nfo;
+		tractive_effort_coefficient: 	0.1874703;
 		cost_factor: 					0x34 nfo;
 		running_cost_factor: 			0x75 nfo;
+		
+		badges: ["flag/GB", "power/diesel", "role/express_passenger"];
 		
 		variant_group: 			        ITEM_FAI_MU_VOYAGER;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					42;
+		loading_speed:					4;
 		
 	}
 	graphics {
@@ -51,7 +54,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_VOYAGER_RCC) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_VOYAGER_RCC_wagon;
 		length:							8;
-		cargo_capacity:					35;
+		cargo_capacity:					60;
+		loading_speed:					4;
 		speed:							125 ;
 	}
 }

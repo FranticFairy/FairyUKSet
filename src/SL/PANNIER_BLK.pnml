@@ -39,7 +39,7 @@ random_switch (FEAT_TRAINS, SELF, sw_PANNIER_BLK_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_PANNIER_BLK) {
+item (FEAT_TRAINS, ITEM_FAI_SL_PANNIER_BLK, 572) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -49,7 +49,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PANNIER_BLK) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -60,15 +60,18 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PANNIER_BLK) {
 		model_life:						42;
 		length:							5;
 		
-		weight: 						50 ton;
+		weight: 						49 ton;
 		speed:							45 mph;
 		power:							500 hp;
-		tractive_effort_coefficient: 	0x1F nfo;
+		tractive_effort_coefficient: 	0.2061641;
 		cost_factor: 					0x11 nfo;
 		running_cost_factor: 			0x1A nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/light_passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_PANNIER;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_PANNIER_BLK_randomflip;

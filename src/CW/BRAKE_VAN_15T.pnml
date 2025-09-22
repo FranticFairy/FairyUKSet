@@ -1,0 +1,42 @@
+//Sprite References & Switches
+spriteset(spriteset_BRAKE_VAN_15T_purchase, "gfx/CW/BRAKE_VAN_15T.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_BRAKE_VAN_15T, "gfx/CW/BRAKE_VAN_15T.png") { template_fai_17(0, 16)}
+spriteset(spriteset_BRAKE_VAN_15T_B, "gfx/CW/BRAKE_VAN_15T_BROWN.png") { template_fai_17(0, 16)}
+spriteset(spriteset_BRAKE_VAN_15T_2, "gfx/CW/BRAKE_VAN_15T_CC2.png") { template_fai_17(0, 16)}
+
+random_switch (FEAT_TRAINS, SELF, sw_spriteset_BRAKE_VAN_15T_randomtexture) {
+	1: spriteset_BRAKE_VAN_15T;
+	1: spriteset_BRAKE_VAN_15T_B;
+	1: spriteset_BRAKE_VAN_15T_2;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_BRAKE_VAN_15T, 25101) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_BRAKE_VAN_15T); 
+		introduction_date:				date(1865,1,1);
+		model_life:						100;
+		length:							4;
+		
+		weight: 						15 ton;
+		speed:							60 mph;
+		cost_factor: 					0x16 nfo;
+		running_cost_factor: 			0x12 nfo;
+		default_cargo_type:				GOOD;
+		cargo_capacity:					0;
+		
+	}
+	graphics {
+		default:						sw_spriteset_BRAKE_VAN_15T_randomtexture;
+		purchase:						spriteset_BRAKE_VAN_15T_purchase;
+	}
+}

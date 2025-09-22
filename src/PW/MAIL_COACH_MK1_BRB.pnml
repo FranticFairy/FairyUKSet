@@ -4,10 +4,29 @@ alternative_sprites(spriteset_MAIL_COACH_MK1_BRB_purchase, ZOOM_LEVEL_NORMAL, BI
 
 spriteset(spriteset_MAIL_COACH_MK1_BRB, "gfx/32bpp.png") { template_fai_33(0, 16)}
 alternative_sprites(spriteset_MAIL_COACH_MK1_BRB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/MAIL_COACH_MK1_BRB.png") { template_fai_33(0, 16)}
+spriteset(spriteset_MAIL_COACH_MK1_BRB_F, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_MAIL_COACH_MK1_BRB_F, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/MAIL_COACH_MK1_BRB.png") { template_fai_33(0, 41)}
+spriteset(spriteset_MAIL_COACH_MK1_BRB_E, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_MAIL_COACH_MK1_BRB_E, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/MAIL_COACH_MK1_BRB.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_MAIL_COACH_MK1_BRB_S, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_MAIL_COACH_MK1_BRB_S, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/MAIL_COACH_MK1_BRB.png") { template_fai_33(0, 16)}
 
+switch(FEAT_TRAINS, SELF, sw_MAIL_COACH_MK1_BRB_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_MAIL_COACH_MK1_BRB; //All Gangways
+	return spriteset_MAIL_COACH_MK1_BRB_F;
+}
+switch(FEAT_TRAINS, SELF, sw_MAIL_COACH_MK1_BRB_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_MAIL_COACH_MK1_BRB_E; //All Gangways
+	return spriteset_MAIL_COACH_MK1_BRB_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_MAIL_COACH_MK1_BRB_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_MAIL_COACH_MK1_BRB_leftcheck; //All Gangways
+	return sw_MAIL_COACH_MK1_BRB_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_MAIL_COACH_MK1_BRB) {
+item (FEAT_TRAINS, ITEM_FAI_PW_MAIL_COACH_MK1_BRB, 8627) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +35,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_MAIL_COACH_MK1_BRB) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_MAIL_COACH_MK1_BRB); 
 		introduction_date:				date(1948,1,1);
@@ -28,16 +47,19 @@ item (FEAT_TRAINS, ITEM_FAI_PW_MAIL_COACH_MK1_BRB) {
 		cost_factor: 					0x76 nfo;
 		running_cost_factor: 			0x25 nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		variant_group: 			        ITEM_FAI_PW_MAIL_COACH_MK1;
 		
 		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				MAIL;
 		cargo_capacity:					30;
+		loading_speed:					5;
 		
 	}
 	graphics {
-		default:						spriteset_MAIL_COACH_MK1_BRB;
+		default:						sw_MAIL_COACH_MK1_BRB_rightcheck;
 		purchase:						spriteset_MAIL_COACH_MK1_BRB_purchase;
 	}
 }

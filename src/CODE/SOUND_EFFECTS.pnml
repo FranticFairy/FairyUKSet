@@ -86,6 +86,25 @@ switch(FEAT_TRAINS, SELF, sw_sfx_DIESEL, getbits(extra_callback_info1, 0, 8)){
 //	SOUND_EVENT_STOPPED       : sound("sfx/47_idle.wav") ;
 }
 
+//GT3
+switch(FEAT_TRAINS, SELF, sw_sfx_GT3, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sound("sfx/turbot_run.wav") ;
+	SOUND_EVENT_START         : sound("sfx/horn_6.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/horn_6.wav") ;
+//	SOUND_EVENT_STOPPED       : sound("sfx/turbot_idle.wav") ;
+}
+
+
+//Americans
+switch(FEAT_TRAINS, SELF, sw_sfx_USA, getbits(extra_callback_info1, 0, 8)){
+	SOUND_EVENT_RUNNING_16    : sound("sfx/F7_run.wav") ;
+	SOUND_EVENT_START         : sound("sfx/us_1.wav") ;
+	SOUND_EVENT_BREAKDOWN     : SOUND_BREAKDOWN_TRAIN_SHIP ;
+	SOUND_EVENT_TUNNEL        : sound("sfx/us_1.wav") ;
+//	SOUND_EVENT_STOPPED       : sound("sfx/F7_idle.wav") ;
+}
+
 //Class 20
 switch(FEAT_TRAINS, SELF, sw_sfx_20, getbits(extra_callback_info1, 0, 8)){
 	SOUND_EVENT_RUNNING_16    : sound("sfx/20_run.wav") ;

@@ -1,0 +1,44 @@
+//Sprite References & Switches
+spriteset(spriteset_CEMENT_WAGON_purchase, "gfx/CW/CEMENT_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_CEMENT_WAGON, "gfx/CW/CEMENT_WAGON.png") { template_fai_21(0, 16)}
+spriteset(spriteset_CEMENT_WAGON_R, "gfx/CW/CEMENT_WAGON.png") { template_fai_21(0, 41)}
+
+random_switch (FEAT_TRAINS, SELF, sw_CEMENT_WAGON_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
+	1: spriteset_CEMENT_WAGON;
+	1: spriteset_CEMENT_WAGON_R;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_CEMENT_WAGON, 23721) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_CEMENT_WAGON); 
+		introduction_date:				date(1966,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							5;
+		
+		weight: 						18 ton;
+		speed:							75 mph;
+		cost_factor: 					0x31 nfo;
+		running_cost_factor: 			0x14 nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GRAI;
+        loading_speed:                  4;
+		cargo_capacity:					16;
+		
+	}
+	graphics {
+		default:						sw_CEMENT_WAGON_randomtexture;
+		purchase:						spriteset_CEMENT_WAGON_purchase;
+	}
+}

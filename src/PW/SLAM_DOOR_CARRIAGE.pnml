@@ -2,9 +2,25 @@
 spriteset(spriteset_SLAM_DOOR_CARRIAGE_purchase, "gfx/PW/SLAM_DOOR_CARRIAGE.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_SLAM_DOOR_CARRIAGE, "gfx/PW/SLAM_DOOR_CARRIAGE.png") { template_fai_33(0, 16)}
+spriteset(spriteset_SLAM_DOOR_CARRIAGE_F, "gfx/PW/SLAM_DOOR_CARRIAGE.png") { template_fai_33(0, 41)}
+spriteset(spriteset_SLAM_DOOR_CARRIAGE_E, "gfx/PW/SLAM_DOOR_CARRIAGE.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_SLAM_DOOR_CARRIAGE_S, "gfx/PW/SLAM_DOOR_CARRIAGE.png") { template_fai_33(0, 16)}
+switch(FEAT_TRAINS, SELF, sw_SLAM_DOOR_CARRIAGE_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_SLAM_DOOR_CARRIAGE; //All Gangways
+	return spriteset_SLAM_DOOR_CARRIAGE_F;
+}
+switch(FEAT_TRAINS, SELF, sw_SLAM_DOOR_CARRIAGE_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_SLAM_DOOR_CARRIAGE_E; //All Gangways
+	return spriteset_SLAM_DOOR_CARRIAGE_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_SLAM_DOOR_CARRIAGE_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_SLAM_DOOR_CARRIAGE_leftcheck; //All Gangways
+	return sw_SLAM_DOOR_CARRIAGE_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_SLAM_DOOR_CARRIAGE) {
+item (FEAT_TRAINS, ITEM_FAI_PW_SLAM_DOOR_CARRIAGE, 7868) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +28,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_SLAM_DOOR_CARRIAGE) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_SLAM_DOOR_CARRIAGE); 
 		introduction_date:				date(1974,1,1);
@@ -24,14 +40,17 @@ item (FEAT_TRAINS, ITEM_FAI_PW_SLAM_DOOR_CARRIAGE) {
 		cost_factor: 					0x91 nfo;
 		running_cost_factor: 			0x4E nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					45;
+		cargo_capacity:					58;
+		loading_speed:					4;
 		
 	}
 	graphics {
-		default:						spriteset_SLAM_DOOR_CARRIAGE;
+		default:						sw_SLAM_DOOR_CARRIAGE_rightcheck;
 		purchase:						spriteset_SLAM_DOOR_CARRIAGE_purchase;
 	}
 }

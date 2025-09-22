@@ -1,0 +1,59 @@
+//Sprite References & Switches
+spriteset(spriteset_BUFFET_MK2_RCC_purchase, "gfx/PW/BUFFET_MK2_RCC.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_BUFFET_MK2_RCC, "gfx/PW/BUFFET_MK2_RCC.png") { template_fai_33(0, 16)}
+spriteset(spriteset_BUFFET_MK2_RCC_F, "gfx/PW/BUFFET_MK2_RCC.png") { template_fai_33(0, 41)}
+spriteset(spriteset_BUFFET_MK2_RCC_E, "gfx/PW/BUFFET_MK2_RCC.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_BUFFET_MK2_RCC_S, "gfx/PW/BUFFET_MK2_RCC.png") { template_fai_33(0, 16)}
+switch(FEAT_TRAINS, SELF, sw_BUFFET_MK2_RCC_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_BUFFET_MK2_RCC; //All Gangways
+	return spriteset_BUFFET_MK2_RCC_F;
+}
+switch(FEAT_TRAINS, SELF, sw_BUFFET_MK2_RCC_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_BUFFET_MK2_RCC_E; //All Gangways
+	return spriteset_BUFFET_MK2_RCC_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_BUFFET_MK2_RCC_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_BUFFET_MK2_RCC_leftcheck; //All Gangways
+	return sw_BUFFET_MK2_RCC_leftcheck_noright;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_BUFFET_MK2_RCC, 8241) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_BUFFET_MK2_RCC); 
+		introduction_date:				date(1969,1,1);
+		model_life:						50;
+		length:							8;
+		
+		weight: 						35 ton;
+		speed:							100 mph;
+		cost_factor: 					0x93 nfo;
+		running_cost_factor: 			0x50 nfo;
+		
+		badges: ["flag/GB", "feature/gangway"];
+		
+		variant_group: 			        ITEM_FAI_PW_BUFFET_MK2;
+		
+		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		non_refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					20;
+		loading_speed:					5;
+		
+	}
+	graphics {
+		default:						sw_BUFFET_MK2_RCC_rightcheck;
+		purchase:						spriteset_BUFFET_MK2_RCC_purchase;
+	}
+}

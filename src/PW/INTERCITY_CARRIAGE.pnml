@@ -2,9 +2,25 @@
 spriteset(spriteset_INTERCITY_CARRIAGE_purchase, "gfx/PW/INTERCITY_CARRIAGE.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_INTERCITY_CARRIAGE, "gfx/PW/INTERCITY_CARRIAGE.png") { template_fai_33(0, 16)}
+spriteset(spriteset_INTERCITY_CARRIAGE_F, "gfx/PW/INTERCITY_CARRIAGE.png") { template_fai_33(0, 41)}
+spriteset(spriteset_INTERCITY_CARRIAGE_E, "gfx/PW/INTERCITY_CARRIAGE.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_INTERCITY_CARRIAGE_S, "gfx/PW/INTERCITY_CARRIAGE.png") { template_fai_33(0, 16)}
+switch(FEAT_TRAINS, SELF, sw_INTERCITY_CARRIAGE_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_INTERCITY_CARRIAGE; //All Gangways
+	return spriteset_INTERCITY_CARRIAGE_F;
+}
+switch(FEAT_TRAINS, SELF, sw_INTERCITY_CARRIAGE_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_INTERCITY_CARRIAGE_E; //All Gangways
+	return spriteset_INTERCITY_CARRIAGE_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_INTERCITY_CARRIAGE_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_INTERCITY_CARRIAGE_leftcheck; //All Gangways
+	return sw_INTERCITY_CARRIAGE_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_INTERCITY_CARRIAGE) {
+item (FEAT_TRAINS, ITEM_FAI_PW_INTERCITY_CARRIAGE, 8408) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +28,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_INTERCITY_CARRIAGE) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_INTERCITY_CARRIAGE); 
 		introduction_date:				date(1985,1,1);
@@ -24,14 +40,17 @@ item (FEAT_TRAINS, ITEM_FAI_PW_INTERCITY_CARRIAGE) {
 		cost_factor: 					0xA8 nfo;
 		running_cost_factor: 			0x4F nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					35;
+		cargo_capacity:					56;
+		loading_speed:					5;
 		
 	}
 	graphics {
-		default:						spriteset_INTERCITY_CARRIAGE;
+		default:						sw_INTERCITY_CARRIAGE_rightcheck;
 		purchase:						spriteset_INTERCITY_CARRIAGE_purchase;
 	}
 }

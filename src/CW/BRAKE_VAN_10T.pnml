@@ -2,9 +2,17 @@
 spriteset(spriteset_BRAKE_VAN_10T_purchase, "gfx/CW/BRAKE_VAN_10T.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_BRAKE_VAN_10T, "gfx/CW/BRAKE_VAN_10T.png") { template_fai_13(0, 16)}
+spriteset(spriteset_BRAKE_VAN_10T_B, "gfx/CW/BRAKE_VAN_10T_BROWN.png") { template_fai_13(0, 16)}
+spriteset(spriteset_BRAKE_VAN_10T_2, "gfx/CW/BRAKE_VAN_10T_CC2.png") { template_fai_13(0, 16)}
+
+random_switch (FEAT_TRAINS, SELF, sw_spriteset_BRAKE_VAN_10T_randomtexture) {
+	1: spriteset_BRAKE_VAN_10T;
+	1: spriteset_BRAKE_VAN_10T_B;
+	1: spriteset_BRAKE_VAN_10T_2;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_BRAKE_VAN_10T) {
+item (FEAT_TRAINS, ITEM_FAI_CW_BRAKE_VAN_10T, 20001) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_BRAKE_VAN_10T) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_BRAKE_VAN_10T); 
 		introduction_date:				date(1800,1,1);
@@ -23,10 +31,12 @@ item (FEAT_TRAINS, ITEM_FAI_CW_BRAKE_VAN_10T) {
 		speed:							40 mph;
 		cost_factor: 					0x14 nfo;
 		running_cost_factor: 			0x10 nfo;
+		default_cargo_type:				GOOD;
+		cargo_capacity:					0;
 		
 	}
 	graphics {
-		default:						spriteset_BRAKE_VAN_10T;
+		default:						sw_spriteset_BRAKE_VAN_10T_randomtexture;
 		purchase:						spriteset_BRAKE_VAN_10T_purchase;
 	}
 }

@@ -12,28 +12,36 @@ switch(FEAT_TRAINS, SELF, sw_OPEN_WAGON_loadcheck_COAL, PERCENT_FULL){
 	51..100	: spriteset_OPEN_WAGON_COAL_F ;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_OPEN_WAGON_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_OPEN_WAGON_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_OPEN_WAGON;
 	1: spriteset_OPEN_WAGON_R;
 	1: spriteset_OPEN_WAGON_W;
 	1: spriteset_OPEN_WAGON_G;
 }
 
-switch(FEAT_TRAINS, SELF, sw_OPEN_WAGON_spritestack, SPR_STACK){
-	0 : sw_OPEN_WAGON_randomtexture ;
-	1 : sw_OPEN_WAGON_loadcheck_COAL ;
+switch (FEAT_TRAINS, SELF, sw_OPEN_WAGON_getwagon, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
+    return sw_OPEN_WAGON_randomtexture;
+}
+
+switch (FEAT_TRAINS, SELF, sw_OPEN_WAGON_recolour_load, STORE_TEMP(switch_generic_recolour(), 0x100)) {
+    return sw_OPEN_WAGON_loadcheck_COAL;
+}
+
+switch (FEAT_TRAINS, SELF, sw_OPEN_WAGON_compose, getbits(extra_callback_info1, 8, 8)) {
+    0: return sw_OPEN_WAGON_getwagon;
+    return sw_OPEN_WAGON_recolour_load;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_OPEN_WAGON) {
+item (FEAT_TRAINS, ITEM_FAI_CW_OPEN_WAGON, 22941) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_OPEN_WAGON); 
 		introduction_date:				date(1800,1,1);
@@ -48,11 +56,12 @@ item (FEAT_TRAINS, ITEM_FAI_CW_OPEN_WAGON) {
 		refittable_cargo_classes:		bitmask(CC_BULK,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				COAL;
+        loading_speed:                  3;
 		cargo_capacity:					6;
 		
 	}
 	graphics {
-		default:						sw_OPEN_WAGON_spritestack;
+		default:						sw_OPEN_WAGON_compose;
 		purchase:						spriteset_OPEN_WAGON_purchase;
 	}
 }

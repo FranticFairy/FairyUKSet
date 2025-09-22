@@ -23,7 +23,7 @@ random_switch (FEAT_TRAINS, SELF, sw_CLASS_70_I_1_CLD_randomflip) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_70_I_1_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_70_I_1_CLD, 5180) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -33,7 +33,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_70_I_1_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						SAA3;
+		track_type:						NBA3;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -47,12 +47,15 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_70_I_1_CLD) {
 		weight: 						101 ton;
 		speed:							75 mph;
 		power:							1470 hp;
-		tractive_effort_coefficient: 	0x32 nfo;
+		tractive_effort_coefficient: 	0.1798343;
 		cost_factor: 					0x25 nfo;
 		running_cost_factor: 			0x21 nfo;
 		
+		badges: ["flag/GB", "power/third_rail", "role/mixed"];
+		
 		variant_group: 			        ITEM_FAI_EL_CLASS_70_I_1;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_CLASS_70_I_1_CLD_randomflip;

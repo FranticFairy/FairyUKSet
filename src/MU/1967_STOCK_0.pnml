@@ -1,5 +1,5 @@
 //Sprite References & Switches
-spriteset(spriteset_1967_STOCK_0_purchase, "gfx/MU/1967_STOCK.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_1967_STOCK_0_purchase, "gfx/MU/1967_STOCK.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_1967_STOCK_0, "gfx/MU/1967_STOCK.png") { template_fai_29(0, 16)}
 
@@ -7,13 +7,13 @@ spriteset(spriteset_1967_STOCK_0B, "gfx/MU/1967_STOCK.png") { template_fai_29_mu
 
 spriteset(spriteset_1967_STOCK_0_wagon, "gfx/MU/1967_STOCK.png") { template_fai_29(0, 41)}
 
-switch(FEAT_TRAINS, SELF, sw_1967_STOCK_0_gfx_last, position_in_consist_from_end){
-    0:	spriteset_1967_STOCK_0B;
+switch(FEAT_TRAINS, SELF, sw_1967_STOCK_0_gfx_last, vehicle_is_flipped){
+    1:	spriteset_1967_STOCK_0B;
 	spriteset_1967_STOCK_0;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK_0) {
+item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK_0, 7000) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -24,7 +24,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK_0) {
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						MTRO;
+		track_type:						NBA4;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -35,18 +35,21 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK_0) {
 		model_life:						44;
 		length:							7;
 		
-		weight: 						44 ton;
+		weight: 						22 ton;
 		speed:							50 mph;
 		power:							500 hp;
-		tractive_effort_coefficient: 	0x2A nfo;
+		tractive_effort_coefficient: 	0.1832096;
 		cost_factor: 					0x09 nfo;
 		running_cost_factor: 			0x0D nfo;
+		
+		badges: ["flag/GB", "power/fourth_rail", "role/passenger"];
 		
 		variant_group: 			        ITEM_FAI_MU_1967_STOCK;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					40;
+		cargo_capacity:					52;
+		loading_speed:					3;
 		
 	}
 	graphics {
@@ -58,7 +61,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_1967_STOCK_0) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_1967_STOCK_0_wagon;
 		length:							7;
-		cargo_capacity:					40;
+		cargo_capacity:					56;
+		loading_speed:					3;
 		speed:							50 ;
 	}
 }

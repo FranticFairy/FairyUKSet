@@ -23,12 +23,12 @@ spriteset(spriteset_FLATBED_COPR_A, "gfx/CW/FLATBED_STAKE.png") { template_fai_2
 
 spriteset(spriteset_FLATBED_STSE, "gfx/CW/FLATBED_STAKE.png") { template_fai_21(0, 91)}
 
-random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_GOOD_rand) {
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_GOOD_rand, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_FLATBED_GOOD1;
 	1: spriteset_FLATBED_GOOD2;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_WOOD_rand) {
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_WOOD_rand, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_FLATBED_WOOD_F;
 	1: spriteset_FLATBED_WOOD_FR;
 }
@@ -61,7 +61,7 @@ switch(FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_COPR_W, PERCENT_FULL){
 	41..100	: spriteset_FLATBED_COPR_A ;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_COPR_rand) {
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_COPR_rand, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: sw_FLATBED_loadcheck_COPR;
 	1: sw_FLATBED_loadcheck_COPR_W;
 }
@@ -76,18 +76,18 @@ switch(FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_WDPR, PERCENT_FULL){
 	41..100	: spriteset_FLATBED_WDPR ;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_STEL_rand) {
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_STEL_rand, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: sw_FLATBED_loadcheck_STEL;
 	1: sw_FLATBED_loadcheck_STSE;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_METL_rand) {
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_METL_rand, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: sw_FLATBED_loadcheck_STEL;
 	1: sw_FLATBED_loadcheck_STSE;
 	1: sw_FLATBED_loadcheck_COPR_rand;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_MISC_rand) {
+random_switch (FEAT_TRAINS, SELF, sw_FLATBED_loadcheck_MISC_rand, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: sw_FLATBED_loadcheck_GOOD;
 	1: sw_FLATBED_loadcheck_STSE;
 	1: sw_FLATBED_loadcheck_COPR_rand;
@@ -111,21 +111,20 @@ switch(FEAT_TRAINS, SELF, sw_FLATBED_cargocheck, cargo_type_in_veh){
 	sw_FLATBED_loadcheck_MISC_rand ;
 }
 
-
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED) {
+item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED, 23901) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_FLATBED); 
 		introduction_date:				date(1865,1,1);
-		model_life:						0;
+		model_life:						70;
 		length:							5;
 		
 		weight: 						9 ton;
@@ -136,6 +135,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED) {
 		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
 		default_cargo_type:				GOOD;
+        loading_speed:                  3;
 		cargo_capacity:					12;
 		
 	}

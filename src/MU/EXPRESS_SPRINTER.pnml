@@ -1,12 +1,12 @@
 //Sprite References & Switches
-spriteset(spriteset_EXPRESS_SPRINTER_purchase, "gfx/MU/EXPRESS_SPRINTER.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_EXPRESS_SPRINTER_purchase, "gfx/MU/EXPRESS_SPRINTER.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_EXPRESS_SPRINTER, "gfx/MU/EXPRESS_SPRINTER.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_EXPRESS_SPRINTER_wagon, "gfx/MU/EXPRESS_SPRINTER.png") { template_fai_33(0, 41)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER) {
+item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER, 5747) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +16,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER) {
 		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -30,13 +30,16 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER) {
 		weight: 						38 ton;
 		speed:							90 mph;
 		power:							800 hp;
-		tractive_effort_coefficient: 	0x47 nfo;
+		tractive_effort_coefficient: 	0.1329216;
 		cost_factor: 					0x17 nfo;
 		running_cost_factor: 			0x19 nfo;
 		
+		badges: ["flag/GB", "power/diesel", "role/passenger"];
+		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					35;
+		cargo_capacity:					56;
+		loading_speed:					2;
 		
 	}
 	graphics {
@@ -48,7 +51,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_EXPRESS_SPRINTER) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_EXPRESS_SPRINTER_wagon;
 		length:							8;
-		cargo_capacity:					35;
+		cargo_capacity:					60;
+		loading_speed:					2;
 		speed:							90 ;
 	}
 }

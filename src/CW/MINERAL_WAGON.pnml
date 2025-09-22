@@ -7,31 +7,34 @@ spriteset(spriteset_MINERAL_WAGON_R, "gfx/CW/MINERAL_WAGON.png") { template_fai_
 spriteset(spriteset_MINERAL_WAGON_COAL_H, "gfx/CW/MINERAL_WAGON_COAL.png") { template_fai_17(0, 41)}
 spriteset(spriteset_MINERAL_WAGON_COAL_F, "gfx/CW/MINERAL_WAGON_COAL.png") { template_fai_17(0, 66)}
 
-switch(FEAT_TRAINS, SELF, sw_MINERAL_WAGON_loadcheck_COAL, PERCENT_FULL){
-	1..50	: spriteset_MINERAL_WAGON_COAL_H ;
-	51..100	: spriteset_MINERAL_WAGON_COAL_F ;
-}
-
-random_switch (FEAT_TRAINS, SELF, sw_MINERAL_WAGON_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_MINERAL_WAGON_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_MINERAL_WAGON;
 	1: spriteset_MINERAL_WAGON_R;
 }
 
-switch(FEAT_TRAINS, SELF, sw_MINERAL_WAGON_spritestack, SPR_STACK){
-	0 : sw_MINERAL_WAGON_randomtexture ;
-	1 : sw_MINERAL_WAGON_loadcheck_COAL ;
+switch (FEAT_TRAINS, SELF, sw_MINERAL_WAGON_getwagon, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
+    return sw_MINERAL_WAGON_randomtexture;
+}
+
+switch (FEAT_TRAINS, SELF, sw_MINERAL_WAGON_recolour_load, STORE_TEMP(switch_generic_recolour(), 0x100)) {
+    return sw_5_PLANK_WAGON_cargocheck;
+}
+
+switch (FEAT_TRAINS, SELF, sw_MINERAL_WAGON_compose, getbits(extra_callback_info1, 8, 8)) {
+    0: return sw_MINERAL_WAGON_getwagon;
+    return sw_MINERAL_WAGON_recolour_load;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_MINERAL_WAGON) {
+item (FEAT_TRAINS, ITEM_FAI_CW_MINERAL_WAGON, 23061) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_MINERAL_WAGON); 
 		introduction_date:				date(1910,1,1);
@@ -39,18 +42,19 @@ item (FEAT_TRAINS, ITEM_FAI_CW_MINERAL_WAGON) {
 		length:							4;
 		
 		weight: 						8 ton;
-		speed:							40 mph;
+		speed:							45 mph;
 		cost_factor: 					0x15 nfo;
 		running_cost_factor: 			0x07 nfo;
 		
-		refittable_cargo_classes:		bitmask(CC_BULK,CC_PIECE_GOODS);
+		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				COAL;
+        loading_speed:                  5;
 		cargo_capacity:					10;
 		
 	}
 	graphics {
-		default:						sw_MINERAL_WAGON_spritestack;
+		default:						sw_MINERAL_WAGON_compose;
 		purchase:						spriteset_MINERAL_WAGON_purchase;
 	}
 }

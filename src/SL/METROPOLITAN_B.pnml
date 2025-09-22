@@ -36,7 +36,7 @@ random_switch (FEAT_TRAINS, SELF, sw_METROPOLITAN_B_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN_B) {
+item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN_B, 368) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -45,7 +45,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN_B) {
 		air_drag_coefficient:			0x19 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -56,13 +56,16 @@ item (FEAT_TRAINS, ITEM_FAI_SL_METROPOLITAN_B) {
 		model_life:						35;
 		length:							5;
 		
-		weight: 						50 ton;
+		weight: 						46 ton;
 		speed:							50 mph;
 		power:							450 hp;
-		tractive_effort_coefficient: 	0x2F nfo;
+		tractive_effort_coefficient: 	0.1086956;
 		cost_factor: 					0x0F nfo;
 		running_cost_factor: 			0x0F nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/light_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_METROPOLITAN_B_randomflip;

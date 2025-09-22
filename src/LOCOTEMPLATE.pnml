@@ -21,7 +21,7 @@ item (FEAT_TRAINS, ITEM_FAI_LOCOTEMPLATE) {
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class:                   ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_CARGO;

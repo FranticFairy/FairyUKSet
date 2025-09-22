@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_PRINCESS_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_PRINCESS) {
+item (FEAT_TRAINS, ITEM_FAI_SL_PRINCESS, 1904) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PRINCESS) {
 		air_drag_coefficient:			0x0D nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -33,10 +33,13 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PRINCESS) {
 		weight: 						161 ton;
 		speed:							100 mph;
 		power:							2500 hp;
-		tractive_effort_coefficient: 	0x17 nfo;
+		tractive_effort_coefficient: 	0.08999873;
 		cost_factor: 					0x29 nfo;
 		running_cost_factor: 			0x91 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_PRINCESS;

@@ -4,10 +4,29 @@ alternative_sprites(spriteset_PULLMAN_TEAK_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPT
 
 spriteset(spriteset_PULLMAN_TEAK, "gfx/32bpp.png") { template_fai_33(0, 16)}
 alternative_sprites(spriteset_PULLMAN_TEAK, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/PULLMAN_TEAK.png") { template_fai_33(0, 16)}
+spriteset(spriteset_PULLMAN_TEAK_F, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_PULLMAN_TEAK_F, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/PULLMAN_TEAK.png") { template_fai_33(0, 41)}
+spriteset(spriteset_PULLMAN_TEAK_E, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_PULLMAN_TEAK_E, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/PULLMAN_TEAK.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_PULLMAN_TEAK_S, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_PULLMAN_TEAK_S, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/PULLMAN_TEAK.png") { template_fai_33(0, 16)}
 
+switch(FEAT_TRAINS, SELF, sw_PULLMAN_TEAK_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_PULLMAN_TEAK; //All Gangways
+	return spriteset_PULLMAN_TEAK_F;
+}
+switch(FEAT_TRAINS, SELF, sw_PULLMAN_TEAK_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_PULLMAN_TEAK_E; //All Gangways
+	return spriteset_PULLMAN_TEAK_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_PULLMAN_TEAK_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_PULLMAN_TEAK_leftcheck; //All Gangways
+	return sw_PULLMAN_TEAK_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_PULLMAN_TEAK) {
+item (FEAT_TRAINS, ITEM_FAI_PW_PULLMAN_TEAK, 8051) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +35,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_PULLMAN_TEAK) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_PULLMAN_TEAK); 
 		introduction_date:				date(1928,1,1);
@@ -28,16 +47,19 @@ item (FEAT_TRAINS, ITEM_FAI_PW_PULLMAN_TEAK) {
 		cost_factor: 					0x96 nfo;
 		running_cost_factor: 			0x51 nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		variant_group: 			        ITEM_FAI_PW_PULLMAN;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					20;
+		cargo_capacity:					28;
+		loading_speed:					6;
 		
 	}
 	graphics {
-		default:						spriteset_PULLMAN_TEAK;
+		default:						sw_PULLMAN_TEAK_rightcheck;
 		purchase:						spriteset_PULLMAN_TEAK_purchase;
 	}
 }

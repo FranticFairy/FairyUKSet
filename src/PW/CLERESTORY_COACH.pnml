@@ -4,7 +4,7 @@ spriteset(spriteset_CLERESTORY_COACH_purchase, "gfx/PW/CLERESTORY_COACH.png") { 
 spriteset(spriteset_CLERESTORY_COACH, "gfx/PW/CLERESTORY_COACH.png") { template_fai_29(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_COACH) {
+item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_COACH, 7418) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +12,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_COACH) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_CLERESTORY_COACH); 
 		introduction_date:				date(1880,1,1);
@@ -24,10 +24,13 @@ item (FEAT_TRAINS, ITEM_FAI_PW_CLERESTORY_COACH) {
 		cost_factor: 					0x68 nfo;
 		running_cost_factor: 			0x45 nfo;
 		
+		badges: ["flag/GB"];
+		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					28;
+		loading_speed:					5;
 		
 	}
 	graphics {

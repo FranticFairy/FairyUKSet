@@ -4,10 +4,29 @@ alternative_sprites(spriteset_BRAKE_PULLMAN_CLD_purchase, ZOOM_LEVEL_NORMAL, BIT
 
 spriteset(spriteset_BRAKE_PULLMAN_CLD, "gfx/32bpp.png") { template_fai_33(0, 16)}
 alternative_sprites(spriteset_BRAKE_PULLMAN_CLD, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/BRAKE_PULLMAN_CLD.png") { template_fai_33(0, 16)}
+spriteset(spriteset_BRAKE_PULLMAN_CLD_F, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_BRAKE_PULLMAN_CLD_F, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/BRAKE_PULLMAN_CLD.png") { template_fai_33(0, 41)}
+spriteset(spriteset_BRAKE_PULLMAN_CLD_E, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_BRAKE_PULLMAN_CLD_E, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/BRAKE_PULLMAN_CLD.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_BRAKE_PULLMAN_CLD_S, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_BRAKE_PULLMAN_CLD_S, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/BRAKE_PULLMAN_CLD.png") { template_fai_33(0, 16)}
 
+switch(FEAT_TRAINS, SELF, sw_BRAKE_PULLMAN_CLD_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_BRAKE_PULLMAN_CLD; //All Gangways
+	return spriteset_BRAKE_PULLMAN_CLD_F;
+}
+switch(FEAT_TRAINS, SELF, sw_BRAKE_PULLMAN_CLD_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_BRAKE_PULLMAN_CLD_E; //All Gangways
+	return spriteset_BRAKE_PULLMAN_CLD_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_BRAKE_PULLMAN_CLD_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_BRAKE_PULLMAN_CLD_leftcheck; //All Gangways
+	return sw_BRAKE_PULLMAN_CLD_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_BRAKE_PULLMAN_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_PW_BRAKE_PULLMAN_CLD, 8123) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +35,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_BRAKE_PULLMAN_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_BRAKE_PULLMAN_CLD); 
 		introduction_date:				date(1928,1,1);
@@ -28,16 +47,19 @@ item (FEAT_TRAINS, ITEM_FAI_PW_BRAKE_PULLMAN_CLD) {
 		cost_factor: 					0x7B nfo;
 		running_cost_factor: 			0x28 nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		variant_group: 			        ITEM_FAI_PW_BRAKE_PULLMAN;
 		
 		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				MAIL;
 		cargo_capacity:					20;
+		loading_speed:					6;
 		
 	}
 	graphics {
-		default:						spriteset_BRAKE_PULLMAN_CLD;
+		default:						sw_BRAKE_PULLMAN_CLD_rightcheck;
 		purchase:						spriteset_BRAKE_PULLMAN_CLD_purchase;
 	}
 }

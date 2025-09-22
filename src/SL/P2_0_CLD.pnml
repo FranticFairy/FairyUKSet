@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_P2_0_CLD_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_P2_0_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_SL_P2_0_CLD, 1412) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_P2_0_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -37,12 +37,15 @@ item (FEAT_TRAINS, ITEM_FAI_SL_P2_0_CLD) {
 		weight: 						167 ton;
 		speed:							85 mph;
 		power:							2850 hp;
-		tractive_effort_coefficient: 	0x29 nfo;
+		tractive_effort_coefficient: 	0.160088;
 		cost_factor: 					0x2A nfo;
 		running_cost_factor: 			0x55 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_P2_0;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_P2_0_CLD;
@@ -54,6 +57,6 @@ item (FEAT_TRAINS, ITEM_FAI_SL_P2_0_CLD) {
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER_0) {
 		default: 						spriteset_P2_0_CLD_tender_0;
-		length: 						6;
+		length: 						4;
 	}
 }

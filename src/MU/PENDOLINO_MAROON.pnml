@@ -1,0 +1,81 @@
+//Sprite References & Switches
+spriteset(spriteset_PENDOLINO_MAROON_purchase, "gfx/32bpp.png") { template_fai_purchase_mu(0, 0)}
+alternative_sprites(spriteset_PENDOLINO_MAROON_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/PENDOLINO_MAROON.png") { template_fai_purchase_mu(0, 0)}
+
+spriteset(spriteset_PENDOLINO_MAROON, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_PENDOLINO_MAROON, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/PENDOLINO_MAROON.png") { template_fai_33(0, 16)}
+
+spriteset(spriteset_PENDOLINO_MAROON_wagon, "gfx/32bpp.png") { template_fai_33(0, 41)}
+alternative_sprites(spriteset_PENDOLINO_MAROON_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/PENDOLINO_MAROON.png") { template_fai_33(0, 41)}
+
+spriteset(spriteset_PENDOLINO_MAROON_power, "gfx/32bpp.png") { template_fai_33(0, 41)}
+alternative_sprites(spriteset_PENDOLINO_MAROON_power, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/PENDOLINO_MAROON.png") { template_fai_33(0, 41)}
+switch(FEAT_TRAINS, SELF, sw_PENDOLINO_MAROON_powerposition, position_in_vehid_chain - position_in_vehid_chain_from_end) {
+ 0..1: spriteset_PENDOLINO_MAROON_power;
+  spriteset_PENDOLINO_MAROON_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_PENDOLINO_MAROON_rearcheck, position_in_vehid_chain_from_end) {
+  0: spriteset_PENDOLINO_MAROON_power;
+  spriteset_PENDOLINO_MAROON_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_PENDOLINO_MAROON_lencheck, num_vehs_in_vehid_chain){
+    1..2 : sw_PENDOLINO_MAROON_rearcheck;
+    return sw_PENDOLINO_MAROON_powerposition;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO_MAROON, 6908) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x09 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					1;
+		
+		track_type:						ELNG;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_PENDOLINO_MAROON); 
+		introduction_date:				date(2001,1,1);
+		vehicle_life: 					25;
+		model_life:						0;
+		length:							8;
+		
+		weight: 						52 ton;
+		speed:							140 mph;
+		power:							6840 hp;
+		tractive_effort_coefficient: 	0.2344976;
+		cost_factor: 					0x8E nfo;
+		running_cost_factor: 			0xB0 nfo;
+		
+		badges: ["flag/GB", "power/electric", "role/express_passenger"];
+		
+		variant_group: 			        ITEM_FAI_MU_PENDOLINO;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					52;
+		loading_speed:					4;
+		
+	}
+	graphics {
+		default:						spriteset_PENDOLINO_MAROON;
+		sound_effect:					sw_sfx_ELF;
+		purchase:						spriteset_PENDOLINO_MAROON_purchase;
+		create_effect:					vfx_ohle;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						sw_PENDOLINO_MAROON_lencheck;
+		length:							8;
+		cargo_capacity:					60;
+		loading_speed:					4;
+		speed:							140 ;
+	}
+}

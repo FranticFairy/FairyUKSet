@@ -36,7 +36,7 @@ random_switch (FEAT_TRAINS, SELF, sw_IVATT_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_IVATT) {
+item (FEAT_TRAINS, ITEM_FAI_SL_IVATT, 584) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -45,7 +45,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_IVATT) {
 		air_drag_coefficient:			0x12 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -59,10 +59,13 @@ item (FEAT_TRAINS, ITEM_FAI_SL_IVATT) {
 		weight: 						64 ton;
 		speed:							70 mph;
 		power:							800 hp;
-		tractive_effort_coefficient: 	0x1D nfo;
+		tractive_effort_coefficient: 	0.1211735;
 		cost_factor: 					0x13 nfo;
 		running_cost_factor: 			0x1C nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/light_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_IVATT_randomflip;

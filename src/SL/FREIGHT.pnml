@@ -1,7 +1,7 @@
 //Sprite References & Switches
 spriteset(spriteset_FREIGHT_purchase, "gfx/SL/FREIGHT.png") { template_fai_purchase(0, 0)}
 
-spriteset(spriteset_FREIGHT, "gfx/SL/FREIGHT.png") { template_fai_21(0, 16)}
+spriteset(spriteset_FREIGHT, "gfx/SL/FREIGHT.png") { template_fai_25(0, 16)}
 spriteset(spriteset_FREIGHT_tender_0, "gfx/SL/FREIGHT.png") { template_fai_12(0, 41)}
 
 switch(FEAT_TRAINS, SELF, sw_FREIGHT_articulation, extra_callback_info1) {
@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_FREIGHT_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_FREIGHT) {
+item (FEAT_TRAINS, ITEM_FAI_SL_FREIGHT, 2528) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_FREIGHT) {
 		air_drag_coefficient:			0x19 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -28,15 +28,18 @@ item (FEAT_TRAINS, ITEM_FAI_SL_FREIGHT) {
 		introduction_date:				date(1911,1,1);
 		vehicle_life: 					36;
 		model_life:						51;
-		length:							5;
+		length:							6;
 		
 		weight: 						90 ton;
 		speed:							50 mph;
 		power:							750 hp;
-		tractive_effort_coefficient: 	0x15 nfo;
+		tractive_effort_coefficient: 	0.1247166;
 		cost_factor: 					0x17 nfo;
 		running_cost_factor: 			0x19 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/freight"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_FREIGHT;

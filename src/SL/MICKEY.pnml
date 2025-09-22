@@ -2,7 +2,7 @@
 spriteset(spriteset_MICKEY_purchase, "gfx/SL/MICKEY.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_MICKEY, "gfx/SL/MICKEY.png") { template_fai_21(0, 16)}
-spriteset(spriteset_MICKEY_tender_0, "gfx/SL/MICKEY.png") { template_fai_12m(0, 41)}
+spriteset(spriteset_MICKEY_tender_0, "gfx/SL/MICKEY.png") { template_fai_12(0, 41)}
 
 switch(FEAT_TRAINS, SELF, sw_MICKEY_articulation, extra_callback_info1) {
     1: return ITEM_WAGON_FAI_TENDER_0;
@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_MICKEY_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY) {
+item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY, 1472) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY) {
 		air_drag_coefficient:			0x10 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -27,16 +27,19 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY) {
 		name:							string(STR_NAME_MICKEY); 
 		introduction_date:				date(1946,1,1);
 		vehicle_life: 					30;
-		model_life:						21;
+		model_life:						14;
 		length:							5;
 		
 		weight: 						84 ton;
 		speed:							80 mph;
 		power:							1000 hp;
-		tractive_effort_coefficient: 	0x27 nfo;
+		tractive_effort_coefficient: 	0.09353741;
 		cost_factor: 					0x1C nfo;
 		running_cost_factor: 			0x32 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_MICKEY;
@@ -48,6 +51,6 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MICKEY) {
 	}
 	livery_override (ITEM_WAGON_FAI_TENDER_0) {
 		default: 						spriteset_MICKEY_tender_0;
-		length: 						4;
+		length: 						3;
 	}
 }

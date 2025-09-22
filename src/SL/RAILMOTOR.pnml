@@ -36,7 +36,7 @@ random_switch (FEAT_TRAINS, SELF, sw_RAILMOTOR_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_RAILMOTOR) {
+item (FEAT_TRAINS, ITEM_FAI_SL_RAILMOTOR, 5408) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -45,7 +45,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_RAILMOTOR) {
 		air_drag_coefficient:			0x1C nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -59,13 +59,16 @@ item (FEAT_TRAINS, ITEM_FAI_SL_RAILMOTOR) {
 		weight: 						36 ton;
 		speed:							45 mph;
 		power:							150 hp;
-		tractive_effort_coefficient: 	0x4A nfo;
+		tractive_effort_coefficient: 	0.05385487;
 		cost_factor: 					0x0B nfo;
 		running_cost_factor: 			0x06 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/passenger"];
+		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					20;
+		cargo_capacity:					38;
+		loading_speed:					5;
 		
 	}
 	graphics {

@@ -7,7 +7,7 @@ alternative_sprites(spriteset_6_WHEEL_COACH_CLD, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32
 
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_6_WHEEL_COACH_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_PW_6_WHEEL_COACH_CLD, 7300) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +16,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_6_WHEEL_COACH_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_6_WHEEL_COACH_CLD); 
 		introduction_date:				date(1850,1,1);
@@ -24,16 +24,19 @@ item (FEAT_TRAINS, ITEM_FAI_PW_6_WHEEL_COACH_CLD) {
 		length:							5;
 		
 		weight: 						21 ton;
-		speed:							70 mph;
+		speed:							60 mph;
 		cost_factor: 					0x5D nfo;
 		running_cost_factor: 			0x2D nfo;
+		
+		badges: ["flag/GB"];
 		
 		variant_group: 			        ITEM_FAI_PW_6_WHEEL_COACH;
 		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					20;
+		cargo_capacity:					24;
+		loading_speed:					4;
 		
 	}
 	graphics {

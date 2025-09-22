@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_PLANET_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_PLANET) {
+item (FEAT_TRAINS, ITEM_FAI_SL_PLANET, 992) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PLANET) {
 		air_drag_coefficient:			0x2A nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -32,11 +32,14 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PLANET) {
 		
 		weight: 						14 ton;
 		speed:							30 mph;
-		power:							20 hp;
-		tractive_effort_coefficient: 	0x24 nfo;
+		power:							120 hp;
+		tractive_effort_coefficient: 	0.08746356;
 		cost_factor: 					0x06 nfo;
 		running_cost_factor: 			0x04 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/mixed"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_PLANET;

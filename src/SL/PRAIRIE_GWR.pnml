@@ -39,7 +39,7 @@ random_switch (FEAT_TRAINS, SELF, sw_PRAIRIE_GWR_randomflip_steam) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_PRAIRIE_GWR) {
+item (FEAT_TRAINS, ITEM_FAI_SL_PRAIRIE_GWR, 472) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -49,7 +49,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PRAIRIE_GWR) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -57,18 +57,21 @@ item (FEAT_TRAINS, ITEM_FAI_SL_PRAIRIE_GWR) {
 		name:							string(STR_NAME_PRAIRIE_GWR); 
 		introduction_date:				date(1903,1,1);
 		vehicle_life: 					36;
-		model_life:						62;
+		model_life:						19;
 		length:							6;
 		
 		weight: 						57 ton;
 		speed:							50 mph;
 		power:							650 hp;
-		tractive_effort_coefficient: 	0x2B nfo;
+		tractive_effort_coefficient: 	0.1682778;
 		cost_factor: 					0x11 nfo;
 		running_cost_factor: 			0x16 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/light_passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_PRAIRIE;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_PRAIRIE_GWR_randomflip;

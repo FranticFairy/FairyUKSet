@@ -2,23 +2,23 @@
 spriteset(spriteset_6_WHEEL_TANKER_purchase, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_6_WHEEL_TANKER, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 16)}
-spriteset(spriteset_6_WHEEL_TANKER_R, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 41)}
+spriteset(spriteset_6_WHEEL_TANKER_2, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 41)}
 spriteset(spriteset_6_WHEEL_TANKER_B, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 66)}
-spriteset(spriteset_6_WHEEL_TANKER_BR, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 91)}
+spriteset(spriteset_6_WHEEL_TANKER_B2, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 91)}
 spriteset(spriteset_6_WHEEL_TANKER_M, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 116)}
-spriteset(spriteset_6_WHEEL_TANKER_MR, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 141)}
+spriteset(spriteset_6_WHEEL_TANKER_M2, "gfx/CW/6_WHEEL_TANKER.png") { template_fai_17(0, 141)}
 
-random_switch (FEAT_TRAINS, SELF, sw_6_WHEEL_TANKER_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_6_WHEEL_TANKER_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_6_WHEEL_TANKER;
-	1: spriteset_6_WHEEL_TANKER_R;
+	1: spriteset_6_WHEEL_TANKER_2;
 	1: spriteset_6_WHEEL_TANKER_B;
-	1: spriteset_6_WHEEL_TANKER_BR;
+	1: spriteset_6_WHEEL_TANKER_B2;
 	1: spriteset_6_WHEEL_TANKER_M;
-	1: spriteset_6_WHEEL_TANKER_MR;
+	1: spriteset_6_WHEEL_TANKER_M2;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_6_WHEEL_TANKER) {
+item (FEAT_TRAINS, ITEM_FAI_CW_6_WHEEL_TANKER, 24441) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -26,7 +26,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_6_WHEEL_TANKER) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_6_WHEEL_TANKER); 
 		introduction_date:				date(1900,1,1);
@@ -41,6 +41,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_6_WHEEL_TANKER) {
 		refittable_cargo_classes:		bitmask(CC_LIQUID);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				OIL_;
+        loading_speed:                  4;
 		cargo_capacity:					12;
 		
 	}

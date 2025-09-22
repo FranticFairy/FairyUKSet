@@ -1,0 +1,72 @@
+//Sprite References & Switches
+spriteset(spriteset_1938_STOCK_MAROON_purchase, "gfx/32bpp.png") { template_fai_purchase_mu(0, 0)}
+alternative_sprites(spriteset_1938_STOCK_MAROON_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/1938_STOCK_MAROON.png") { template_fai_purchase_mu(0, 0)}
+
+spriteset(spriteset_1938_STOCK_MAROON, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_1938_STOCK_MAROON, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/1938_STOCK_MAROON.png") { template_fai_29(0, 16)}
+
+spriteset(spriteset_1938_STOCK_MAROONB, "gfx/32bpp.png") { template_fai_29(0, 16)}
+alternative_sprites(spriteset_1938_STOCK_MAROONB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/1938_STOCK_MAROON.png") { template_fai_29_mu(0, 16)}
+
+spriteset(spriteset_1938_STOCK_MAROON_wagon, "gfx/32bpp.png") { template_fai_29(0, 41)}
+alternative_sprites(spriteset_1938_STOCK_MAROON_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/1938_STOCK_MAROON.png") { template_fai_29(0, 41)}
+
+switch(FEAT_TRAINS, SELF, sw_1938_STOCK_MAROON_gfx_last, vehicle_is_flipped){
+    1:	spriteset_1938_STOCK_MAROONB;
+	spriteset_1938_STOCK_MAROON;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_MU_1938_STOCK_MAROON, 6977) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x1C nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		dual_headed:					1;
+		
+		track_type:						NBA4;
+		running_cost_base:				RUNNING_COST_ELECTRIC;
+		engine_class: 					ENGINE_CLASS_ELECTRIC;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_1938_STOCK_MAROON); 
+		introduction_date:				date(1938,1,1);
+		vehicle_life: 					30;
+		model_life:						50;
+		length:							7;
+		
+		weight: 						24 ton;
+		speed:							45 mph;
+		power:							400 hp;
+		tractive_effort_coefficient: 	0.1360544;
+		cost_factor: 					0x08 nfo;
+		running_cost_factor: 			0x0B nfo;
+		
+		badges: ["flag/GB", "power/fourth_rail", "role/passenger"];
+		
+		variant_group: 			        ITEM_FAI_MU_1938_STOCK;
+		
+		refittable_cargo_classes:		bitmask();
+		default_cargo_type:				PASS;
+		cargo_capacity:					42;
+		loading_speed:					3;
+		
+	}
+	graphics {
+		default:						sw_1938_STOCK_MAROON_gfx_last;
+		sound_effect:					sw_sfx_ELE;
+		purchase:						spriteset_1938_STOCK_MAROON_purchase;
+		create_effect:					vfx_3rd;
+	}
+	livery_override (ITEM_FAI_WAGON_MU_COACH) {
+		default:						spriteset_1938_STOCK_MAROON_wagon;
+		length:							7;
+		cargo_capacity:					52;
+		loading_speed:					3;
+		speed:							45 ;
+	}
+}

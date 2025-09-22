@@ -2,9 +2,25 @@
 spriteset(spriteset_COMMUTER_CARRIAGE_0_purchase, "gfx/PW/COMMUTER_CARRIAGE.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_COMMUTER_CARRIAGE_0, "gfx/PW/COMMUTER_CARRIAGE.png") { template_fai_33(0, 16)}
+spriteset(spriteset_COMMUTER_CARRIAGE_0_F, "gfx/PW/COMMUTER_CARRIAGE.png") { template_fai_33(0, 41)}
+spriteset(spriteset_COMMUTER_CARRIAGE_0_E, "gfx/PW/COMMUTER_CARRIAGE.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_COMMUTER_CARRIAGE_0_S, "gfx/PW/COMMUTER_CARRIAGE.png") { template_fai_33(0, 16)}
+switch(FEAT_TRAINS, SELF, sw_COMMUTER_CARRIAGE_0_leftcheck, [STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]){
+	7768..8770: spriteset_COMMUTER_CARRIAGE_0; //All Gangways
+	return spriteset_COMMUTER_CARRIAGE_0_F;
+}
+switch(FEAT_TRAINS, SELF, sw_COMMUTER_CARRIAGE_0_leftcheck_noright, [STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]){
+	7768..8770: spriteset_COMMUTER_CARRIAGE_0_E; //All Gangways
+	return spriteset_COMMUTER_CARRIAGE_0_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_COMMUTER_CARRIAGE_0_rightcheck, [STORE_TEMP(1, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]){
+	7768..8770: sw_COMMUTER_CARRIAGE_0_leftcheck; //All Gangways
+	return sw_COMMUTER_CARRIAGE_0_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_COMMUTER_CARRIAGE_0) {
+item (FEAT_TRAINS, ITEM_FAI_PW_COMMUTER_CARRIAGE_0, 7967) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -13,7 +29,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_COMMUTER_CARRIAGE_0) {
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_COMMUTER_CARRIAGE_0); 
 		introduction_date:				date(1985,1,1);
@@ -30,11 +46,12 @@ item (FEAT_TRAINS, ITEM_FAI_PW_COMMUTER_CARRIAGE_0) {
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					50;
+		cargo_capacity:					48;
+		loading_speed:					5;
 		
 	}
 	graphics {
-		default:						spriteset_COMMUTER_CARRIAGE_0;
+		default:						sw_COMMUTER_CARRIAGE_0_rightcheck;
 		purchase:						spriteset_COMMUTER_CARRIAGE_0_purchase;
 	}
 }

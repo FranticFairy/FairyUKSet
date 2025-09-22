@@ -20,7 +20,7 @@ random_switch (FEAT_TRAINS, SELF, sw_CLASS_81_randomflip) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_81) {
+item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_81, 4688) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -29,7 +29,7 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_81) {
 		air_drag_coefficient:			0x0D nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						ELRL;
+		track_type:						ELNG;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -43,10 +43,13 @@ item (FEAT_TRAINS, ITEM_FAI_EL_CLASS_81) {
 		weight: 						79 ton;
 		speed:							100 mph;
 		power:							3200 hp;
-		tractive_effort_coefficient: 	0x47 nfo;
+		tractive_effort_coefficient: 	0.2854559;
 		cost_factor: 					0x20 nfo;
 		running_cost_factor: 			0x4A nfo;
 		
+		badges: ["flag/GB", "power/electric", "role/express_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_CLASS_81_randomflip;

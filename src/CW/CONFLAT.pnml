@@ -18,7 +18,7 @@ spriteset(spriteset_CONFLAT_L_S_RCC, "gfx/CW/CONFLAT_LOAD.png") { template_fai_1
 spriteset(spriteset_CONFLAT_L_S_W, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 266)}
 spriteset(spriteset_CONFLAT_L_S_G, "gfx/CW/CONFLAT_LOAD.png") { template_fai_17(0, 291)}
 
-random_switch (FEAT_TRAINS, SELF, sw_CONFLAT_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_CONFLAT_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_CONFLAT_L_B_CC;
 	1: spriteset_CONFLAT_L_B_RCC;
 	1: spriteset_CONFLAT_L_B_W;
@@ -39,15 +39,15 @@ switch(FEAT_TRAINS, SELF, sw_CONFLAT_loadcheck, PERCENT_FULL){
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_CONFLAT) {
+item (FEAT_TRAINS, ITEM_FAI_CW_CONFLAT, 23961) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_CONFLAT); 
 		introduction_date:				date(1930,1,1);
@@ -62,6 +62,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_CONFLAT) {
 		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
 		default_cargo_type:				GOOD;
+        loading_speed:                  3;
 		cargo_capacity:					12;
 		
 	}

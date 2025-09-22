@@ -1,0 +1,83 @@
+//Sprite References & Switches
+spriteset(spriteset_WELSH_SROL_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_WELSH_SROL_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/PITWORKER_SROL.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_WELSH_SROL, "gfx/32bpp.png") { template_fai_25(0, 16)}
+alternative_sprites(spriteset_WELSH_SROL, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/PITWORKER_SROL.png") { template_fai_25(0, 16)}
+spriteset(spriteset_WELSH_SROL_flip, "gfx/32bpp.png") { template_fai_25_r(0, 16)}
+alternative_sprites(spriteset_WELSH_SROL_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/PITWORKER_SROL.png") { template_fai_25_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_WELSH_SROL_flipcheck, vehicle_is_reversed){
+	1: spriteset_WELSH_SROL;
+	spriteset_WELSH_SROL_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_WELSH_SROL_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_WELSH_SROL_flip;
+	spriteset_WELSH_SROL ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_WELSH_SROL_randomflip) {
+	1: sw_WELSH_SROL_flipcheck;
+	1: sw_WELSH_SROL_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_WELSH_SROL_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_WELSH_SROL_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_WELSH_SROL_randomflip_steam) {
+	dependent:	sw_WELSH_SROL_randomflip;
+	1: sw_WELSH_SROL_flipcheck_steam_inv;
+	1: sw_WELSH_SROL_flipcheck_steam;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_WELSH_SROL, 805) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x20 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						NGRL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_CARGO;
+		
+		name:							string(STR_NAME_WELSH_SROL); 
+		introduction_date:				date(1904,1,1);
+		vehicle_life: 					25;
+		model_life:						31;
+		length:							6;
+		
+		weight: 						63 ton;
+		speed:							40 mph;
+		power:							500 hp;
+		tractive_effort_coefficient: 	0.1765468;
+		cost_factor: 					0x0E nfo;
+		running_cost_factor: 			0x14 nfo;
+		
+		badges: ["flag/GB", "power/steam", "role/light_freight"];
+		
+		variant_group: 			        ITEM_FAI_SL_WELSH;
+		
+		cargo_capacity: 				0;
+	}
+	graphics {
+		default:						sw_WELSH_SROL_randomflip;
+		visual_effect_and_powered:		sw_WELSH_SROL_randomflip_steam;
+		sound_effect:					sw_sfx_JIN;
+		purchase:						spriteset_WELSH_SROL_purchase;
+		create_effect:					vfx_STEAM;
+	}
+}

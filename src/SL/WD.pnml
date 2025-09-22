@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_WD_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_WD) {
+item (FEAT_TRAINS, ITEM_FAI_SL_WD, 2744) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_WD) {
 		air_drag_coefficient:			0x19 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -33,10 +33,13 @@ item (FEAT_TRAINS, ITEM_FAI_SL_WD) {
 		weight: 						128 ton;
 		speed:							50 mph;
 		power:							1550 hp;
-		tractive_effort_coefficient: 	0x20 nfo;
+		tractive_effort_coefficient: 	0.1132015;
 		cost_factor: 					0x20 nfo;
 		running_cost_factor: 			0x31 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/freight"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_WD;

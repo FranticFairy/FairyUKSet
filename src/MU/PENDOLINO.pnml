@@ -1,12 +1,28 @@
 //Sprite References & Switches
-spriteset(spriteset_PENDOLINO_purchase, "gfx/MU/PENDOLINO.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_PENDOLINO_purchase, "gfx/MU/PENDOLINO.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_PENDOLINO, "gfx/MU/PENDOLINO.png") { template_fai_33(0, 16)}
 
 spriteset(spriteset_PENDOLINO_wagon, "gfx/MU/PENDOLINO.png") { template_fai_33(0, 41)}
 
+spriteset(spriteset_PENDOLINO_power, "gfx/MU/PENDOLINO.png") { template_fai_33(0, 41)}
+switch(FEAT_TRAINS, SELF, sw_PENDOLINO_powerposition, position_in_vehid_chain - position_in_vehid_chain_from_end) {
+ 0..1: spriteset_PENDOLINO_power;
+  spriteset_PENDOLINO_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_PENDOLINO_rearcheck, position_in_vehid_chain_from_end) {
+  0: spriteset_PENDOLINO_power;
+  spriteset_PENDOLINO_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_PENDOLINO_lencheck, num_vehs_in_vehid_chain){
+    1..2 : sw_PENDOLINO_rearcheck;
+    return sw_PENDOLINO_powerposition;
+}
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO) {
+item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO, 6903) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -16,7 +32,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO) {
 		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
-		track_type:						ELRL;
+		track_type:						ELNG;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -30,13 +46,16 @@ item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO) {
 		weight: 						52 ton;
 		speed:							140 mph;
 		power:							6840 hp;
-		tractive_effort_coefficient: 	0x30 nfo;
+		tractive_effort_coefficient: 	0.2344976;
 		cost_factor: 					0x8E nfo;
 		running_cost_factor: 			0xB0 nfo;
 		
+		badges: ["flag/GB", "power/electric", "role/express_passenger"];
+		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					52;
+		loading_speed:					4;
 		
 	}
 	graphics {
@@ -46,9 +65,10 @@ item (FEAT_TRAINS, ITEM_FAI_MU_PENDOLINO) {
 		create_effect:					vfx_ohle;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
-		default:						spriteset_PENDOLINO_wagon;
+		default:						sw_PENDOLINO_lencheck;
 		length:							8;
-		cargo_capacity:					35;
+		cargo_capacity:					60;
+		loading_speed:					4;
 		speed:							140 ;
 	}
 }

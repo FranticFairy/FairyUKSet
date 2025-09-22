@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_STIRLING_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_STIRLING) {
+item (FEAT_TRAINS, ITEM_FAI_SL_STIRLING, 1544) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_STIRLING) {
 		air_drag_coefficient:			0x0F nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -27,16 +27,19 @@ item (FEAT_TRAINS, ITEM_FAI_SL_STIRLING) {
 		name:							string(STR_NAME_STIRLING); 
 		introduction_date:				date(1870,1,1);
 		vehicle_life: 					30;
-		model_life:						46;
+		model_life:						25;
 		length:							5;
 		
 		weight: 						48 ton;
 		speed:							85 mph;
 		power:							600 hp;
-		tractive_effort_coefficient: 	0x15 nfo;
+		tractive_effort_coefficient: 	0.1041667;
 		cost_factor: 					0x12 nfo;
 		running_cost_factor: 			0x14 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_STIRLING;

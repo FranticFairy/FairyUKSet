@@ -4,15 +4,15 @@ spriteset(spriteset_FLATBED_EXPRESS_purchase, "gfx/CW/FLATBED_LARGE.png") { temp
 spriteset(spriteset_FLATBED_EXPRESS, "gfx/CW/FLATBED_LARGE.png") { template_fai_33(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_EXPRESS) {
+item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_EXPRESS, 24081) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_FLATBED_EXPRESS); 
 		introduction_date:				date(1950,1,1);
@@ -27,6 +27,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_EXPRESS) {
 		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
 		default_cargo_type:				GOOD;
+        loading_speed:                  4;
 		cargo_capacity:					20;
 		
 	}

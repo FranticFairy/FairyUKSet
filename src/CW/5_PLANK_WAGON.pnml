@@ -11,12 +11,18 @@ spriteset(spriteset_5_PLANK_WAGON_BRN, "gfx/CW/5_PLANK_WAGON.png") { template_fa
 spriteset(spriteset_5_PLANK_WAGON_COAL_H, "gfx/CW/5_PLANK_WAGON_COAL.png") { template_fai_17(0, 41)}
 spriteset(spriteset_5_PLANK_WAGON_COAL_F, "gfx/CW/5_PLANK_WAGON_COAL.png") { template_fai_17(0, 66)}
 
+spriteset(spriteset_5_PLANK_WAGON_TARP, "gfx/CW/5_PLANK_WAGON_COVERED.png") { template_fai_17(0, 16)}
+
 switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_loadcheck_COAL, PERCENT_FULL){
-	1..50	: spriteset_5_PLANK_WAGON_COAL_H ;
-	51..100	: spriteset_5_PLANK_WAGON_COAL_F ;
+	20..60	: spriteset_5_PLANK_WAGON_COAL_H ;
+	61..100	: spriteset_5_PLANK_WAGON_COAL_F ;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_randomtexture) {
+switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_loadcheck_TARP, PERCENT_FULL){
+	61..100	: spriteset_5_PLANK_WAGON_TARP ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_5_PLANK_WAGON;
 	1: spriteset_5_PLANK_WAGON_RCC;
 	1: spriteset_5_PLANK_WAGON_TTD;
@@ -25,21 +31,51 @@ random_switch (FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_randomtexture) {
 	1: spriteset_5_PLANK_WAGON_BRN;
 }
 
-switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_spritestack, SPR_STACK){
-	0 : sw_5_PLANK_WAGON_randomtexture ;
-	1 : sw_5_PLANK_WAGON_loadcheck_COAL ;
+
+switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_cargocheck, cargo_type_in_veh){
+	GRAI : sw_5_PLANK_WAGON_loadcheck_TARP ;
+	sw_5_PLANK_WAGON_loadcheck_COAL ;
 }
 
+switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_bulkcheck, cargo_classes & bitmask(CC_BULK)) {
+	bitmask(CC_BULK): return sw_5_PLANK_WAGON_cargocheck;
+	sw_5_PLANK_WAGON_loadcheck_TARP ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_piececheck, cargo_classes & bitmask(CC_PIECE_GOODS)) {
+	bitmask(CC_PIECE_GOODS): return sw_5_PLANK_WAGON_loadcheck_TARP;
+	sw_5_PLANK_WAGON_bulkcheck ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_coveredcheck, cargo_classes & bitmask(CC_COVERED)) {
+	bitmask(CC_COVERED): return sw_5_PLANK_WAGON_loadcheck_TARP;
+	sw_5_PLANK_WAGON_piececheck ;
+}
+
+switch (FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_getwagon, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
+    return sw_5_PLANK_WAGON_randomtexture;
+}
+
+switch (FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_recolour_load, STORE_TEMP(switch_generic_recolour(), 0x100)) {
+    return sw_5_PLANK_WAGON_coveredcheck;
+}
+
+switch (FEAT_TRAINS, SELF, sw_5_PLANK_WAGON_compose, getbits(extra_callback_info1, 8, 8)) {
+    0: return sw_5_PLANK_WAGON_getwagon;
+    return sw_5_PLANK_WAGON_recolour_load;
+}
+
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_5_PLANK_WAGON) {
+item (FEAT_TRAINS, ITEM_FAI_CW_5_PLANK_WAGON, 23001) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_5_PLANK_WAGON); 
 		introduction_date:				date(1865,1,1);
@@ -54,11 +90,12 @@ item (FEAT_TRAINS, ITEM_FAI_CW_5_PLANK_WAGON) {
 		refittable_cargo_classes:		bitmask(CC_BULK,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				COAL;
+        loading_speed:                  4;
 		cargo_capacity:					10;
 		
 	}
 	graphics {
-		default:						sw_5_PLANK_WAGON_spritestack;
+		default:						sw_5_PLANK_WAGON_compose;
 		purchase:						spriteset_5_PLANK_WAGON_purchase;
 	}
 }

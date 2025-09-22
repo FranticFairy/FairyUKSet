@@ -2,9 +2,25 @@
 spriteset(spriteset_BUFFET_MK3_purchase, "gfx/PW/BUFFET_MK3.png") { template_fai_purchase(0, 0)}
 
 spriteset(spriteset_BUFFET_MK3, "gfx/PW/BUFFET_MK3.png") { template_fai_33(0, 16)}
+spriteset(spriteset_BUFFET_MK3_F, "gfx/PW/BUFFET_MK3.png") { template_fai_33(0, 41)}
+spriteset(spriteset_BUFFET_MK3_E, "gfx/PW/BUFFET_MK3.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_BUFFET_MK3_S, "gfx/PW/BUFFET_MK3.png") { template_fai_33(0, 16)}
+switch(FEAT_TRAINS, SELF, sw_BUFFET_MK3_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_BUFFET_MK3; //All Gangways
+	return spriteset_BUFFET_MK3_F;
+}
+switch(FEAT_TRAINS, SELF, sw_BUFFET_MK3_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_BUFFET_MK3_E; //All Gangways
+	return spriteset_BUFFET_MK3_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_BUFFET_MK3_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_BUFFET_MK3_leftcheck; //All Gangways
+	return sw_BUFFET_MK3_leftcheck_noright;
+}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_PW_BUFFET_MK3) {
+item (FEAT_TRAINS, ITEM_FAI_PW_BUFFET_MK3, 8312) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +28,7 @@ item (FEAT_TRAINS, ITEM_FAI_PW_BUFFET_MK3) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_BUFFET_MK3); 
 		introduction_date:				date(1985,1,1);
@@ -24,14 +40,17 @@ item (FEAT_TRAINS, ITEM_FAI_PW_BUFFET_MK3) {
 		cost_factor: 					0x93 nfo;
 		running_cost_factor: 			0x50 nfo;
 		
+		badges: ["flag/GB", "feature/gangway"];
+		
 		refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		non_refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
 		cargo_capacity:					20;
+		loading_speed:					5;
 		
 	}
 	graphics {
-		default:						spriteset_BUFFET_MK3;
+		default:						sw_BUFFET_MK3_rightcheck;
 		purchase:						spriteset_BUFFET_MK3_purchase;
 	}
 }

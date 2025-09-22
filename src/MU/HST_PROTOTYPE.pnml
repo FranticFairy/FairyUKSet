@@ -1,5 +1,5 @@
 //Sprite References & Switches
-spriteset(spriteset_HST_PROTOTYPE_purchase, "gfx/MU/HST_PROTOTYPE.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_HST_PROTOTYPE_purchase, "gfx/MU/HST_PROTOTYPE.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_HST_PROTOTYPE, "gfx/MU/HST_PROTOTYPE.png") { template_fai_29(0, 16)}
 
@@ -7,13 +7,13 @@ spriteset(spriteset_HST_PROTOTYPEB, "gfx/MU/HST_PROTOTYPE.png") { template_fai_2
 
 spriteset(spriteset_HST_PROTOTYPE_wagon, "gfx/MU/HST_PROTOTYPE.png") { template_fai_33(0, 41)}
 
-switch(FEAT_TRAINS, SELF, sw_HST_PROTOTYPE_gfx_last, position_in_consist_from_end){
-    0:	spriteset_HST_PROTOTYPEB;
+switch(FEAT_TRAINS, SELF, sw_HST_PROTOTYPE_gfx_last, vehicle_is_flipped){
+    1:	spriteset_HST_PROTOTYPEB;
 	spriteset_HST_PROTOTYPE;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
+item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE, 5916) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
 		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -32,18 +32,21 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
 		introduction_date:				date(1972,1,1);
 		vehicle_life: 					30;
 		model_life:						20;
-		length:							6;
+		length:							7;
 		
 		weight: 						70 ton;
 		speed:							125 mph;
 		power:							4500 hp;
-		tractive_effort_coefficient: 	0x2F nfo;
+		tractive_effort_coefficient: 	0.1173469;
 		cost_factor: 					0x3F nfo;
 		running_cost_factor: 			0x7E nfo;
+		
+		badges: ["flag/GB", "power/diesel", "role/express_passenger"];
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				MAIL;
 		cargo_capacity:					10;
+		loading_speed:					5;
 		
 	}
 	graphics {
@@ -55,7 +58,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_HST_PROTOTYPE) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_HST_PROTOTYPE_wagon;
 		length:							8;
-		cargo_capacity:					35;
+		cargo_capacity:					52;
+		loading_speed:					5;
 		speed:							125 ;
 	}
 }

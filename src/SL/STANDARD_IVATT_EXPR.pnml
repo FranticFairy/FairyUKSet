@@ -1,0 +1,83 @@
+//Sprite References & Switches
+spriteset(spriteset_STANDARD_IVATT_EXPR_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_STANDARD_IVATT_EXPR_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/IVATT_EXPR.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_STANDARD_IVATT_EXPR, "gfx/32bpp.png") { template_fai_25(0, 16)}
+alternative_sprites(spriteset_STANDARD_IVATT_EXPR, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/IVATT_EXPR.png") { template_fai_25(0, 16)}
+spriteset(spriteset_STANDARD_IVATT_EXPR_flip, "gfx/32bpp.png") { template_fai_25_r(0, 16)}
+alternative_sprites(spriteset_STANDARD_IVATT_EXPR_flip, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/SL/IVATT_EXPR.png") { template_fai_25_r(0, 16)}
+
+switch(FEAT_TRAINS, PARENT, sw_STANDARD_IVATT_EXPR_flipcheck, vehicle_is_reversed){
+	1: spriteset_STANDARD_IVATT_EXPR;
+	spriteset_STANDARD_IVATT_EXPR_flip ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_STANDARD_IVATT_EXPR_flipcheck_inv, vehicle_is_reversed){
+	1: spriteset_STANDARD_IVATT_EXPR_flip;
+	spriteset_STANDARD_IVATT_EXPR ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_STANDARD_IVATT_EXPR_randomflip) {
+	1: sw_STANDARD_IVATT_EXPR_flipcheck;
+	1: sw_STANDARD_IVATT_EXPR_flipcheck_inv;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_STANDARD_IVATT_EXPR_flipcheck_steam, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER) ;
+}
+
+switch(FEAT_TRAINS, PARENT, sw_STANDARD_IVATT_EXPR_flipcheck_steam_inv, vehicle_is_reversed){
+	1: visual_effect_and_powered(VISUAL_EFFECT_STEAM, -4, ENABLE_WAGON_POWER);
+	visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, ENABLE_WAGON_POWER) ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_STANDARD_IVATT_EXPR_randomflip_steam) {
+	dependent:	sw_STANDARD_IVATT_EXPR_randomflip;
+	1: sw_STANDARD_IVATT_EXPR_flipcheck_steam_inv;
+	1: sw_STANDARD_IVATT_EXPR_flipcheck_steam;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_SL_STANDARD_IVATT_EXPR, 658) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		air_drag_coefficient:			0x12 nfo;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						NGRL;
+		running_cost_base:				RUNNING_COST_STEAM;
+		engine_class: 					ENGINE_CLASS_STEAM;
+		ai_special_flag:				AI_FLAG_PASSENGER;
+		
+		name:							string(STR_NAME_STANDARD_IVATT_EXPR); 
+		introduction_date:				date(1953,1,1);
+		vehicle_life: 					36;
+		model_life:						10;
+		length:							6;
+		
+		weight: 						67 ton;
+		speed:							70 mph;
+		power:							800 hp;
+		tractive_effort_coefficient: 	0.1248858;
+		cost_factor: 					0x13 nfo;
+		running_cost_factor: 			0x1C nfo;
+		
+		badges: ["flag/GB", "power/steam", "role/light_passenger"];
+		
+		variant_group: 			        ITEM_FAI_SL_STANDARD_IVATT;
+		
+		cargo_capacity: 				0;
+	}
+	graphics {
+		default:						sw_STANDARD_IVATT_EXPR_randomflip;
+		visual_effect_and_powered:		sw_STANDARD_IVATT_EXPR_randomflip_steam;
+		sound_effect:					sw_sfx_QR;
+		purchase:						spriteset_STANDARD_IVATT_EXPR_purchase;
+		create_effect:					vfx_STEAM;
+	}
+}

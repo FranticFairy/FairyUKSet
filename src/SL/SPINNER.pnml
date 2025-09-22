@@ -10,7 +10,7 @@ switch(FEAT_TRAINS, SELF, sw_SPINNER_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_SPINNER) {
+item (FEAT_TRAINS, ITEM_FAI_SL_SPINNER, 1568) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -19,7 +19,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_SPINNER) {
 		air_drag_coefficient:			0x12 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -27,16 +27,19 @@ item (FEAT_TRAINS, ITEM_FAI_SL_SPINNER) {
 		name:							string(STR_NAME_SPINNER); 
 		introduction_date:				date(1896,1,1);
 		vehicle_life: 					30;
-		model_life:						32;
+		model_life:						14;
 		length:							5;
 		
-		weight: 						71 ton;
+		weight: 						56 ton;
 		speed:							70 mph;
 		power:							600 hp;
-		tractive_effort_coefficient: 	0x2E nfo;
+		tractive_effort_coefficient: 	0.08199708;
 		cost_factor: 					0x11 nfo;
 		running_cost_factor: 			0x13 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_passenger"];
+		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_SPINNER;

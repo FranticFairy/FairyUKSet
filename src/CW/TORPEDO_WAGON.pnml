@@ -1,0 +1,109 @@
+//Sprite References & Switches
+spriteset(spriteset_TORPEDO_WAGON_purchase, "gfx/CW/TORPEDO_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_TORPEDO_WAGON_f, "gfx/CW/TORPEDO_WAGON.png") { template_fai_13(0, 16)}
+spriteset(spriteset_TORPEDO_WAGON_r, "gfx/CW/TORPEDO_WAGON.png") { template_fai_13(0, 116)}
+
+spriteset(spriteset_TORPEDO_WAGON, "gfx/CW/TORPEDO_WAGON.png") { template_fai_25(0, 41)}
+spriteset(spriteset_TORPEDO_WAGON_H, "gfx/CW/TORPEDO_WAGON.png") { template_fai_25(0, 66)}
+spriteset(spriteset_TORPEDO_WAGON_L, "gfx/CW/TORPEDO_WAGON.png") { template_fai_25(0, 91)}
+
+switch(FEAT_TRAINS, SELF, sw_TORPEDO_WAGON_loadcheck, PERCENT_FULL){
+	0..25	: spriteset_TORPEDO_WAGON ;
+	26..70	: spriteset_TORPEDO_WAGON_H ;
+	71..100	: spriteset_TORPEDO_WAGON_L ;
+}
+
+switch(FEAT_TRAINS, SELF, sw_articulation_CW_TORPEDO_WAGON, extra_callback_info1) {
+	1: return ITEM_FAI_CW_TORPEDO_WAGON_MID;
+	2: return ITEM_FAI_CW_TORPEDO_WAGON_END;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_TORPEDO_WAGON, 12301) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available: 			ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_TORPEDO_WAGON); 
+		introduction_date:				date(1900,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							3;
+		
+		weight: 						28 ton;
+		speed:							45 mph;
+				
+		cost_factor: 					0x3C nfo;
+		running_cost_factor: 			0x10 nfo;
+		default_cargo_type:				IRON;
+		cargo_capacity:					0;
+		
+	}
+	graphics {
+		default:						spriteset_TORPEDO_WAGON_f;
+        articulated_part:               sw_articulation_CW_TORPEDO_WAGON;
+		purchase:						spriteset_TORPEDO_WAGON_purchase;
+	}
+}
+
+item (FEAT_TRAINS, ITEM_FAI_CW_TORPEDO_WAGON_MID, 12302) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_TORPEDO_WAGON); 
+		introduction_date:				date(1900,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							6;
+		
+		weight: 						0 ton;
+		speed:							45 mph;
+		
+		default_cargo_type:				IRON;
+		cargo_capacity:					36;
+		loading_speed:					5;
+		
+	}
+	graphics {
+		default:						sw_TORPEDO_WAGON_loadcheck;
+		purchase:						spriteset_TORPEDO_WAGON_purchase;
+	}
+}
+
+item (FEAT_TRAINS, ITEM_FAI_CW_TORPEDO_WAGON_END, 12303) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				NO_CLIMATE;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_TORPEDO_WAGON); 
+		introduction_date:				date(1900,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							3;
+		
+		weight: 						0 ton;
+		speed:							45 mph;
+		default_cargo_type:				IRON;
+		cargo_capacity:					0;
+		
+	}
+	graphics {
+		default:						spriteset_TORPEDO_WAGON_r;
+		purchase:						spriteset_TORPEDO_WAGON_purchase;
+	}
+}

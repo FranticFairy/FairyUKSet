@@ -6,7 +6,7 @@ spriteset(spriteset_FERTILISER_VAN_RCC, "gfx/CW/FERTILISER_VAN.png") { template_
 spriteset(spriteset_FERTILISER_VAN_2, "gfx/CW/FERTILISER_VAN.png") { template_fai_29(0, 66)}
 spriteset(spriteset_FERTILISER_VAN_2RCC, "gfx/CW/FERTILISER_VAN.png") { template_fai_29(0, 91)}
 
-random_switch (FEAT_TRAINS, SELF, sw_FERTILISER_VAN_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_FERTILISER_VAN_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_FERTILISER_VAN;
 	1: spriteset_FERTILISER_VAN_RCC;
 	1: spriteset_FERTILISER_VAN_2;
@@ -14,7 +14,7 @@ random_switch (FEAT_TRAINS, SELF, sw_FERTILISER_VAN_randomtexture) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_FERTILISER_VAN) {
+item (FEAT_TRAINS, ITEM_FAI_CW_FERTILISER_VAN, 24861) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -22,11 +22,11 @@ item (FEAT_TRAINS, ITEM_FAI_CW_FERTILISER_VAN) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_FERTILISER_VAN); 
 		introduction_date:				date(1968,1,1);
-		model_life:						0;
+		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							7;
 		
 		weight: 						18 ton;
@@ -37,6 +37,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_FERTILISER_VAN) {
 		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				FERT;
+        loading_speed:                  4;
 		cargo_capacity:					22;
 		
 	}

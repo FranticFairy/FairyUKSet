@@ -1,0 +1,44 @@
+//Sprite References & Switches
+spriteset(spriteset_INGOT_WAGON_purchase, "gfx/CW/INGOT_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_INGOT_WAGON, "gfx/CW/INGOT_WAGON.png") { template_fai_17(0, 16)}
+spriteset(spriteset_INGOT_WAGON_H, "gfx/CW/INGOT_WAGON.png") { template_fai_17(0, 41)}
+spriteset(spriteset_INGOT_WAGON_L, "gfx/CW/INGOT_WAGON.png") { template_fai_17(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_INGOT_WAGON_loadcheck, PERCENT_FULL){
+	0..25	: spriteset_INGOT_WAGON ;
+	26..70	: spriteset_INGOT_WAGON_H ;
+	71..100	: spriteset_INGOT_WAGON_L ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_INGOT_WAGON, 25221) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_INGOT_WAGON); 
+		introduction_date:				date(1880,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							4;
+		
+		weight: 						8 ton;
+		speed:							35 mph;
+		cost_factor: 					0x16 nfo;
+		running_cost_factor: 			0x08 nfo;
+		
+		default_cargo_type:				IRON;
+		cargo_capacity:					14;
+		loading_speed:					4;
+		
+	}
+	graphics {
+		default:						sw_INGOT_WAGON_loadcheck;
+		purchase:						spriteset_INGOT_WAGON_purchase;
+	}
+}

@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_STREAK_1_BRG_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_STREAK_1_BRG) {
+item (FEAT_TRAINS, ITEM_FAI_SL_STREAK_1_BRG, 1959) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_STREAK_1_BRG) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -37,12 +37,15 @@ item (FEAT_TRAINS, ITEM_FAI_SL_STREAK_1_BRG) {
 		weight: 						166 ton;
 		speed:							115 mph;
 		power:							2000 hp;
-		tractive_effort_coefficient: 	0x17 nfo;
+		tractive_effort_coefficient: 	0.09773789;
 		cost_factor: 					0x2A nfo;
 		running_cost_factor: 			0x70 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/express_passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_STREAK_1;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_STREAK_1_BRG;

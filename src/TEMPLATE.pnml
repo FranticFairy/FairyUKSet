@@ -14,7 +14,7 @@ item (FEAT_TRAINS, ITEM_FAI_WAGON_TEMPLATE) {
 		bitmask_vehicle_info:			0;
 		dual_headed:					0;
 		climates_available:				ALL_CLIMATES;
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_WAGON_TEMPLATE);  
 		introduction_date:				date(1865,1,1);

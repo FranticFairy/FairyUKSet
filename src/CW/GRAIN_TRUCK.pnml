@@ -5,14 +5,14 @@ spriteset(spriteset_GRAIN_TRUCK, "gfx/CW/GRAIN_TRUCK.png") { template_fai_17(0, 
 spriteset(spriteset_GRAIN_TRUCK_R, "gfx/CW/GRAIN_TRUCK.png") { template_fai_17(0, 41)}
 spriteset(spriteset_GRAIN_TRUCK_W, "gfx/CW/GRAIN_TRUCK.png") { template_fai_17(0, 66)}
 
-random_switch (FEAT_TRAINS, SELF, sw_GRAIN_TRUCK_randomtexture) {
+random_switch (FEAT_TRAINS, SELF, sw_GRAIN_TRUCK_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: spriteset_GRAIN_TRUCK;
 	1: spriteset_GRAIN_TRUCK_R;
 	1: spriteset_GRAIN_TRUCK_W;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_GRAIN_TRUCK) {
+item (FEAT_TRAINS, ITEM_FAI_CW_GRAIN_TRUCK, 23541) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -20,7 +20,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_GRAIN_TRUCK) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_GRAIN_TRUCK); 
 		introduction_date:				date(1885,1,1);
@@ -35,6 +35,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_GRAIN_TRUCK) {
 		refittable_cargo_classes:		bitmask(CC_BULK);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				GRAI;
+        loading_speed:                  2;
 		cargo_capacity:					10;
 		
 	}

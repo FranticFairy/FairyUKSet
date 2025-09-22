@@ -4,7 +4,7 @@ spriteset(spriteset_EXPRESS_VAN_purchase, "gfx/CW/VAN.png") { template_fai_purch
 spriteset(spriteset_EXPRESS_VAN, "gfx/CW/VAN.png") { template_fai_17(0, 16)}
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_EXPRESS_VAN) {
+item (FEAT_TRAINS, ITEM_FAI_CW_EXPRESS_VAN, 24681) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -12,7 +12,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_EXPRESS_VAN) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_EXPRESS_VAN); 
 		introduction_date:				date(1890,1,1);
@@ -24,14 +24,15 @@ item (FEAT_TRAINS, ITEM_FAI_CW_EXPRESS_VAN) {
 		cost_factor: 					0x20 nfo;
 		running_cost_factor: 			0x0A nfo;
 		
-		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_ARMOURED,CC_PIECE_GOODS);
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_ARMOURED,CC_PIECE_GOODS, TRAIN_FLAG_AUTOREFIT);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				GOOD;
+        loading_speed:                  4;
 		cargo_capacity:					10;
 		
 	}
 	graphics {
-		default:						spriteset_EXPRESS_VAN;
+		default:						sw_VAN_randomtexture;
 		purchase:						spriteset_EXPRESS_VAN_purchase;
 	}
 }

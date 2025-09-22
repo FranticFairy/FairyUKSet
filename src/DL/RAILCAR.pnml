@@ -20,7 +20,7 @@ random_switch (FEAT_TRAINS, SELF, sw_RAILCAR_randomflip) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR) {
+item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR, 5433) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -29,7 +29,7 @@ item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR) {
 		air_drag_coefficient:			0x15 nfo;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -43,13 +43,16 @@ item (FEAT_TRAINS, ITEM_FAI_DL_RAILCAR) {
 		weight: 						29 ton;
 		speed:							60 mph;
 		power:							260 hp;
-		tractive_effort_coefficient: 	0x1F nfo;
+		tractive_effort_coefficient: 	0.1196341;
 		cost_factor: 					0x06 nfo;
 		running_cost_factor: 			0x08 nfo;
 		
+		badges: ["flag/GB", "power/diesel", "role/passenger"];
+		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					32;
+		loading_speed:					5;
 		
 	}
 	graphics {

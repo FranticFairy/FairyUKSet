@@ -1,0 +1,69 @@
+//Sprite References & Switches
+spriteset(spriteset_ORE_HOPPER_purchase, "gfx/CW/ORE_HOPPER.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_ORE_HOPPER, "gfx/CW/ORE_HOPPER.png") { template_fai_25(0, 16)}
+spriteset(spriteset_ORE_HOPPER_R, "gfx/CW/ORE_HOPPER.png") { template_fai_25(0, 41)}
+spriteset(spriteset_ORE_HOPPER_B, "gfx/CW/ORE_HOPPER.png") { template_fai_25(0, 66)}
+spriteset(spriteset_ORE_HOPPER_G, "gfx/CW/ORE_HOPPER.png") { template_fai_25(0, 91)}
+
+spriteset(spriteset_ORE_HOPPER_COAL_H, "gfx/CW/ORE_HOPPER_COAL.png") { template_fai_25(0, 41)}
+spriteset(spriteset_ORE_HOPPER_COAL_F, "gfx/CW/ORE_HOPPER_COAL.png") { template_fai_25(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_ORE_HOPPER_loadcheck_COAL, PERCENT_FULL){
+	1..50	: spriteset_ORE_HOPPER_COAL_H ;
+	51..100	: spriteset_ORE_HOPPER_COAL_F ;
+}
+
+random_switch (FEAT_TRAINS, SELF, sw_ORE_HOPPER_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
+	1: spriteset_ORE_HOPPER;
+	1: spriteset_ORE_HOPPER_R;
+	1: spriteset_ORE_HOPPER_B;
+	1: spriteset_ORE_HOPPER_G;
+}
+
+switch (FEAT_TRAINS, SELF, sw_ORE_HOPPER_getwagon, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
+    return sw_ORE_HOPPER_randomtexture;
+}
+
+switch (FEAT_TRAINS, SELF, sw_ORE_HOPPER_recolour_load, STORE_TEMP(switch_generic_recolour(), 0x100)) {
+    return sw_ORE_HOPPER_loadcheck_COAL;
+}
+
+switch (FEAT_TRAINS, SELF, sw_ORE_HOPPER_compose, getbits(extra_callback_info1, 8, 8)) {
+    0: return sw_ORE_HOPPER_getwagon;
+    return sw_ORE_HOPPER_recolour_load;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_ORE_HOPPER, 23242) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_ORE_HOPPER); 
+		introduction_date:				date(1930,1,1);
+		model_life:						55;
+		length:							6;
+		
+		weight: 						20 ton;
+		speed:							50 mph;
+		cost_factor: 					0x2C nfo;
+		running_cost_factor: 			0x0E nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_BULK);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
+		default_cargo_type:				COAL;
+        loading_speed:                  3;
+		cargo_capacity:					40;
+		
+	}
+	graphics {
+		default:						sw_ORE_HOPPER_compose;
+		purchase:						spriteset_ORE_HOPPER_purchase;
+	}
+}

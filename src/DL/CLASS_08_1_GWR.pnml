@@ -23,7 +23,7 @@ random_switch (FEAT_TRAINS, SELF, sw_CLASS_08_1_GWR_randomflip) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_DL_CLASS_08_1_GWR) {
+item (FEAT_TRAINS, ITEM_FAI_DL_CLASS_08_1_GWR, 3979) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -33,7 +33,7 @@ item (FEAT_TRAINS, ITEM_FAI_DL_CLASS_08_1_GWR) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -47,12 +47,15 @@ item (FEAT_TRAINS, ITEM_FAI_DL_CLASS_08_1_GWR) {
 		weight: 						50 ton;
 		speed:							25 mph;
 		power:							350 hp;
-		tractive_effort_coefficient: 	0x52 nfo;
+		tractive_effort_coefficient: 	0.3163265;
 		cost_factor: 					0x07 nfo;
 		running_cost_factor: 			0x07 nfo;
 		
+		badges: ["flag/GB", "power/diesel", "role/shunting"];
+		
 		variant_group: 			        ITEM_FAI_DL_CLASS_08_1;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						sw_CLASS_08_1_GWR_randomflip;

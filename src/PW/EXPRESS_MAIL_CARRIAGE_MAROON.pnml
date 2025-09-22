@@ -1,0 +1,65 @@
+//Sprite References & Switches
+spriteset(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
+alternative_sprites(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/EXPRESS_MAIL_CARRIAGE_MAROON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/EXPRESS_MAIL_CARRIAGE_MAROON.png") { template_fai_33(0, 16)}
+spriteset(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_F, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_F, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/EXPRESS_MAIL_CARRIAGE_MAROON.png") { template_fai_33(0, 41)}
+spriteset(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_E, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_E, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/EXPRESS_MAIL_CARRIAGE_MAROON.png") { template_fai_33_r(0, 41)}
+spriteset(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_S, "gfx/32bpp.png") { template_fai_33(0, 16)}
+alternative_sprites(spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_S, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/PW/EXPRESS_MAIL_CARRIAGE_MAROON.png") { template_fai_33(0, 16)}
+
+switch(FEAT_TRAINS, SELF, sw_EXPRESS_MAIL_CARRIAGE_MAROON_leftcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_EXPRESS_MAIL_CARRIAGE_MAROON; //All Gangways
+	return spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_F;
+}
+switch(FEAT_TRAINS, SELF, sw_EXPRESS_MAIL_CARRIAGE_MAROON_leftcheck_noright, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(-1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_E; //All Gangways
+	return spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_S;
+}
+
+switch(FEAT_TRAINS, SELF, sw_EXPRESS_MAIL_CARRIAGE_MAROON_rightcheck, [STORE_TEMP(badgetype("feature/gangway"), 0x10E), STORE_TEMP(1, 0x10F), var[0x61, 0, 0x00000001, 0x7A]]){
+	1: sw_EXPRESS_MAIL_CARRIAGE_MAROON_leftcheck; //All Gangways
+	return sw_EXPRESS_MAIL_CARRIAGE_MAROON_leftcheck_noright;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_PW_EXPRESS_MAIL_CARRIAGE_MAROON, 8611) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
+		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_EXPRESS_MAIL_CARRIAGE_MAROON); 
+		introduction_date:				date(1910,1,1);
+		model_life:						60;
+		length:							8;
+		
+		weight: 						31 ton;
+		speed:							100 mph;
+		cost_factor: 					0x76 nfo;
+		running_cost_factor: 			0x25 nfo;
+		
+		badges: ["flag/GB", "feature/gangway"];
+		
+		variant_group: 			        ITEM_FAI_PW_EXPRESS_MAIL_CARRIAGE;
+		
+		refittable_cargo_classes:		bitmask(CC_MAIL,CC_EXPRESS,CC_ARMOURED);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				MAIL;
+		cargo_capacity:					30;
+		loading_speed:					5;
+		
+	}
+	graphics {
+		default:						sw_EXPRESS_MAIL_CARRIAGE_MAROON_rightcheck;
+		purchase:						spriteset_EXPRESS_MAIL_CARRIAGE_MAROON_purchase;
+	}
+}

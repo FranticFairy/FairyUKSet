@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_GOODS_LNER_articulation, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_GOODS_LNER) {
+item (FEAT_TRAINS, ITEM_FAI_SL_GOODS_LNER, 2438) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_GOODS_LNER) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_CARGO;
@@ -31,18 +31,21 @@ item (FEAT_TRAINS, ITEM_FAI_SL_GOODS_LNER) {
 		name:							string(STR_NAME_GOODS_LNER); 
 		introduction_date:				date(1867,1,1);
 		vehicle_life: 					38;
-		model_life:						20;
+		model_life:						8;
 		length:							5;
 		
-		weight: 						71 ton;
+		weight: 						53 ton;
 		speed:							50 mph;
-		power:							600 hp;
-		tractive_effort_coefficient: 	0x28 nfo;
+		power:							480 hp;
+		tractive_effort_coefficient: 	0.1405468;
 		cost_factor: 					0x15 nfo;
 		running_cost_factor: 			0x14 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/freight"];
+		
 		variant_group: 			        ITEM_FAI_SL_GOODS;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_GOODS_LNER;

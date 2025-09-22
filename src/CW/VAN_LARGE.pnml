@@ -1,0 +1,48 @@
+//Sprite References & Switches
+spriteset(spriteset_VAN_LARGE_purchase, "gfx/CW/VAN_LARGE.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_VAN_LARGE, "gfx/CW/VAN_LARGE.png") { template_fai_25(0, 16)}
+spriteset(spriteset_VAN_LARGE_2, "gfx/CW/VAN_LARGE.png") { template_fai_25(0, 41)}
+spriteset(spriteset_VAN_LARGE_B, "gfx/CW/VAN_LARGE.png") { template_fai_25(0, 66)}
+spriteset(spriteset_VAN_LARGE_G, "gfx/CW/VAN_LARGE.png") { template_fai_25(0, 91)}
+
+random_switch (FEAT_TRAINS, SELF, sw_VAN_LARGE_randomtexture, TRIGGER_VEHICLE_ANY_LOAD) {
+	1: spriteset_VAN_LARGE;
+	1: spriteset_VAN_LARGE_2;
+	1: spriteset_VAN_LARGE_B;
+	1: spriteset_VAN_LARGE_G;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_VAN_LARGE, 25281) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_VAN_LARGE); 
+		introduction_date:				date(1920,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							6;
+		
+		weight: 						14 ton;
+		speed:							50 mph;
+		cost_factor: 					0x22 nfo;
+		running_cost_factor: 			0x0A nfo;
+		
+		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_ARMOURED,CC_PIECE_GOODS);
+		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
+		default_cargo_type:				GOOD;
+		cargo_capacity:					18;
+		loading_speed:					4;
+		
+	}
+	graphics {
+		default:						sw_VAN_LARGE_randomtexture;
+		purchase:						spriteset_VAN_LARGE_purchase;
+	}
+}

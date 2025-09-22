@@ -13,7 +13,7 @@ switch(FEAT_TRAINS, SELF, sw_MERCHANT_NAVY_2_CLD_articulation, extra_callback_in
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_SL_MERCHANT_NAVY_2_CLD) {
+item (FEAT_TRAINS, ITEM_FAI_SL_MERCHANT_NAVY_2_CLD, 2084) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MERCHANT_NAVY_2_CLD) {
 		misc_flags:						bitmask(TRAIN_FLAG_SPRITE_STACK);
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_STEAM;
 		engine_class: 					ENGINE_CLASS_STEAM;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -37,12 +37,15 @@ item (FEAT_TRAINS, ITEM_FAI_SL_MERCHANT_NAVY_2_CLD) {
 		weight: 						144 ton;
 		speed:							110 mph;
 		power:							2100 hp;
-		tractive_effort_coefficient: 	0x35 nfo;
+		tractive_effort_coefficient: 	0.1169218;
 		cost_factor: 					0x24 nfo;
 		running_cost_factor: 			0x69 nfo;
 		
+		badges: ["flag/GB", "power/steam", "role/passenger"];
+		
 		variant_group: 			        ITEM_FAI_SL_MERCHANT_NAVY_2;
 		
+		cargo_capacity: 				0;
 	}
 	graphics {
 		default:						spriteset_MERCHANT_NAVY_2_CLD;

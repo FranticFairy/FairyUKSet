@@ -1,6 +1,6 @@
 //Sprite References & Switches
-spriteset(spriteset_AM10_1_BRB_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
-alternative_sprites(spriteset_AM10_1_BRB_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/AM10_1_BRB.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_AM10_1_BRB_purchase, "gfx/32bpp.png") { template_fai_purchase_mu(0, 0)}
+alternative_sprites(spriteset_AM10_1_BRB_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/AM10_1_BRB.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_AM10_1_BRB, "gfx/32bpp.png") { template_fai_33(0, 16)}
 alternative_sprites(spriteset_AM10_1_BRB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/AM10_1_BRB.png") { template_fai_33(0, 16)}
@@ -8,8 +8,25 @@ alternative_sprites(spriteset_AM10_1_BRB, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "g
 spriteset(spriteset_AM10_1_BRB_wagon, "gfx/32bpp.png") { template_fai_33(0, 41)}
 alternative_sprites(spriteset_AM10_1_BRB_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/AM10_1_BRB.png") { template_fai_33(0, 41)}
 
+spriteset(spriteset_AM10_1_BRB_power, "gfx/32bpp.png") { template_fai_33(0, 41)}
+alternative_sprites(spriteset_AM10_1_BRB_power, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/AM10_1_BRB.png") { template_fai_33(0, 41)}
+switch(FEAT_TRAINS, SELF, sw_AM10_1_BRB_powerposition, position_in_vehid_chain - position_in_vehid_chain_from_end) {
+ 0..1: spriteset_AM10_1_BRB_power;
+  spriteset_AM10_1_BRB_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_AM10_1_BRB_rearcheck, position_in_vehid_chain_from_end) {
+  0: spriteset_AM10_1_BRB_power;
+  spriteset_AM10_1_BRB_wagon;
+}
+
+switch(FEAT_TRAINS, SELF, sw_AM10_1_BRB_lencheck, num_vehs_in_vehid_chain){
+    1..2 : sw_AM10_1_BRB_rearcheck;
+    return sw_AM10_1_BRB_powerposition;
+}
+
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_AM10_1_BRB) {
+item (FEAT_TRAINS, ITEM_FAI_MU_AM10_1_BRB, 6423) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -20,7 +37,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AM10_1_BRB) {
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						ELRL;
+		track_type:						ELNG;
 		running_cost_base:				RUNNING_COST_ELECTRIC;
 		engine_class: 					ENGINE_CLASS_ELECTRIC;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -34,15 +51,18 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AM10_1_BRB) {
 		weight: 						46 ton;
 		speed:							75 mph;
 		power:							1080 hp;
-		tractive_effort_coefficient: 	0x1A nfo;
+		tractive_effort_coefficient: 	0.1441881;
 		cost_factor: 					0x17 nfo;
 		running_cost_factor: 			0x19 nfo;
+		
+		badges: ["flag/GB", "power/electric", "role/passenger"];
 		
 		variant_group: 			        ITEM_FAI_MU_AM10_1;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					30;
+		cargo_capacity:					52;
+		loading_speed:					3;
 		
 	}
 	graphics {
@@ -52,9 +72,10 @@ item (FEAT_TRAINS, ITEM_FAI_MU_AM10_1_BRB) {
 		create_effect:					vfx_ohle;
 	}
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
-		default:						spriteset_AM10_1_BRB_wagon;
+		default:						sw_AM10_1_BRB_lencheck;
 		length:							8;
-		cargo_capacity:					35;
+		cargo_capacity:					56;
+		loading_speed:					3;
 		speed:							75 ;
 	}
 }

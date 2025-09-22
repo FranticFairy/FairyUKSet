@@ -1,0 +1,44 @@
+//Sprite References & Switches
+spriteset(spriteset_SLAG_WAGON_purchase, "gfx/CW/SLAG_WAGON.png") { template_fai_purchase(0, 0)}
+
+spriteset(spriteset_SLAG_WAGON, "gfx/CW/SLAG_WAGON.png") { template_fai_17(0, 16)}
+spriteset(spriteset_SLAG_WAGON_H, "gfx/CW/SLAG_WAGON.png") { template_fai_17(0, 41)}
+spriteset(spriteset_SLAG_WAGON_L, "gfx/CW/SLAG_WAGON.png") { template_fai_17(0, 66)}
+
+switch(FEAT_TRAINS, SELF, sw_SLAG_WAGON_loadcheck, PERCENT_FULL){
+	0..25	: spriteset_SLAG_WAGON ;
+	26..70	: spriteset_SLAG_WAGON_H ;
+	71..100	: spriteset_SLAG_WAGON_L ;
+}
+
+//Vehicle
+item (FEAT_TRAINS, ITEM_FAI_CW_SLAG_WAGON, 25161) {
+	property {
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		climates_available:				ALL_CLIMATES;
+		bitmask_vehicle_info:			0;
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		
+		track_type:						NGRL;
+		
+		name:							string(STR_NAME_SLAG_WAGON); 
+		introduction_date:				date(1880,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		length:							4;
+		
+		weight: 						12 ton;
+		speed:							35 mph;
+		cost_factor: 					0x1E nfo;
+		running_cost_factor: 			0x10 nfo;
+		
+		default_cargo_type:				SLAG;
+		cargo_capacity:					14;
+		loading_speed:					4;
+		
+	}
+	graphics {
+		default:						sw_SLAG_WAGON_loadcheck;
+		purchase:						spriteset_SLAG_WAGON_purchase;
+	}
+}

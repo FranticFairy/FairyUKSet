@@ -1,5 +1,5 @@
 //Sprite References & Switches
-spriteset(spriteset_METRO_CAMMELL_DMU_purchase, "gfx/MU/METRO_CAMMELL_DMU.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_METRO_CAMMELL_DMU_purchase, "gfx/MU/METRO_CAMMELL_DMU.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_METRO_CAMMELL_DMU, "gfx/MU/METRO_CAMMELL_DMU.png") { template_fai_29(0, 16)}
 
@@ -7,13 +7,13 @@ spriteset(spriteset_METRO_CAMMELL_DMUB, "gfx/MU/METRO_CAMMELL_DMU.png") { templa
 
 spriteset(spriteset_METRO_CAMMELL_DMU_wagon, "gfx/MU/METRO_CAMMELL_DMU.png") { template_fai_29(0, 41)}
 
-switch(FEAT_TRAINS, SELF, sw_METRO_CAMMELL_DMU_gfx_last, position_in_consist_from_end){
-    0:	spriteset_METRO_CAMMELL_DMUB;
+switch(FEAT_TRAINS, SELF, sw_METRO_CAMMELL_DMU_gfx_last, vehicle_is_flipped){
+    1:	spriteset_METRO_CAMMELL_DMUB;
 	spriteset_METRO_CAMMELL_DMU;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU) {
+item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU, 5531) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -23,7 +23,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU) {
 		misc_flags:						bitmask(TRAIN_FLAG_MU,TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -32,18 +32,21 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU) {
 		introduction_date:				date(1956,1,1);
 		vehicle_life: 					20;
 		model_life:						47;
-		length:							6;
+		length:							7;
 		
 		weight: 						32 ton;
 		speed:							70 mph;
 		power:							600 hp;
-		tractive_effort_coefficient: 	0x2D nfo;
+		tractive_effort_coefficient: 	0.1291454;
 		cost_factor: 					0x13 nfo;
 		running_cost_factor: 			0x12 nfo;
 		
+		badges: ["flag/GB", "power/diesel", "role/passenger"];
+		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					25;
+		cargo_capacity:					38;
+		loading_speed:					4;
 		
 	}
 	graphics {
@@ -55,7 +58,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_METRO_CAMMELL_DMU_wagon;
 		length:							7;
-		cargo_capacity:					30;
+		cargo_capacity:					42;
+		loading_speed:					4;
 		speed:							70 ;
 	}
 }

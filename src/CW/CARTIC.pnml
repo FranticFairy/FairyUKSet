@@ -1,9 +1,9 @@
 //Sprite References & Switches
 spriteset(spriteset_CARTIC_purchase, "gfx/CW/CARTIC.png") { template_fai_purchase(0, 0)}
 
-spriteset(spriteset_CARTIC, "gfx/CW/CARTIC.png") { template_fai_29(0, 16)}
+spriteset(spriteset_CARTIC, "gfx/CW/CARTIC.png") { template_fai_29_r(0, 16)}
 spriteset(spriteset_CARTIC_S1, "gfx/CW/CARTIC.png") { template_fai_29(0, 41)}
-spriteset(spriteset_CARTIC_S2, "gfx/CW/CARTIC.png") { template_fai_29_r(0, 16)}
+spriteset(spriteset_CARTIC_S2, "gfx/CW/CARTIC.png") { template_fai_29(0, 16)}
 
 switch(FEAT_TRAINS, SELF, sw_articulated_CW_CARTIC, position_in_articulated_veh) {
 	0: spriteset_CARTIC;
@@ -19,7 +19,7 @@ switch(FEAT_TRAINS, SELF, sw_articulation_CW_CARTIC, extra_callback_info1) {
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_CARTIC) {
+item (FEAT_TRAINS, ITEM_FAI_CW_CARTIC, 12181) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -27,11 +27,11 @@ item (FEAT_TRAINS, ITEM_FAI_CW_CARTIC) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_CARTIC); 
 		introduction_date:				date(1967,1,1);
-		model_life:						0;
+		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							7;
 		
 		weight: 						64 ton;
@@ -42,6 +42,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_CARTIC) {
 		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS,CC_COVERED);
 		default_cargo_type:				VEHI;
+        loading_speed:                  6;
 		cargo_capacity:					12;
 		
 	}

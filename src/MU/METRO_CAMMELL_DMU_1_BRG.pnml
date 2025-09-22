@@ -1,6 +1,6 @@
 //Sprite References & Switches
-spriteset(spriteset_METRO_CAMMELL_DMU_1_BRG_purchase, "gfx/32bpp.png") { template_fai_purchase(0, 0)}
-alternative_sprites(spriteset_METRO_CAMMELL_DMU_1_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/METRO_CAMMELL_DMU_1_BRG.png") { template_fai_purchase(0, 0)}
+spriteset(spriteset_METRO_CAMMELL_DMU_1_BRG_purchase, "gfx/32bpp.png") { template_fai_purchase_mu(0, 0)}
+alternative_sprites(spriteset_METRO_CAMMELL_DMU_1_BRG_purchase, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/METRO_CAMMELL_DMU_1_BRG.png") { template_fai_purchase_mu(0, 0)}
 
 spriteset(spriteset_METRO_CAMMELL_DMU_1_BRG, "gfx/32bpp.png") { template_fai_29(0, 16)}
 alternative_sprites(spriteset_METRO_CAMMELL_DMU_1_BRG, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/METRO_CAMMELL_DMU_1_BRG.png") { template_fai_29(0, 16)}
@@ -11,13 +11,13 @@ alternative_sprites(spriteset_METRO_CAMMELL_DMU_1_BRGB, ZOOM_LEVEL_NORMAL, BIT_D
 spriteset(spriteset_METRO_CAMMELL_DMU_1_BRG_wagon, "gfx/32bpp.png") { template_fai_29(0, 41)}
 alternative_sprites(spriteset_METRO_CAMMELL_DMU_1_BRG_wagon, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/MU/METRO_CAMMELL_DMU_1_BRG.png") { template_fai_29(0, 41)}
 
-switch(FEAT_TRAINS, SELF, sw_METRO_CAMMELL_DMU_1_BRG_gfx_last, position_in_consist_from_end){
-    0:	spriteset_METRO_CAMMELL_DMU_1_BRGB;
+switch(FEAT_TRAINS, SELF, sw_METRO_CAMMELL_DMU_1_BRG_gfx_last, vehicle_is_flipped){
+    1:	spriteset_METRO_CAMMELL_DMU_1_BRGB;
 	spriteset_METRO_CAMMELL_DMU_1_BRG;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU_1_BRG) {
+item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU_1_BRG, 5559) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -28,7 +28,7 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU_1_BRG) {
 		extra_flags:				    bitmask(VEHICLE_FLAG_DISABLE_NEW_VEHICLE_MESSAGE, VEHICLE_FLAG_DISABLE_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
 		dual_headed:					1;
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		running_cost_base:				RUNNING_COST_DIESEL;
 		engine_class: 					ENGINE_CLASS_DIESEL;
 		ai_special_flag:				AI_FLAG_PASSENGER;
@@ -37,20 +37,23 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU_1_BRG) {
 		introduction_date:				date(1956,1,1);
 		vehicle_life: 					20;
 		model_life:						47;
-		length:							6;
+		length:							7;
 		
 		weight: 						32 ton;
 		speed:							70 mph;
 		power:							600 hp;
-		tractive_effort_coefficient: 	0x2D nfo;
+		tractive_effort_coefficient: 	0.1291454;
 		cost_factor: 					0x13 nfo;
 		running_cost_factor: 			0x12 nfo;
+		
+		badges: ["flag/GB", "power/diesel", "role/passenger"];
 		
 		variant_group: 			        ITEM_FAI_MU_METRO_CAMMELL_DMU_1;
 		
 		refittable_cargo_classes:		bitmask();
 		default_cargo_type:				PASS;
-		cargo_capacity:					25;
+		cargo_capacity:					39;
+		loading_speed:					4;
 		
 	}
 	graphics {
@@ -62,7 +65,8 @@ item (FEAT_TRAINS, ITEM_FAI_MU_METRO_CAMMELL_DMU_1_BRG) {
 	livery_override (ITEM_FAI_WAGON_MU_COACH) {
 		default:						spriteset_METRO_CAMMELL_DMU_1_BRG_wagon;
 		length:							7;
-		cargo_capacity:					30;
+		cargo_capacity:					42;
+		loading_speed:					4;
 		speed:							70 ;
 	}
 }

@@ -31,15 +31,15 @@ switch(FEAT_TRAINS, SELF, sw_FLATBED_TINY_loadcheck, PERCENT_FULL){
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_TINY) {
+item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_TINY, 23841) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
 		climates_available:				ALL_CLIMATES;
 		bitmask_vehicle_info:			0;
-		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
+		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK, TRAIN_FLAG_AUTOREFIT);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_FLATBED_TINY); 
 		introduction_date:				date(1800,1,1);
@@ -54,6 +54,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_FLATBED_TINY) {
 		refittable_cargo_classes:		bitmask(CC_EXPRESS,CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				GOOD;
+        loading_speed:                  1;
 		cargo_capacity:					5;
 		
 	}

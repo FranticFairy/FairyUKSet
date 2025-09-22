@@ -21,13 +21,13 @@ switch(FEAT_TRAINS, SELF, sw_TIMBER_WAGON_loadcheck_RCC, PERCENT_FULL){
 	71..100	: spriteset_TIMBER_WAGON_RF ;
 }
 
-random_switch (FEAT_TRAINS, SELF, sw_TIMBER_WAGON_rand) {
+random_switch (FEAT_TRAINS, SELF, sw_TIMBER_WAGON_rand, TRIGGER_VEHICLE_ANY_LOAD) {
 	1: sw_TIMBER_WAGON_loadcheck;
 	1: sw_TIMBER_WAGON_loadcheck_RCC;
 }
 
 //Vehicle
-item (FEAT_TRAINS, ITEM_FAI_CW_TIMBER_WAGON) {
+item (FEAT_TRAINS, ITEM_FAI_CW_TIMBER_WAGON, 24261) {
 	property {
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		refit_cost:						0;
@@ -35,11 +35,11 @@ item (FEAT_TRAINS, ITEM_FAI_CW_TIMBER_WAGON) {
 		bitmask_vehicle_info:			0;
 		misc_flags:						bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_SPRITE_STACK);
 		
-		track_type:						RAIL;
+		track_type:						NGRL;
 		
 		name:							string(STR_NAME_TIMBER_WAGON); 
 		introduction_date:				date(1985,1,1);
-		model_life:						0;
+		model_life:						VEHICLE_NEVER_EXPIRES;
 		length:							6;
 		
 		weight: 						14 ton;
@@ -50,6 +50,7 @@ item (FEAT_TRAINS, ITEM_FAI_CW_TIMBER_WAGON) {
 		refittable_cargo_classes:		bitmask(CC_PIECE_GOODS);
 		non_refittable_cargo_classes:		bitmask(CC_PASSENGERS);
 		default_cargo_type:				WOOD;
+        loading_speed:                  4;
 		cargo_capacity:					20;
 		
 	}
